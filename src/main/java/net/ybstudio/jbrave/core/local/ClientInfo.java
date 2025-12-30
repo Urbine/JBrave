@@ -44,7 +44,7 @@ public record ClientInfo(@NonNull String subscriptionToken) {
    */
   @Contract("_ -> new")
   public static @NotNull ClientInfo fromProperties(String propertiesFileName) {
-    String braveSubTokenProp = "brave.subscriptionToken";
+    String braveSubTokenProp = LocalEnvironment.BRAVE_SUBSCRIPTION_PROPERTY;
     Properties props = new Properties();
     try (InputStream propStream =
         ClientInfo.class.getClassLoader().getResourceAsStream(propertiesFileName)) {
@@ -55,7 +55,7 @@ public record ClientInfo(@NonNull String subscriptionToken) {
       if (props.getProperty(braveSubTokenProp) == null) throw new IOException();
     } catch (IOException ioEx) {
       throw new BraveLocalEnvironmentException(
-          () -> "File" + propertiesFileName + "not found in resources folder");
+          () -> "File " + propertiesFileName + " not found in resources folder");
     }
     return new ClientInfo(props.getProperty(braveSubTokenProp));
   }
