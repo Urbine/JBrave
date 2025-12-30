@@ -23,7 +23,8 @@ package net.ybstudio.jbrave.api.filters;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import net.ybstudio.jbrave.api.base.SearchFilter;
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Enumeration of possible result filters to be used in the api requests.
@@ -64,8 +65,9 @@ public enum ResultFilter implements SearchFilter {
   }
 
   @Override
-  public String urlParam() {
-    return SearchFilter.RESULT_FILTER;
+  @Contract(pure = true)
+  public @NotNull String urlParam() {
+    return SearchFilter.RESULT_FILTER + "=" + value;
   }
 
   /**
@@ -74,8 +76,7 @@ public enum ResultFilter implements SearchFilter {
    * @param options the {@link ResultFilter} options to join.
    * @return the joined options as a string.
    */
-  @NonNull
-  public static String joinOptions(@NonNull ResultFilter... options) {
+  public static @NotNull String joinOptions(ResultFilter... options) {
     return SearchFilter.RESULT_FILTER
         + "="
         + Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
