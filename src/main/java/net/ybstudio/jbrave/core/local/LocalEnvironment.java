@@ -25,6 +25,9 @@ package net.ybstudio.jbrave.core.local;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-enum LocalEnvironment {
-  BRAVE_SUBSCRIPTION_TOKEN;
+public final class LocalEnvironment {
+  public static final String BRAVE_SUBSCRIPTION_TOKEN = "BRAVE_SUBSCRIPTION_TOKEN";
+  public static final String BRAVE_SUBSCRIPTION_PROPERTY = "brave.subscriptionToken";
+
+  private LocalEnvironment() {}
 }
