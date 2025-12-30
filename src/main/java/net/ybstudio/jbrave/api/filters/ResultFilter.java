@@ -1,0 +1,83 @@
+/*
+ * JBrave
+ *
+ * Copyright 2025-2026 Yoham Gabriel Barboza B. (YGBStudio)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package net.ybstudio.jbrave.api.filters;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import net.ybstudio.jbrave.api.base.SearchFilter;
+import org.jspecify.annotations.NonNull;
+
+/**
+ * Enumeration of possible result filters to be used in the api requests.
+ *
+ * <p>A {@link ResultFilter} is typically a comma-delimited string of result types to include in the
+ * search response.
+ *
+ * <p>According to the official documentation: <i>Not specifying this parameter will return back all
+ * result types in search response where data is available and a plan with the corresponding option
+ * is subscribed. The response always includes query and type to identify any query modifications
+ * and response type respectively.</i>
+ *
+ * <p>Support for advanced plans is currently limited.
+ *
+ * @see SearchFilter
+ * @author Yoham Gabriel Barboza B. (YGBStudio)
+ */
+public enum ResultFilter implements SearchFilter {
+  DISCUSSIONS("discussions"),
+  FAQ("faq"),
+  INFOBOX("infobox"),
+  LOCATIONS("locations"),
+  NEWS("news"),
+  QUERY("query"),
+  SUMMARIZER("summarizer"),
+  VIDEOS("videos"),
+  WEB("web");
+
+  private final String value;
+
+  ResultFilter(String value) {
+    this.value = value;
+  }
+
+  @Override
+  public String value() {
+    return value;
+  }
+
+  @Override
+  public String urlParam() {
+    return SearchFilter.RESULT_FILTER;
+  }
+
+  /**
+   * Joins the given {@link ResultFilter} options with a comma, to be used in the URL parameter.
+   *
+   * @param options the {@link ResultFilter} options to join.
+   * @return the joined options as a string.
+   */
+  @NonNull
+  public static String joinOptions(@NonNull ResultFilter... options) {
+    return SearchFilter.RESULT_FILTER
+        + "="
+        + Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
+  }
+}
