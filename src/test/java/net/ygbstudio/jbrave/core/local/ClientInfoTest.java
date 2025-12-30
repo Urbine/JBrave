@@ -23,8 +23,8 @@ package net.ygbstudio.jbrave.core.local;
 import static org.assertj.core.api.Assertions.assertThatException;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import net.ybstudio.jbrave.core.local.ClientInfo;
 import net.ybstudio.jbrave.core.exceptions.BraveLocalEnvironmentException;
+import net.ybstudio.jbrave.core.local.ClientInfo;
 import org.junit.jupiter.api.Test;
 
 class ClientInfoTest {
