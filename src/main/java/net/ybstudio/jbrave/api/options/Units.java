@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.models;
+package net.ybstudio.jbrave.api.options;
 
 import net.ybstudio.jbrave.api.base.SearchOption;
 import org.jetbrains.annotations.Contract;
