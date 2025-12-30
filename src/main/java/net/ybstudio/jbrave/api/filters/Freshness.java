@@ -20,7 +20,10 @@
 
 package net.ybstudio.jbrave.api.filters;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import net.ybstudio.jbrave.api.base.SearchFilter;
+import net.ybstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,14 +38,49 @@ public enum Freshness implements SearchFilter {
   WITHIN_24H("pd"),
   WITHIN_7D("pw"),
   WITHIN_31D("pm"),
-  WITHIN_1Y("py"),
-  // Used to join dates
-  TO("to");
+  WITHIN_1Y("py");
 
   private final String value;
 
   Freshness(String value) {
     this.value = value;
+  }
+
+  /**
+   * Joins the given dates with the "to" keyword. Used for freshness filters that require a date
+   * interval.
+   *
+   * <p>If you need to join dates with the "to" keyword and return it prefixed by the parameter for
+   * the freshness filter, use {@link #betweenWithParam(LocalDate, LocalDate)} instead.
+   *
+   * @param startDate the first date.
+   * @param endDate the second date.
+   * @return the joined dates as a string.
+   * @throws InvalidFreshnessInterval if the end date is before the start date.
+   */
+  public static @NotNull String between(@NotNull LocalDate startDate, @NotNull LocalDate endDate) {
+    if (endDate.isBefore(startDate))
+      throw new InvalidFreshnessInterval(
+          () -> "Invalid date interval as " + endDate + " is before " + startDate);
+    DateTimeFormatter dateISO = DateTimeFormatter.ISO_LOCAL_DATE;
+    return dateISO.format(startDate) + "to" + dateISO.format(endDate);
+  }
+
+  /**
+   * Joins the given dates with the "to" keyword and returns it as a parameter for the freshness
+   * filter.
+   *
+   * <p>If you need to join dates with the "to" keyword without the freshness filter parameter, use
+   * {@link #between(LocalDate, LocalDate)} instead.
+   *
+   * @param startDate the first date.
+   * @param endDate the second date.
+   * @return the freshness filter parameter with the joined dates as a string.
+   * @throws InvalidFreshnessInterval if the end date is before the start date.
+   */
+  public static @NotNull String betweenWithParam(
+      @NotNull LocalDate startDate, @NotNull LocalDate endDate) {
+    return SearchFilter.FRESHNESS + "=" + between(startDate, endDate);
   }
 
   @Override
