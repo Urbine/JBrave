@@ -24,8 +24,8 @@ import java.util.function.Supplier;
 import org.jspecify.annotations.NonNull;
 
 /**
- * Exception thrown when there is an error related to the local environment.
- * It is thrown when the environment variable is not set or when the properties file is not found.
+ * Exception thrown when there is an error related to the local environment. It is thrown when the
+ * environment variable is not set or when the properties file is not found.
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
