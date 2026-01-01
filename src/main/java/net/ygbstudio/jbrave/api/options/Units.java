@@ -20,6 +20,7 @@
 
 package net.ygbstudio.jbrave.api.options;
 
+import net.ygbstudio.jbrave.api.base.ProvidedOption;
 import net.ygbstudio.jbrave.api.base.SearchOption;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
@@ -32,7 +33,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum Units implements SearchOption {
+public enum Units implements ProvidedOption {
   METRIC("metric"),
   IMPERIAL("imperial");
 
@@ -50,7 +51,7 @@ public enum Units implements SearchOption {
   @Override
   @Contract(pure = true)
   public @NotNull String urlParam() {
-    return SearchOption.UNITS + "=" + value;
+    return ProvidedOption.UNITS + "=" + value;
   }
 
   @Contract(" -> new")
