@@ -18,9 +18,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.options;
+package net.ygbstudio.jbrave.api.options;
 
-import net.ybstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
@@ -33,7 +34,7 @@ import org.jspecify.annotations.NonNull;
  * @param <V> type of the parameter value for a search option.
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public record BraveSearchOption<V>(SearchOption key, V value) {
+public record BraveSearchOption<V>(SearchOption option, V value) implements SearchOptionCarrier<V> {
   /**
    * Creates a new {@link BraveSearchOption} with the given key and value.
    *
@@ -54,6 +55,7 @@ public record BraveSearchOption<V>(SearchOption key, V value) {
    */
   @NonNull
   public String buildParam() {
-    return key.urlParam() + value;
+    String optionParam = option.urlParam();
+    return optionParam.endsWith("=") ? optionParam + value : optionParam;
   }
 }
