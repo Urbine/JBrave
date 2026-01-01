@@ -20,8 +20,6 @@
 
 package net.ygbstudio.jbrave.api.base;
 
-import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
-
 /**
  * An interface representing a search option.
  *
@@ -30,19 +28,13 @@ import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
  *
  * <p>A search option is a parameter that can be used to modify the behavior of the API requests. In
  * JBrave's base model, all search options appear in the query parameters of requests and that is
- * why identifiers, verticals, filters and options implement this interface by default.
+ * why identifiers, verticals, filters and options implement a subinterface of this interface by
+ * default.
  *
  * @see BraveAPIConstant
+ * @see ProvidedOption
+ * @see ClientProvidedOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface SearchOption extends BraveAPIConstant {
-  String UNITS = "units";
-
-  /**
-   * Converts this search option to a {@link SearchOptionCarrier} that can be used to build a URL
-   * parameter.
-   *
-   * @return a {@link SearchOptionCarrier} representing this search option
-   */
-  SearchOptionCarrier<?> toSearchOption();
-}
+public sealed interface SearchOption extends BraveAPIConstant
+    permits ProvidedOption, ClientProvidedOption {}
