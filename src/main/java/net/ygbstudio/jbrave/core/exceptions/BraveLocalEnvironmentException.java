@@ -18,16 +18,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.core.local;
+package net.ygbstudio.jbrave.core.exceptions;
+
+import java.util.function.Supplier;
+import org.jspecify.annotations.NonNull;
 
 /**
- * Enumeration of the local environment variables used by the JBrave library.
+ * Exception thrown when there is an error related to the local environment. It is thrown when the
+ * environment variable is not set or when the properties file is not found.
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public final class LocalEnvironment {
-  public static final String BRAVE_SUBSCRIPTION_TOKEN = "BRAVE_SUBSCRIPTION_TOKEN";
-  public static final String BRAVE_SUBSCRIPTION_PROPERTY = "brave.subscriptionToken";
+public class BraveLocalEnvironmentException extends RuntimeException {
+  public BraveLocalEnvironmentException(String message) {
+    super(message);
+  }
 
-  private LocalEnvironment() {}
+  public BraveLocalEnvironmentException(@NonNull Supplier<String> message) {
+    super(message.get());
+  }
 }

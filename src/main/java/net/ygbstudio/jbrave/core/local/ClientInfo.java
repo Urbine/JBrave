@@ -18,12 +18,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.core.local;
+package net.ygbstudio.jbrave.core.local;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import net.ybstudio.jbrave.core.exceptions.BraveLocalEnvironmentException;
+import net.ygbstudio.jbrave.core.exceptions.BraveLocalEnvironmentException;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
