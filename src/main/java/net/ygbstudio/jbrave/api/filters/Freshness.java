@@ -18,14 +18,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.filters;
+package net.ygbstudio.jbrave.api.filters;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import net.ybstudio.jbrave.api.base.SearchFilter;
-import net.ybstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
+import net.ygbstudio.jbrave.api.base.SearchFilter;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
+import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 /**
  * An enumeration representing freshness filters for the API requests. Filters search results by
@@ -93,4 +96,10 @@ public enum Freshness implements SearchFilter {
   public @NotNull String urlParam() {
     return SearchFilter.FRESHNESS + "=" + value;
   }
+
+    @Contract(" -> new")
+    @Override
+    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+        return BraveSearchOption.of(this, value);
+    }
 }
