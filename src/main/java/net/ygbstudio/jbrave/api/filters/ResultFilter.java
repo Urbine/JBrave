@@ -85,9 +85,9 @@ public enum ResultFilter implements SearchFilter {
         + Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
   }
 
-    @Contract(" -> new")
-    @Override
-    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-        return BraveSearchOption.of(this, value);
-    }
+  @Contract(" -> new")
+  @Override
+  public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+    return BraveSearchOption.of(this, value);
+  }
 }

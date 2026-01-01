@@ -56,9 +56,9 @@ public enum SafeSearch implements SearchFilter {
     return SearchFilter.SAFESEARCH + "=" + value;
   }
 
-    @Contract(" -> new")
-    @Override
-    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-        return BraveSearchOption.of(this, value);
-    }
+  @Contract(" -> new")
+  @Override
+  public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+    return BraveSearchOption.of(this, value);
+  }
 }
