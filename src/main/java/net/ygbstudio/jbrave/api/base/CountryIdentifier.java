@@ -34,7 +34,7 @@ import org.jspecify.annotations.NonNull;
  * @see SearchOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface CountryIdentifier extends BraveAPIConstant, SearchOption {
+public non-sealed interface CountryIdentifier extends BraveAPIConstant, ProvidedOption {
   String URL_PARAM = "country";
 
   /**

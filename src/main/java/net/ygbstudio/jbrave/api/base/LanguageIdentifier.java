@@ -35,7 +35,7 @@ import org.jspecify.annotations.NonNull;
  * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface LanguageIdentifier extends BraveAPIConstant, SearchOption {
+public non-sealed interface LanguageIdentifier extends BraveAPIConstant, ProvidedOption {
   String URL_PARAM = "search_lang";
 
   /**

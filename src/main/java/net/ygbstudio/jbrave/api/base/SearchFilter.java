@@ -31,7 +31,7 @@ import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
  * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface SearchFilter extends BraveAPIConstant, SearchOption {
+public non-sealed interface SearchFilter extends BraveAPIConstant, ProvidedOption {
   String SAFESEARCH = "safesearch";
   String FRESHNESS = "freshness";
   String RESULT_FILTER = "result_filter";
