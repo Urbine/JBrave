@@ -18,7 +18,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.api.base;
+
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 
 /**
  * An interface representing a search option.
@@ -35,4 +37,12 @@ package net.ybstudio.jbrave.api.base;
  */
 public non-sealed interface SearchOption extends BraveAPIConstant {
   String UNITS = "units";
+
+  /**
+   * Converts this search option to a {@link SearchOptionCarrier} that can be used to build a URL
+   * parameter.
+   *
+   * @return a {@link SearchOptionCarrier} representing this search option
+   */
+  SearchOptionCarrier<?> toSearchOption();
 }
