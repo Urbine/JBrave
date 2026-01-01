@@ -18,7 +18,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.api.base;
+
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An interface representing a search vertical.
@@ -36,4 +39,19 @@ package net.ybstudio.jbrave.api.base;
  */
 public non-sealed interface SearchVertical extends BraveAPIConstant {
   String SEARCH_PATH = "search";
+
+  /**
+   * Creates a URL query string for the given search vertical.
+   *
+   * <p>This method takes a search vertical and returns a URL query string that can be used to
+   * construct a request to the Brave API. The URL query string is constructed by concatenating the
+   * value of the search vertical with the {@link #SEARCH_PATH} string and appending {@code "?q="}.
+   *
+   * @param vertical the search vertical to use for constructing the URL query string
+   * @return the URL query string for the given search vertical
+   */
+  @Contract(pure = true)
+  static @NotNull String urlVertical(@NotNull SearchVertical vertical) {
+    return vertical.value() + "/" + SEARCH_PATH;
+  }
 }
