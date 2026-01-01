@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.exceptions;
+package net.ygbstudio.jbrave.api.exceptions;
 
 import java.util.function.Supplier;
 import org.jspecify.annotations.NonNull;
@@ -27,7 +27,7 @@ import org.jspecify.annotations.NonNull;
  * Exception thrown when the interval of dates provided for a freshness filter is invalid. (e.g. end
  * date is before start date).
  *
- * @see net.ybstudio.jbrave.api.filters.Freshness
+ * @see net.ygbstudio.jbrave.api.filters.Freshness
  */
 public class InvalidFreshnessInterval extends RuntimeException {
   public InvalidFreshnessInterval(String message) {
