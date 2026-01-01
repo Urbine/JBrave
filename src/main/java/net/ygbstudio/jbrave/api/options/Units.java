@@ -53,9 +53,9 @@ public enum Units implements SearchOption {
     return SearchOption.UNITS + "=" + value;
   }
 
-    @Contract(" -> new")
-    @Override
-    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-        return BraveSearchOption.of(this, value);
-    }
+  @Contract(" -> new")
+  @Override
+  public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+    return BraveSearchOption.of(this, value);
+  }
 }

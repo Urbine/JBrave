@@ -150,19 +150,19 @@ public enum SearchOptions implements SearchOption {
     return BraveSearchOption.of(ENABLE_RICH_CALLBACK, enableRichCallback);
   }
 
-    /**
-     * This method should not be used to get a valid {@link SearchOptionCarrier} since there are
-     * other methods in this class that can provide the caller with type validation and the ability
-     * to provide a value.
-     *
-     * @return a new instance of {@link BraveSearchOption}
-     * @throws UnsupportedOperationException if this method is called
-     */
-    @Contract(" -> fail")
-    @Override
-    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-        throw new UnsupportedOperationException(
-                "This method should not be used to obtain a valid SearchOptionCarrier. "
-                + "Use the other methods in this class to get a SearchOptionCarrier with type validation and the ability to provide a value.");
-    }
+  /**
+   * This method should not be used to get a valid {@link SearchOptionCarrier} since there are other
+   * methods in this class that can provide the caller with type validation and the ability to
+   * provide a value.
+   *
+   * @return a new instance of {@link BraveSearchOption}
+   * @throws UnsupportedOperationException if this method is called
+   */
+  @Contract(" -> fail")
+  @Override
+  public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+    throw new UnsupportedOperationException(
+        "This method should not be used to obtain a valid SearchOptionCarrier. "
+            + "Use the other methods in this class to get a SearchOptionCarrier with type validation and the ability to provide a value.");
+  }
 }
