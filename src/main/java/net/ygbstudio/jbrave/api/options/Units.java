@@ -18,11 +18,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.options;
+package net.ygbstudio.jbrave.api.options;
 
-import net.ybstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 /**
  * Enumeration of the different units of measurement that can be used in the search methods.
@@ -50,4 +52,10 @@ public enum Units implements SearchOption {
   public @NotNull String urlParam() {
     return SearchOption.UNITS + "=" + value;
   }
+
+    @Contract(" -> new")
+    @Override
+    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+        return BraveSearchOption.of(this, value);
+    }
 }
