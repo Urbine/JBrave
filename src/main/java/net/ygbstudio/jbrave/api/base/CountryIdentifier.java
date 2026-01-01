@@ -18,8 +18,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.api.base;
 
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jspecify.annotations.NonNull;
 
 /**
@@ -36,6 +37,23 @@ import org.jspecify.annotations.NonNull;
 public non-sealed interface CountryIdentifier extends BraveAPIConstant, SearchOption {
   String URL_PARAM = "country";
 
+  /**
+   * Converts this country identifier to a {@link SearchOptionCarrier} that can be used to build a
+   * URL parameter.
+   *
+   * @return a {@link SearchOptionCarrier} representing this country identifier
+   */
+  SearchOptionCarrier<String> toSearchOption();
+
+  /**
+   * Generates the URL parameter for this country identifier.
+   *
+   * <p>The URL parameter has the format {@code "country=<value>"}, where {@code "<value>"} is the
+   * value of this identifier.
+   *
+   * @param countryIdentifier the identifier to generate the URL parameter for
+   * @return the URL parameter for the given identifier
+   */
   @NonNull
   static String urlParam(@NonNull CountryIdentifier countryIdentifier) {
     return URL_PARAM + "=" + countryIdentifier.value();

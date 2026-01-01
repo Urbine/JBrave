@@ -18,8 +18,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.api.base;
 
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jspecify.annotations.NonNull;
 
 /**
@@ -34,9 +35,26 @@ import org.jspecify.annotations.NonNull;
  * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface LanguageIdentifier extends BraveAPIConstant {
+public non-sealed interface LanguageIdentifier extends BraveAPIConstant, SearchOption {
   String URL_PARAM = "search_lang";
 
+  /**
+   * Converts this language identifier to a {@link SearchOptionCarrier} that can be used to build a
+   * URL parameter.
+   *
+   * @return a {@link SearchOptionCarrier} representing this identifier
+   */
+  SearchOptionCarrier<String> toSearchOption();
+
+  /**
+   * Generates the URL parameter for this language identifier.
+   *
+   * <p>The URL parameter has the format {@code "search_lang=<value>"}, where {@code "<value>"} is
+   * the value of this identifier.
+   *
+   * @param languageIdentifier the identifier to generate the URL parameter for
+   * @return the URL parameter for the given identifier
+   */
   @NonNull
   static String urlParam(@NonNull LanguageIdentifier languageIdentifier) {
     return URL_PARAM + "=" + languageIdentifier.value();
