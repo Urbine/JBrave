@@ -18,11 +18,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.options;
+package net.ygbstudio.jbrave.api.options;
 
-import net.ybstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 import org.jspecify.annotations.NonNull;
 
 public enum SearchOptions implements SearchOption {
@@ -31,6 +33,7 @@ public enum SearchOptions implements SearchOption {
   TEXT_DECORATIONS("text_decorations"),
   SPELLCHECK("spellcheck"),
   EXTRA_SNIPPETS("extra_snippets"),
+  ENABLE_RICH_CALLBACK("enable_rich_callback"),
   SUMMARY("summary"),
   OPERATORS("operators");
 
@@ -134,4 +137,32 @@ public enum SearchOptions implements SearchOption {
   public static @NotNull BraveSearchOption<Boolean> operators(boolean operators) {
     return BraveSearchOption.of(OPERATORS, operators);
   }
+
+  /**
+   * Creates a new instance of {@link BraveSearchOption} with {@link
+   * SearchOptions#ENABLE_RICH_CALLBACK} and the given value.
+   *
+   * @param enableRichCallback the value for {@link SearchOptions#ENABLE_RICH_CALLBACK}
+   * @return a new instance of {@link BraveSearchOption}
+   */
+  @Contract("_ -> new")
+  public static @NotNull BraveSearchOption<Boolean> enableRichCallback(boolean enableRichCallback) {
+    return BraveSearchOption.of(ENABLE_RICH_CALLBACK, enableRichCallback);
+  }
+
+    /**
+     * This method should not be used to get a valid {@link SearchOptionCarrier} since there are
+     * other methods in this class that can provide the caller with type validation and the ability
+     * to provide a value.
+     *
+     * @return a new instance of {@link BraveSearchOption}
+     * @throws UnsupportedOperationException if this method is called
+     */
+    @Contract(" -> fail")
+    @Override
+    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+        throw new UnsupportedOperationException(
+                "This method should not be used to obtain a valid SearchOptionCarrier. "
+                + "Use the other methods in this class to get a SearchOptionCarrier with type validation and the ability to provide a value.");
+    }
 }
