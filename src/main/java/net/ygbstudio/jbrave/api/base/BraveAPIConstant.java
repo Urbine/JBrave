@@ -47,8 +47,16 @@ public sealed interface BraveAPIConstant
    * Returns the URL parameter associated with this constant. It can be implemented by default at
    * the interface level with the value of the parameter.
    *
-   * <p>This method is used to generate the URL parameter for the API requests.
+   * <p>This method is used to generate the URL parameter for the API requests and represents a unit
+   * of {@code option/parameterName/parameterConstant + "=" + parameterValue}.
    *
+   * <p>A {@code parameterValue} may be provided by the API or require that the client provides it.
+   * By default, all options/parameters names are provided by the API.
+   *
+   * @see ClientProvidedOption
+   * @see ProvidedOption
+   * @see <a href="https://api-dashboard.search.brave.com/app/documentation/web-search/query">Brave
+   *     API Web Search - Query Parameters</a>
    * @return the URL parameter associated with this constant
    */
   String urlParam();
