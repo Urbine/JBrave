@@ -18,9 +18,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.verticals;
+package net.ygbstudio.jbrave.api.verticals;
 
-import net.ybstudio.jbrave.api.base.SearchVertical;
+import net.ygbstudio.jbrave.api.base.SearchVertical;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -51,6 +51,6 @@ public enum BraveResource implements SearchVertical {
   @Override
   @Contract(pure = true)
   public @NotNull String urlParam() {
-    return value + "/" + SearchVertical.SEARCH_PATH + "?";
+    return SearchVertical.urlVertical(this);
   }
 }
