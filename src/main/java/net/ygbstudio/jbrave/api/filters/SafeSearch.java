@@ -18,11 +18,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.filters;
+package net.ygbstudio.jbrave.api.filters;
 
-import net.ybstudio.jbrave.api.base.SearchFilter;
+import net.ygbstudio.jbrave.api.base.SearchFilter;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 /**
  * Enumeration representing safe search filters for the API requests. Filters search results based
@@ -52,4 +55,10 @@ public enum SafeSearch implements SearchFilter {
   public @NotNull String urlParam() {
     return SearchFilter.SAFESEARCH + "=" + value;
   }
+
+    @Contract(" -> new")
+    @Override
+    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+        return BraveSearchOption.of(this, value);
+    }
 }
