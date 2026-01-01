@@ -18,7 +18,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.api.base;
+
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 
 /**
  * An interface representing a search filter.
@@ -33,4 +35,6 @@ public non-sealed interface SearchFilter extends BraveAPIConstant, SearchOption 
   String SAFESEARCH = "safesearch";
   String FRESHNESS = "freshness";
   String RESULT_FILTER = "result_filter";
+
+  SearchOptionCarrier<String> toSearchOption();
 }
