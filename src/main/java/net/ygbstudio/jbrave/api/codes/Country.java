@@ -18,9 +18,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.codes;
+package net.ygbstudio.jbrave.api.codes;
 
-import net.ybstudio.jbrave.api.base.CountryIdentifier;
+import net.ygbstudio.jbrave.api.base.CountryIdentifier;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.options.BraveSearchOption;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 /**
  * Enumeration representing a country supported by the Brave Search API.
@@ -82,7 +87,13 @@ public enum Country implements CountryIdentifier {
   }
 
   @Override
-  public String urlParam() {
+  public @NotNull String urlParam() {
     return CountryIdentifier.urlParam(this);
+  }
+
+  @Override
+  @Contract(" -> new")
+  public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+    return BraveSearchOption.of(this, value);
   }
 }
