@@ -18,13 +18,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ybstudio.jbrave.api.filters;
+package net.ygbstudio.jbrave.api.filters;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import net.ybstudio.jbrave.api.base.SearchFilter;
+import net.ygbstudio.jbrave.api.base.SearchFilter;
+import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 /**
  * Enumeration of possible result filters to be used in the api requests.
@@ -81,4 +84,10 @@ public enum ResultFilter implements SearchFilter {
         + "="
         + Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
   }
+
+    @Contract(" -> new")
+    @Override
+    public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
+        return BraveSearchOption.of(this, value);
+    }
 }
