@@ -27,6 +27,11 @@ import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
  * the correct typed {@link SearchOptionCarrier} since their values are provided by the client, not
  * by the API.
  *
+ * <p>Options of type {@link ClientProvidedOption} require a that a {@link SearchOptionCarrier} is
+ * instantiated with a client-provided value. If an option is provided by the API, its conversion to
+ * an option carrier object does not need a validated input and that is what makes this interface different
+ * from {@link ProvidedOption}.
+ *
  * @see SearchOption
  * @see SearchOptionCarrier
  * @author Yoham Gabriel Barboza B. (YGBStudio)
