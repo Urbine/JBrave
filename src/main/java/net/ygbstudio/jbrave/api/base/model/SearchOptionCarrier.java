@@ -25,6 +25,17 @@ import net.ygbstudio.jbrave.api.base.SearchOption;
 /**
  * An interface that represents a carrier for a {@link SearchOption} and its corresponding value.
  *
+ * <p>It acts as a building bridge by uniting {@link net.ygbstudio.jbrave.api.base.ProvidedOption}
+ * and {@link net.ygbstudio.jbrave.api.base.ClientProvidedOption} implementations.
+ *
+ * <p>Options provided by the API offer automatic conversion to a {@link SearchOptionCarrier},
+ * whereas {@link SearchOption} implementations that depend on client-provided values need to make
+ * sure this conversion happens correctly via typed factories. In other words, your user-provided
+ * value must be of type {@code V} according to the primitive type required by the API.
+ *
+ * <p>This allows for type validation before construction since all parameters and their values are
+ * built and send as a single URL string after joining.
+ *
  * @param <V> the type of the option provided
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
