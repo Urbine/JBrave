@@ -22,9 +22,11 @@ package net.ygbstudio.jbrave.api.filters;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import net.ygbstudio.jbrave.api.base.ClientProvidedOption;
 import net.ygbstudio.jbrave.api.base.SearchFilter;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
+import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -37,7 +39,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchFilter
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum Freshness implements SearchFilter {
+public enum Freshness implements SearchFilter, ClientProvidedOption {
   WITHIN_24H("pd"),
   WITHIN_7D("pw"),
   WITHIN_31D("pm"),
@@ -70,6 +72,22 @@ public enum Freshness implements SearchFilter {
   }
 
   /**
+   * Joins the given dates with the "to" keyword and returns it as a value for the freshness filter.
+   *
+   * <p>This method ensures that builders understand the correct range of freshness for the query.
+   *
+   * @param startDate the first date.
+   * @param endDate the second date.
+   * @return the freshness filter value with the joined dates as a string.
+   * @throws InvalidFreshnessInterval if the end date is before the start date.
+   */
+  @Contract("_, _ -> new")
+  public static @NotNull @Unmodifiable SearchOptionCarrier<String> between(
+      @NotNull LocalDate startDate, @NotNull LocalDate endDate) {
+    return BraveSearchOption.of(SearchFilterMode.FRESHNESS, betweenString(startDate, endDate));
+  }
+
+  /**
    * Joins the given dates with the "to" keyword and returns it as a parameter for the freshness
    * filter.
    *
@@ -81,9 +99,9 @@ public enum Freshness implements SearchFilter {
    * @return the freshness filter parameter with the joined dates as a string.
    * @throws InvalidFreshnessInterval if the end date is before the start date.
    */
-  public static @NotNull String betweenWithParam(
+  private static @NotNull String betweenAsParam(
       @NotNull LocalDate startDate, @NotNull LocalDate endDate) {
-    return SearchFilter.FRESHNESS + "=" + between(startDate, endDate);
+    return SearchFilterMode.FRESHNESS.urlParam() + betweenString(startDate, endDate);
   }
 
   @Override
@@ -94,12 +112,12 @@ public enum Freshness implements SearchFilter {
   @Override
   @Contract(pure = true)
   public @NotNull String urlParam() {
-    return SearchFilter.FRESHNESS + "=" + value;
+    return SearchFilterMode.FRESHNESS.urlParam();
   }
 
   @Contract(" -> new")
   @Override
   public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-    return BraveSearchOption.of(this, value);
+    return BraveSearchOption.of(SearchFilterMode.FRESHNESS, value);
   }
 }
