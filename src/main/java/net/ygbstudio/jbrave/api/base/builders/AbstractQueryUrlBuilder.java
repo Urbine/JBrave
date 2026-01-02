@@ -22,22 +22,47 @@ package net.ygbstudio.jbrave.api.base.builders;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.base.BraveAPIConstant;
 import net.ygbstudio.jbrave.api.base.SearchOption;
 import net.ygbstudio.jbrave.api.base.SearchVertical;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.exceptions.AbsentSearchQueryException;
+import net.ygbstudio.jbrave.api.exceptions.AbsentSearchVerticalException;
+import net.ygbstudio.jbrave.api.exceptions.InvalidQueryTermException;
+import net.ygbstudio.jbrave.api.exceptions.UninitializedBuilderException;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Abstract class that provides a base for building API queries.
+ * Abstract base class for building Brave API queries.
+ *
+ * <p>Implementations of this class should call {@link #addInstanceVertical(SearchVertical)} before
+ * building, and initialize the builder with {@link #clear()} before adding options.
+ *
+ * <p>The builder will throw {@link AbsentSearchVerticalException} if the vertical is not added
+ * before building. The builder will also throw {@link UninitializedBuilderException} if the builder
+ * is not cleared before adding options.
+ *
+ * <p>Suggested implementation of factory method:
+ *
+ * {@snippet :
+ *     public static BraveWebQueryBuilder builder() {
+ *     return new BraveWebQueryBuilder().addInstanceVertical(BraveResource.WEB).clear();
+ *   }
+ * }
+ *
+ * <p>The builder will throw {@link AbsentSearchQueryException} if the query string is not present
+ * in the URL query.
  *
  * @param <T> The concrete builder class.
+ * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
 public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> {
 
   protected final String queryPrompt = "q=";
   protected StringBuilder urlEnd;
-  protected SearchVertical vertical;
+  protected StringBuilder urlStart =
+      new StringBuilder().append(BraveAPIConstant.SEARCH_API_BASE).append("/");
 
   /**
    * Returns the current instance of the builder.
@@ -72,8 +97,22 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return {@code true} if the query prompt is not already present in the URL query, {@code false}
    *     otherwise.
    */
-  protected boolean queryCheck() {
+  protected boolean queryMissing() {
     return !urlEnd.toString().contains(queryPrompt);
+  }
+
+  /**
+   * Checks if the given query term is valid.
+   *
+   * <p>A query term is valid if it contains fewer than 400 characters or 50 words.
+   *
+   * @param queryTerm The query term to check.
+   * @return {@code true} if the query term is valid, {@code false} otherwise.
+   */
+  protected boolean isValidQuery(@NotNull String queryTerm) {
+    int chars = queryTerm.codePointCount(0, queryTerm.length());
+    int words = queryTerm.trim().isEmpty() ? 0 : queryTerm.trim().split("\\s+").length;
+    return chars <= 400 && words <= 50;
   }
 
   /**
@@ -86,7 +125,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The current instance of the builder.
    */
   protected T addInstanceVertical(@NotNull SearchVertical vertical) {
-    this.vertical = vertical;
+    urlStart.append(vertical.urlParam()).append("?");
     return self();
   }
 
@@ -97,11 +136,15 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The current instance of the builder.
    */
   protected T addQueryTerm(String queryTerm) {
-    if (queryCheck())
+    boolean isValidQuery = isValidQuery(queryTerm);
+    if (queryMissing() && isValidQuery) {
       urlEnd
           .append(queryPrompt)
           .append(URLEncoder.encode(queryTerm, StandardCharsets.UTF_8))
           .append("&");
+    } else if (!isValidQuery)
+      throw new InvalidQueryTermException(
+          () -> "More than 400 characters and 50 words in the query is not allowed");
     return self();
   }
 
@@ -147,14 +190,32 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The final URL query.
    */
   protected String build() {
-    StringBuilder urlStart = new StringBuilder();
-    urlStart
-        .append(BraveAPIConstant.SEARCH_API_BASE)
-        .append("/")
-        .append(vertical.urlParam())
-        .append("?");
-    if (!urlEnd.isEmpty()) urlEnd.insert(0, urlStart);
+    // Sanity checks for implementors of builders based on this abstract class
+    if (urlStart.toString().equals(BraveAPIConstant.SEARCH_API_BASE + "/")) {
+      Supplier<String> noVertical =
+          () ->
+              "Concrete implementations of this abstract class must call the addInstanceVertical() method before building";
+      throw new AbsentSearchVerticalException(noVertical);
+    }
+
+    if (urlEnd == null) {
+      Supplier<String> noStringBuilder =
+          () ->
+              "Concrete implementations of this abstract class must initialize builders with the clear() method";
+      throw new UninitializedBuilderException(noStringBuilder);
+    }
+
+    if (!urlEnd.isEmpty() && !urlEnd.toString().contains(urlStart)) {
+      urlEnd.insert(0, urlStart);
+    }
     String builtUrl = urlEnd.toString();
+
+    // A query term is compulsory and without it the request is not acceptable
+    if (queryMissing()) {
+      Supplier<String> queryNotFound = () -> "Query cannot be empty and a term is required";
+      throw new AbsentSearchQueryException(queryNotFound);
+    }
+
     return builtUrl.endsWith("&") ? builtUrl.substring(0, builtUrl.lastIndexOf("&")) : builtUrl;
   }
 }
