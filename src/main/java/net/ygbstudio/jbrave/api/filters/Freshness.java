@@ -56,14 +56,15 @@ public enum Freshness implements SearchFilter, ClientProvidedOption {
    * interval.
    *
    * <p>If you need to join dates with the "to" keyword and return it prefixed by the parameter for
-   * the freshness filter, use {@link #betweenWithParam(LocalDate, LocalDate)} instead.
+   * the freshness filter, use {@link #betweenAsParam(LocalDate, LocalDate)} instead.
    *
    * @param startDate the first date.
    * @param endDate the second date.
    * @return the joined dates as a string.
    * @throws InvalidFreshnessInterval if the end date is before the start date.
    */
-  public static @NotNull String between(@NotNull LocalDate startDate, @NotNull LocalDate endDate) {
+  private static @NotNull String betweenString(
+      @NotNull LocalDate startDate, @NotNull LocalDate endDate) {
     if (endDate.isBefore(startDate))
       throw new InvalidFreshnessInterval(
           () -> "Invalid date interval as " + endDate + " is before " + startDate);
