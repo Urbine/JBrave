@@ -20,8 +20,10 @@
 
 package net.ygbstudio.jbrave.api.filters;
 
+import net.ygbstudio.jbrave.api.base.ClientProvidedOption;
 import net.ygbstudio.jbrave.api.base.SearchFilter;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -34,7 +36,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchFilter
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum SafeSearch implements SearchFilter {
+public enum SafeSearch implements SearchFilter, ClientProvidedOption {
   OFF("off"),
   MODERATE("moderate"),
   STRICT("strict");
@@ -53,12 +55,12 @@ public enum SafeSearch implements SearchFilter {
   @Contract(pure = true)
   @Override
   public @NotNull String urlParam() {
-    return SearchFilter.SAFESEARCH + "=" + value;
+    return SearchFilterMode.SAFE_SEARCH.urlParam();
   }
 
   @Contract(" -> new")
   @Override
   public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-    return BraveSearchOption.of(this, value);
+    return BraveSearchOption.of(SearchFilterMode.SAFE_SEARCH, value);
   }
 }
