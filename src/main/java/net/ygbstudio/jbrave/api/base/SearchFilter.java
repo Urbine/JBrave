@@ -32,9 +32,12 @@ import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
 public non-sealed interface SearchFilter extends BraveAPIConstant, ProvidedOption {
-  String SAFESEARCH = "safesearch";
-  String FRESHNESS = "freshness";
-  String RESULT_FILTER = "result_filter";
 
+  /**
+   * Converts this search filter to a {@link SearchOptionCarrier} that can be used to build a URL
+   * parameter.
+   *
+   * @return a {@link SearchOptionCarrier} representing this search filter
+   */
   SearchOptionCarrier<String> toSearchOption();
 }
