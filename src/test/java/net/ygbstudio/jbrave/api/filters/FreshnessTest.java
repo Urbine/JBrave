@@ -5,24 +5,27 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.matchesRegex;
 
 import java.time.LocalDate;
-import net.ygbstudio.jbrave.api.base.SearchFilter;
 import net.ygbstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
+import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import org.junit.jupiter.api.Test;
 
 class FreshnessTest {
   @Test
   void betweenTest() {
-    String freshness = Freshness.between(LocalDate.now(), LocalDate.now().plusDays(1));
+    String freshness = Freshness.between(LocalDate.now(), LocalDate.now().plusDays(1)).value();
     assertThat(freshness, matchesRegex("^\\d{4}-\\d{2}-\\d{2}to\\d{4}-\\d{2}-\\d{2}$"));
   }
 
   @Test
-  void betweenWithParamTest() {
-    String freshness = Freshness.betweenWithParam(LocalDate.now(), LocalDate.now().plusDays(1));
+  void betweenAsParamTest() {
+    String freshness = Freshness.between(LocalDate.now(), LocalDate.now().plusDays(1)).buildParam();
     assertThat(
         freshness,
         matchesRegex(
-            "^" + SearchFilter.FRESHNESS + "=" + "\\d{4}-\\d{2}-\\d{2}to\\d{4}-\\d{2}-\\d{2}$"));
+            "^"
+                + SearchFilterMode.FRESHNESS.value()
+                + "="
+                + "\\d{4}-\\d{2}-\\d{2}to\\d{4}-\\d{2}-\\d{2}$"));
   }
 
   @Test
