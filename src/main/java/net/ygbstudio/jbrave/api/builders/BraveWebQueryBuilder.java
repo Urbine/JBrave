@@ -43,12 +43,12 @@ import org.jetbrains.annotations.NotNull;
  * clients to specify various options such as the search term, the number of results to return, the
  * offset, the units in which to display the results, and more.
  *
- * <p>The builder is not thread-safe.
+ * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
+ * {@link #builder()} method to create a new instance of the builder.
  *
- * @see BraveResource
- * @see SearchOptions
+ * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWebQueryBuilder> {
+public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWebQueryBuilder> {
 
   private BraveWebQueryBuilder() {}
 
