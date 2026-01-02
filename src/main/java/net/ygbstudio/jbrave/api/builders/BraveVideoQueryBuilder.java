@@ -65,6 +65,10 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
 
   /**
    * Adds the search language option to the URL query.
+   * Maximum of 400 characters and 50 words.
+   *
+   * <p>If a query is already present, subsequent calls are ignored.
+   * Only one query term is supported per search request.
    *
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
