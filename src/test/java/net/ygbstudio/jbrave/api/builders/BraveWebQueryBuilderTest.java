@@ -227,4 +227,11 @@ class BraveWebQueryBuilderTest {
     builder.build();
     assertThat(builder.build(), is("https://api.search.brave.com/res/v1/web/search?q=test+term"));
   }
+
+  @Test
+  void testOneVerticalPerBuilderFactoryCall() {
+    assertThat(
+        BraveWebQueryBuilder.builder().builder().query("another query").build(),
+        is("https://api.search.brave.com/res/v1/web/search?q=another+query"));
+  }
 }
