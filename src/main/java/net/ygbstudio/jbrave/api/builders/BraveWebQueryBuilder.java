@@ -20,10 +20,16 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
+import java.net.URI;
+import java.time.LocalDate;
+import java.util.Set;
 import net.ygbstudio.jbrave.api.base.CountryIdentifier;
 import net.ygbstudio.jbrave.api.base.LanguageIdentifier;
 import net.ygbstudio.jbrave.api.base.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.api.filters.Freshness;
+import net.ygbstudio.jbrave.api.filters.ResultFilter;
+import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.options.Units;
 import net.ygbstudio.jbrave.api.verticals.BraveResource;
@@ -186,11 +192,77 @@ public class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWebQueryB
     return addOptionCarrier(units.toSearchOption());
   }
 
+  /**
+   * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
+   *
+   * @param freshness a {@link Freshness} describing the freshness constraint
+   * @return the current instance of {@link BraveWebQueryBuilder}
+   */
+  public BraveWebQueryBuilder freshness(@NotNull Freshness freshness) {
+    return addOptionCarrier(freshness.toSearchOption());
+  }
+
+  /**
+   * Adds a freshness option to the URL query representing a date range.
+   *
+   * @param startDate the start date of the freshness range
+   * @param endDate the end date of the freshness range
+   * @return the current instance of {@link BraveWebQueryBuilder}
+   */
+  public BraveWebQueryBuilder freshness(LocalDate startDate, LocalDate endDate) {
+    return addOptionCarrier(Freshness.between(startDate, endDate));
+  }
+
+  /**
+   * Adds a safe search option to the URL query.
+   *
+   * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
+   * @return the current instance of {@link BraveWebQueryBuilder}
+   */
+  public BraveWebQueryBuilder safeSearch(@NotNull SafeSearch safeSearch) {
+    return addOptionCarrier(safeSearch.toSearchOption());
+  }
+
+  /**
+   * Adds result filters to the URL query.
+   *
+   * @param resultFilterList a set of {@link ResultFilter} elements to apply; may be empty but not
+   *     null
+   * @return the current instance of {@link BraveWebQueryBuilder}
+   */
+  public BraveWebQueryBuilder resultFilters(Set<ResultFilter> resultFilterList) {
+    return addOptionCarrier(ResultFilter.from(resultFilterList));
+  }
+
+  /**
+   * Adds a goggles URL option to the URL query.
+   *
+   * @param gogglesUri the {@link URI} pointing to a goggles resource to use for the query
+   * @return the current instance of {@link BraveWebQueryBuilder}
+   */
+  public BraveWebQueryBuilder goggles(URI gogglesUri) {
+    return addOptionCarrier(SearchOptions.goggles(gogglesUri));
+  }
+
+  /**
+   * Clears the URL query.
+   *
+   * <p>Exposed here to keep the builder API self-contained and IDE-discoverable.
+   *
+   * @return The current instance of the builder.
+   */
   @Override
   public BraveWebQueryBuilder clear() {
     return super.clear();
   }
 
+  /**
+   * Builds the URL query and returns it as a string.
+   *
+   * <p>Exposed here to keep the builder API self-contained and IDE-discoverable.
+   *
+   * @return The URL query as a string.
+   */
   @Override
   public String build() {
     return super.build();
