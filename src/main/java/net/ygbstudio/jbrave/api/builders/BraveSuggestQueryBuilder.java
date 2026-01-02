@@ -1,0 +1,103 @@
+/*
+ * JBrave
+ *
+ * Copyright 2025-2026 Yoham Gabriel Barboza B. (YGBStudio)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package net.ygbstudio.jbrave.api.builders;
+
+import net.ygbstudio.jbrave.api.base.CountryIdentifier;
+import net.ygbstudio.jbrave.api.base.LanguageIdentifier;
+import net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.api.options.SearchOptions;
+import net.ygbstudio.jbrave.api.verticals.BraveResource;
+import org.jetbrains.annotations.NotNull;
+
+/**
+ * The {@link BraveSuggestQueryBuilder} class provides a builder for building Brave Suggest API
+ * queries.
+ *
+ * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
+ * method to create a new instance of the builder.
+ *
+ * <p>The builder is immutable, reusable and type-safe.
+ *
+ * @author Yoham Gabriel Barboza B. (YGBStudio)
+ */
+public final class BraveSuggestQueryBuilder
+    extends AbstractQueryUrlBuilder<BraveSuggestQueryBuilder> {
+  private BraveSuggestQueryBuilder() {}
+
+  /**
+   * Creates a new instance of {@link BraveSuggestQueryBuilder}
+   *
+   * @return a new instance of {@link BraveSuggestQueryBuilder}
+   */
+  public static BraveSuggestQueryBuilder builder() {
+    return new BraveSuggestQueryBuilder().addInstanceVertical(BraveResource.SUGGEST).clear();
+  }
+
+  /**
+   * Adds a search term to the URL query.
+   *
+   * @param queryTerm The search term to add.
+   * @return The current instance of the builder.
+   */
+  public BraveSuggestQueryBuilder query(String queryTerm) {
+    return addQueryTerm(queryTerm);
+  }
+
+  /**
+   * Adds the search language option to the URL query.
+   *
+   * @param searchLanguage the search language to set
+   * @return the current instance of the builder
+   */
+  public BraveSuggestQueryBuilder language(@NotNull LanguageIdentifier searchLanguage) {
+    return addOptionCarrier(searchLanguage.toSearchOption());
+  }
+
+  /**
+   * Adds the country option to the URL query.
+   *
+   * @param countryIdentifier The country identifier to set.
+   * @return The current instance of the builder.
+   */
+  public BraveSuggestQueryBuilder country(@NotNull CountryIdentifier countryIdentifier) {
+    return addOptionCarrier(countryIdentifier.toSearchOption());
+  }
+
+  /**
+   * Adds the rich option to the URL query.
+   *
+   * @param rich whether to enable rich results
+   * @return the current instance of the builder
+   */
+  public BraveSuggestQueryBuilder rich(boolean rich) {
+    return addOptionCarrier(SearchOptions.rich(rich));
+  }
+
+  /**
+   * Adds the count option to the URL query.
+   *
+   * @param count The number of results to return.
+   * @return The current instance of the builder.
+   */
+  public BraveSuggestQueryBuilder count(int count) {
+    return addOptionCarrier(SearchOptions.count(count));
+  }
+}
