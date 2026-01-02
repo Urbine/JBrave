@@ -52,11 +52,10 @@ public final class BraveSuggestQueryBuilder
   }
 
   /**
-   * Adds a search term to the URL query.
-   * Maximum of 400 characters and 50 words.
+   * Adds a search term to the URL query. Maximum of 400 characters and 50 words.
    *
-   * <p>If a query is already present, subsequent calls are ignored.
-   * Only one query term is supported per search request.
+   * <p>If a query is already present, subsequent calls are ignored. Only one query term is
+   * supported per search request.
    *
    * @param queryTerm The search term to add.
    * @return The current instance of the builder.

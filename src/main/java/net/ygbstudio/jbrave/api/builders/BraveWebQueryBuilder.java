@@ -133,11 +133,10 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
   }
 
   /**
-   * Adds the operators option to the URL query.
-   * Maximum of 400 characters and 50 words.
+   * Adds the operators option to the URL query. Maximum of 400 characters and 50 words.
    *
-   * <p>If a query is already present, subsequent calls are ignored.
-   * Only one query term is supported per search request.
+   * <p>If a query is already present, subsequent calls are ignored. Only one query term is
+   * supported per search request.
    *
    * @param operators Whether to include operators in the results.
    * @return The current instance of the builder.
