@@ -105,6 +105,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * Checks if the given query term is valid.
    *
    * <p>A query term is valid if it contains fewer than 400 characters or 50 words.
+   * Both limits are enforced conjunctively, in accordance with the Brave Search API documentation.
    *
    * @param queryTerm The query term to check.
    * @return {@code true} if the query term is valid, {@code false} otherwise.
