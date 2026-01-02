@@ -21,9 +21,12 @@
 package net.ygbstudio.jbrave.api.filters;
 
 import java.util.Arrays;
+import java.util.Set;
 import java.util.stream.Collectors;
+import net.ygbstudio.jbrave.api.base.ClientProvidedOption;
 import net.ygbstudio.jbrave.api.base.SearchFilter;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +48,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchFilter
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum ResultFilter implements SearchFilter {
+public enum ResultFilter implements SearchFilter, ClientProvidedOption {
   DISCUSSIONS("discussions"),
   FAQ("faq"),
   INFOBOX("infobox"),
@@ -70,7 +73,7 @@ public enum ResultFilter implements SearchFilter {
   @Override
   @Contract(pure = true)
   public @NotNull String urlParam() {
-    return SearchFilter.RESULT_FILTER + "=" + value;
+    return SearchFilterMode.RESULT_FILTER.urlParam();
   }
 
   /**
@@ -79,15 +82,20 @@ public enum ResultFilter implements SearchFilter {
    * @param options the {@link ResultFilter} options to join.
    * @return the joined options as a string.
    */
-  public static @NotNull String joinOptions(ResultFilter... options) {
-    return SearchFilter.RESULT_FILTER
-        + "="
-        + Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
+  private static @NotNull String joinOptions(ResultFilter... options) {
+    return Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
+  }
+
+  @Contract("_ -> new")
+  public static @NotNull @Unmodifiable SearchOptionCarrier<String> from(
+      @NotNull Set<ResultFilter> resultFilterSet) {
+    return BraveSearchOption.of(
+        SearchFilterMode.RESULT_FILTER, joinOptions(resultFilterSet.toArray(ResultFilter[]::new)));
   }
 
   @Contract(" -> new")
   @Override
   public @NotNull @Unmodifiable SearchOptionCarrier<String> toSearchOption() {
-    return BraveSearchOption.of(this, value);
+    return BraveSearchOption.of(SearchFilterMode.RESULT_FILTER, value);
   }
 }
