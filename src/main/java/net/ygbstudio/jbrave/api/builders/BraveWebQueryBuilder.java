@@ -68,7 +68,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param queryTerm The search term to add.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder term(String queryTerm) {
+  public BraveWebQueryBuilder query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
