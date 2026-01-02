@@ -60,7 +60,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return {@code true} if the option is not already present in the URL query, {@code false}
    *     otherwise.
    */
-  protected boolean optionCheck(@NotNull SearchOption option) {
+  protected boolean optionMissing(@NotNull SearchOption option) {
     return !urlEnd.toString().contains(option.urlParam());
   }
 
@@ -114,7 +114,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The current instance of the builder.
    */
   protected <U> T addOption(@NotNull SearchOption option, U value) {
-    if (optionCheck(option)) urlEnd.append(option.urlParam()).append(value).append("&");
+    if (optionMissing(option)) urlEnd.append(option.urlParam()).append(value).append("&");
     return self();
   }
 
@@ -126,7 +126,8 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The current instance of the builder.
    */
   protected <V> T addOptionCarrier(@NotNull SearchOptionCarrier<V> optionCarrier) {
-    if (optionCheck(optionCarrier.option())) urlEnd.append(optionCarrier.buildParam()).append("&");
+    if (optionMissing(optionCarrier.option()))
+      urlEnd.append(optionCarrier.buildParam()).append("&");
     return self();
   }
 
