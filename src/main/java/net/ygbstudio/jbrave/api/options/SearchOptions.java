@@ -20,7 +20,12 @@
 
 package net.ygbstudio.jbrave.api.options;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import net.ygbstudio.jbrave.api.base.ClientProvidedOption;
+import net.ygbstudio.jbrave.api.exceptions.BraveGogglesIdentifierException;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
@@ -33,7 +38,9 @@ public enum SearchOptions implements ClientProvidedOption {
   EXTRA_SNIPPETS("extra_snippets"),
   ENABLE_RICH_CALLBACK("enable_rich_callback"),
   SUMMARY("summary"),
-  OPERATORS("operators");
+  OPERATORS("operators"),
+  GOGGLES("goggles"),
+  RICH("rich");
 
   private final String value;
 
@@ -146,5 +153,36 @@ public enum SearchOptions implements ClientProvidedOption {
   @Contract("_ -> new")
   public static @NotNull BraveSearchOption<Boolean> enableRichCallback(boolean enableRichCallback) {
     return BraveSearchOption.of(ENABLE_RICH_CALLBACK, enableRichCallback);
+  }
+
+  /**
+   * Creates a new instance of {@link BraveSearchOption} with {@link SearchOptions#GOGGLES} and the
+   * given value.
+   *
+   * @param gogglesUri the value for {@link SearchOptions#GOGGLES}, the URI must be a valid URL too
+   * @return a new instance of {@link BraveSearchOption}
+   * @throws BraveGogglesIdentifierException if the given gogglesUri is not a valid URL candidate
+   */
+  @Contract("_ -> new")
+  public static @NotNull BraveSearchOption<String> goggles(@NotNull URI gogglesUri) {
+    try {
+      return BraveSearchOption.of(
+          GOGGLES, URLEncoder.encode(gogglesUri.toURL().toString(), StandardCharsets.UTF_8));
+    } catch (MalformedURLException malformedURlEx) {
+      throw new BraveGogglesIdentifierException(
+          () -> gogglesUri + " is not a valid URL candidate for the goggles parameter value");
+    }
+  }
+
+  /**
+   * Creates a new instance of {@link BraveSearchOption} with {@link SearchOptions#RICH} and the
+   * given value.
+   *
+   * @param rich the value for {@link SearchOptions#RICH}
+   * @return a new instance of {@link BraveSearchOption}
+   */
+  @Contract("_ -> new")
+  public static @NotNull BraveSearchOption<Boolean> rich(boolean rich) {
+    return BraveSearchOption.of(RICH, rich);
   }
 }
