@@ -28,6 +28,7 @@ import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.verticals.BraveResource;
+import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -69,26 +70,29 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * <p>If a query is already present, subsequent calls are ignored. Only one query term is
    * supported per search request.
    *
+   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveVideoQuery language(@NotNull LanguageIdentifier searchLanguage) {
+  public <T extends LanguageIdentifier> BraveVideoQuery language(@NotNull T searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
   /**
    * Adds the market option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.MarketLocale
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */
-  public BraveVideoQuery market(@NotNull MarketLocale uiLanguage) {
+  public <T extends RegionLocaleIdentifier> BraveVideoQuery market(@NotNull T uiLanguage) {
     return addOptionCarrier(uiLanguage.toSearchOption());
   }
 
   /**
    * Adds a safe search option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.filters.SafeSearch
    * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
    * @return the current instance of the builder
    */
@@ -129,6 +133,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   /**
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
+   * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param freshness a {@link Freshness} describing the freshness constraint
    * @return the current instance of {@link BraveWebQuery}
    */
@@ -139,6 +144,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   /**
    * Adds a freshness option to the URL query representing a date range.
    *
+   * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param startDate the start date of the freshness range
    * @param endDate the end date of the freshness range
    * @return the current instance of {@link BraveWebQuery}
