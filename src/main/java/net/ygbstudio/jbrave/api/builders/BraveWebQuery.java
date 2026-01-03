@@ -48,18 +48,18 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWebQueryBuilder> {
+public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> {
 
-  private BraveWebQueryBuilder() {}
+  private BraveWebQuery() {}
 
   /**
-   * Creates a new instance of {@link BraveWebQueryBuilder} with an empty URL query.
+   * Creates a new instance of {@link BraveWebQuery} with an empty URL query.
    *
-   * @return A new instance of {@link BraveWebQueryBuilder}.
+   * @return A new instance of {@link BraveWebQuery}.
    */
   @Contract(value = " -> new", pure = true)
-  public static @NotNull BraveWebQueryBuilder builder() {
-    return new BraveWebQueryBuilder().addInstanceVertical(BraveResource.WEB).clear();
+  public static @NotNull BraveWebQuery builder() {
+    return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).clear();
   }
 
   /**
@@ -68,7 +68,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param queryTerm The search term to add.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder query(String queryTerm) {
+  public BraveWebQuery query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
@@ -78,7 +78,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param count The number of results to return.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder count(int count) {
+  public BraveWebQuery count(int count) {
     return addOptionCarrier(SearchOptions.count(count));
   }
 
@@ -88,7 +88,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param offset The number of results to skip.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder offset(int offset) {
+  public BraveWebQuery offset(int offset) {
     return addOptionCarrier(SearchOptions.offset(offset));
   }
 
@@ -98,7 +98,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param textDecorations Whether to include text decorations in the results.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder textDecorations(boolean textDecorations) {
+  public BraveWebQuery textDecorations(boolean textDecorations) {
     return addOptionCarrier(SearchOptions.textDecorations(textDecorations));
   }
 
@@ -108,7 +108,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param spellCheck Whether to enable spellcheck.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder spellCheck(boolean spellCheck) {
+  public BraveWebQuery spellCheck(boolean spellCheck) {
     return addOptionCarrier(SearchOptions.spellCheck(spellCheck));
   }
 
@@ -118,7 +118,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param extraSnippets Whether to include extra snippets in the results.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder extraSnippets(boolean extraSnippets) {
+  public BraveWebQuery extraSnippets(boolean extraSnippets) {
     return addOptionCarrier(SearchOptions.extraSnippets(extraSnippets));
   }
 
@@ -128,7 +128,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param summary Whether to include a summary in the results.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder summary(boolean summary) {
+  public BraveWebQuery summary(boolean summary) {
     return addOptionCarrier(SearchOptions.summary(summary));
   }
 
@@ -141,7 +141,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param operators Whether to include operators in the results.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder operators(boolean operators) {
+  public BraveWebQuery operators(boolean operators) {
     return addOptionCarrier(SearchOptions.operators(operators));
   }
 
@@ -151,7 +151,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param countryIdentifier The country identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder country(@NotNull CountryIdentifier countryIdentifier) {
+  public BraveWebQuery country(@NotNull CountryIdentifier countryIdentifier) {
     return addOptionCarrier(countryIdentifier.toSearchOption());
   }
 
@@ -161,7 +161,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param regionLocaleIdentifier The region locale identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder market(@NotNull RegionLocaleIdentifier regionLocaleIdentifier) {
+  public BraveWebQuery market(@NotNull RegionLocaleIdentifier regionLocaleIdentifier) {
     return addOptionCarrier(regionLocaleIdentifier.toSearchOption());
   }
 
@@ -171,7 +171,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param languageIdentifier The language identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder language(@NotNull LanguageIdentifier languageIdentifier) {
+  public BraveWebQuery language(@NotNull LanguageIdentifier languageIdentifier) {
     return addOptionCarrier(languageIdentifier.toSearchOption());
   }
 
@@ -181,7 +181,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param enableRichCallback Whether to enable rich callback.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder enableRichCallback(boolean enableRichCallback) {
+  public BraveWebQuery enableRichCallback(boolean enableRichCallback) {
     return addOptionCarrier(SearchOptions.enableRichCallback(enableRichCallback));
   }
 
@@ -191,7 +191,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @param units The units to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQueryBuilder units(@NotNull Units units) {
+  public BraveWebQuery units(@NotNull Units units) {
     return addOptionCarrier(units.toSearchOption());
   }
 
@@ -199,9 +199,9 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
    * @param freshness a {@link Freshness} describing the freshness constraint
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveWebQueryBuilder freshness(@NotNull Freshness freshness) {
+  public BraveWebQuery freshness(@NotNull Freshness freshness) {
     return addOptionCarrier(freshness.toSearchOption());
   }
 
@@ -210,9 +210,9 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    *
    * @param startDate the start date of the freshness range
    * @param endDate the end date of the freshness range
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveWebQueryBuilder freshness(LocalDate startDate, LocalDate endDate) {
+  public BraveWebQuery freshness(LocalDate startDate, LocalDate endDate) {
     return addOptionCarrier(Freshness.between(startDate, endDate));
   }
 
@@ -220,9 +220,9 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * Adds a safe search option to the URL query.
    *
    * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveWebQueryBuilder safeSearch(@NotNull SafeSearch safeSearch) {
+  public BraveWebQuery safeSearch(@NotNull SafeSearch safeSearch) {
     return addOptionCarrier(safeSearch.toSearchOption());
   }
 
@@ -231,9 +231,9 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    *
    * @param resultFilterList a set of {@link ResultFilter} elements to apply; may be empty but not
    *     null
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveWebQueryBuilder resultFilters(Set<ResultFilter> resultFilterList) {
+  public BraveWebQuery resultFilters(Set<ResultFilter> resultFilterList) {
     return addOptionCarrier(ResultFilter.from(resultFilterList));
   }
 
@@ -241,9 +241,9 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * Adds a goggles URL option to the URL query.
    *
    * @param gogglesUri the {@link URI} pointing to a goggles resource to use for the query
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveWebQueryBuilder goggles(URI gogglesUri) {
+  public BraveWebQuery goggles(URI gogglesUri) {
     return addOptionCarrier(SearchOptions.goggles(gogglesUri));
   }
 
@@ -255,7 +255,7 @@ public final class BraveWebQueryBuilder extends AbstractQueryUrlBuilder<BraveWeb
    * @return The current instance of the builder.
    */
   @Override
-  public BraveWebQueryBuilder clear() {
+  public BraveWebQuery clear() {
     return super.clear();
   }
 

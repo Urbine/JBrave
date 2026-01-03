@@ -32,7 +32,7 @@ import net.ygbstudio.jbrave.api.verticals.BraveResource;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The {@link BraveNewsQueryBuilder} class provides a builder for building Brave News API queries.
+ * The {@link BraveNewsQuery} class provides a builder for building Brave News API queries.
  *
  * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
  * method to create a new instance of the builder.
@@ -41,17 +41,17 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNewsQueryBuilder> {
+public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery> {
 
-  private BraveNewsQueryBuilder() {}
+  private BraveNewsQuery() {}
 
   /**
-   * Creates a new instance of {@link BraveNewsQueryBuilder}
+   * Creates a new instance of {@link BraveNewsQuery}
    *
-   * @return a new instance of {@link BraveNewsQueryBuilder}
+   * @return a new instance of {@link BraveNewsQuery}
    */
-  public static BraveNewsQueryBuilder builder() {
-    return new BraveNewsQueryBuilder().addInstanceVertical(BraveResource.NEWS).clear();
+  public static BraveNewsQuery builder() {
+    return new BraveNewsQuery().addInstanceVertical(BraveResource.NEWS).clear();
   }
 
   /**
@@ -63,7 +63,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param queryTerm the search term to add
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder query(String queryTerm) {
+  public BraveNewsQuery query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
@@ -73,7 +73,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder language(@NotNull LanguageIdentifier searchLanguage) {
+  public BraveNewsQuery language(@NotNull LanguageIdentifier searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
@@ -83,7 +83,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder market(@NotNull MarketLocale uiLanguage) {
+  public BraveNewsQuery market(@NotNull MarketLocale uiLanguage) {
     return addOptionCarrier(uiLanguage.toSearchOption());
   }
 
@@ -93,7 +93,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder safeSearch(@NotNull SafeSearch safeSearch) {
+  public BraveNewsQuery safeSearch(@NotNull SafeSearch safeSearch) {
     return addOptionCarrier(safeSearch.toSearchOption());
   }
 
@@ -103,7 +103,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param count the number of results to return
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder count(int count) {
+  public BraveNewsQuery count(int count) {
     return addOptionCarrier(SearchOptions.count(count));
   }
 
@@ -113,7 +113,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param offset the number of results to skip
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder offset(int offset) {
+  public BraveNewsQuery offset(int offset) {
     return addOptionCarrier(SearchOptions.offset(offset));
   }
 
@@ -123,7 +123,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param spellcheck whether to enable spellcheck
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder spellcheck(boolean spellcheck) {
+  public BraveNewsQuery spellcheck(boolean spellcheck) {
     return addOptionCarrier(SearchOptions.spellCheck(spellcheck));
   }
 
@@ -134,7 +134,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param endDate the end date of the freshness constraint
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder freshness(LocalDate startDate, LocalDate endDate) {
+  public BraveNewsQuery freshness(LocalDate startDate, LocalDate endDate) {
     return addOptionCarrier(Freshness.between(startDate, endDate));
   }
 
@@ -142,9 +142,9 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
    * @param freshness a non-null {@link Freshness} describing the freshness constraint
-   * @return the current instance of {@link BraveNewsQueryBuilder}
+   * @return the current instance of {@link BraveNewsQuery}
    */
-  public BraveNewsQueryBuilder freshness(@NotNull Freshness freshness) {
+  public BraveNewsQuery freshness(@NotNull Freshness freshness) {
     return addOptionCarrier(freshness.toSearchOption());
   }
 
@@ -154,7 +154,7 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * @param extraSnippets whether to include extra snippets in the results
    * @return the current instance of the builder
    */
-  public BraveNewsQueryBuilder extraSnippets(boolean extraSnippets) {
+  public BraveNewsQuery extraSnippets(boolean extraSnippets) {
     return addOptionCarrier(SearchOptions.extraSnippets(extraSnippets));
   }
 
@@ -162,9 +162,9 @@ public final class BraveNewsQueryBuilder extends AbstractQueryUrlBuilder<BraveNe
    * Adds a goggles URL option to the URL query.
    *
    * @param gogglesUri the {@link URI} pointing to a goggles resource to use for the query
-   * @return the current instance of {@link BraveNewsQueryBuilder}
+   * @return the current instance of {@link BraveNewsQuery}
    */
-  public BraveNewsQueryBuilder goggles(URI gogglesUri) {
+  public BraveNewsQuery goggles(URI gogglesUri) {
     return addOptionCarrier(SearchOptions.goggles(gogglesUri));
   }
 }

@@ -36,12 +36,12 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public class BraveSpellcheckQueryBuilder
-    extends AbstractQueryUrlBuilder<BraveSpellcheckQueryBuilder> {
-  private BraveSpellcheckQueryBuilder() {}
+public class BraveSpellcheckQuery
+    extends AbstractQueryUrlBuilder<BraveSpellcheckQuery> {
+  private BraveSpellcheckQuery() {}
 
-  public static BraveSpellcheckQueryBuilder builder() {
-    return new BraveSpellcheckQueryBuilder().addInstanceVertical(BraveResource.SPELLCHECK).clear();
+  public static BraveSpellcheckQuery builder() {
+    return new BraveSpellcheckQuery().addInstanceVertical(BraveResource.SPELLCHECK).clear();
   }
 
   /**
@@ -53,7 +53,7 @@ public class BraveSpellcheckQueryBuilder
    * @param queryTerm the search term to add
    * @return the current instance of the builder
    */
-  public BraveSpellcheckQueryBuilder query(String queryTerm) {
+  public BraveSpellcheckQuery query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
@@ -63,7 +63,7 @@ public class BraveSpellcheckQueryBuilder
    * @param languageIdentifier The language identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveSpellcheckQueryBuilder language(@NotNull LanguageIdentifier languageIdentifier) {
+  public BraveSpellcheckQuery language(@NotNull LanguageIdentifier languageIdentifier) {
     return addOptionCarrier(languageIdentifier.toSearchOption());
   }
 
@@ -73,7 +73,7 @@ public class BraveSpellcheckQueryBuilder
    * @param countryIdentifier The country identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveSpellcheckQueryBuilder country(@NotNull CountryIdentifier countryIdentifier) {
+  public BraveSpellcheckQuery country(@NotNull CountryIdentifier countryIdentifier) {
     return addOptionCarrier(countryIdentifier.toSearchOption());
   }
 }

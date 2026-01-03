@@ -40,17 +40,17 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveVideoQueryBuilder> {
+public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQuery> {
 
-  private BraveVideoQueryBuilder() {}
+  private BraveVideoQuery() {}
 
   /**
-   * Creates a new instance of {@link BraveVideoQueryBuilder}
+   * Creates a new instance of {@link BraveVideoQuery}
    *
-   * @return a new instance of {@link BraveVideoQueryBuilder}
+   * @return a new instance of {@link BraveVideoQuery}
    */
-  public static BraveVideoQueryBuilder builder() {
-    return new BraveVideoQueryBuilder().addInstanceVertical(BraveResource.VIDEO).clear();
+  public static BraveVideoQuery builder() {
+    return new BraveVideoQuery().addInstanceVertical(BraveResource.VIDEO).clear();
   }
 
   /**
@@ -59,7 +59,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param queryTerm the search term to add
    * @return the current instance of the builder
    */
-  public BraveVideoQueryBuilder query(String queryTerm) {
+  public BraveVideoQuery query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
@@ -72,7 +72,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveVideoQueryBuilder language(@NotNull LanguageIdentifier searchLanguage) {
+  public BraveVideoQuery language(@NotNull LanguageIdentifier searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
@@ -82,7 +82,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */
-  public BraveVideoQueryBuilder market(@NotNull MarketLocale uiLanguage) {
+  public BraveVideoQuery market(@NotNull MarketLocale uiLanguage) {
     return addOptionCarrier(uiLanguage.toSearchOption());
   }
 
@@ -92,7 +92,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
    * @return the current instance of the builder
    */
-  public BraveVideoQueryBuilder safeSearch(@NotNull SafeSearch safeSearch) {
+  public BraveVideoQuery safeSearch(@NotNull SafeSearch safeSearch) {
     return addOptionCarrier(safeSearch.toSearchOption());
   }
 
@@ -102,7 +102,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param count The number of results to return.
    * @return The current instance of the builder.
    */
-  public BraveVideoQueryBuilder count(int count) {
+  public BraveVideoQuery count(int count) {
     return addOptionCarrier(SearchOptions.count(count));
   }
 
@@ -112,7 +112,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param offset The number of results to skip.
    * @return The current instance of the builder.
    */
-  public BraveVideoQueryBuilder offset(int offset) {
+  public BraveVideoQuery offset(int offset) {
     return addOptionCarrier(SearchOptions.offset(offset));
   }
 
@@ -122,7 +122,7 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * @param spellcheck whether to enable spellcheck
    * @return the current instance of the builder
    */
-  public BraveVideoQueryBuilder spellcheck(boolean spellcheck) {
+  public BraveVideoQuery spellcheck(boolean spellcheck) {
     return addOptionCarrier(SearchOptions.spellCheck(spellcheck));
   }
 
@@ -130,9 +130,9 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
    * @param freshness a {@link Freshness} describing the freshness constraint
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveVideoQueryBuilder freshness(@NotNull Freshness freshness) {
+  public BraveVideoQuery freshness(@NotNull Freshness freshness) {
     return addOptionCarrier(freshness.toSearchOption());
   }
 
@@ -141,9 +141,9 @@ public final class BraveVideoQueryBuilder extends AbstractQueryUrlBuilder<BraveV
    *
    * @param startDate the start date of the freshness range
    * @param endDate the end date of the freshness range
-   * @return the current instance of {@link BraveWebQueryBuilder}
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public BraveVideoQueryBuilder freshness(LocalDate startDate, LocalDate endDate) {
+  public BraveVideoQuery freshness(LocalDate startDate, LocalDate endDate) {
     return addOptionCarrier(Freshness.between(startDate, endDate));
   }
 }

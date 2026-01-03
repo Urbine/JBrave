@@ -28,7 +28,7 @@ import net.ygbstudio.jbrave.api.verticals.BraveResource;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The {@link BraveSuggestQueryBuilder} class provides a builder for building Brave Suggest API
+ * The {@link BraveSuggestQuery} class provides a builder for building Brave Suggest API
  * queries.
  *
  * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
@@ -38,17 +38,17 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public final class BraveSuggestQueryBuilder
-    extends AbstractQueryUrlBuilder<BraveSuggestQueryBuilder> {
-  private BraveSuggestQueryBuilder() {}
+public final class BraveSuggestQuery
+    extends AbstractQueryUrlBuilder<BraveSuggestQuery> {
+  private BraveSuggestQuery() {}
 
   /**
-   * Creates a new instance of {@link BraveSuggestQueryBuilder}
+   * Creates a new instance of {@link BraveSuggestQuery}
    *
-   * @return a new instance of {@link BraveSuggestQueryBuilder}
+   * @return a new instance of {@link BraveSuggestQuery}
    */
-  public static BraveSuggestQueryBuilder builder() {
-    return new BraveSuggestQueryBuilder().addInstanceVertical(BraveResource.SUGGEST).clear();
+  public static BraveSuggestQuery builder() {
+    return new BraveSuggestQuery().addInstanceVertical(BraveResource.SUGGEST).clear();
   }
 
   /**
@@ -60,7 +60,7 @@ public final class BraveSuggestQueryBuilder
    * @param queryTerm The search term to add.
    * @return The current instance of the builder.
    */
-  public BraveSuggestQueryBuilder query(String queryTerm) {
+  public BraveSuggestQuery query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
@@ -70,7 +70,7 @@ public final class BraveSuggestQueryBuilder
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveSuggestQueryBuilder language(@NotNull LanguageIdentifier searchLanguage) {
+  public BraveSuggestQuery language(@NotNull LanguageIdentifier searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
@@ -80,7 +80,7 @@ public final class BraveSuggestQueryBuilder
    * @param countryIdentifier The country identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveSuggestQueryBuilder country(@NotNull CountryIdentifier countryIdentifier) {
+  public BraveSuggestQuery country(@NotNull CountryIdentifier countryIdentifier) {
     return addOptionCarrier(countryIdentifier.toSearchOption());
   }
 
@@ -90,7 +90,7 @@ public final class BraveSuggestQueryBuilder
    * @param rich whether to enable rich results
    * @return the current instance of the builder
    */
-  public BraveSuggestQueryBuilder rich(boolean rich) {
+  public BraveSuggestQuery rich(boolean rich) {
     return addOptionCarrier(SearchOptions.rich(rich));
   }
 
@@ -100,7 +100,7 @@ public final class BraveSuggestQueryBuilder
    * @param count The number of results to return.
    * @return The current instance of the builder.
    */
-  public BraveSuggestQueryBuilder count(int count) {
+  public BraveSuggestQuery count(int count) {
     return addOptionCarrier(SearchOptions.count(count));
   }
 }

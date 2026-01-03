@@ -39,16 +39,16 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveImageQueryBuilder> {
-  private BraveImageQueryBuilder() {}
+public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQuery> {
+  private BraveImageQuery() {}
 
   /**
-   * Returns a new instance of {@link BraveImageQueryBuilder}
+   * Returns a new instance of {@link BraveImageQuery}
    *
-   * @return a new instance of {@link BraveImageQueryBuilder}
+   * @return a new instance of {@link BraveImageQuery}
    */
-  public static BraveImageQueryBuilder builder() {
-    return new BraveImageQueryBuilder().addInstanceVertical(BraveResource.IMAGE).clear();
+  public static BraveImageQuery builder() {
+    return new BraveImageQuery().addInstanceVertical(BraveResource.IMAGE).clear();
   }
 
   /**
@@ -60,7 +60,7 @@ public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveI
    * @param queryTerm the search term to add
    * @return the current instance of the builder
    */
-  public BraveImageQueryBuilder query(String queryTerm) {
+  public BraveImageQuery query(String queryTerm) {
     return addQueryTerm(queryTerm);
   }
 
@@ -70,7 +70,7 @@ public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveI
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveImageQueryBuilder language(@NotNull LanguageIdentifier searchLanguage) {
+  public BraveImageQuery language(@NotNull LanguageIdentifier searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
@@ -80,7 +80,7 @@ public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveI
    * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
    * @return the current instance of the builder
    */
-  public BraveImageQueryBuilder safeSearch(@NotNull SafeSearch safeSearch) {
+  public BraveImageQuery safeSearch(@NotNull SafeSearch safeSearch) {
     return addOptionCarrier(safeSearch.toSearchOption());
   }
 
@@ -90,7 +90,7 @@ public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveI
    * @param country the country identifier to set
    * @return the current instance of the builder
    */
-  public BraveImageQueryBuilder country(@NotNull CountryIdentifier country) {
+  public BraveImageQuery country(@NotNull CountryIdentifier country) {
     return addOptionCarrier(country.toSearchOption());
   }
 
@@ -100,7 +100,7 @@ public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveI
    * @param count the number of results to return
    * @return the current instance of the builder
    */
-  public BraveImageQueryBuilder count(int count) {
+  public BraveImageQuery count(int count) {
     return addOptionCarrier(SearchOptions.count(count));
   }
 
@@ -110,7 +110,7 @@ public final class BraveImageQueryBuilder extends AbstractQueryUrlBuilder<BraveI
    * @param spellCheck whether to enable spellcheck
    * @return the current instance of the builder
    */
-  public BraveImageQueryBuilder spellcheck(boolean spellCheck) {
+  public BraveImageQuery spellcheck(boolean spellCheck) {
     return addOptionCarrier(SearchOptions.spellCheck(spellCheck));
   }
 }
