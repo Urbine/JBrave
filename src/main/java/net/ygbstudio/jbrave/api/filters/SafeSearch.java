@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * on the level of explicit content.
  *
  * @see SearchFilterOption
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum SafeSearch implements SearchFilterOption, ClientProvidedOption {
   OFF("off"),

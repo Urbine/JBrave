@@ -31,7 +31,7 @@ import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
  * that all options are supported and their parameter construction is correct.
  *
  * @see SearchOption
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public non-sealed interface ProvidedOption extends SearchOption {
   String UNITS = "units";

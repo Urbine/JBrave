@@ -37,7 +37,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * when they were discovered.
  *
  * @see SearchFilterOption
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum Freshness implements SearchFilterOption, ClientProvidedOption {
   WITHIN_24H("pd"),

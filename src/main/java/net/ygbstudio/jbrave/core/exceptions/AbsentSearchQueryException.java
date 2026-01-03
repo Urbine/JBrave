@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>Queries cannot be empty and a request without it is not acceptable by the API.
  *
  * @see net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public class AbsentSearchQueryException extends RuntimeException {
   public AbsentSearchQueryException(String message) {

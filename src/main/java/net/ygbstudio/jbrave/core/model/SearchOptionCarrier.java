@@ -39,7 +39,7 @@ import net.ygbstudio.jbrave.core.domain.ProvidedOption;
  * built and send as a single URL string after joining.
  *
  * @param <V> the type of the option provided
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface SearchOptionCarrier<V> {
   /**

@@ -32,7 +32,7 @@ import org.jspecify.annotations.NonNull;
  * <p>It is typically used as a factory for the {@link SearchOptions} implementation.
  *
  * @param <V> type of the parameter value for a search option.
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public record BraveSearchOption<V>(SearchOption option, V value) implements SearchOptionCarrier<V> {
   /**

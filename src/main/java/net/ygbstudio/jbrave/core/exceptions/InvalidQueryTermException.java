@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>A query term is invalid if it contains more than 400 characters or exceeds the 50-word limit.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public class InvalidQueryTermException extends RuntimeException {
   public InvalidQueryTermException(String message) {

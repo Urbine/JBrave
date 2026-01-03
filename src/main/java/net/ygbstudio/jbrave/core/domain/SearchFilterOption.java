@@ -29,7 +29,7 @@ import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
  * offers fields that are used to generate URL parameter combinations for the API requests.
  *
  * @see BraveAPIConstant
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface SearchFilterOption extends ProvidedOption {
 

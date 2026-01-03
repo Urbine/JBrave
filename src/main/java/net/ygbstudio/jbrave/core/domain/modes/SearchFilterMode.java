@@ -41,7 +41,7 @@ import org.jetbrains.annotations.NotNull;
  * discoverability and avoid ambiguity about the correct use of value enums since these constants
  * may not be relevant for most clients using this library.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 @Internal
 public enum SearchFilterMode implements ClientProvidedOption {

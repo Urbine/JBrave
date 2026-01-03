@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * parameter generation.
  *
  * @see CountryIdentifier
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum Country implements CountryIdentifier {
   ARGENTINA("AR"),

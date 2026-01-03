@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>URL query builders must call {@code clear()} before adding options if the implementation
  * inherits from {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder}.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public class UninitializedBuilderException extends RuntimeException {
   public UninitializedBuilderException(String message) {

@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.core.local;
 /**
  * Enumeration of the local environment variables used by the JBrave library.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public final class LocalEnvironment {
   public static final String BRAVE_SUBSCRIPTION_TOKEN = "BRAVE_SUBSCRIPTION_TOKEN";

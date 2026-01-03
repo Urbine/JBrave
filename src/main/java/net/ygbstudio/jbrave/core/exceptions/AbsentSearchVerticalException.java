@@ -30,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
  * the implementation inherits from <br>
  * {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder}.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public class AbsentSearchVerticalException extends RuntimeException {
   public AbsentSearchVerticalException(String message) {

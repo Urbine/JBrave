@@ -35,7 +35,7 @@ import org.jetbrains.annotations.NotNull;
  * {@link #urlParam()} method by default.
  *
  * @see BraveAPIConstant
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public non-sealed interface SearchVertical extends BraveAPIConstant {
   String SEARCH_PATH = "search";

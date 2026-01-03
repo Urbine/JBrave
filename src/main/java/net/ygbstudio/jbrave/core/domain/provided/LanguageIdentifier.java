@@ -30,7 +30,7 @@ import org.jspecify.annotations.NonNull;
  * <p>Each language identifier has a {@link #value()} method that is used to get the parameter value
  * for the API requests.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface LanguageIdentifier extends ProvidedOption {
   String URL_PARAM = "search_lang";

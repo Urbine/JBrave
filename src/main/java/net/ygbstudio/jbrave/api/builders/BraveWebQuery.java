@@ -46,7 +46,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
  * {@link #builder()} method to create a new instance of the builder.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> {
 

@@ -46,7 +46,7 @@ import org.jetbrains.annotations.Unmodifiable;
  * <p>Support for advanced plans is currently limited.
  *
  * @see SearchFilterOption
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum ResultFilter implements SearchFilterOption, ClientProvidedOption {
   DISCUSSIONS("discussions"),

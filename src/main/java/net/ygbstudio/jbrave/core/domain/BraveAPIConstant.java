@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.core.domain;
 /**
  * Interface for constants that are used in Brave API.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public sealed interface BraveAPIConstant
     permits

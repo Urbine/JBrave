@@ -55,7 +55,7 @@ import org.jetbrains.annotations.NotNull;
  * in the URL query.
  *
  * @param <T> The concrete builder class.
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> {
 

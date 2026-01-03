@@ -33,7 +33,7 @@ import org.jspecify.annotations.NonNull;
  * parameter generation.
  *
  * @see SearchOption
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface CountryIdentifier extends ProvidedOption {
   String URL_PARAM = "country";

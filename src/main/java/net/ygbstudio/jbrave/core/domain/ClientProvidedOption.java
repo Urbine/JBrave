@@ -34,6 +34,6 @@ import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
  *
  * @see SearchOption
  * @see SearchOptionCarrier
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public non-sealed interface ClientProvidedOption extends SearchOption {}

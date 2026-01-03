@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>The builder is immutable, reusable and type-safe.
  *
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public class BraveSpellcheckQuery
     extends AbstractQueryUrlBuilder<BraveSpellcheckQuery> {

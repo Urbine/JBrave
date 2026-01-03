@@ -32,7 +32,7 @@ import org.jspecify.annotations.NonNull;
  * Represents the client information.
  *
  * @param subscriptionToken the subscription token for the client.
- * @author Yoham Gabriel Barboza B. (YGBStudio)
+ * @author Yoham Gabriel B. (YGBStudio)
  */
 public record ClientInfo(@NonNull String subscriptionToken) {
 
