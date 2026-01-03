@@ -32,7 +32,7 @@ import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.options.Units;
-import net.ygbstudio.jbrave.api.verticals.BraveResource;
+import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
