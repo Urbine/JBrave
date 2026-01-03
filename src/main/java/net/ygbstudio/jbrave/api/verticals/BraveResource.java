@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.api.verticals;
 
-import net.ygbstudio.jbrave.core.SearchVertical;
+import net.ygbstudio.jbrave.core.options.SearchVertical;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
