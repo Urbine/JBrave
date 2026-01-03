@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.core.options.provided;
 
-import net.ygbstudio.jbrave.core.BraveAPIConstant;
+import net.ygbstudio.jbrave.core.options.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.options.ProvidedOption;
 import org.jspecify.annotations.NonNull;
@@ -28,8 +28,7 @@ import org.jspecify.annotations.NonNull;
 /**
  * An interface representing a region-locale identifier.
  *
- * <p>This interface extends {@link BraveAPIConstant} and is implemented by enums that represent
- * region-locale identifiers.
+ * <p>This interface is implemented by enums that represent region-locale identifiers.
  *
  * <p>Each region-locale identifier has a {@link #value()} method that is used to get the parameter
  * value for the API requests.
@@ -40,7 +39,7 @@ import org.jspecify.annotations.NonNull;
  * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface RegionLocaleIdentifier extends BraveAPIConstant, ProvidedOption {
+public interface RegionLocaleIdentifier extends ProvidedOption {
   String URL_PARAM = "ui_lang";
 
   /**
