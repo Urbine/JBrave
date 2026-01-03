@@ -148,30 +148,33 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds the country option to the URL query.
    *
-   * @param countryIdentifier The country identifier to set.
+   * @see net.ygbstudio.jbrave.api.codes.Country
+   * @param country The country identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQuery country(@NotNull CountryIdentifier countryIdentifier) {
-    return addOptionCarrier(countryIdentifier.toSearchOption());
+  public <T extends CountryIdentifier> BraveWebQuery country(@NotNull T country) {
+    return addOptionCarrier(country.toSearchOption());
   }
 
   /**
    * Adds the market option to the URL query.
    *
-   * @param regionLocaleIdentifier The region locale identifier to set.
+   * @see net.ygbstudio.jbrave.api.codes.MarketLocale
+   * @param regionLocale The region locale identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQuery market(@NotNull RegionLocaleIdentifier regionLocaleIdentifier) {
-    return addOptionCarrier(regionLocaleIdentifier.toSearchOption());
+  public <T extends RegionLocaleIdentifier> BraveWebQuery market(@NotNull T regionLocale) {
+    return addOptionCarrier(regionLocale.toSearchOption());
   }
 
   /**
    * Adds the language option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
    * @param languageIdentifier The language identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveWebQuery language(@NotNull LanguageIdentifier languageIdentifier) {
+  public <T extends LanguageIdentifier> BraveWebQuery language(@NotNull T languageIdentifier) {
     return addOptionCarrier(languageIdentifier.toSearchOption());
   }
 
@@ -188,6 +191,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds the units option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.options.Units
    * @param units The units to set.
    * @return The current instance of the builder.
    */
@@ -198,6 +202,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
+   * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param freshness a {@link Freshness} describing the freshness constraint
    * @return the current instance of {@link BraveWebQuery}
    */
@@ -208,6 +213,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds a freshness option to the URL query representing a date range.
    *
+   * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param startDate the start date of the freshness range
    * @param endDate the end date of the freshness range
    * @return the current instance of {@link BraveWebQuery}
@@ -219,6 +225,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds a safe search option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.filters.SafeSearch
    * @param safeSearch a {@link SafeSearch} enum value specifying the safe search level
    * @return the current instance of {@link BraveWebQuery}
    */
@@ -229,6 +236,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds result filters to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.filters.ResultFilter
    * @param resultFilterList a set of {@link ResultFilter} elements to apply; may be empty but not
    *     null
    * @return the current instance of {@link BraveWebQuery}
