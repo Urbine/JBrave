@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core.options;
+package net.ygbstudio.jbrave.core.domain;
 
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 

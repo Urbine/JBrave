@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core.options;
+package net.ygbstudio.jbrave.core.domain;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
