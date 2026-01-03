@@ -22,7 +22,7 @@ package net.ygbstudio.jbrave.api.options;
 
 import net.ygbstudio.jbrave.core.ProvidedOption;
 import net.ygbstudio.jbrave.core.SearchOption;
-import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;

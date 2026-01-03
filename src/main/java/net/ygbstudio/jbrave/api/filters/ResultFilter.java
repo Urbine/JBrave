@@ -25,7 +25,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import net.ygbstudio.jbrave.core.ClientProvidedOption;
 import net.ygbstudio.jbrave.core.SearchFilter;
-import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
