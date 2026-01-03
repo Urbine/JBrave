@@ -18,11 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core;
-
-import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.options.ProvidedOption;
-import net.ygbstudio.jbrave.core.options.SearchOption;
+package net.ygbstudio.jbrave.core.options;
 
 /**
  * Interface for constants that are used in Brave API.
