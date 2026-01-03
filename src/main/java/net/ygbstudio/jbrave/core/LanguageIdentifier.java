@@ -21,6 +21,7 @@
 package net.ygbstudio.jbrave.core;
 
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.core.options.ProvidedOption;
 import org.jspecify.annotations.NonNull;
 
 /**

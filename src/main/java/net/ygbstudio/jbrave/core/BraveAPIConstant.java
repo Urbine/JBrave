@@ -20,6 +20,11 @@
 
 package net.ygbstudio.jbrave.core;
 
+import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.options.ProvidedOption;
+import net.ygbstudio.jbrave.core.options.SearchFilterOption;
+import net.ygbstudio.jbrave.core.options.SearchOption;
+
 /**
  * Interface for constants that are used in Brave API.
  *
