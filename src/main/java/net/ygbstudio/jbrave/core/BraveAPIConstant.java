@@ -29,7 +29,7 @@ public sealed interface BraveAPIConstant
     permits CountryIdentifier,
         LanguageIdentifier,
         RegionLocaleIdentifier,
-        SearchFilter,
+        SearchFilterOption,
         SearchOption,
         SearchVertical {
 
