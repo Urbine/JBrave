@@ -24,7 +24,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
 import net.ygbstudio.jbrave.api.exceptions.BraveGogglesIdentifierException;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
