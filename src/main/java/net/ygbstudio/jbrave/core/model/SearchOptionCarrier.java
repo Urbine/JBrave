@@ -20,9 +20,9 @@
 
 package net.ygbstudio.jbrave.core.model;
 
-import net.ygbstudio.jbrave.core.SearchOption;
-import net.ygbstudio.jbrave.core.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.ProvidedOption;
+import net.ygbstudio.jbrave.core.options.SearchOption;
+import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.options.ProvidedOption;
 
 /**
  * An interface that represents a carrier for a {@link SearchOption} and its corresponding value.
