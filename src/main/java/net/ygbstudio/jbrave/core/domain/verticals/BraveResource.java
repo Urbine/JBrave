@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.verticals;
+package net.ygbstudio.jbrave.core.domain.verticals;
 
 import net.ygbstudio.jbrave.core.domain.SearchVertical;
 import org.jetbrains.annotations.Contract;
