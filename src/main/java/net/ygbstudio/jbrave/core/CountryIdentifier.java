@@ -18,45 +18,44 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.core;
 
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import org.jspecify.annotations.NonNull;
 
 /**
- * An interface representing a language identifier.
+ * An interface representing a country identifier.
  *
- * <p>This interface extends {@link BraveAPIConstant} and is implemented by enums that represent
- * language identifiers.
- *
- * <p>Each language identifier has a {@link #value()} method that is used to get the parameter value
- * for the API requests.
+ * <p>This interface is implemented by enums that represent countries. The {@link CountryIdentifier}
+ * interface extends {@link BraveAPIConstant} and {@link SearchOption}, providing methods for URL
+ * parameter generation.
  *
  * @see BraveAPIConstant
+ * @see SearchOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface LanguageIdentifier extends BraveAPIConstant, ProvidedOption {
-  String URL_PARAM = "search_lang";
+public non-sealed interface CountryIdentifier extends BraveAPIConstant, ProvidedOption {
+  String URL_PARAM = "country";
 
   /**
-   * Converts this language identifier to a {@link SearchOptionCarrier} that can be used to build a
+   * Converts this country identifier to a {@link SearchOptionCarrier} that can be used to build a
    * URL parameter.
    *
-   * @return a {@link SearchOptionCarrier} representing this identifier
+   * @return a {@link SearchOptionCarrier} representing this country identifier
    */
   SearchOptionCarrier<String> toSearchOption();
 
   /**
-   * Generates the URL parameter for this language identifier.
+   * Generates the URL parameter for this country identifier.
    *
-   * <p>The URL parameter has the format {@code "search_lang=<value>"}, where {@code "<value>"} is
-   * the value of this identifier.
+   * <p>The URL parameter has the format {@code "country=<value>"}, where {@code "<value>"} is the
+   * value of this identifier.
    *
-   * @param languageIdentifier the identifier to generate the URL parameter for
+   * @param countryIdentifier the identifier to generate the URL parameter for
    * @return the URL parameter for the given identifier
    */
   @NonNull
-  static String urlParam(@NonNull LanguageIdentifier languageIdentifier) {
-    return URL_PARAM + "=" + languageIdentifier.value();
+  static String urlParam(@NonNull CountryIdentifier countryIdentifier) {
+    return URL_PARAM + "=" + countryIdentifier.value();
   }
 }

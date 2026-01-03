@@ -18,15 +18,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.base.model;
+package net.ygbstudio.jbrave.core.model;
 
-import net.ygbstudio.jbrave.api.base.SearchOption;
+import net.ygbstudio.jbrave.core.SearchOption;
+import net.ygbstudio.jbrave.core.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.ProvidedOption;
 
 /**
  * An interface that represents a carrier for a {@link SearchOption} and its corresponding value.
  *
- * <p>It acts as a building bridge by uniting {@link net.ygbstudio.jbrave.api.base.ProvidedOption}
- * and {@link net.ygbstudio.jbrave.api.base.ClientProvidedOption} implementations.
+ * <p>It acts as a building bridge by uniting {@link ProvidedOption}
+ * and {@link ClientProvidedOption} implementations.
  *
  * <p>Options provided by the API offer automatic conversion to a {@link SearchOptionCarrier},
  * whereas {@link SearchOption} implementations that depend on client-provided values need to make

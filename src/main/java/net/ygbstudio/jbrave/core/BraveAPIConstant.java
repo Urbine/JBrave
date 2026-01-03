@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.base;
+package net.ygbstudio.jbrave.core;
 
 /**
  * Interface for constants that are used in Brave API.

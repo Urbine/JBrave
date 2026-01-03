@@ -18,14 +18,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.base.builders;
+package net.ygbstudio.jbrave.core.builders;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.function.Supplier;
-import net.ygbstudio.jbrave.api.base.BraveAPIConstant;
-import net.ygbstudio.jbrave.api.base.SearchOption;
-import net.ygbstudio.jbrave.api.base.SearchVertical;
+import net.ygbstudio.jbrave.core.BraveAPIConstant;
+import net.ygbstudio.jbrave.core.SearchOption;
+import net.ygbstudio.jbrave.core.SearchVertical;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.exceptions.AbsentSearchQueryException;
 import net.ygbstudio.jbrave.api.exceptions.AbsentSearchVerticalException;
