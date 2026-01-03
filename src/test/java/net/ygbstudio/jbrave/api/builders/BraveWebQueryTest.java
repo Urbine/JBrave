@@ -20,10 +20,10 @@ import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import org.junit.jupiter.api.Test;
 
-class BraveWebQueryBuilderTest {
+class BraveWebQueryTest {
 
   private final String sampleQuery = "test term";
-  private final BraveWebQueryBuilder builder = BraveWebQueryBuilder.builder().query(sampleQuery);
+  private final BraveWebQuery builder = BraveWebQuery.builder().query(sampleQuery);
 
   @Test
   void testSpellCheck() {
@@ -33,7 +33,7 @@ class BraveWebQueryBuilderTest {
 
   @Test
   void testQuery() {
-    BraveWebQueryBuilder anotherBuilder = BraveWebQueryBuilder.builder();
+    BraveWebQuery anotherBuilder = BraveWebQuery.builder();
     String term = "something and everything & all";
     anotherBuilder.query(term);
     assertThat(
@@ -194,7 +194,7 @@ class BraveWebQueryBuilderTest {
 
   @Test
   void testQueryQueryEncoding() {
-    BraveWebQueryBuilder anotherBuilder = BraveWebQueryBuilder.builder();
+    BraveWebQuery anotherBuilder = BraveWebQuery.builder();
     String term = "something and everything & all";
     String encodedTerm = URLEncoder.encode(term, StandardCharsets.UTF_8);
     assertThat(encodedTerm, is("something+and+everything+%26+all"));
@@ -231,7 +231,7 @@ class BraveWebQueryBuilderTest {
   @Test
   void testOneVerticalPerBuilderFactoryCall() {
     assertThat(
-        BraveWebQueryBuilder.builder().builder().query("another query").build(),
+        BraveWebQuery.builder().builder().query("another query").build(),
         is("https://api.search.brave.com/res/v1/web/search?q=another+query"));
   }
 }
