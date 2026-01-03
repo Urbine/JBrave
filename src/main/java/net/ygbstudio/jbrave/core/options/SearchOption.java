@@ -20,8 +20,6 @@
 
 package net.ygbstudio.jbrave.core.options;
 
-import net.ygbstudio.jbrave.core.BraveAPIConstant;
-
 /**
  * An interface representing a search option.
  *
