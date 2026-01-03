@@ -25,13 +25,13 @@ import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 /**
  * An interface representing a search filter.
  *
- * <p>This interface is extended by enums that represent search filters. {@link SearchFilter} also
+ * <p>This interface is extended by enums that represent search filters. {@link SearchFilterOption} also
  * offers fields that are used to generate URL parameter combinations for the API requests.
  *
  * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface SearchFilter extends BraveAPIConstant, ProvidedOption {
+public non-sealed interface SearchFilterOption extends BraveAPIConstant, ProvidedOption {
 
   /**
    * Converts this search filter to a {@link SearchOptionCarrier} that can be used to build a URL
