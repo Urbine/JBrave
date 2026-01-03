@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.api.filters.modes;
 
-import net.ygbstudio.jbrave.api.base.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.ClientProvidedOption;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;

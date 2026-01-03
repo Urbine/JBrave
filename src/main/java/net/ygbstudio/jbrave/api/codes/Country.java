@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.api.codes;
 
-import net.ygbstudio.jbrave.api.base.CountryIdentifier;
+import net.ygbstudio.jbrave.core.CountryIdentifier;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
