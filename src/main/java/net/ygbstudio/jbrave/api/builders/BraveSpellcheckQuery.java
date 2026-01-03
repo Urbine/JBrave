@@ -60,20 +60,22 @@ public class BraveSpellcheckQuery
   /**
    * Adds the language option to the URL query.
    *
-   * @param languageIdentifier The language identifier to set.
+   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
+   * @param language The language identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveSpellcheckQuery language(@NotNull LanguageIdentifier languageIdentifier) {
-    return addOptionCarrier(languageIdentifier.toSearchOption());
+  public <T extends LanguageIdentifier> BraveSpellcheckQuery language(@NotNull T language) {
+    return addOptionCarrier(language.toSearchOption());
   }
 
   /**
    * Adds the country option to the URL query.
    *
-   * @param countryIdentifier The country identifier to set.
+   * @see net.ygbstudio.jbrave.api.codes.Country
+   * @param country The country identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveSpellcheckQuery country(@NotNull CountryIdentifier countryIdentifier) {
-    return addOptionCarrier(countryIdentifier.toSearchOption());
+  public <T extends CountryIdentifier> BraveSpellcheckQuery country(@NotNull T country) {
+    return addOptionCarrier(country.toSearchOption());
   }
 }
