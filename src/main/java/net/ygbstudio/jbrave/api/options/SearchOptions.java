@@ -25,7 +25,7 @@ import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
-import net.ygbstudio.jbrave.api.exceptions.BraveGogglesIdentifierException;
+import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
