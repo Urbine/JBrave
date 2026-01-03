@@ -67,21 +67,23 @@ public final class BraveSuggestQuery
   /**
    * Adds the search language option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveSuggestQuery language(@NotNull LanguageIdentifier searchLanguage) {
+  public <T extends LanguageIdentifier> BraveSuggestQuery language(@NotNull T searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
   /**
    * Adds the country option to the URL query.
    *
-   * @param countryIdentifier The country identifier to set.
+   * @see net.ygbstudio.jbrave.api.codes.Country
+   * @param country The country identifier to set.
    * @return The current instance of the builder.
    */
-  public BraveSuggestQuery country(@NotNull CountryIdentifier countryIdentifier) {
-    return addOptionCarrier(countryIdentifier.toSearchOption());
+  public <T extends CountryIdentifier> BraveSuggestQuery country(@NotNull T country) {
+    return addOptionCarrier(country.toSearchOption());
   }
 
   /**
