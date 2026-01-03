@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.core.options;
 
-import net.ygbstudio.jbrave.core.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 
 /**
@@ -32,7 +31,7 @@ import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
  * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface SearchFilterOption extends BraveAPIConstant, ProvidedOption {
+public interface SearchFilterOption extends ProvidedOption {
 
   /**
    * Converts this search filter to a {@link SearchOptionCarrier} that can be used to build a URL
