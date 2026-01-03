@@ -18,25 +18,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.exceptions;
+package net.ygbstudio.jbrave.core.exceptions;
 
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Exception thrown when a search query is absent in a URL query builder method.
+ * Exception thrown when a URL query builder is not initialized before adding options.
  *
- * <p>Queries cannot be empty and a request without it is not acceptable by the API.
+ * <p>URL query builders must call {@code clear()} before adding options if the implementation
+ * inherits from {@link net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder}.
  *
- * @see net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public class AbsentSearchQueryException extends RuntimeException {
-  public AbsentSearchQueryException(String message) {
+public class UninitializedBuilderException extends RuntimeException {
+  public UninitializedBuilderException(String message) {
     super(message);
   }
 
-  public AbsentSearchQueryException(@NotNull Supplier<String> message) {
+  public UninitializedBuilderException(@NotNull Supplier<String> message) {
     super(message.get());
   }
 }

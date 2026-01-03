@@ -18,25 +18,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.exceptions;
+package net.ygbstudio.jbrave.core.exceptions;
 
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * This exception is thrown when the query term added to the <br>
- * {@link net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder} is invalid.
+ * Exception thrown when a search query is absent in a URL query builder method.
  *
- * <p>A query term is invalid if it contains more than 400 characters or exceeds the 50-word limit.
+ * <p>Queries cannot be empty and a request without it is not acceptable by the API.
  *
+ * @see net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public class InvalidQueryTermException extends RuntimeException {
-  public InvalidQueryTermException(String message) {
+public class AbsentSearchQueryException extends RuntimeException {
+  public AbsentSearchQueryException(String message) {
     super(message);
   }
 
-  public InvalidQueryTermException(@NotNull Supplier<String> message) {
+  public AbsentSearchQueryException(@NotNull Supplier<String> message) {
     super(message.get());
   }
 }

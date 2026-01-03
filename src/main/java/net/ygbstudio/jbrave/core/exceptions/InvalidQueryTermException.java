@@ -18,25 +18,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.exceptions;
+package net.ygbstudio.jbrave.core.exceptions;
 
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Exception thrown when a URL query builder is not initialized before adding options.
+ * This exception is thrown when the query term added to the <br>
+ * {@link net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder} is invalid.
  *
- * <p>URL query builders must call {@code clear()} before adding options if the implementation
- * inherits from {@link net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder}.
+ * <p>A query term is invalid if it contains more than 400 characters or exceeds the 50-word limit.
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public class UninitializedBuilderException extends RuntimeException {
-  public UninitializedBuilderException(String message) {
+public class InvalidQueryTermException extends RuntimeException {
+  public InvalidQueryTermException(String message) {
     super(message);
   }
 
-  public UninitializedBuilderException(@NotNull Supplier<String> message) {
+  public InvalidQueryTermException(@NotNull Supplier<String> message) {
     super(message.get());
   }
 }
