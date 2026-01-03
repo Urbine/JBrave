@@ -20,8 +20,8 @@
 
 package net.ygbstudio.jbrave.api.filters;
 
-import net.ygbstudio.jbrave.core.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.SearchFilterOption;
+import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.options.SearchFilterOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;

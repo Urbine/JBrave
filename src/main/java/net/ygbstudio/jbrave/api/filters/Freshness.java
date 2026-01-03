@@ -22,8 +22,8 @@ package net.ygbstudio.jbrave.api.filters;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import net.ygbstudio.jbrave.core.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.SearchFilterOption;
+import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
+import net.ygbstudio.jbrave.core.options.SearchFilterOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
