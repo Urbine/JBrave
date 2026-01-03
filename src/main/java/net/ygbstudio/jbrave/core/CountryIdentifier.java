@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.core;
 
-import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jspecify.annotations.NonNull;
 
 /**

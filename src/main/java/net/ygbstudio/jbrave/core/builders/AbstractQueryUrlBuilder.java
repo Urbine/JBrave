@@ -26,7 +26,7 @@ import java.util.function.Supplier;
 import net.ygbstudio.jbrave.core.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.SearchOption;
 import net.ygbstudio.jbrave.core.SearchVertical;
-import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchVerticalException;
 import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;

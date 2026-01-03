@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.core;
 
-import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 
 /**
  * An interface representing a search filter.
