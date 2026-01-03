@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.core.options.provided;
 
-import net.ygbstudio.jbrave.core.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.options.ProvidedOption;
 import org.jspecify.annotations.NonNull;
@@ -28,16 +27,12 @@ import org.jspecify.annotations.NonNull;
 /**
  * An interface representing a language identifier.
  *
- * <p>This interface extends {@link BraveAPIConstant} and is implemented by enums that represent
- * language identifiers.
- *
  * <p>Each language identifier has a {@link #value()} method that is used to get the parameter value
  * for the API requests.
  *
- * @see BraveAPIConstant
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface LanguageIdentifier extends BraveAPIConstant, ProvidedOption {
+public interface LanguageIdentifier extends ProvidedOption {
   String URL_PARAM = "search_lang";
 
   /**
