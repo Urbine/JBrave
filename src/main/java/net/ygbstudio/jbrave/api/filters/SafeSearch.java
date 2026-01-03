@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.api.filters;
 import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
 import net.ygbstudio.jbrave.core.domain.SearchFilterOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
-import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
+import net.ygbstudio.jbrave.core.domain.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
