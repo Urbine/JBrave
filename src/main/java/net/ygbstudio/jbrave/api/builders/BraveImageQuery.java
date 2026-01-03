@@ -67,10 +67,11 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   /**
    * Adds the search language option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveImageQuery language(@NotNull LanguageIdentifier searchLanguage) {
+  public <T extends LanguageIdentifier> BraveImageQuery language(@NotNull T searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
@@ -87,10 +88,11 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   /**
    * Adds the country option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.Country
    * @param country the country identifier to set
    * @return the current instance of the builder
    */
-  public BraveImageQuery country(@NotNull CountryIdentifier country) {
+  public <T extends CountryIdentifier> BraveImageQuery country(@NotNull T country) {
     return addOptionCarrier(country.toSearchOption());
   }
 
