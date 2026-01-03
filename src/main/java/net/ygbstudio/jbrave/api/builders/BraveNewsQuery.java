@@ -29,6 +29,7 @@ import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.verticals.BraveResource;
+import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -70,20 +71,22 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   /**
    * Adds the search language option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
-  public BraveNewsQuery language(@NotNull LanguageIdentifier searchLanguage) {
+  public <T extends LanguageIdentifier> BraveNewsQuery language(@NotNull T searchLanguage) {
     return addOptionCarrier(searchLanguage.toSearchOption());
   }
 
   /**
    * Adds the market option to the URL query.
    *
+   * @see net.ygbstudio.jbrave.api.codes.MarketLocale
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */
-  public BraveNewsQuery market(@NotNull MarketLocale uiLanguage) {
+  public <T extends RegionLocaleIdentifier> BraveNewsQuery market(@NotNull T uiLanguage) {
     return addOptionCarrier(uiLanguage.toSearchOption());
   }
 
@@ -130,6 +133,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   /**
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
+   * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param startDate the start date of the freshness constraint
    * @param endDate the end date of the freshness constraint
    * @return the current instance of the builder
@@ -141,6 +145,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   /**
    * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
    *
+   * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param freshness a non-null {@link Freshness} describing the freshness constraint
    * @return the current instance of {@link BraveNewsQuery}
    */
