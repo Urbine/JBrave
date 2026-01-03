@@ -24,7 +24,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.function.Supplier;
 import net.ygbstudio.jbrave.core.BraveAPIConstant;
-import net.ygbstudio.jbrave.core.SearchOption;
+import net.ygbstudio.jbrave.core.options.SearchOption;
 import net.ygbstudio.jbrave.core.SearchVertical;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
