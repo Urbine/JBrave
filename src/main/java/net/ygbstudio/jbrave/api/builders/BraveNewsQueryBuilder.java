@@ -22,7 +22,7 @@ package net.ygbstudio.jbrave.api.builders;
 
 import java.net.URI;
 import java.time.LocalDate;
-import net.ygbstudio.jbrave.core.LanguageIdentifier;
+import net.ygbstudio.jbrave.core.options.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.codes.MarketLocale;
 import net.ygbstudio.jbrave.api.filters.Freshness;

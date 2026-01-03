@@ -20,8 +20,8 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
-import net.ygbstudio.jbrave.core.CountryIdentifier;
-import net.ygbstudio.jbrave.core.LanguageIdentifier;
+import net.ygbstudio.jbrave.core.options.provided.CountryIdentifier;
+import net.ygbstudio.jbrave.core.options.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
