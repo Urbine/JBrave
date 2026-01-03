@@ -27,10 +27,10 @@ import net.ygbstudio.jbrave.core.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.SearchOption;
 import net.ygbstudio.jbrave.core.SearchVertical;
 import net.ygbstudio.jbrave.api.base.model.SearchOptionCarrier;
-import net.ygbstudio.jbrave.api.exceptions.AbsentSearchQueryException;
-import net.ygbstudio.jbrave.api.exceptions.AbsentSearchVerticalException;
-import net.ygbstudio.jbrave.api.exceptions.InvalidQueryTermException;
-import net.ygbstudio.jbrave.api.exceptions.UninitializedBuilderException;
+import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
+import net.ygbstudio.jbrave.core.exceptions.AbsentSearchVerticalException;
+import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;
+import net.ygbstudio.jbrave.core.exceptions.UninitializedBuilderException;
 import org.jetbrains.annotations.NotNull;
 
 /**
