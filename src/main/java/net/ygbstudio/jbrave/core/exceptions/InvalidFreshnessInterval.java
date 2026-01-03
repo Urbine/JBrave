@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.exceptions;
+package net.ygbstudio.jbrave.core.exceptions;
 
 import java.util.function.Supplier;
 import org.jspecify.annotations.NonNull;
