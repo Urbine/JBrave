@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.matchesRegex;
 
 import java.time.LocalDate;
 import net.ygbstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
-import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
+import net.ygbstudio.jbrave.core.domain.modes.SearchFilterMode;
 import org.junit.jupiter.api.Test;
 
 class FreshnessTest {
