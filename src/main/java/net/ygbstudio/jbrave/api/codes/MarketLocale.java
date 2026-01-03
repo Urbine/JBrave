@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.api.codes;
 
-import net.ygbstudio.jbrave.core.RegionLocaleIdentifier;
+import net.ygbstudio.jbrave.core.options.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
