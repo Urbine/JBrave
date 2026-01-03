@@ -21,7 +21,7 @@
 package net.ygbstudio.jbrave.api.filters;
 
 import net.ygbstudio.jbrave.core.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.SearchFilter;
+import net.ygbstudio.jbrave.core.SearchFilterOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
@@ -33,10 +33,10 @@ import org.jetbrains.annotations.Unmodifiable;
  * Enumeration representing safe search filters for the API requests. Filters search results based
  * on the level of explicit content.
  *
- * @see SearchFilter
+ * @see SearchFilterOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum SafeSearch implements SearchFilter, ClientProvidedOption {
+public enum SafeSearch implements SearchFilterOption, ClientProvidedOption {
   OFF("off"),
   MODERATE("moderate"),
   STRICT("strict");

@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.ygbstudio.jbrave.core.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.SearchFilter;
+import net.ygbstudio.jbrave.core.SearchFilterOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
 import net.ygbstudio.jbrave.api.options.BraveSearchOption;
@@ -45,10 +45,10 @@ import org.jetbrains.annotations.Unmodifiable;
  *
  * <p>Support for advanced plans is currently limited.
  *
- * @see SearchFilter
+ * @see SearchFilterOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum ResultFilter implements SearchFilter, ClientProvidedOption {
+public enum ResultFilter implements SearchFilterOption, ClientProvidedOption {
   DISCUSSIONS("discussions"),
   FAQ("faq"),
   INFOBOX("infobox"),

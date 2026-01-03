@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.api.filters;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import net.ygbstudio.jbrave.core.ClientProvidedOption;
-import net.ygbstudio.jbrave.core.SearchFilter;
+import net.ygbstudio.jbrave.core.SearchFilterOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.api.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.api.filters.modes.SearchFilterMode;
@@ -36,10 +36,10 @@ import org.jetbrains.annotations.Unmodifiable;
  * An enumeration representing freshness filters for the API requests. Filters search results by
  * when they were discovered.
  *
- * @see SearchFilter
+ * @see SearchFilterOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public enum Freshness implements SearchFilter, ClientProvidedOption {
+public enum Freshness implements SearchFilterOption, ClientProvidedOption {
   WITHIN_24H("pd"),
   WITHIN_7D("pw"),
   WITHIN_31D("pm"),
