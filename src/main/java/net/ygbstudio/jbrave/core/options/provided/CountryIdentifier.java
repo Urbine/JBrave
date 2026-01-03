@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.core.options.provided;
 
-import net.ygbstudio.jbrave.core.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.options.ProvidedOption;
 import net.ygbstudio.jbrave.core.options.SearchOption;
@@ -30,14 +29,13 @@ import org.jspecify.annotations.NonNull;
  * An interface representing a country identifier.
  *
  * <p>This interface is implemented by enums that represent countries. The {@link CountryIdentifier}
- * interface extends {@link BraveAPIConstant} and {@link SearchOption}, providing methods for URL
+ * interface extends {@link ProvidedOption}, providing methods for URL
  * parameter generation.
  *
- * @see BraveAPIConstant
  * @see SearchOption
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
-public non-sealed interface CountryIdentifier extends BraveAPIConstant, ProvidedOption {
+public interface CountryIdentifier extends ProvidedOption {
   String URL_PARAM = "country";
 
   /**
