@@ -46,8 +46,8 @@ import org.jetbrains.annotations.NotNull;
  * <p>Suggested implementation of factory method:
  *
  * {@snippet :
- *     public static BraveWebQueryBuilder builder() {
- *     return new BraveWebQueryBuilder().addInstanceVertical(BraveResource.WEB).clear();
+ *     public static BraveWebQuery builder() {
+ *     return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).clear();
  *   }
  * }
  *
