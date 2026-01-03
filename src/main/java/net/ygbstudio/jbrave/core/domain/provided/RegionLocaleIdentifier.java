@@ -18,11 +18,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core.options.provided;
+package net.ygbstudio.jbrave.core.domain.provided;
 
-import net.ygbstudio.jbrave.core.options.BraveAPIConstant;
+import net.ygbstudio.jbrave.core.domain.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
-import net.ygbstudio.jbrave.core.options.ProvidedOption;
+import net.ygbstudio.jbrave.core.domain.ProvidedOption;
 import org.jspecify.annotations.NonNull;
 
 /**
