@@ -20,8 +20,8 @@
 
 package net.ygbstudio.jbrave.api.options;
 
-import net.ygbstudio.jbrave.core.ProvidedOption;
-import net.ygbstudio.jbrave.core.SearchOption;
+import net.ygbstudio.jbrave.core.options.ProvidedOption;
+import net.ygbstudio.jbrave.core.options.SearchOption;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
