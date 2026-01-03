@@ -22,7 +22,7 @@ package net.ygbstudio.jbrave.api.builders;
 
 import net.ygbstudio.jbrave.core.CountryIdentifier;
 import net.ygbstudio.jbrave.core.LanguageIdentifier;
-import net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.verticals.BraveResource;
 import org.jetbrains.annotations.NotNull;

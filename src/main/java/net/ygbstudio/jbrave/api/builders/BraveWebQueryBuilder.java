@@ -26,7 +26,7 @@ import java.util.Set;
 import net.ygbstudio.jbrave.core.CountryIdentifier;
 import net.ygbstudio.jbrave.core.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.RegionLocaleIdentifier;
-import net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
