@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
  * Exception thrown when a URL query builder is not initialized before adding options.
  *
  * <p>URL query builders must call {@code clear()} before adding options if the implementation
- * inherits from {@link net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder}.
+ * inherits from {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder}.
  *
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */

@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * This exception is thrown when the query term added to the <br>
- * {@link net.ygbstudio.jbrave.api.base.builders.AbstractQueryUrlBuilder} is invalid.
+ * {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder} is invalid.
  *
  * <p>A query term is invalid if it contains more than 400 characters or exceeds the 50-word limit.
  *
