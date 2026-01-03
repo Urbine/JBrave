@@ -22,11 +22,7 @@ package net.ygbstudio.jbrave.core;
 
 import net.ygbstudio.jbrave.core.options.ClientProvidedOption;
 import net.ygbstudio.jbrave.core.options.ProvidedOption;
-import net.ygbstudio.jbrave.core.options.SearchFilterOption;
 import net.ygbstudio.jbrave.core.options.SearchOption;
-import net.ygbstudio.jbrave.core.options.provided.CountryIdentifier;
-import net.ygbstudio.jbrave.core.options.provided.LanguageIdentifier;
-import net.ygbstudio.jbrave.core.options.provided.RegionLocaleIdentifier;
 
 /**
  * Interface for constants that are used in Brave API.
@@ -34,10 +30,7 @@ import net.ygbstudio.jbrave.core.options.provided.RegionLocaleIdentifier;
  * @author Yoham Gabriel Barboza B. (YGBStudio)
  */
 public sealed interface BraveAPIConstant
-    permits CountryIdentifier,
-        LanguageIdentifier,
-        RegionLocaleIdentifier,
-        SearchFilterOption,
+    permits
         SearchOption,
         SearchVertical {
 
