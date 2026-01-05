@@ -415,8 +415,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    * @throws InterruptedException if the execution is interrupted
    */
   public Optional<HttpResponse<String>> execute() throws InterruptedException {
-    client.queryAddress(toURI());
-    return client.execute();
+    return client.queryAddress(toURI()).execute();
   }
 
   @Override
