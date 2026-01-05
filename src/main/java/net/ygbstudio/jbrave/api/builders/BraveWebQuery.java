@@ -403,7 +403,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    * @return the current instance of {@link BraveWebQuery}
    */
   @Contract("_ -> this")
-  public BraveWebQuery token(@NotNull ClientInfo clientInfo) {
+  public BraveWebQuery withToken(@NotNull ClientInfo clientInfo) {
     client.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
     return this;
   }
