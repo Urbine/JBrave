@@ -146,10 +146,9 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
   protected T addQueryTerm(String queryTerm) {
     boolean isValidQuery = isValidQuery(queryTerm);
     if (queryMissing() && isValidQuery) {
-      urlEnd
-          .append(queryPrompt)
-          .append(URLEncoder.encode(queryTerm, StandardCharsets.UTF_8))
-          .append("&");
+      urlEnd.insert(0, QUERY_PROMPT +
+              URLEncoder.encode(queryTerm, StandardCharsets.UTF_8) +
+              "&");
     } else if (!isValidQuery)
       throw new InvalidQueryTermException(
           () -> "More than 400 characters and 50 words in the query is not allowed");
