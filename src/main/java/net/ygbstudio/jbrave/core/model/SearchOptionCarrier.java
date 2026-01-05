@@ -20,15 +20,15 @@
 
 package net.ygbstudio.jbrave.core.model;
 
-import net.ygbstudio.jbrave.core.domain.SearchOption;
 import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
 import net.ygbstudio.jbrave.core.domain.ProvidedOption;
+import net.ygbstudio.jbrave.core.domain.SearchOption;
 
 /**
  * An interface that represents a carrier for a {@link SearchOption} and its corresponding value.
  *
- * <p>It acts as a building bridge by uniting {@link ProvidedOption}
- * and {@link ClientProvidedOption} implementations.
+ * <p>It acts as a building bridge by uniting {@link ProvidedOption} and {@link
+ * ClientProvidedOption} implementations.
  *
  * <p>Options provided by the API offer automatic conversion to a {@link SearchOptionCarrier},
  * whereas {@link SearchOption} implementations that depend on client-provided values need to make

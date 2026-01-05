@@ -20,17 +20,16 @@
 
 package net.ygbstudio.jbrave.core.domain.provided;
 
-import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.domain.ProvidedOption;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * An interface representing a country identifier.
  *
  * <p>This interface is implemented by enums that represent countries. The {@link CountryIdentifier}
- * interface extends {@link ProvidedOption}, providing methods for URL
- * parameter generation.
+ * interface extends {@link ProvidedOption}, providing methods for URL parameter generation.
  *
  * @see SearchOption
  * @author Yoham Gabriel B. (YGBStudio)

@@ -25,10 +25,7 @@ package net.ygbstudio.jbrave.core.domain;
  *
  * @author Yoham Gabriel B. (YGBStudio)
  */
-public sealed interface BraveAPIConstant
-    permits
-        SearchOption,
-        SearchVertical {
+public sealed interface BraveAPIConstant permits SearchOption, SearchVertical {
 
   /** The base URL for the Brave API. */
   String SEARCH_API_BASE = "https://api.search.brave.com/res/v1";

@@ -32,19 +32,19 @@ import java.net.URI;
  */
 public sealed interface BraveQueryBuilder<T> permits AbstractQueryUrlBuilder {
 
-    /**
-     * Converts the URL query to a URI.
-     *
-     * @return The URI representation of the URL query.
-     */
-    URI toURI();
+  /**
+   * Converts the URL query to a URI.
+   *
+   * @return The URI representation of the URL query.
+   */
+  URI toURI();
 
-    /**
-     * Clears the builder by resetting it to its initial state.
-     *
-     * <p>This method is used to reset the builder to its initial state before adding any options.
-     *
-     * @return The current instance of the builder.
-     */
-    T clear();
+  /**
+   * Clears the builder by resetting it to its initial state.
+   *
+   * <p>This method is used to reset the builder to its initial state before adding any options.
+   *
+   * @return The current instance of the builder.
+   */
+  T clear();
 }

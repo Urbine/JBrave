@@ -20,10 +20,10 @@
 
 package net.ygbstudio.jbrave.core.domain.modes;
 
-import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
+import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
 import org.jetbrains.annotations.ApiStatus.Internal;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

@@ -29,11 +29,11 @@ import java.util.function.Supplier;
 import net.ygbstudio.jbrave.core.domain.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
 import net.ygbstudio.jbrave.core.domain.SearchVertical;
-import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchVerticalException;
 import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;
 import net.ygbstudio.jbrave.core.exceptions.UninitializedBuilderException;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -60,7 +60,8 @@ import org.jetbrains.annotations.NotNull;
  * @param <T> The concrete builder class.
  * @author Yoham Gabriel B. (YGBStudio)
  */
-public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> implements BraveQueryBuilder<T> {
+public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>>
+    implements BraveQueryBuilder<T> {
 
   protected static final String QUERY_PROMPT = "q=";
   protected StringBuilder urlEnd;
@@ -91,7 +92,8 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    */
   protected boolean optionMissing(@NotNull SearchOption option) {
     if (optionTracker == null)
-        throw new UninitializedBuilderException(() -> "Option tracker set is null. Call clear() before adding options");
+      throw new UninitializedBuilderException(
+          () -> "Option tracker set is null. Call clear() before adding options");
     return !optionTracker.contains(option);
   }
 
@@ -146,9 +148,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
   protected T addQueryTerm(String queryTerm) {
     boolean isValidQuery = isValidQuery(queryTerm);
     if (queryMissing() && isValidQuery) {
-      urlEnd.insert(0, QUERY_PROMPT +
-              URLEncoder.encode(queryTerm, StandardCharsets.UTF_8) +
-              "&");
+      urlEnd.insert(0, QUERY_PROMPT + URLEncoder.encode(queryTerm, StandardCharsets.UTF_8) + "&");
     } else if (!isValidQuery)
       throw new InvalidQueryTermException(
           () -> "More than 400 characters and 50 words in the query is not allowed");
@@ -165,8 +165,8 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    */
   protected <U> T addOption(@NotNull SearchOption option, U value) {
     if (optionMissing(option)) {
-        urlEnd.append(option.urlParam()).append(value).append("&");
-        optionTracker.add(option);
+      urlEnd.append(option.urlParam()).append(value).append("&");
+      optionTracker.add(option);
     }
     return self();
   }
@@ -179,9 +179,9 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @return The current instance of the builder.
    */
   protected <V> T addOptionCarrier(@NotNull SearchOptionCarrier<V> optionCarrier) {
-    if (optionMissing(optionCarrier.option())){
-        urlEnd.append(optionCarrier.buildParam()).append("&");
-        optionTracker.add(optionCarrier.option());
+    if (optionMissing(optionCarrier.option())) {
+      urlEnd.append(optionCarrier.buildParam()).append("&");
+      optionTracker.add(optionCarrier.option());
     }
     return self();
   }
@@ -237,7 +237,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    *
    * @return The URI representation of the URL query.
    */
-  public URI toURI(){
-      return URI.create(build());
+  public URI toURI() {
+    return URI.create(build());
   }
 }

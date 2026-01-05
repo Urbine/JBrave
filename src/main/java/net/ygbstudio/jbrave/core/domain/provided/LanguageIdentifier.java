@@ -20,8 +20,8 @@
 
 package net.ygbstudio.jbrave.core.domain.provided;
 
-import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.domain.ProvidedOption;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jetbrains.annotations.NotNull;
 
 /**
