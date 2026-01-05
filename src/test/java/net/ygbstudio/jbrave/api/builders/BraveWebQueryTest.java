@@ -12,12 +12,12 @@ import java.util.Set;
 import net.ygbstudio.jbrave.api.codes.Country;
 import net.ygbstudio.jbrave.api.codes.MarketLocale;
 import net.ygbstudio.jbrave.api.codes.SearchLanguage;
+import net.ygbstudio.jbrave.api.filters.ResultFilter;
+import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
 import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
 import net.ygbstudio.jbrave.core.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;
-import net.ygbstudio.jbrave.api.filters.ResultFilter;
-import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import org.junit.jupiter.api.Test;
 
 class BraveWebQueryTest {
@@ -37,7 +37,8 @@ class BraveWebQueryTest {
     String term = "something and everything & all";
     anotherBuilder.query(term);
     assertThat(
-        anotherBuilder.toURI().toString().contains(URLEncoder.encode(term, StandardCharsets.UTF_8)), is(true));
+        anotherBuilder.toURI().toString().contains(URLEncoder.encode(term, StandardCharsets.UTF_8)),
+        is(true));
   }
 
   @Test
@@ -130,9 +131,11 @@ class BraveWebQueryTest {
     builder.query(another);
     // Only one term per search is supported
     assertThat(
-        builder.toURI().toString().contains(URLEncoder.encode(sampleQuery, StandardCharsets.UTF_8)), is(true));
+        builder.toURI().toString().contains(URLEncoder.encode(sampleQuery, StandardCharsets.UTF_8)),
+        is(true));
     assertThat(
-        builder.toURI().toString().contains(URLEncoder.encode(another, StandardCharsets.UTF_8)), is(false));
+        builder.toURI().toString().contains(URLEncoder.encode(another, StandardCharsets.UTF_8)),
+        is(false));
   }
 
   @Test
@@ -160,7 +163,9 @@ class BraveWebQueryTest {
   @Test
   void testMarket() {
     builder.market(MarketLocale.UNITED_STATES_SPANISH);
-    assertThat(builder.toURI().toString().contains(MarketLocale.UNITED_STATES_SPANISH.urlParam()), is(true));
+    assertThat(
+        builder.toURI().toString().contains(MarketLocale.UNITED_STATES_SPANISH.urlParam()),
+        is(true));
   }
 
   @Test
@@ -223,9 +228,11 @@ class BraveWebQueryTest {
 
   @Test
   void testMultipleBuildInvocation() {
-    builder.toURI().toString();
-    builder.toURI().toString();
-    assertThat(builder.toURI().toString(), is("https://api.search.brave.com/res/v1/web/search?q=test+term"));
+    builder.toURI();
+    builder.toURI();
+    assertThat(
+        builder.toURI().toString(),
+        is("https://api.search.brave.com/res/v1/web/search?q=test+term"));
   }
 
   @Test

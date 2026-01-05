@@ -5,8 +5,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.matchesRegex;
 
 import java.time.LocalDate;
-import net.ygbstudio.jbrave.core.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.core.domain.modes.SearchFilterMode;
+import net.ygbstudio.jbrave.core.exceptions.InvalidFreshnessInterval;
 import org.junit.jupiter.api.Test;
 
 class FreshnessTest {
