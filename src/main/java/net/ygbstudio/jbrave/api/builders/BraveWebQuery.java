@@ -295,4 +295,121 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   public BraveWebQuery goggles(URI gogglesUri) {
     return addOptionCarrier(SearchOptions.goggles(gogglesUri));
   }
+
+  /**
+   * Adds a latitude header to the request.
+   *
+   * @param latitude the latitude value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery latitudeHeader(long latitude) {
+    client.addCustomHeader(BraveHeaders.LATITUDE, String.valueOf(latitude));
+    return this;
+  }
+
+  /**
+   * Adds a longitude header to the request.
+   *
+   * @param longitude the longitude value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery longitudeHeader(long longitude) {
+    client.addCustomHeader(BraveHeaders.LONGITUDE, String.valueOf(longitude));
+    return this;
+  }
+
+  /**
+   * Adds a timezone header to the request.
+   *
+   * @param timezone the timezone value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery timezoneHeader(@NotNull ZoneId timezone) {
+    client.addCustomHeader(BraveHeaders.TIMEZONE, timezone.toString());
+    return this;
+  }
+
+  /**
+   * Adds a country header to the request.
+   *
+   * @param country the country value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery countryHeader(String country) {
+    client.addCustomHeader(BraveHeaders.COUNTRY, country);
+    return this;
+  }
+
+  /**
+   * Adds a city header to the request.
+   *
+   * @param city the city value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery cityHeader(String city) {
+    client.addCustomHeader(BraveHeaders.CITY, city);
+    return this;
+  }
+
+  /**
+   * Adds a state header to the request.
+   *
+   * @param state the state value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery stateHeader(String state) {
+    client.addCustomHeader(BraveHeaders.STATE, state);
+    return this;
+  }
+
+  /**
+   * Adds a state name header to the request.
+   *
+   * @param stateName the state name value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery stateNameHeader(String stateName) {
+    client.addCustomHeader(BraveHeaders.STATE_NAME, stateName);
+    return this;
+  }
+
+  /**
+   * Adds a postal code header to the request.
+   *
+   * @param postalCode the postal code value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery postalCodeHeader(String postalCode) {
+    client.addCustomHeader(BraveHeaders.POSTAL_CODE, postalCode);
+    return this;
+  }
+
+  /**
+   * Sets the subscription token header using the provided {@link ClientInfo} instance.
+   *
+   * @param clientInfo the {@link ClientInfo} instance containing the subscription token
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  @Contract("_ -> this")
+  public BraveWebQuery token(@NotNull ClientInfo clientInfo) {
+    client.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    return this;
+  }
+
+  /**
+   * Executes the request and returns an optional response.
+   *
+   * @return an optional response to the request
+   * @throws InterruptedException if the execution is interrupted
+   */
+  public Optional<HttpResponse<String>> execute() throws InterruptedException {
+    client.queryAddress(toURI());
+    return client.execute();
+  }
+
+  @Override
+  public BraveWebQuery clear() {
+    client.clear();
+    return super.clear();
+  }
 }
