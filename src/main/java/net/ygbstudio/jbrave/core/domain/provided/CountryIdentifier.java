@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.core.domain.provided;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.domain.ProvidedOption;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An interface representing a country identifier.
@@ -55,8 +55,7 @@ public interface CountryIdentifier extends ProvidedOption {
    * @param countryIdentifier the identifier to generate the URL parameter for
    * @return the URL parameter for the given identifier
    */
-  @NonNull
-  static String urlParam(@NonNull CountryIdentifier countryIdentifier) {
+  static @NotNull String urlParam(@NotNull CountryIdentifier countryIdentifier) {
     return URL_PARAM + "=" + countryIdentifier.value();
   }
 }

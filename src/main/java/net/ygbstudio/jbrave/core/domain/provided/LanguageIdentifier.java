@@ -22,7 +22,7 @@ package net.ygbstudio.jbrave.core.domain.provided;
 
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.domain.ProvidedOption;
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An interface representing a language identifier.
@@ -52,8 +52,7 @@ public interface LanguageIdentifier extends ProvidedOption {
    * @param languageIdentifier the identifier to generate the URL parameter for
    * @return the URL parameter for the given identifier
    */
-  @NonNull
-  static String urlParam(@NonNull LanguageIdentifier languageIdentifier) {
+  static @NotNull String urlParam(@NotNull LanguageIdentifier languageIdentifier) {
     return URL_PARAM + "=" + languageIdentifier.value();
   }
 }

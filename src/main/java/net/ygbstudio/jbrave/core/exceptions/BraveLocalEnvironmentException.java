@@ -21,7 +21,7 @@
 package net.ygbstudio.jbrave.core.exceptions;
 
 import java.util.function.Supplier;
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Exception thrown when there is an error related to the local environment. It is thrown when the
@@ -34,7 +34,7 @@ public class BraveLocalEnvironmentException extends RuntimeException {
     super(message);
   }
 
-  public BraveLocalEnvironmentException(@NonNull Supplier<String> message) {
+  public BraveLocalEnvironmentException(@NotNull Supplier<String> message) {
     super(message.get());
   }
 }

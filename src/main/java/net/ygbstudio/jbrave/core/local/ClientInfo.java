@@ -26,7 +26,6 @@ import java.util.Properties;
 import net.ygbstudio.jbrave.core.exceptions.BraveLocalEnvironmentException;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.NonNull;
 
 /**
  * Represents the client information.
@@ -34,7 +33,7 @@ import org.jspecify.annotations.NonNull;
  * @param subscriptionToken the subscription token for the client.
  * @author Yoham Gabriel B. (YGBStudio)
  */
-public record ClientInfo(@NonNull String subscriptionToken) {
+public record ClientInfo(@NotNull String subscriptionToken) {
 
   /**
    * Create a new instance of ClientInfo from properties file.

@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.core.domain.provided;
 import net.ygbstudio.jbrave.core.domain.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.domain.ProvidedOption;
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An interface representing a region-locale identifier.
@@ -59,8 +59,7 @@ public interface RegionLocaleIdentifier extends ProvidedOption {
    * @param regionLocaleIdentifier the identifier to generate the URL parameter for
    * @return the URL parameter for the given identifier
    */
-  @NonNull
-  static String urlParam(@NonNull RegionLocaleIdentifier regionLocaleIdentifier) {
+  static @NotNull String urlParam(@NotNull RegionLocaleIdentifier regionLocaleIdentifier) {
     return URL_PARAM + "=" + regionLocaleIdentifier.value();
   }
 }

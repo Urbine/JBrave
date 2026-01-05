@@ -29,7 +29,6 @@ import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
 import net.ygbstudio.jbrave.core.model.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.NonNull;
 
 public enum SearchOptions implements ClientProvidedOption {
   COUNT("count"),
@@ -56,7 +55,7 @@ public enum SearchOptions implements ClientProvidedOption {
 
   @Contract(pure = true)
   @Override
-  public @NonNull String urlParam() {
+  public @NotNull String urlParam() {
     return value + "=";
   }
 

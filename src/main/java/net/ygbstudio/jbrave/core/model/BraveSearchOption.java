@@ -24,7 +24,6 @@ import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.NonNull;
 
 /**
  * A search option that can be used in the search methods.
@@ -53,7 +52,6 @@ public record BraveSearchOption<V>(SearchOption option, V value) implements Sear
    *
    * @return the URL parameter for this search option
    */
-  @NonNull
   public String buildParam() {
     String optionParam = option.urlParam();
     return optionParam.endsWith("=") ? optionParam + value : optionParam;

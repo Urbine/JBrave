@@ -21,7 +21,7 @@
 package net.ygbstudio.jbrave.core.exceptions;
 
 import java.util.function.Supplier;
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Exception thrown when the interval of dates provided for a freshness filter is invalid. (e.g. end
@@ -34,7 +34,7 @@ public class InvalidFreshnessInterval extends RuntimeException {
     super(message);
   }
 
-  public InvalidFreshnessInterval(@NonNull Supplier<String> message) {
+  public InvalidFreshnessInterval(@NotNull Supplier<String> message) {
     super(message.get());
   }
 }
