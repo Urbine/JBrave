@@ -386,6 +386,17 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   }
 
   /**
+   * Adds a user agent header to the request.
+   *
+   * @param userAgent the user agent value to set
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery withUserAgent(String userAgent) {
+    client.addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
+    return this;
+  }
+
+  /**
    * Sets the subscription token header using the provided {@link ClientInfo} instance.
    *
    * @param clientInfo the {@link ClientInfo} instance containing the subscription token
