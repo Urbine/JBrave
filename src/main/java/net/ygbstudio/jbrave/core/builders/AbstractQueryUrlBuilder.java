@@ -231,4 +231,13 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
 
     return builtUrl.endsWith("&") ? builtUrl.substring(0, builtUrl.lastIndexOf("&")) : builtUrl;
   }
+
+  /**
+   * Converts the URL query to a URI.
+   *
+   * @return The URI representation of the URL query.
+   */
+  public URI toURI(){
+      return URI.create(build());
+  }
 }
