@@ -28,7 +28,7 @@ class BraveWebQueryTest {
   @Test
   void testSpellCheck() {
     builder.spellCheck(true);
-    assertThat(builder.build().contains("spellcheck=true"), is(true));
+    assertThat(builder.toURI().toString().contains("spellcheck=true"), is(true));
   }
 
   @Test
@@ -37,7 +37,7 @@ class BraveWebQueryTest {
     String term = "something and everything & all";
     anotherBuilder.query(term);
     assertThat(
-        anotherBuilder.build().contains(URLEncoder.encode(term, StandardCharsets.UTF_8)), is(true));
+        anotherBuilder.toURI().toString().contains(URLEncoder.encode(term, StandardCharsets.UTF_8)), is(true));
   }
 
   @Test
@@ -90,38 +90,38 @@ class BraveWebQueryTest {
   void testCount() {
     int count = 34;
     builder.count(count);
-    assertThat(builder.build().contains("count=" + count), is(true));
+    assertThat(builder.toURI().toString().contains("count=" + count), is(true));
   }
 
   @Test
   void testOffset() {
     int offset = 34;
     builder.offset(offset);
-    assertThat(builder.build().contains("offset=" + offset), is(true));
+    assertThat(builder.toURI().toString().contains("offset=" + offset), is(true));
   }
 
   @Test
   void testTextDecorations() {
     builder.textDecorations(true);
-    assertThat(builder.build().contains("text_decorations=true"), is(true));
+    assertThat(builder.toURI().toString().contains("text_decorations=true"), is(true));
   }
 
   @Test
   void testExtraSnippets() {
     builder.extraSnippets(true);
-    assertThat(builder.build().contains("extra_snippets=true"), is(true));
+    assertThat(builder.toURI().toString().contains("extra_snippets=true"), is(true));
   }
 
   @Test
   void testSummary() {
     builder.summary(true);
-    assertThat(builder.build().contains("summary=true"), is(true));
+    assertThat(builder.toURI().toString().contains("summary=true"), is(true));
   }
 
   @Test
   void testOperators() {
     builder.operators(true);
-    assertThat(builder.build().contains("operators=true"), is(true));
+    assertThat(builder.toURI().toString().contains("operators=true"), is(true));
   }
 
   @Test
@@ -130,9 +130,9 @@ class BraveWebQueryTest {
     builder.query(another);
     // Only one term per search is supported
     assertThat(
-        builder.build().contains(URLEncoder.encode(sampleQuery, StandardCharsets.UTF_8)), is(true));
+        builder.toURI().toString().contains(URLEncoder.encode(sampleQuery, StandardCharsets.UTF_8)), is(true));
     assertThat(
-        builder.build().contains(URLEncoder.encode(another, StandardCharsets.UTF_8)), is(false));
+        builder.toURI().toString().contains(URLEncoder.encode(another, StandardCharsets.UTF_8)), is(false));
   }
 
   @Test
@@ -141,47 +141,47 @@ class BraveWebQueryTest {
     int count2 = 90;
     builder.count(count1).count(count2);
     // Only one count per search is supported
-    assertThat(builder.build().contains("count=" + count1), is(true));
-    assertThat(builder.build().contains("count=" + count2), is(false));
+    assertThat(builder.toURI().toString().contains("count=" + count1), is(true));
+    assertThat(builder.toURI().toString().contains("count=" + count2), is(false));
   }
 
   @Test
   void testCountry() {
     builder.country(Country.UNITED_STATES);
-    assertThat(builder.build().contains(Country.UNITED_STATES.urlParam()), is(true));
+    assertThat(builder.toURI().toString().contains(Country.UNITED_STATES.urlParam()), is(true));
   }
 
   @Test
   void testLanguage() {
     builder.language(SearchLanguage.SPANISH);
-    assertThat(builder.build().contains(SearchLanguage.SPANISH.urlParam()), is(true));
+    assertThat(builder.toURI().toString().contains(SearchLanguage.SPANISH.urlParam()), is(true));
   }
 
   @Test
   void testMarket() {
     builder.market(MarketLocale.UNITED_STATES_SPANISH);
-    assertThat(builder.build().contains(MarketLocale.UNITED_STATES_SPANISH.urlParam()), is(true));
+    assertThat(builder.toURI().toString().contains(MarketLocale.UNITED_STATES_SPANISH.urlParam()), is(true));
   }
 
   @Test
   void testEnableRichCallback() {
     builder.enableRichCallback(true);
-    assertThat(builder.build().contains("enable_rich_callback=true"), is(true));
+    assertThat(builder.toURI().toString().contains("enable_rich_callback=true"), is(true));
   }
 
   @Test
   void testSafeSearch() {
     builder.safeSearch(SafeSearch.MODERATE);
-    builder.build();
-    assertThat(builder.build().contains("safesearch=moderate"), is(true));
+    builder.toURI().toString();
+    assertThat(builder.toURI().toString().contains("safesearch=moderate"), is(true));
   }
 
   @Test
   void testResultFilters() {
     builder.resultFilters(Set.of(ResultFilter.WEB, ResultFilter.SUMMARIZER));
     assertThat(
-        builder.build().contains("result_filter=summarizer,web")
-            || builder.build().contains("result_filter=web,summarizer"),
+        builder.toURI().toString().contains("result_filter=summarizer,web")
+            || builder.toURI().toString().contains("result_filter=web,summarizer"),
         is(true));
   }
 
@@ -198,13 +198,13 @@ class BraveWebQueryTest {
     String term = "something and everything & all";
     String encodedTerm = URLEncoder.encode(term, StandardCharsets.UTF_8);
     assertThat(encodedTerm, is("something+and+everything+%26+all"));
-    assertThat(anotherBuilder.query(term).build().contains(encodedTerm), is(true));
+    assertThat(anotherBuilder.query(term).toURI().toString().contains(encodedTerm), is(true));
   }
 
   @Test
   void testGoggles() {
     builder.goggles(URI.create("http://example.com"));
-    assertThat(builder.build().contains("goggles=http%3A%2F%2Fexample.com"), is(true));
+    assertThat(builder.toURI().toString().contains("goggles=http%3A%2F%2Fexample.com"), is(true));
   }
 
   @Test
@@ -218,20 +218,20 @@ class BraveWebQueryTest {
   @Test
   void testClearBuilder() {
     builder.clear();
-    assertThatException().isThrownBy(builder::build).isInstanceOf(AbsentSearchQueryException.class);
+    assertThatException().isThrownBy(builder::toURI).isInstanceOf(AbsentSearchQueryException.class);
   }
 
   @Test
   void testMultipleBuildInvocation() {
-    builder.build();
-    builder.build();
-    assertThat(builder.build(), is("https://api.search.brave.com/res/v1/web/search?q=test+term"));
+    builder.toURI().toString();
+    builder.toURI().toString();
+    assertThat(builder.toURI().toString(), is("https://api.search.brave.com/res/v1/web/search?q=test+term"));
   }
 
   @Test
   void testOneVerticalPerBuilderFactoryCall() {
     assertThat(
-        BraveWebQuery.builder().builder().query("another query").build(),
+        BraveWebQuery.builder().builder().query("another query").toURI().toString(),
         is("https://api.search.brave.com/res/v1/web/search?q=another+query"));
   }
 }
