@@ -20,8 +20,11 @@
 
 package net.ygbstudio.jbrave.core.builders;
 
+import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 import net.ygbstudio.jbrave.core.domain.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
@@ -57,10 +60,11 @@ import org.jetbrains.annotations.NotNull;
  * @param <T> The concrete builder class.
  * @author Yoham Gabriel B. (YGBStudio)
  */
-public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> {
+public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> implements BraveQueryBuilder<T> {
 
-  protected final String queryPrompt = "q=";
+  protected static final String QUERY_PROMPT = "q=";
   protected StringBuilder urlEnd;
+  protected Set<SearchOption> optionTracker;
   protected StringBuilder urlStart =
       new StringBuilder().append(BraveAPIConstant.SEARCH_API_BASE).append("/");
 
@@ -86,19 +90,21 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    *     otherwise.
    */
   protected boolean optionMissing(@NotNull SearchOption option) {
-    return !urlEnd.toString().contains(option.urlParam());
+    if (optionTracker == null)
+        throw new UninitializedBuilderException(() -> "Option tracker set is null. Call clear() before adding options");
+    return !optionTracker.contains(option);
   }
 
   /**
    * Checks if the query prompt is already present in the URL query.
    *
-   * <p>The query prompt is the string {@code "?q="}.
+   * <p>The query prompt is the string {@code "q="}.
    *
    * @return {@code true} if the query prompt is not already present in the URL query, {@code false}
    *     otherwise.
    */
   protected boolean queryMissing() {
-    return !urlEnd.toString().contains(queryPrompt);
+    return !urlEnd.toString().contains(QUERY_PROMPT);
   }
 
   /**
@@ -159,7 +165,10 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The current instance of the builder.
    */
   protected <U> T addOption(@NotNull SearchOption option, U value) {
-    if (optionMissing(option)) urlEnd.append(option.urlParam()).append(value).append("&");
+    if (optionMissing(option)) {
+        urlEnd.append(option.urlParam()).append(value).append("&");
+        optionTracker.add(option);
+    }
     return self();
   }
 
@@ -171,8 +180,10 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    * @return The current instance of the builder.
    */
   protected <V> T addOptionCarrier(@NotNull SearchOptionCarrier<V> optionCarrier) {
-    if (optionMissing(optionCarrier.option()))
-      urlEnd.append(optionCarrier.buildParam()).append("&");
+    if (optionMissing(optionCarrier.option())){
+        urlEnd.append(optionCarrier.buildParam()).append("&");
+        optionTracker.add(optionCarrier.option());
+    }
     return self();
   }
 
@@ -181,8 +192,9 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
    *
    * @return The current instance of the builder.
    */
-  protected T clear() {
+  public T clear() {
     urlEnd = new StringBuilder();
+    optionTracker = new HashSet<>();
     return self();
   }
 
