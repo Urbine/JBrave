@@ -53,6 +53,7 @@ public abstract class AbstractBraveClientBuilder<T extends AbstractBraveClientBu
   protected Set<BraveSearchHeader> headers;
   protected HttpRequest.Builder internalRequestBuilder;
   protected URI requestURI;
+  protected boolean headersAttached;
 
   /**
    * Returns the current instance of the builder.
@@ -112,6 +113,7 @@ public abstract class AbstractBraveClientBuilder<T extends AbstractBraveClientBu
   public T clear() {
     internalRequestBuilder = HttpRequest.newBuilder();
     headers = new HashSet<>();
+    headersAttached = false;
     return self();
   }
 
@@ -121,11 +123,14 @@ public abstract class AbstractBraveClientBuilder<T extends AbstractBraveClientBu
    * @return the current builder instance
    */
   protected T attachHeaders() {
-    internalRequestBuilder.header("Accept", "application/json");
-    internalRequestBuilder.header("Accept-Encoding", "gzip");
-    headers.stream()
-        .map(BraveSearchHeader::toEntry)
-        .forEach(header -> internalRequestBuilder.header(header.getKey(), header.getValue()));
+    if (!headersAttached) {
+      internalRequestBuilder.header("Accept", "application/json");
+      internalRequestBuilder.header("Accept-Encoding", "gzip");
+      headers.stream()
+          .map(BraveSearchHeader::toEntry)
+          .forEach(header -> internalRequestBuilder.header(header.getKey(), header.getValue()));
+      headersAttached = true;
+    }
     return self();
   }
 
