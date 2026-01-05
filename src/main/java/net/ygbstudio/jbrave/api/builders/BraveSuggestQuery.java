@@ -20,16 +20,15 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
+import net.ygbstudio.jbrave.api.options.SearchOptions;
+import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
-import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
-import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The {@link BraveSuggestQuery} class provides a builder for building Brave Suggest API
- * queries.
+ * The {@link BraveSuggestQuery} class provides a builder for building Brave Suggest API queries.
  *
  * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
  * method to create a new instance of the builder.
@@ -38,8 +37,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Yoham Gabriel B. (YGBStudio)
  */
-public final class BraveSuggestQuery
-    extends AbstractQueryUrlBuilder<BraveSuggestQuery> {
+public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSuggestQuery> {
   private BraveSuggestQuery() {}
 
   /**

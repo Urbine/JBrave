@@ -20,11 +20,11 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
-import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
-import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
-import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
+import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
+import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import org.jetbrains.annotations.NotNull;
 

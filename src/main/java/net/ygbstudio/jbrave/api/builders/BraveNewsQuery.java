@@ -22,13 +22,13 @@ package net.ygbstudio.jbrave.api.builders;
 
 import java.net.URI;
 import java.time.LocalDate;
-import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
-import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
-import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
+import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
+import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import org.jetbrains.annotations.NotNull;
 
 /**

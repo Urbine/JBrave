@@ -21,8 +21,8 @@
 package net.ygbstudio.jbrave.api.codes;
 
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
-import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import net.ygbstudio.jbrave.core.model.BraveSearchOption;
+import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
