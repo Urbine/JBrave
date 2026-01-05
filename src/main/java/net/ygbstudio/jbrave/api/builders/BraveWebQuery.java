@@ -21,18 +21,25 @@
 package net.ygbstudio.jbrave.api.builders;
 
 import java.net.URI;
+import java.net.http.HttpResponse;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Optional;
 import java.util.Set;
-import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
-import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
-import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
-import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.options.Units;
+import net.ygbstudio.jbrave.core.builders.AbstractBraveClientBuilder;
+import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
+import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
+import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
+import net.ygbstudio.jbrave.core.local.ClientInfo;
+import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -49,6 +56,40 @@ import org.jetbrains.annotations.NotNull;
  * @author Yoham Gabriel B. (YGBStudio)
  */
 public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> {
+
+  private static final class BraveWebClient extends AbstractBraveClientBuilder<BraveWebClient> {
+    private BraveWebClient() {}
+
+    /**
+     * Returns a new instance of {@link BraveWebClient} with an empty URL query.
+     *
+     * @return A new instance of {@link BraveWebClient}.
+     */
+    private static BraveWebClient clientBuilder() {
+      return new BraveWebClient().clear();
+    }
+
+    /**
+     * Sets the URI for the request.
+     *
+     * @param query the URI for the request
+     */
+    public void queryAddress(URI query) {
+      queryURI(query);
+    }
+
+    /**
+     * Adds a custom header to the client.
+     *
+     * @param searchHeader the header to be added
+     * @param userAgent the value of the header
+     */
+    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String userAgent) {
+      addHeader(searchHeader, userAgent);
+    }
+  }
+
+  private final BraveWebClient client = BraveWebClient.clientBuilder();
 
   private BraveWebQuery() {}
 
