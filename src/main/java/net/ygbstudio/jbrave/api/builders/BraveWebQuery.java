@@ -254,28 +254,4 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   public BraveWebQuery goggles(URI gogglesUri) {
     return addOptionCarrier(SearchOptions.goggles(gogglesUri));
   }
-
-  /**
-   * Clears the URL query.
-   *
-   * <p>Exposed here to keep the builder API self-contained and IDE-discoverable.
-   *
-   * @return The current instance of the builder.
-   */
-  @Override
-  public BraveWebQuery clear() {
-    return super.clear();
-  }
-
-  /**
-   * Builds the URL query and returns it as a string.
-   *
-   * <p>Exposed here to keep the builder API self-contained and IDE-discoverable.
-   *
-   * @return The URL query as a string.
-   */
-  @Override
-  public String build() {
-    return super.build();
-  }
 }
