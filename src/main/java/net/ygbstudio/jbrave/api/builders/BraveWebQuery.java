@@ -74,8 +74,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      *
      * @param query the URI for the request
      */
-    public void queryAddress(URI query) {
+    public BraveWebClient queryAddress(URI query) {
       queryURI(query);
+      return this;
     }
 
     /**
