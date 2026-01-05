@@ -42,5 +42,5 @@ public non-sealed interface ProvidedOption extends SearchOption {
    *
    * @return a {@link SearchOptionCarrier} representing this search option
    */
-  SearchOptionCarrier<?> toSearchOption();
+  SearchOptionCarrier<String> toSearchOption();
 }
