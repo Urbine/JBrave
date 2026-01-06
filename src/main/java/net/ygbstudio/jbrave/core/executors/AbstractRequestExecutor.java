@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core.builders;
+package net.ygbstudio.jbrave.core.executors;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
