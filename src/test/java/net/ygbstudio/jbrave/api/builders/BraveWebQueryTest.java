@@ -68,7 +68,7 @@ class BraveWebQueryTest {
          aaaaaaaaaaaaaaaaaaaaaaaaaaaa
          aaaaaaaaaaaaaaaa
         """;
-    builder.clear();
+    builder.clearInstance();
     assertThatException()
         .isThrownBy(() -> builder.query(fourHundredChars))
         .isInstanceOf(InvalidQueryTermException.class);
@@ -88,7 +88,7 @@ class BraveWebQueryTest {
           thirtynine forty fortyone fortytwo fortythree fortyfour
           fortyfive fortysix fortyseven fortyeight fortynine fifty
         """;
-    builder.clear();
+    builder.clearInstance();
     assertThatException()
         .isThrownBy(() -> builder.query(fiftyWords))
         .isInstanceOf(InvalidQueryTermException.class);
@@ -229,7 +229,7 @@ class BraveWebQueryTest {
 
   @Test
   void testClearBuilder() {
-    builder.clear();
+    builder.clearInstance();
     assertThatException().isThrownBy(builder::toURI).isInstanceOf(AbsentSearchQueryException.class);
   }
 
