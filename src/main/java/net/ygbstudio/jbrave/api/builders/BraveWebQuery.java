@@ -21,18 +21,20 @@
 package net.ygbstudio.jbrave.api.builders;
 
 import java.net.URI;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Optional;
 import java.util.Set;
+import java.util.function.Consumer;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.options.Units;
-import net.ygbstudio.jbrave.core.builders.AbstractBraveClientBuilder;
+import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.builders.AbstractRequestExecutor;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
@@ -57,16 +59,29 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> {
 
-  private static final class BraveWebClient extends AbstractBraveClientBuilder<BraveWebClient> {
-    private BraveWebClient() {}
+  private static final class BraveWebRequestExecutor
+      extends AbstractRequestExecutor<BraveWebRequestExecutor> {
+    private BraveWebRequestExecutor() {}
+
+    private static final BraveWebRequestExecutor EXECUTOR = new BraveWebRequestExecutor();
+
+    private static HttpResponse<String> executeRequest(HttpRequest request)
+        throws InterruptedException {
+      return EXECUTOR.execute(request);
+    }
+  }
+
+  public static final class BraveRequestBuilder
+      extends AbstractBraveRequestBuilder<BraveRequestBuilder> {
+    private BraveRequestBuilder() {}
 
     /**
-     * Returns a new instance of {@link BraveWebClient} with an empty URL query.
+     * Returns a new instance of {@link BraveWebRequestExecutor} with an empty URL query.
      *
-     * @return A new instance of {@link BraveWebClient}.
+     * @return A new instance of {@link BraveWebRequestExecutor}.
      */
-    private static BraveWebClient clientBuilder() {
-      return new BraveWebClient().clear();
+    private static BraveRequestBuilder builder() {
+      return new BraveRequestBuilder().clear();
     }
 
     /**
@@ -74,7 +89,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      *
      * @param query the URI for the request
      */
-    public BraveWebClient queryAddress(URI query) {
+    private BraveRequestBuilder queryAddress(URI query) {
       queryURI(query);
       return this;
     }
@@ -83,14 +98,127 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a custom header to the client.
      *
      * @param searchHeader the header to be added
-     * @param userAgent the value of the header
+     * @param headerValue the value of the header
      */
-    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String userAgent) {
-      addHeader(searchHeader, userAgent);
+    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String headerValue) {
+      addHeader(searchHeader, headerValue);
+    }
+
+    /**
+     * Adds a latitude header to the request.
+     *
+     * @param latitude the latitude value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withLatitude(double latitude) {
+      addCustomHeader(BraveHeaders.LATITUDE, String.valueOf(latitude));
+      return this;
+    }
+
+    /**
+     * Adds a longitude header to the request.
+     *
+     * @param longitude the longitude value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withLongitude(double longitude) {
+      addCustomHeader(BraveHeaders.LONGITUDE, String.valueOf(longitude));
+      return this;
+    }
+
+    /**
+     * Adds a timezone header to the request.
+     *
+     * @param timezone the timezone value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withTimezone(@NotNull ZoneId timezone) {
+      addCustomHeader(BraveHeaders.TIMEZONE, timezone.toString());
+      return this;
+    }
+
+    /**
+     * Adds a country header to the request.
+     *
+     * @param country the country value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withCountry(String country) {
+      addCustomHeader(BraveHeaders.COUNTRY, country);
+      return this;
+    }
+
+    /**
+     * Adds a city header to the request.
+     *
+     * @param city the city value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withCity(String city) {
+      addCustomHeader(BraveHeaders.CITY, city);
+      return this;
+    }
+
+    /**
+     * Adds a state header to the request.
+     *
+     * @param state the state value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withState(String state) {
+      addCustomHeader(BraveHeaders.STATE, state);
+      return this;
+    }
+
+    /**
+     * Adds a state name header to the request.
+     *
+     * @param stateName the state name value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withStateName(String stateName) {
+      addCustomHeader(BraveHeaders.STATE_NAME, stateName);
+      return this;
+    }
+
+    /**
+     * Adds a postal code header to the request.
+     *
+     * @param postalCode the postal code value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withPostalCode(String postalCode) {
+      addCustomHeader(BraveHeaders.POSTAL_CODE, postalCode);
+      return this;
+    }
+
+    /**
+     * Adds a user agent header to the request.
+     *
+     * @param userAgent the user agent value to set
+     * @return the current instance of {@link BraveWebQuery}
+     */
+    public BraveRequestBuilder withUserAgent(String userAgent) {
+      addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
+      return this;
+    }
+
+    /**
+     * Builds the request using the current state of the builder.
+     *
+     * @return the built {@link HttpRequest}
+     */
+    private HttpRequest buildRequest() {
+      return super.build();
+    }
+
+    /** Clears the request builder, resetting it to its initial state. */
+    private void clearBuilder() {
+      super.clear();
     }
   }
 
-  private final BraveWebClient client = BraveWebClient.clientBuilder();
+  private final BraveRequestBuilder requestBuilder = BraveRequestBuilder.builder();
 
   private BraveWebQuery() {}
 
@@ -298,105 +426,6 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   }
 
   /**
-   * Adds a latitude header to the request.
-   *
-   * @param latitude the latitude value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery latitudeHeader(long latitude) {
-    client.addCustomHeader(BraveHeaders.LATITUDE, String.valueOf(latitude));
-    return this;
-  }
-
-  /**
-   * Adds a longitude header to the request.
-   *
-   * @param longitude the longitude value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery longitudeHeader(long longitude) {
-    client.addCustomHeader(BraveHeaders.LONGITUDE, String.valueOf(longitude));
-    return this;
-  }
-
-  /**
-   * Adds a timezone header to the request.
-   *
-   * @param timezone the timezone value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery timezoneHeader(@NotNull ZoneId timezone) {
-    client.addCustomHeader(BraveHeaders.TIMEZONE, timezone.toString());
-    return this;
-  }
-
-  /**
-   * Adds a country header to the request.
-   *
-   * @param country the country value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery countryHeader(String country) {
-    client.addCustomHeader(BraveHeaders.COUNTRY, country);
-    return this;
-  }
-
-  /**
-   * Adds a city header to the request.
-   *
-   * @param city the city value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery cityHeader(String city) {
-    client.addCustomHeader(BraveHeaders.CITY, city);
-    return this;
-  }
-
-  /**
-   * Adds a state header to the request.
-   *
-   * @param state the state value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery stateHeader(String state) {
-    client.addCustomHeader(BraveHeaders.STATE, state);
-    return this;
-  }
-
-  /**
-   * Adds a state name header to the request.
-   *
-   * @param stateName the state name value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery stateNameHeader(String stateName) {
-    client.addCustomHeader(BraveHeaders.STATE_NAME, stateName);
-    return this;
-  }
-
-  /**
-   * Adds a postal code header to the request.
-   *
-   * @param postalCode the postal code value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery postalCodeHeader(String postalCode) {
-    client.addCustomHeader(BraveHeaders.POSTAL_CODE, postalCode);
-    return this;
-  }
-
-  /**
-   * Adds a user agent header to the request.
-   *
-   * @param userAgent the user agent value to set
-   * @return the current instance of {@link BraveWebQuery}
-   */
-  public BraveWebQuery withUserAgent(String userAgent) {
-    client.addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
-    return this;
-  }
-
-  /**
    * Sets the subscription token header using the provided {@link ClientInfo} instance.
    *
    * @param clientInfo the {@link ClientInfo} instance containing the subscription token
@@ -404,7 +433,20 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    */
   @Contract("_ -> this")
   public BraveWebQuery withToken(@NotNull ClientInfo clientInfo) {
-    client.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    requestBuilder.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    return this;
+  }
+
+  /**
+   * Sets the request headers using the provided consumer.
+   *
+   * @param headers a consumer that accepts an inner request builder instance and applies
+   *     preconfigured headers to it via helper methods.
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  @Contract("_ -> this")
+  public BraveWebQuery withHeaders(@NotNull Consumer<BraveRequestBuilder> headers) {
+    headers.accept(requestBuilder);
     return this;
   }
 
@@ -414,13 +456,23 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    * @return an optional response to the request
    * @throws InterruptedException if the execution is interrupted
    */
-  public Optional<HttpResponse<String>> execute() throws InterruptedException {
-    return client.queryAddress(toURI()).execute();
+  public HttpResponse<String> execute() throws InterruptedException {
+    return BraveWebRequestExecutor.executeRequest(
+        requestBuilder.queryAddress(toURI()).buildRequest());
+  }
+
+  /**
+   * Converts the current query to an {@link HttpRequest} instance.
+   *
+   * @return the {@link HttpRequest} instance representing the current query
+   */
+  public HttpRequest toHttpRequest() {
+    return requestBuilder.queryAddress(toURI()).buildRequest();
   }
 
   @Override
   public BraveWebQuery clear() {
-    client.clear();
+    requestBuilder.clearBuilder();
     return super.clear();
   }
 }
