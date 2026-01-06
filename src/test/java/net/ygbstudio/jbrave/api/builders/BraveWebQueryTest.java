@@ -6,8 +6,10 @@ import static org.hamcrest.Matchers.is;
 
 import java.net.URI;
 import java.net.URLEncoder;
+import java.net.http.HttpHeaders;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Set;
 import net.ygbstudio.jbrave.api.codes.Country;
 import net.ygbstudio.jbrave.api.codes.MarketLocale;
@@ -18,12 +20,17 @@ import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
 import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
 import net.ygbstudio.jbrave.core.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;
+import net.ygbstudio.jbrave.core.exceptions.MissingSubscriptionTokenException;
+import net.ygbstudio.jbrave.core.local.ClientInfo;
+import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.junit.jupiter.api.Test;
 
 class BraveWebQueryTest {
 
   private final String sampleQuery = "test term";
   private final BraveWebQuery builder = BraveWebQuery.builder().query(sampleQuery);
+  private final ClientInfo sampleClientInfo =
+      ClientInfo.fromProperties("sampleClientInfo.properties");
 
   @Test
   void testSpellCheck() {
@@ -240,5 +247,105 @@ class BraveWebQueryTest {
     assertThat(
         BraveWebQuery.builder().builder().query("another query").toURI().toString(),
         is("https://api.search.brave.com/res/v1/web/search?q=another+query"));
+  }
+
+  @Test
+  void testMissingTokenThrow() {
+    assertThatException()
+        .isThrownBy(builder::toHttpRequest)
+        .isInstanceOf(MissingSubscriptionTokenException.class);
+  }
+
+  @Test
+  void testDefaultHeaders() {
+    builder.withToken(sampleClientInfo);
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues("Accept").getFirst(), is("application/json"));
+    assertThat(headers.allValues("Accept-Encoding").getFirst(), is("gzip"));
+  }
+
+  @Test
+  void testCountryHeader() {
+    final String countryCode = "us";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withCountry(countryCode));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.COUNTRY.value()).getFirst(), is(countryCode));
+  }
+
+  @Test
+  void testStateHeader() {
+    final String stateCode = "ca";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withState(stateCode));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.STATE.value()).getFirst(), is(stateCode));
+  }
+
+  @Test
+  void testStateNameHeader() {
+    final String stateName = "California";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withStateName(stateName));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.STATE_NAME.value()).getFirst(), is(stateName));
+  }
+
+  @Test
+  void testCityHeader() {
+    final String cityName = "sf";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withCity(cityName));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.CITY.value()).getFirst(), is(cityName));
+  }
+
+  @Test
+  void testPostalCodeHeader() {
+    final String postalCode = "94102";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withPostalCode(postalCode));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.POSTAL_CODE.value()).getFirst(), is(postalCode));
+  }
+
+  @Test
+  void testTimezoneHeader() {
+    final String timezone = "America/Los_Angeles";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withTimezone(ZoneId.of(timezone)));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.TIMEZONE.value()).getFirst(), is(timezone));
+  }
+
+  @Test
+  void testUserAgentHeader() {
+    final String userAgent =
+        "Mozilla/5.0 (platform; rv:gecko-version) Gecko/gecko-trail Firefox/firefox-version";
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withUserAgent(userAgent));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(headers.allValues(BraveHeaders.USER_AGENT.value()).getFirst(), is(userAgent));
+  }
+
+  @Test
+  void testLatitudeHeader() {
+    final double latitude = 37.774929;
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withLatitude(latitude));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(
+        headers.allValues(BraveHeaders.LATITUDE.value()).getFirst(), is(Double.toString(latitude)));
+  }
+
+  @Test
+  void testLongitudeHeader() {
+    final double longitude = -122.419416;
+    builder.withToken(sampleClientInfo);
+    builder.withHeaders(req -> req.withLongitude(longitude));
+    HttpHeaders headers = builder.toHttpRequest().headers();
+    assertThat(
+        headers.allValues(BraveHeaders.LONGITUDE.value()).getFirst(),
+        is(Double.toString(longitude)));
   }
 }
