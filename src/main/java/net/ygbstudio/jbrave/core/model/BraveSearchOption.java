@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.core.model;
 
-import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

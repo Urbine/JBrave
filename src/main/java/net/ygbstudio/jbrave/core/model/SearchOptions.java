@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.options;
+package net.ygbstudio.jbrave.core.model;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -26,7 +26,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import net.ygbstudio.jbrave.core.domain.ClientProvidedOption;
 import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
-import net.ygbstudio.jbrave.core.model.BraveSearchOption;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
