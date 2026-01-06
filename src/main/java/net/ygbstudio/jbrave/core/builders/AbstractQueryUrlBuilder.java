@@ -34,6 +34,7 @@ import net.ygbstudio.jbrave.core.exceptions.AbsentSearchVerticalException;
 import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;
 import net.ygbstudio.jbrave.core.exceptions.UninitializedBuilderException;
 import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -79,7 +80,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @return Current instance of the builder.
    */
   @SuppressWarnings("unchecked")
-  protected T self() {
+  protected final T self() {
     return (T) this;
   }
 
@@ -90,7 +91,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @return {@code true} if the option is not already present in the URL query, {@code false}
    *     otherwise.
    */
-  protected boolean optionMissing(@NotNull SearchOption option) {
+  protected final boolean optionMissing(@NotNull SearchOption option) {
     if (optionTracker == null)
       throw new UninitializedBuilderException(
           () -> "Option tracker set is null. Call clear() before adding options");
@@ -105,7 +106,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @return {@code true} if the query prompt is not already present in the URL query, {@code false}
    *     otherwise.
    */
-  protected boolean queryMissing() {
+  protected final boolean queryMissing() {
     return !urlEnd.toString().contains(QUERY_PROMPT);
   }
 
@@ -119,7 +120,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @param queryTerm The query term to check.
    * @return {@code true} if the query term is valid, {@code false} otherwise.
    */
-  protected boolean isValidQuery(@NotNull String queryTerm) {
+  protected final boolean isValidQuery(@NotNull String queryTerm) {
     int chars = queryTerm.codePointCount(0, queryTerm.length());
     int words = queryTerm.trim().isEmpty() ? 0 : queryTerm.trim().split("\\s+").length;
     return chars <= 400 && words <= 50;
@@ -134,7 +135,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @param vertical The vertical of builder instance.
    * @return The current instance of the builder.
    */
-  protected T addInstanceVertical(@NotNull SearchVertical vertical) {
+  protected final T addInstanceVertical(@NotNull SearchVertical vertical) {
     urlStart.append(vertical.urlParam()).append("?");
     return self();
   }
@@ -145,7 +146,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @param queryTerm The query term to add.
    * @return The current instance of the builder.
    */
-  protected T addQueryTerm(String queryTerm) {
+  protected final T addQueryTerm(String queryTerm) {
     boolean isValidQuery = isValidQuery(queryTerm);
     if (queryMissing() && isValidQuery) {
       urlEnd.insert(0, QUERY_PROMPT + URLEncoder.encode(queryTerm, StandardCharsets.UTF_8) + "&");
@@ -163,7 +164,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @param <U> The type of the option value.
    * @return The current instance of the builder.
    */
-  protected <U> T addOption(@NotNull SearchOption option, U value) {
+  protected final <U> T addOption(@NotNull SearchOption option, U value) {
     if (optionMissing(option)) {
       urlEnd.append(option.urlParam()).append(value).append("&");
       optionTracker.add(option);
@@ -178,7 +179,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    * @param <V> The type of the option value.
    * @return The current instance of the builder.
    */
-  protected <V> T addOptionCarrier(@NotNull SearchOptionCarrier<V> optionCarrier) {
+  protected final <V> T addOptionCarrier(@NotNull SearchOptionCarrier<V> optionCarrier) {
     if (optionMissing(optionCarrier.option())) {
       urlEnd.append(optionCarrier.buildParam()).append("&");
       optionTracker.add(optionCarrier.option());
@@ -191,7 +192,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    *
    * @return The current instance of the builder.
    */
-  public T clear() {
+  public final T clear() {
     urlEnd = new StringBuilder();
     optionTracker = new HashSet<>();
     return self();
@@ -202,7 +203,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    *
    * @return The final URL query.
    */
-  protected String build() {
+  protected final String build() {
     // Sanity checks for implementors of builders based on this abstract class
     if (urlStart.toString().equals(BraveAPIConstant.SEARCH_API_BASE + "/")) {
       Supplier<String> noVertical =
@@ -237,7 +238,8 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
    *
    * @return The URI representation of the URL query.
    */
-  public URI toURI() {
+  @Contract(" -> new")
+  public final @NotNull URI toURI() {
     return URI.create(build());
   }
 }
