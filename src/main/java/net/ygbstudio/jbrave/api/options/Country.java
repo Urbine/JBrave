@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.api.codes;
+package net.ygbstudio.jbrave.api.options;
 
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.model.BraveSearchOption;
