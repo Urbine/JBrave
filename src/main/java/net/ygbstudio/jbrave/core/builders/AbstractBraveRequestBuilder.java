@@ -37,6 +37,9 @@ import org.jetbrains.annotations.NotNull;
  * functionality to build requests, such as adding headers to the request and building the request
  * itself.
  *
+ * <p><strong>Note: This builder enforces strict request invariants. Subclasses must not override
+ * core lifecycle methods. Extension is intended via additional fluent APIs only.
+ *
  * @param <T> The concrete builder class.
  */
 public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T>> {
