@@ -34,7 +34,7 @@ import net.ygbstudio.jbrave.api.options.SearchOptions;
 import net.ygbstudio.jbrave.api.options.Units;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
-import net.ygbstudio.jbrave.core.builders.AbstractRequestExecutor;
+import net.ygbstudio.jbrave.core.executors.AbstractRequestExecutor;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
@@ -229,7 +229,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    */
   @Contract(value = " -> new", pure = true)
   public static @NotNull BraveWebQuery builder() {
-    return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).clear();
+    return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).clearInstance();
   }
 
   /**
@@ -470,8 +470,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
     return requestBuilder.queryAddress(toURI()).buildRequest();
   }
 
-  @Override
-  public BraveWebQuery clear() {
+  public BraveWebQuery clearInstance() {
     requestBuilder.clearBuilder();
     return super.clear();
   }
