@@ -39,7 +39,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @param <T> The concrete builder class.
  */
-public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T>> {
+public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T>> {
   protected Set<BraveSearchHeader> headers;
   protected HttpRequest.Builder internalRequestBuilder;
   protected URI requestURI;
@@ -55,7 +55,7 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    * @return Current instance of the builder.
    */
   @SuppressWarnings("unchecked")
-  protected T self() {
+  protected final T self() {
     return (T) this;
   }
 
@@ -65,7 +65,7 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    * @param query the URI for the request
    * @return the current builder instance
    */
-  protected T queryURI(URI query) {
+  protected final T queryURI(URI query) {
     internalRequestBuilder.uri(query);
     requestURI = query;
     return self();
@@ -79,13 +79,13 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    * @param <K> the type of the header, which must extend {@link SearchHeader}
    * @return the current builder instance
    */
-  protected <K extends SearchHeader> T addHeader(@NotNull K header, String value) {
+  protected final <K extends SearchHeader> T addHeader(@NotNull K header, String value) {
     headers.add(new BraveSearchHeader(header.value(), value));
     return self();
   }
 
   /** Attaches the headers to the request builder. */
-  protected void attachHeaders() {
+  protected final void attachHeaders() {
     if (!headersAttached) {
       internalRequestBuilder.header("Accept", "application/json");
       internalRequestBuilder.header("Accept-Encoding", "gzip");
@@ -101,7 +101,7 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    *
    * @return true if the subscription token header is missing, false otherwise.
    */
-  protected boolean subscriptionMissing() {
+  protected final boolean subscriptionMissing() {
     return headers.stream()
         .noneMatch(header -> header.header().equals(BraveHeaders.SUBSCRIPTION_TOKEN.value()));
   }
@@ -111,7 +111,7 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    *
    * @return the current builder instance
    */
-  protected T clear() {
+  protected final T clear() {
     headers = new HashSet<>();
     internalRequestBuilder = HttpRequest.newBuilder();
     requestURI = null;
@@ -124,7 +124,7 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    *
    * @return the current builder instance
    */
-  protected T clearRetainURI() {
+  protected final T clearRetainURI() {
     headers = new HashSet<>();
     internalRequestBuilder = HttpRequest.newBuilder();
     headersAttached = false;
@@ -140,7 +140,7 @@ public class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T
    * @return the built {@link HttpRequest}
    * @throws MissingSubscriptionTokenException if the subscription token header is missing
    */
-  protected HttpRequest build() {
+  protected final HttpRequest build() {
     attachHeaders();
     if (subscriptionMissing()) {
       throw new MissingSubscriptionTokenException(
