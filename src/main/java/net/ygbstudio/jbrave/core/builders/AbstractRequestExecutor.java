@@ -59,15 +59,15 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @return an optional response to the request
    * @throws InterruptedException if the execution is interrupted
    */
-  public Optional<HttpResponse<String>> execute(HttpRequest request) throws InterruptedException {
+  public HttpResponse<String> execute(HttpRequest request) throws InterruptedException {
     try (HttpClient client = HttpClient.newHttpClient()) {
-      return Optional.of(client.send(request, new GzipBodyHandler()));
-    } catch (IOException IOEx) {
+      return client.send(request, new GzipBodyHandler());
+    } catch (IOException ioEx) {
       Supplier<String> clientEx =
           () ->
               "Unable to process request for "
                   + request.uri().toString()
-                  + (Objects.nonNull(IOEx.getCause()) ? " Caused by: " + IOEx.getCause() : "");
+                  + (Objects.nonNull(ioEx.getCause()) ? " Caused by: " + ioEx.getCause() : "");
       throw new BraveClientException(clientEx);
     }
   }
