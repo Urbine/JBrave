@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @see BraveClientException
  */
-public class MissingSubscriptionTokenException extends RuntimeException {
+public class MissingSubscriptionTokenException extends BraveClientException {
   public MissingSubscriptionTokenException(String message) {
     super(message);
   }
