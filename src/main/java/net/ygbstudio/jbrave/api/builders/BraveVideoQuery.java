@@ -23,6 +23,8 @@ package net.ygbstudio.jbrave.api.builders;
 import java.time.LocalDate;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
+import net.ygbstudio.jbrave.api.options.MarketLocale;
+import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
@@ -69,7 +71,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * <p>If a query is already present, subsequent calls are ignored. Only one query term is
    * supported per search request.
    *
-   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
+   * @see SearchLanguage
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
@@ -80,7 +82,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   /**
    * Adds the market option to the URL query.
    *
-   * @see net.ygbstudio.jbrave.api.codes.MarketLocale
+   * @see MarketLocale
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */

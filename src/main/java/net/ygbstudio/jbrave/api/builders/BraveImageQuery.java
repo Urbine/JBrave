@@ -21,6 +21,8 @@
 package net.ygbstudio.jbrave.api.builders;
 
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
+import net.ygbstudio.jbrave.api.options.Country;
+import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
@@ -67,7 +69,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   /**
    * Adds the search language option to the URL query.
    *
-   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
+   * @see SearchLanguage
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
@@ -88,7 +90,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   /**
    * Adds the country option to the URL query.
    *
-   * @see net.ygbstudio.jbrave.api.codes.Country
+   * @see Country
    * @param country the country identifier to set
    * @return the current instance of the builder
    */

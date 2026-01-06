@@ -30,6 +30,9 @@ import java.util.function.Consumer;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
+import net.ygbstudio.jbrave.api.options.Country;
+import net.ygbstudio.jbrave.api.options.MarketLocale;
+import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.options.Units;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
@@ -318,7 +321,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds the country option to the URL query.
    *
-   * @see net.ygbstudio.jbrave.api.codes.Country
+   * @see Country
    * @param country The country identifier to set.
    * @return The current instance of the builder.
    */
@@ -329,7 +332,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds the market option to the URL query.
    *
-   * @see net.ygbstudio.jbrave.api.codes.MarketLocale
+   * @see MarketLocale
    * @param regionLocale The region locale identifier to set.
    * @return The current instance of the builder.
    */
@@ -340,7 +343,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   /**
    * Adds the language option to the URL query.
    *
-   * @see net.ygbstudio.jbrave.api.codes.SearchLanguage
+   * @see SearchLanguage
    * @param languageIdentifier The language identifier to set.
    * @return The current instance of the builder.
    */
