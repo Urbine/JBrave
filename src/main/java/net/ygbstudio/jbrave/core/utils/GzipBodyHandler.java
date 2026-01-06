@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
-import net.ygbstudio.jbrave.core.exceptions.BraveClientException;
+import net.ygbstudio.jbrave.core.exceptions.ResponseDecompressionException;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -71,14 +71,14 @@ public final class GzipBodyHandler implements HttpResponse.BodyHandler<String> {
           } catch (IOException ioEx) {
             Supplier<String> decompressErr =
                 () ->
-                    "Failed to decompress response."
+                    "Failed to decompress GZIP response body."
                         + (Objects.nonNull(ioEx.getCause())
                             ? " Caused by "
                                 + ioEx.getCause()
                                 + " Reason: "
                                 + ioEx.getCause().getMessage()
                             : "");
-            throw new BraveClientException(decompressErr);
+            throw new ResponseDecompressionException(decompressErr);
           }
         });
   }
