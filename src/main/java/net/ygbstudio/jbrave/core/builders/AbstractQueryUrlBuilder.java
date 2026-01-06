@@ -58,6 +58,9 @@ import org.jetbrains.annotations.NotNull;
  * <p>The builder will throw {@link AbsentSearchQueryException} if the query string is not present
  * in the URL query.
  *
+ * <p><strong>Note: This builder enforces strict URI construction invariants. Subclasses must not
+ * override core lifecycle methods. Extension is intended via additional fluent APIs only.
+ *
  * @param <T> The concrete builder class.
  * @author Yoham Gabriel B. (YGBStudio)
  */
