@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.core.exceptions;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 
-public class ResponseDecompressionException extends RuntimeException {
+public class ResponseDecompressionException extends BraveClientException {
   public ResponseDecompressionException(String message) {
     super(message);
   }
