@@ -25,15 +25,18 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
+import net.ygbstudio.jbrave.api.options.BravePlan;
+import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitReset;
 import net.ygbstudio.jbrave.core.exceptions.BraveClientException;
 import net.ygbstudio.jbrave.core.exceptions.EmptyTaskListException;
-import net.ygbstudio.jbrave.api.options.BravePlan;
+import net.ygbstudio.jbrave.core.exceptions.RequestRetryExhaustedException;
 import net.ygbstudio.jbrave.core.utils.GzipBodyHandler;
 import org.jetbrains.annotations.NotNull;
 
@@ -49,9 +52,9 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
 
   protected final HttpClient.Builder client =
       HttpClient.newBuilder().version(HttpClient.Version.HTTP_2);
-  protected final GzipBodyHandler gzipBodyHandler = new GzipBodyHandler();
+  protected GzipBodyHandler gzipBodyHandler = new GzipBodyHandler();
   protected List<HttpRequest> requestList;
-  protected RateLimiter rateLimiter;
+  protected RequestPacer requestPacer;
 
   /**
    * Returns the current instance of the builder.
@@ -70,17 +73,17 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
   /**
    * Adds a request to the list of requests.
    *
-   * @param request the request to be added
+   * @param requestSupplier the request to be added
    * @return the current instance of the builder
    */
-  protected final T addRequest(HttpRequest request) {
+  protected final T submit(Supplier<HttpRequest> requestSupplier) {
     if (requestList == null) requestList = new ArrayList<>();
-    requestList.add(request);
+    requestList.add(requestSupplier.get());
     return self();
   }
 
-  protected final T addRateLimiter(RateLimiter limiter) {
-    this.rateLimiter = limiter;
+  protected final T addRatePacer(RequestPacer pacer) {
+    this.requestPacer = pacer;
     return self();
   }
 
@@ -104,31 +107,105 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
   }
 
   /**
-   * Executes the request asynchronously and returns a stream of CompletableFutures, each containing
-   * an optional response to the request.
+   * Executes a closed set of HTTP requests sequentially, enforcing rate-limited admission, and
+   * returns a {@link List} of transformed results.
    *
-   * @return a stream of CompletableFutures, each containing an optional response to the request
-   * @throws EmptyTaskListException if the task list is empty
+   * <p>Requests are submitted one at a time according to the configured request pacer. Although the
+   * HTTP client uses asynchronous I/O internally via {@code sendAsync()}, this method enforces
+   * synchronous orchestration by awaiting completion before proceeding to the next request.
+   *
+   * <p>{@code sendAsync()} is used to model request execution and response transformation as a
+   * composable completion stage, allowing response decoration to be expressed as part of the
+   * execution pipeline rather than as inline post-processing. A single-thread executor is supplied
+   * to the HTTP client to reflect the strictly sequential nature of execution and to isolate client
+   * completion work.
+   *
+   * @param decorateRequest a function that transforms an {@link HttpResponse} into a result
+   * @return a {@link List} containing the results, in request order
+   * @throws EmptyTaskListException if the request list is empty
    */
-  protected final @NotNull Stream<CompletableFuture<HttpResponse<String>>> executeAsync() {
-    RateLimiter limiter =
-        Objects.nonNull(rateLimiter) ? rateLimiter : RateLimiter.of(BravePlan.FREE);
-    try (HttpClient httpClient =
-        client
-            .executor(
-                CompletableFuture.delayedExecutor(
-                    limiter.delay(),
-                    limiter.timeUnit(),
-                    Executors.newVirtualThreadPerTaskExecutor()))
-            .build()) {
+  protected final @NotNull <E> List<E> executeAllPaced(
+      Function<? super HttpResponse<String>, E> decorateRequest) {
+    RequestPacer pacer =
+        Objects.nonNull(requestPacer) ? requestPacer : RequestPacer.of(BravePlan.FREE);
+    try (HttpClient httpClient = client.executor(Executors.newSingleThreadExecutor()).build()) {
       if (requestList == null) {
         Supplier<String> taskListErr =
             () -> "Unable to execute tasks asynchronously. Task list is empty.";
         throw new EmptyTaskListException(taskListErr);
       }
-      return requestList.parallelStream()
-          .unordered()
-          .map(req -> httpClient.sendAsync(req, gzipBodyHandler));
+
+      List<E> resultList = new ArrayList<>();
+      Iterator<HttpRequest> requestIterator = requestList.iterator();
+      while (requestIterator.hasNext()) {
+        resultList.add(
+            httpClient
+                .sendAsync(requestIterator.next(), gzipBodyHandler)
+                .thenApply(decorateRequest)
+                .join());
+        requestIterator.remove();
+        try {
+          pacer.timeUnit().sleep(pacer.delay());
+        } catch (InterruptedException e) {
+          Thread.currentThread().interrupt();
+        }
+      }
+      return resultList;
+    }
+  }
+
+  /**
+   * Executes the requests in the request list, retrying requests that receive a 429 status code up
+   * to the specified maximum number of retries.
+   *
+   * @param maxRetries the maximum number of retries for requests that receive a 429 status code
+   * @return a list of {@link HttpResponse}s, in request order
+   * @throws RequestRetryExhaustedException if the maximum number of retries is reached for a
+   *     request
+   * @throws RequestRetryExhaustedException if an I/O error occurs while executing the HTTP request
+   */
+  public final @NotNull List<HttpResponse<String>> executeWithRetries(int maxRetries) {
+    try (HttpClient httpClient = client.executor(Executors.newSingleThreadExecutor()).build()) {
+      if (requestList == null) {
+        Supplier<String> taskListErr =
+            () -> "Unable to execute tasks asynchronously. Task list is empty.";
+        throw new EmptyTaskListException(taskListErr);
+      }
+
+      List<HttpResponse<String>> resultList = new ArrayList<>();
+      Iterator<HttpRequest> requestIterator = requestList.iterator();
+      while (requestIterator.hasNext()) {
+        int attempt = 0;
+        HttpRequest currentRequest = requestIterator.next();
+        HttpResponse<String> httpResponse = null;
+        try {
+          do {
+            httpResponse = httpClient.send(currentRequest, gzipBodyHandler);
+            attempt++;
+            if (httpResponse.statusCode() != 429) {
+              resultList.add(httpResponse);
+              requestIterator.remove();
+              break;
+            }
+            XRateLimitReset limitReset = XRateLimitReset.from(httpResponse);
+            double waitTime = Math.pow(2, attempt);
+            TimeUnit.SECONDS.sleep(Long.max(limitReset.secondsUntilNextRequest(), (int) waitTime));
+          } while (httpResponse.statusCode() == 429 && attempt <= maxRetries);
+        } catch (InterruptedException e) {
+          Thread.currentThread().interrupt();
+          throw new RequestRetryExhaustedException(
+              "Request was interrupted during retry attempt " + attempt + " of " + maxRetries,
+              e,
+              maxRetries,
+              httpResponse != null ? httpResponse.statusCode() : -1,
+              currentRequest.method(),
+              currentRequest.uri().toString());
+        }
+      }
+      return resultList;
+    } catch (IOException e) {
+      throw new RequestRetryExhaustedException(
+          "I/O error while executing HTTP request", e, maxRetries, -1, "UNKNOWN", "UNKNOWN");
     }
   }
 }
