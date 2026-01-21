@@ -26,6 +26,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 import net.ygbstudio.jbrave.core.domain.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
 import net.ygbstudio.jbrave.core.domain.SearchVertical;
@@ -58,17 +59,16 @@ import org.jetbrains.annotations.NotNull;
  * <p>The builder will throw {@link AbsentSearchQueryException} if the query string is not present
  * in the URL query.
  *
- * <p><strong>Note: This builder enforces strict URI construction invariants. Subclasses must not
- * override core lifecycle methods. Extension is intended via additional fluent APIs only.
+ * <p><strong>Note:</strong> This builder enforces strict URI construction invariants. Subclasses
+ * must not override core lifecycle methods. Extension is intended via additional fluent APIs only.
  *
  * @param <T> The concrete builder class.
- * @author Yoham Gabriel B. (YGBStudio)
  */
-public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>>
-    implements BraveQueryBuilder<T> {
+public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> {
 
   protected static final String QUERY_PROMPT = "q=";
   protected StringBuilder urlEnd;
+  protected StringBuilder delayedOperators;
   protected Set<SearchOption> optionTracker;
   protected StringBuilder urlStart =
       new StringBuilder().append(BraveAPIConstant.SEARCH_API_BASE).append("/");
@@ -144,18 +144,38 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
   }
 
   /**
-   * Adds a query term to the URL query and encodes it using UTF-8.
+   * Adds a query term to the URL query and encodes it using UTF-8. If {@code appendOperator} is
+   * true, the new queryTerm will append to the existing query term in the builder as a search
+   * operator, if any.
    *
    * @param queryTerm The query term to add.
+   * @param appendOperator Whether or not to interpret {@code queryTerm} as search operator and
+   *     append it to the existing term or save it for later concatenation.
    * @return The current instance of the builder.
    */
-  protected final T addQueryTerm(String queryTerm) {
+  protected final T addQueryTerm(String queryTerm, boolean appendOperator) {
     boolean isValidQuery = isValidQuery(queryTerm);
-    if (queryMissing() && isValidQuery) {
-      urlEnd.insert(0, QUERY_PROMPT + URLEncoder.encode(queryTerm, StandardCharsets.UTF_8) + "&");
+    UnaryOperator<String> encodeQuery = query -> URLEncoder.encode(query, StandardCharsets.UTF_8);
+
+    if (queryMissing() && isValidQuery && !appendOperator) {
+      urlEnd.insert(
+          0,
+          QUERY_PROMPT
+              + encodeQuery.apply(queryTerm)
+              + (delayedOperators.isEmpty() ? "" : delayedOperators)
+              + "&");
+
+    } else if (appendOperator && isValidQuery) {
+      if (!queryMissing()) {
+        int currentQueryEndIndex = urlEnd.indexOf("&", 0);
+        String currentQuery = urlEnd.substring(0, currentQueryEndIndex);
+        urlEnd.replace(0, currentQueryEndIndex, currentQuery + "+" + encodeQuery.apply(queryTerm));
+      } else delayedOperators.append("+").append(encodeQuery.apply(queryTerm));
+
     } else if (!isValidQuery)
       throw new InvalidQueryTermException(
           () -> "More than 400 characters and 50 words in the query is not allowed");
+
     return self();
   }
 
@@ -198,6 +218,7 @@ public abstract non-sealed class AbstractQueryUrlBuilder<T extends AbstractQuery
   public final T clear() {
     urlEnd = new StringBuilder();
     optionTracker = new HashSet<>();
+    delayedOperators = new StringBuilder();
     return self();
   }
 
