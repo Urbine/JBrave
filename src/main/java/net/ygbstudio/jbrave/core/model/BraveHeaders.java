@@ -20,14 +20,16 @@
 
 package net.ygbstudio.jbrave.core.model;
 
+import java.net.http.HttpHeaders;
+import java.util.List;
+import java.util.function.Function;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Enumeration of possible Brave Search API headers.
  *
  * <p>Used as a shorthand for setting custom headers in the API requests.
- *
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum BraveHeaders implements SearchHeader {
   SUBSCRIPTION_TOKEN("x-subscription-token"),
@@ -55,12 +57,49 @@ public enum BraveHeaders implements SearchHeader {
   // Client's postal code
   POSTAL_CODE("x-loc-postal-code"),
 
-  USER_AGENT("User-Agent");
+  USER_AGENT("User-Agent"),
+
+  // Add 'no-cache' to the request to prevent caching
+  CACHE_CONTROL("Cache-Control"),
+
+  // Check the API changelog for details on the current version
+  API_VERSION("Api-Version"),
+
+  X_RATE_LIMIT("X-RateLimit-Limit"),
+
+  X_RATE_LIMIT_POLICY("X-RateLimit-Policy"),
+
+  X_RATE_LIMIT_REMAINING("X-RateLimit-Remaining"),
+
+  X_RATE_LIMIT_RESET("X-RateLimit-Reset");
 
   private final String value;
 
   BraveHeaders(String value) {
     this.value = value;
+  }
+
+  /**
+   * Extracts all values of the specified header from the HTTP headers.
+   *
+   * @param headers the HTTP headers to extract values from
+   * @return a list of all the values of the specified header
+   */
+  public List<String> extract(@NotNull HttpHeaders headers) {
+    return headers.allValues(value);
+  }
+
+  /**
+   * Extracts the first value of the specified header from the HTTP headers and transforms it using
+   * the provided function.
+   *
+   * @param headers the HTTP headers to extract values from
+   * @param transformer the function used to transform the available header
+   * @param <R> the type of the return value
+   * @return the transformed value of the first value of the specified header
+   */
+  public <R> R extract(@NotNull HttpHeaders headers, Function<String, R> transformer) {
+    return headers.allValues(value).getFirst().transform(transformer);
   }
 
   @Override
