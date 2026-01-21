@@ -28,8 +28,6 @@ import org.jetbrains.annotations.NotNull;
  * {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder} is invalid.
  *
  * <p>A query term is invalid if it contains more than 400 characters or exceeds the 50-word limit.
- *
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public class InvalidQueryTermException extends RuntimeException {
   public InvalidQueryTermException(String message) {

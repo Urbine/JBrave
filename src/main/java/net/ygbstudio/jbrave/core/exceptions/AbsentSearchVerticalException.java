@@ -29,8 +29,6 @@ import org.jetbrains.annotations.NotNull;
  * <p>URL query builders must call {@code addInstanceVertical(SearchVertical)} before building if
  * the implementation inherits from <br>
  * {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder}.
- *
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public class AbsentSearchVerticalException extends RuntimeException {
   public AbsentSearchVerticalException(String message) {

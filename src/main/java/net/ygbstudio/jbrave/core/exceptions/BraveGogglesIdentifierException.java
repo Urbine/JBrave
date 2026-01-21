@@ -28,7 +28,6 @@ import org.jetbrains.annotations.NotNull;
  * parameter value, for example, the resulting URL from URI is malformed.
  *
  * @see java.net.MalformedURLException
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public class BraveGogglesIdentifierException extends RuntimeException {
   public BraveGogglesIdentifierException(String message) {
