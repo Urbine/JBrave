@@ -29,6 +29,11 @@ import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Enumeration of the search options available in the Brave API.
+ *
+ * <p>These options can be used to modify the behavior of the API requests.
+ */
 public enum SearchOptions implements ClientProvidedOption {
   COUNT("count"),
   OFFSET("offset"),
@@ -39,7 +44,8 @@ public enum SearchOptions implements ClientProvidedOption {
   SUMMARY("summary"),
   OPERATORS("operators"),
   GOGGLES("goggles"),
-  RICH("rich");
+  RICH("rich"),
+  INCLUDE_FETCH_METADATA("include_fetch_metadata");
 
   private final String value;
 
@@ -171,6 +177,19 @@ public enum SearchOptions implements ClientProvidedOption {
       throw new BraveGogglesIdentifierException(
           () -> gogglesUri + " is not a valid URL candidate for the goggles parameter value");
     }
+  }
+
+  /**
+   * Creates a new instance of {@link BraveSearchOption} with {@link
+   * SearchOptions#INCLUDE_FETCH_METADATA} and the given value.
+   *
+   * @param includeFetchMetadata the value for {@link SearchOptions#INCLUDE_FETCH_METADATA}
+   * @return a new instance of {@link BraveSearchOption}
+   */
+  @Contract("_ -> new")
+  public static @NotNull BraveSearchOption<Boolean> includeFetchMetadata(
+      boolean includeFetchMetadata) {
+    return BraveSearchOption.of(INCLUDE_FETCH_METADATA, includeFetchMetadata);
   }
 
   /**
