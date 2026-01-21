@@ -49,4 +49,5 @@ build/
 *.json
 
 ### Allowed Files ###
-!**/src/test/resources/*.properties
+!**/src/test/resources/*
+
