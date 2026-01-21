@@ -31,7 +31,6 @@ import org.jetbrains.annotations.NotNull;
  * Represents the client information.
  *
  * @param subscriptionToken the subscription token for the client.
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public record ClientInfo(@NotNull String subscriptionToken) {
 
