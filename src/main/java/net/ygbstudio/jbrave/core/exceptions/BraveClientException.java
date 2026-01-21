@@ -26,8 +26,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * This exception is thrown when there is an error in a request involving the Brave Search API
  * internal client. This exception is a runtime exception and it extends {@link RuntimeException}.
- *
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public class BraveClientException extends RuntimeException {
   public BraveClientException(String message) {
@@ -36,5 +34,9 @@ public class BraveClientException extends RuntimeException {
 
   public BraveClientException(@NotNull Supplier<String> message) {
     super(message.get());
+  }
+
+  public BraveClientException(String message, Throwable cause) {
+    super(message, cause);
   }
 }
