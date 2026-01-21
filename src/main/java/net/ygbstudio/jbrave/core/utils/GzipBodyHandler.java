@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.core.utils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,10 +29,10 @@ import java.net.http.HttpResponse.BodySubscriber;
 import java.net.http.HttpResponse.BodySubscribers;
 import java.util.Objects;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 import net.ygbstudio.jbrave.core.exceptions.ResponseDecompressionException;
 import org.jetbrains.annotations.NotNull;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  * A BodyHandler that decompresses the response body if it is compressed with GZIP.
@@ -65,9 +64,10 @@ public final class GzipBodyHandler implements HttpResponse.BodyHandler<String> {
         inputStream -> {
           try (InputStream in =
                   isCompressed(responseInfo) ? new GZIPInputStream(inputStream) : inputStream;
-              BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+              InputStreamReader gzipStream = new InputStreamReader(in)) {
 
-            return reader.lines().collect(Collectors.joining("\n"));
+            ObjectMapper mapper = JsonSupport.getMapper();
+            return JsonSupport.toJsonString(mapper.readTree(gzipStream));
           } catch (IOException ioEx) {
             Supplier<String> decompressErr =
                 () ->
