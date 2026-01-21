@@ -31,7 +31,6 @@ import org.jetbrains.annotations.Unmodifiable;
  * Enum representing the different language identifiers supported by the Brave Search API.
  *
  * @see LanguageIdentifier
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum SearchLanguage implements LanguageIdentifier {
   ARABIC("ar"),

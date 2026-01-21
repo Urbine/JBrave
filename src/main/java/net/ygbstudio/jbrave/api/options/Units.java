@@ -32,7 +32,6 @@ import org.jetbrains.annotations.Unmodifiable;
  * Enumeration of the different units of measurement that can be used in the search methods.
  *
  * @see SearchOption
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum Units implements ProvidedOption {
   METRIC("metric"),

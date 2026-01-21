@@ -34,7 +34,6 @@ import org.jetbrains.annotations.Unmodifiable;
  * for URL parameter generation.
  *
  * @see RegionLocaleIdentifier
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum MarketLocale implements RegionLocaleIdentifier {
   ARGENTINA("es-AR"),
