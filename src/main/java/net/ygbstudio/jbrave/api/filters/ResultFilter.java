@@ -20,6 +20,8 @@
 
 package net.ygbstudio.jbrave.api.filters;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -46,7 +48,6 @@ import org.jetbrains.annotations.Unmodifiable;
  * <p>Support for advanced plans is currently limited.
  *
  * @see SearchFilterOption
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public enum ResultFilter implements SearchFilterOption, ClientProvidedOption {
   DISCUSSIONS("discussions"),
@@ -90,7 +91,9 @@ public enum ResultFilter implements SearchFilterOption, ClientProvidedOption {
   public static @NotNull @Unmodifiable SearchOptionCarrier<String> from(
       @NotNull Set<ResultFilter> resultFilterSet) {
     return BraveSearchOption.of(
-        SearchFilterMode.RESULT_FILTER, joinOptions(resultFilterSet.toArray(ResultFilter[]::new)));
+        SearchFilterMode.RESULT_FILTER,
+        URLEncoder.encode(
+            joinOptions(resultFilterSet.toArray(ResultFilter[]::new)), StandardCharsets.UTF_8));
   }
 
   @Contract(" -> new")
