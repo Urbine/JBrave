@@ -20,15 +20,26 @@
 
 package net.ygbstudio.jbrave.api.options;
 
-import net.ygbstudio.jbrave.core.executors.RateLimiter;
+import net.ygbstudio.jbrave.core.executors.RequestPacer;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Enumeration of Brave API plans.
+ *
+ * <p>A {@link BravePlan} represents the pricing plan for a Brave API request.
+ */
 public enum BravePlan {
   FREE,
   BASE,
   PRO;
 
-  public @NotNull RateLimiter limitRate() {
-    return RateLimiter.of(this);
+  /**
+   * Returns a {@link RequestPacer} based on the current {@link BravePlan}.
+   *
+   * @return a {@link RequestPacer} instance with the rate limits set according to the current
+   *     plan.
+   */
+  public @NotNull RequestPacer pace() {
+    return RequestPacer.of(this);
   }
 }
