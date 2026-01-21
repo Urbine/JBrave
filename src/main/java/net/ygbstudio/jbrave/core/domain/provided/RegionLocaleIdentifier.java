@@ -37,7 +37,6 @@ import org.jetbrains.annotations.NotNull;
  * for the API requests.
  *
  * @see BraveAPIConstant
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface RegionLocaleIdentifier extends ProvidedOption {
   String URL_PARAM = "ui_lang";

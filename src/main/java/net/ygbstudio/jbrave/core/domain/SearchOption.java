@@ -34,7 +34,6 @@ package net.ygbstudio.jbrave.core.domain;
  * @see BraveAPIConstant
  * @see ProvidedOption
  * @see ClientProvidedOption
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public sealed interface SearchOption extends BraveAPIConstant
     permits ProvidedOption, ClientProvidedOption {}

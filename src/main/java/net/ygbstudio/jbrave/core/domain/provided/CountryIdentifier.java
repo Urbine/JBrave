@@ -32,7 +32,6 @@ import org.jetbrains.annotations.NotNull;
  * interface extends {@link ProvidedOption}, providing methods for URL parameter generation.
  *
  * @see SearchOption
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface CountryIdentifier extends ProvidedOption {
   String URL_PARAM = "country";

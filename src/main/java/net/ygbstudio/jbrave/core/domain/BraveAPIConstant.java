@@ -20,11 +20,7 @@
 
 package net.ygbstudio.jbrave.core.domain;
 
-/**
- * Interface for constants that are used in Brave API.
- *
- * @author Yoham Gabriel B. (YGBStudio)
- */
+/** Interface for constants that are used in Brave API. */
 public sealed interface BraveAPIConstant permits SearchOption, SearchVertical {
 
   /** The base URL for the Brave API. */

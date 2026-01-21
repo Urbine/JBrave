@@ -25,8 +25,6 @@ package net.ygbstudio.jbrave.core.domain;
  *
  * <p>This interface is implemented by enums that represent the headers that can be used in a search
  * request. The {@link SearchHeader} interface provides a method to retrieve the value of a header.
- *
- * @author Yoham Gabriel B. (YGBStudio)
  */
 public interface SearchHeader {
   /**
