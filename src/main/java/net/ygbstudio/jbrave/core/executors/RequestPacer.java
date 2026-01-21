@@ -25,24 +25,24 @@ import net.ygbstudio.jbrave.api.options.BravePlan;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Represents a rate limiter that controls the rate at which tasks can be executed.
+ * Represents a rate/request pacer that controls the interval at which tasks can be executed.
  *
  * @param delay the delay between consecutive tasks in the specified time unit
  * @param timeUnit the time unit of the delay parameter
  */
-public record RateLimiter(long delay, TimeUnit timeUnit) {
+public record RequestPacer(long delay, TimeUnit timeUnit) {
 
   /**
-   * Creates a {@link RateLimiter} based on the given {@link BravePlan}.
+   * Creates a {@link RequestPacer} based on the given {@link BravePlan}.
    *
    * @param plan the subscription plan that determines the rate limit for the tasks
-   * @return a {@link RateLimiter} with the corresponding delay and time unit
+   * @return a {@link RequestPacer} with the corresponding delay and time unit
    */
-  public static @NotNull RateLimiter of(@NotNull BravePlan plan) {
+  public static @NotNull RequestPacer of(@NotNull BravePlan plan) {
     return switch (plan) {
-      case FREE -> new RateLimiter(1, TimeUnit.SECONDS);
-      case BASE -> new RateLimiter(50, TimeUnit.MILLISECONDS);
-      case PRO -> new RateLimiter(20, TimeUnit.MILLISECONDS);
+      case FREE -> new RequestPacer(1, TimeUnit.SECONDS);
+      case BASE -> new RequestPacer(50, TimeUnit.MILLISECONDS);
+      case PRO -> new RequestPacer(20, TimeUnit.MILLISECONDS);
     };
   }
 }
