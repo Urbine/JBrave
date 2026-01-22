@@ -109,7 +109,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    *
    * @return the class of the API response
    */
-  Class<E> getReponseType();
+  Class<E> getResponseType();
 
   /**
    * Converts the current response to a POJO instance of {@link E} if the status code of the
@@ -133,7 +133,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
         .map(
             res ->
                 res.statusCode() == 200
-                    ? JsonSupport.objectFromJson(res.body(), getReponseType())
+                    ? JsonSupport.objectFromJson(res.body(), getResponseType())
                     : null);
   }
 
@@ -181,7 +181,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
         .map(
             res ->
                 res.statusCode() == 200
-                    ? JsonSupport.objectFromJson(res.body(), getReponseType())
+                    ? JsonSupport.objectFromJson(res.body(), getResponseType())
                     : JsonSupport.objectFromJson(res.body(), ErrorResponse.class));
   }
 
