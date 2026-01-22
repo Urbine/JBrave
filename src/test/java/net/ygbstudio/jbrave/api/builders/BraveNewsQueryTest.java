@@ -19,7 +19,7 @@ import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.core.domain.dto.MetaUrl;
 import net.ygbstudio.jbrave.core.domain.dto.Query;
 import net.ygbstudio.jbrave.core.domain.dto.Thumbnail;
-import net.ygbstudio.jbrave.core.domain.dto.response.NewsSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.NewsSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.dto.result.NewsResult;
 import net.ygbstudio.jbrave.core.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.core.local.ClientInfo;

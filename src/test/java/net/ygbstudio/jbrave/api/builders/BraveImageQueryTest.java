@@ -16,7 +16,7 @@ import net.ygbstudio.jbrave.core.domain.dto.MetaUrl;
 import net.ygbstudio.jbrave.core.domain.dto.image.ImageResult;
 import net.ygbstudio.jbrave.core.domain.dto.image.ImageThumbnail;
 import net.ygbstudio.jbrave.core.domain.dto.image.Properties;
-import net.ygbstudio.jbrave.core.domain.dto.response.ImageSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.ImageSearchApiResponse;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;

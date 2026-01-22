@@ -16,7 +16,7 @@ import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.core.domain.dto.MetaUrl;
 import net.ygbstudio.jbrave.core.domain.dto.Query;
 import net.ygbstudio.jbrave.core.domain.dto.Thumbnail;
-import net.ygbstudio.jbrave.core.domain.dto.response.VideoSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.VideoSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.dto.result.VideoData;
 import net.ygbstudio.jbrave.core.domain.dto.result.VideoResult;
 import net.ygbstudio.jbrave.core.domain.dto.result.profile.Profile;

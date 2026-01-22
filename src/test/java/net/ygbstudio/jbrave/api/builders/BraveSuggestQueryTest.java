@@ -8,7 +8,7 @@ import java.io.File;
 import java.net.http.HttpHeaders;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
-import net.ygbstudio.jbrave.core.domain.dto.response.SuggestSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.SuggestSearchApiResponse;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
