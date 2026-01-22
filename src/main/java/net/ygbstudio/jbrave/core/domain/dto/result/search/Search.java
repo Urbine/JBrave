@@ -24,8 +24,8 @@ import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.result.SearchResult;
 
 /**
- * Represents search information in search results. This record provides structured data about searches
- * in the Brave Search API results.
+ * Represents search information in search results. This record provides structured data about
+ * searches in the Brave Search API results.
  *
  * @param type The type of the search.
  * @param results A list of {@link SearchResult} objects representing the search results.

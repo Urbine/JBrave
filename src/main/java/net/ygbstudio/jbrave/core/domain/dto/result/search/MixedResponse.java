@@ -25,12 +25,13 @@ import net.ygbstudio.jbrave.core.domain.dto.web.ResultReference;
 
 /**
  * Represents mixed response information in search results. This class provides structured data
- * about mixed responses in the Brave Search API results. The class holds three lists of
- * {@link ResultReference} objects:
+ * about mixed responses in the Brave Search API results. The class holds three lists of {@link
+ * ResultReference} objects:
+ *
  * <ul>
- *     <li>Main: A list of main results.</li>
- *     <li>Top: A list of top results.</li>
- *     <li>Side: A list of side results.</li>
+ *   <li>Main: A list of main results.
+ *   <li>Top: A list of top results.
+ *   <li>Side: A list of side results.
  * </ul>
  *
  * @param type The type of the mixed response.

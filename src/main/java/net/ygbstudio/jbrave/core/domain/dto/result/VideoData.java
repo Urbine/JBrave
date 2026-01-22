@@ -26,8 +26,8 @@ import net.ygbstudio.jbrave.core.domain.dto.result.profile.Profile;
 
 /**
  * Represents video data in search results. This record provides more specific and structured
- * metadata about videos. It includes parameters such as duration, views, creator, publisher, thumbnail, tags,
- * author, and requiresSubscription.
+ * metadata about videos. It includes parameters such as duration, views, creator, publisher,
+ * thumbnail, tags, author, and requiresSubscription.
  *
  * @param duration the duration of the video
  * @param views the number of views of the video

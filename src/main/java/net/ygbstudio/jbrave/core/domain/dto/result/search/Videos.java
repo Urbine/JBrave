@@ -29,6 +29,7 @@ import net.ygbstudio.jbrave.core.domain.dto.result.VideoResult;
  *
  * @param type The type of the videos.
  * @param results A list of {@link VideoResult} objects representing the videos.
- * @param mutatedByGoggles A boolean indicating whether the videos were mutated by the Goggles feature.
+ * @param mutatedByGoggles A boolean indicating whether the videos were mutated by the Goggles
+ *     feature.
  */
 public record Videos(String type, List<VideoResult> results, Boolean mutatedByGoggles) {}
