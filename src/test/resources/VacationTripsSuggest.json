@@ -1,0 +1,23 @@
+{
+  "type": "suggest",
+  "query": {
+    "original": "vacation trips"
+  },
+  "results": [
+    {
+      "query": "vacation trips"
+    },
+    {
+      "query": "vacation trip synonyms"
+    },
+    {
+      "query": "vacation trips sailing and biking"
+    },
+    {
+      "query": "vacation trips to nashville from greenville sc"
+    },
+    {
+      "query": "vacation trip planner"
+    }
+  ]
+}
