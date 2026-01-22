@@ -61,8 +61,12 @@ import org.jetbrains.annotations.NotNull;
  * offset, the units in which to display the results, and more.
  *
  * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
- * {@link #builder()} method to create a new instance of the builder.
- */
+ * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
+ * a stateful, reusable builder intended for single-threaded use.
+ *
+ * <p>Method {@link #reset()} will clear the internal state of the builder and must be called
+ * before reusing.
+  */
 public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
     implements BraveQueryBuilder<BraveWebQuery, WebSearchApiResponse> {
 
@@ -535,7 +539,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
   }
 
   @Override
-  public Class<WebSearchApiResponse> getReponseType() {
+  public Class<WebSearchApiResponse> getResponseType() {
     return WebSearchApiResponse.class;
   }
 

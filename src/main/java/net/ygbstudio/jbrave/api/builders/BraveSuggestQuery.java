@@ -23,6 +23,7 @@ package net.ygbstudio.jbrave.api.builders;
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -48,7 +49,12 @@ import org.jetbrains.annotations.NotNull;
  * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
  * method to create a new instance of the builder.
  *
- * <p>The builder is immutable, reusable and type-safe.
+ * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
+ * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
+ * a stateful, reusable builder intended for single-threaded use.
+ *
+ * <p>Method {@link #reset()} will clear the internal state of the builder and must be called
+ * before reusing.
  */
 public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSuggestQuery>
     implements BraveQueryBuilder<BraveSuggestQuery, SuggestSearchApiResponse> {
@@ -273,13 +279,14 @@ public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSugges
    * @return an {@link Optional} containing the current HTTP response, or an empty {@link Optional}
    *     if there is no current response.
    */
-  @Contract(pure = true)
   public @NotNull Optional<HttpResponse<String>> getHttpResponse() {
-    return Optional.ofNullable(currentResponse);
+      return Objects.nonNull(currentResponse)
+        ? Optional.of(currentResponse)
+        : execute().getHttpResponse();
   }
 
   @Override
-  public Class<SuggestSearchApiResponse> getReponseType() {
+  public Class<SuggestSearchApiResponse> getResponseType() {
     return SuggestSearchApiResponse.class;
   }
 

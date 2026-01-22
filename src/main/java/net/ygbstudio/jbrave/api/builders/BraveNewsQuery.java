@@ -53,7 +53,12 @@ import org.jetbrains.annotations.NotNull;
  * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
  * method to create a new instance of the builder.
  *
- * <p>The builder is immutable, reusable and type-safe.
+ * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
+ * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
+ * stateful, reusable builder intended for single-threaded use.
+ *
+ * <p>Method {@link #reset()} will clear the internal state of the builder and must be called
+ * before reusing.
  */
 public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery>
     implements BraveQueryBuilder<BraveNewsQuery, NewsSearchApiResponse> {
@@ -383,7 +388,6 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    *
    * @return an {@link Optional} containing the current HTTP response.
    */
-  @Contract(pure = true)
   public @NotNull Optional<HttpResponse<String>> getHttpResponse() {
     return Objects.nonNull(currentResponse)
         ? Optional.of(currentResponse)
@@ -391,7 +395,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   }
 
   @Override
-  public Class<NewsSearchApiResponse> getReponseType() {
+  public Class<NewsSearchApiResponse> getResponseType() {
     return NewsSearchApiResponse.class;
   }
 
