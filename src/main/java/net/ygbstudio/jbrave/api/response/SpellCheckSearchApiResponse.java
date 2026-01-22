@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core.domain.dto.response;
+package net.ygbstudio.jbrave.api.response;
 
 import java.io.File;
 import java.io.Reader;
