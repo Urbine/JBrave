@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.options.BravePlan;
-import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitReset;
+import net.ygbstudio.jbrave.api.rate.XRateLimitReset;
 import net.ygbstudio.jbrave.core.exceptions.BraveClientException;
 import net.ygbstudio.jbrave.core.exceptions.EmptyTaskListException;
 import net.ygbstudio.jbrave.core.exceptions.RequestRetryExhaustedException;
