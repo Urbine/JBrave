@@ -22,7 +22,6 @@ package net.ygbstudio.jbrave.core.builders;
 
 import java.util.EnumMap;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import net.ygbstudio.jbrave.core.model.BraveSearchOperator;
@@ -36,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
  * method returns the constructed search operator string.
  *
  * <p>Example usage:
+ *
  * {@snippet :
  * String searchOperator = new SearchOperatorBuilder()
  *     .filetype("html")
@@ -186,15 +186,19 @@ public final class SearchOperatorBuilder {
   }
 
   /**
-   * Adds the logical {@code AND} operator and its corresponding values to the builder.
-   * Combines two builder lambdas in order to construct logical expressions with search operators.
+   * Adds the logical {@code AND} operator and its corresponding values to the builder. Combines two
+   * builder lambdas in order to construct logical expressions with search operators.
    *
    * @param operatorOne the first operator to search for
    * @param operatorTwo the second operator to search for
    * @return the current instance of the {@link SearchOperatorBuilder} class
    */
-  public SearchOperatorBuilder and(@NotNull UnaryOperator<SearchOperatorBuilder> operatorOne, @NotNull UnaryOperator<SearchOperatorBuilder> operatorTwo){
-      return and(operatorOne.apply(SearchOperatorBuilder.builder()).build(), operatorTwo.apply(SearchOperatorBuilder.builder()).build());
+  public SearchOperatorBuilder and(
+      @NotNull UnaryOperator<SearchOperatorBuilder> operatorOne,
+      @NotNull UnaryOperator<SearchOperatorBuilder> operatorTwo) {
+    return and(
+        operatorOne.apply(SearchOperatorBuilder.builder()).build(),
+        operatorTwo.apply(SearchOperatorBuilder.builder()).build());
   }
 
   /**
@@ -209,16 +213,19 @@ public final class SearchOperatorBuilder {
   }
 
   /**
-   * Adds the logical {@code OR} operator and its corresponding values to the builder.
-   * Combines two builder lambdas in order to construct logical expressions with search operators.
+   * Adds the logical {@code OR} operator and its corresponding values to the builder. Combines two
+   * builder lambdas in order to construct logical expressions with search operators.
    *
    * @param operatorOne the first operator to search for
    * @param operatorTwo the second operator to search for
    * @return the current instance of the {@link SearchOperatorBuilder} class
    */
-  public SearchOperatorBuilder or(@NotNull UnaryOperator<SearchOperatorBuilder> operatorOne, @NotNull UnaryOperator<SearchOperatorBuilder> operatorTwo){
-      return or(operatorOne.apply(SearchOperatorBuilder.builder()).build(),
-               operatorTwo.apply(SearchOperatorBuilder.builder()).build());
+  public SearchOperatorBuilder or(
+      @NotNull UnaryOperator<SearchOperatorBuilder> operatorOne,
+      @NotNull UnaryOperator<SearchOperatorBuilder> operatorTwo) {
+    return or(
+        operatorOne.apply(SearchOperatorBuilder.builder()).build(),
+        operatorTwo.apply(SearchOperatorBuilder.builder()).build());
   }
 
   /**
@@ -233,16 +240,19 @@ public final class SearchOperatorBuilder {
   }
 
   /**
-   * Adds the logical {@code NOT} operator and its corresponding values to the builder.
-   * Combines two builder lambdas in order to construct logical expressions with search operators.
+   * Adds the logical {@code NOT} operator and its corresponding values to the builder. Combines two
+   * builder lambdas in order to construct logical expressions with search operators.
    *
    * @param operatorOne the first operator to search for that should not be present
    * @param operatorTwo the second operator to search for that should not be present
    * @return the current instance of the {@link SearchOperatorBuilder} class
    */
-  public SearchOperatorBuilder not(@NotNull UnaryOperator<SearchOperatorBuilder> operatorOne, @NotNull UnaryOperator<SearchOperatorBuilder> operatorTwo){
-      return not(operatorOne.apply(SearchOperatorBuilder.builder()).build(),
-               operatorTwo.apply(SearchOperatorBuilder.builder()).build());
+  public SearchOperatorBuilder not(
+      @NotNull UnaryOperator<SearchOperatorBuilder> operatorOne,
+      @NotNull UnaryOperator<SearchOperatorBuilder> operatorTwo) {
+    return not(
+        operatorOne.apply(SearchOperatorBuilder.builder()).build(),
+        operatorTwo.apply(SearchOperatorBuilder.builder()).build());
   }
 
   /**
