@@ -20,14 +20,30 @@
 
 package net.ygbstudio.jbrave.core.domain.dto.response;
 
+import java.io.File;
+import java.io.Reader;
+import java.net.http.HttpResponse;
 import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.Extra;
 import net.ygbstudio.jbrave.core.domain.dto.Query;
 import net.ygbstudio.jbrave.core.domain.dto.result.VideoResult;
+import net.ygbstudio.jbrave.core.utils.JsonSupport;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents the response from the Brave Search API for video searches. This class contains the
  * original query, a list of video results, and extra information.
+ *
+ * <p>This response record contains methods to deserialise and serialise instances.
+ *
+ * <p>Factory methods support:
+ * <li>{@link String}
+ * <li>{@link File}
+ * <li>{@link Reader}
+ * <li>{@link HttpResponse} <br>
+ *
+ *     <p>You can also write the contents of a response object to that filesystem, method {@link
+ *     #write(File)} can be useful for that purpose.
  *
  * @param type The type of the response.
  * @param query The original query submitted by the user.
@@ -35,4 +51,25 @@ import net.ygbstudio.jbrave.core.domain.dto.result.VideoResult;
  * @param extra Additional information about the response.
  */
 public record VideoSearchApiResponse(
-    String type, Query query, List<VideoResult> results, Extra extra) implements ApiResponse {}
+    String type, Query query, List<VideoResult> results, Extra extra) implements ApiResponse {
+
+  public static VideoSearchApiResponse from(File dataFile) {
+    return JsonSupport.readJsonFs(dataFile, VideoSearchApiResponse.class);
+  }
+
+  public static VideoSearchApiResponse from(String dataString) {
+    return JsonSupport.objectFromJson(dataString, VideoSearchApiResponse.class);
+  }
+
+  public static VideoSearchApiResponse from(Reader dataReader) {
+    return JsonSupport.jsonReader(dataReader, VideoSearchApiResponse.class);
+  }
+
+  public static VideoSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
+    return from(dataResponse.body());
+  }
+
+  public void write(File target) {
+    JsonSupport.writeJsonFs(target, this);
+  }
+}

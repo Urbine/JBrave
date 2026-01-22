@@ -20,17 +20,54 @@
 
 package net.ygbstudio.jbrave.core.domain.dto.response;
 
+import java.io.File;
+import java.io.Reader;
+import java.net.http.HttpResponse;
 import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.Query;
 import net.ygbstudio.jbrave.core.domain.dto.result.NewsResult;
+import net.ygbstudio.jbrave.core.utils.JsonSupport;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents the response from the Brave Search API for news searches. This class contains the
  * original query and a list of news results.
+ *
+ * <p>This response record contains methods to deserialise and serialise instances.
+ *
+ * <p>Factory methods support:
+ * <li>{@link String}
+ * <li>{@link File}
+ * <li>{@link Reader}
+ * <li>{@link HttpResponse} <br>
+ *
+ *     <p>You can also write the contents of a response object to that filesystem, method {@link
+ *     #write(File)} can be useful for that purpose.
  *
  * @param type The type of the response.
  * @param query The original query submitted by the user.
  * @param results A list of news results provided by the API.
  */
 public record NewsSearchApiResponse(String type, Query query, List<NewsResult> results)
-    implements ApiResponse {}
+    implements ApiResponse {
+
+  public static NewsSearchApiResponse from(File dataFile) {
+    return JsonSupport.readJsonFs(dataFile, NewsSearchApiResponse.class);
+  }
+
+  public static NewsSearchApiResponse from(String dataString) {
+    return JsonSupport.objectFromJson(dataString, NewsSearchApiResponse.class);
+  }
+
+  public static NewsSearchApiResponse from(Reader dataReader) {
+    return JsonSupport.jsonReader(dataReader, NewsSearchApiResponse.class);
+  }
+
+  public static NewsSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
+    return from(dataResponse.body());
+  }
+
+  public void write(File target) {
+    JsonSupport.writeJsonFs(target, this);
+  }
+}

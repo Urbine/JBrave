@@ -22,6 +22,9 @@ package net.ygbstudio.jbrave.core.domain.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import java.io.File;
+import java.io.Reader;
+import java.net.http.HttpResponse;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.Discussions;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.FAQ;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.GraphInfobox;
@@ -33,10 +36,23 @@ import net.ygbstudio.jbrave.core.domain.dto.result.search.Search;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.Summarizer;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.Videos;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.WebQuery;
+import net.ygbstudio.jbrave.core.utils.JsonSupport;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents the top-level response from the Brave Search API. This class contains all the
  * different types of search results that can be returned by the API, organized by result type.
+ *
+ * <p>This response record contains methods to deserialise and serialise instances.
+ *
+ * <p>Factory methods support:
+ * <li>{@link String}
+ * <li>{@link File}
+ * <li>{@link Reader}
+ * <li>{@link HttpResponse} <br>
+ *
+ *     <p>You can also write the contents of a response object to that filesystem, method {@link
+ *     #write(File)} can be useful for that purpose.
  *
  * @param type The type of the response.
  * @param discussions Forum and discussion results related to the search query.
@@ -65,4 +81,25 @@ public record WebSearchApiResponse(
     Search web,
     Summarizer summarizer,
     RichCallbackInfo rich)
-    implements ApiResponse {}
+    implements ApiResponse {
+
+  public static WebSearchApiResponse from(File dataFile) {
+    return JsonSupport.readJsonFs(dataFile, WebSearchApiResponse.class);
+  }
+
+  public static WebSearchApiResponse from(String dataString) {
+    return JsonSupport.objectFromJson(dataString, WebSearchApiResponse.class);
+  }
+
+  public static WebSearchApiResponse from(Reader dataReader) {
+    return JsonSupport.jsonReader(dataReader, WebSearchApiResponse.class);
+  }
+
+  public static WebSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
+    return from(dataResponse.body());
+  }
+
+  public void write(File target) {
+    JsonSupport.writeJsonFs(target, this);
+  }
+}

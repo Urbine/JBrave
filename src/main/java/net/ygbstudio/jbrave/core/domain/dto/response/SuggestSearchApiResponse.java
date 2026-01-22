@@ -20,17 +20,54 @@
 
 package net.ygbstudio.jbrave.core.domain.dto.response;
 
+import java.io.File;
+import java.io.Reader;
+import java.net.http.HttpResponse;
 import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.OriginalQuery;
 import net.ygbstudio.jbrave.core.domain.dto.result.SuggestResult;
+import net.ygbstudio.jbrave.core.utils.JsonSupport;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents the response from the Brave Search API for suggestions. This class contains the string
  * query and a list of suggestion results.
+ *
+ * <p>This response record contains methods to deserialise and serialise instances.
+ *
+ * <p>Factory methods support:
+ * <li>{@link String}
+ * <li>{@link File}
+ * <li>{@link Reader}
+ * <li>{@link HttpResponse} <br>
+ *
+ *     <p>You can also write the contents of a response object to that filesystem, method {@link
+ *     #write(File)} can be useful for that purpose.
  *
  * @param type The type of the response.
  * @param query The original query submitted by the user.
  * @param results A list of suggestion results provided by the API.
  */
 public record SuggestSearchApiResponse(
-    String type, OriginalQuery query, List<SuggestResult> results) implements ApiResponse {}
+    String type, OriginalQuery query, List<SuggestResult> results) implements ApiResponse {
+
+  public static SuggestSearchApiResponse from(File dataFile) {
+    return JsonSupport.readJsonFs(dataFile, SuggestSearchApiResponse.class);
+  }
+
+  public static SuggestSearchApiResponse from(String dataString) {
+    return JsonSupport.objectFromJson(dataString, SuggestSearchApiResponse.class);
+  }
+
+  public static SuggestSearchApiResponse from(Reader dataReader) {
+    return JsonSupport.jsonReader(dataReader, SuggestSearchApiResponse.class);
+  }
+
+  public static SuggestSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
+    return from(dataResponse.body());
+  }
+
+  public void write(File target) {
+    JsonSupport.writeJsonFs(target, this);
+  }
+}
