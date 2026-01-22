@@ -32,7 +32,7 @@ import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
-import net.ygbstudio.jbrave.core.domain.dto.response.SpellCheckSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.SpellCheckSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;

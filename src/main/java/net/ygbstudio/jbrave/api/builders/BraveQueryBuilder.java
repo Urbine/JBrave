@@ -27,9 +27,9 @@ import java.util.Optional;
 import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimit;
 import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitPolicy;
 import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitRemaining;
-import net.ygbstudio.jbrave.core.domain.dto.response.ApiResponse;
-import net.ygbstudio.jbrave.core.domain.dto.response.ErrorResponse;
-import net.ygbstudio.jbrave.core.domain.dto.response.WebSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.ApiResponse;
+import net.ygbstudio.jbrave.api.response.ErrorResponse;
+import net.ygbstudio.jbrave.api.response.WebSearchApiResponse;
 import net.ygbstudio.jbrave.core.utils.JsonSupport;
 
 /**

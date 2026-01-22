@@ -36,7 +36,7 @@ import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.builders.SearchOperatorBuilder;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
-import net.ygbstudio.jbrave.core.domain.dto.response.NewsSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.NewsSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
