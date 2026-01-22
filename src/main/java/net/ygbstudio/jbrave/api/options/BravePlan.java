@@ -36,8 +36,7 @@ public enum BravePlan {
   /**
    * Returns a {@link RequestPacer} based on the current {@link BravePlan}.
    *
-   * @return a {@link RequestPacer} instance with the rate limits set according to the current
-   *     plan.
+   * @return a {@link RequestPacer} instance with the rate limits set according to the current plan.
    */
   public @NotNull RequestPacer pace() {
     return RequestPacer.of(this);
