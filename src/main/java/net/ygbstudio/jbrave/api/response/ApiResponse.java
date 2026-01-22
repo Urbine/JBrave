@@ -20,6 +20,8 @@
 
 package net.ygbstudio.jbrave.api.response;
 
+import java.io.File;
+
 /**
  * This marker interface represents the API response objects from the Brave Search API. Implementing
  * classes are meant to be deserialised and served as Plain Old Java Objects (POJOs).
@@ -31,4 +33,19 @@ public sealed interface ApiResponse
         NewsSearchApiResponse,
         SpellCheckSearchApiResponse,
         VideoSearchApiResponse,
-        SuggestSearchApiResponse {}
+        SuggestSearchApiResponse {
+
+  /**
+   * Serializes the response object to a JSON string.
+   *
+   * @return a JSON string representation of the response object.
+   */
+  String toJson();
+
+  /**
+   * Writes the response object to a file on the filesystem.
+   *
+   * @param file the file to write the response object to.
+   */
+  void write(File file);
+}
