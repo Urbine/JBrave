@@ -2,26 +2,46 @@ package net.ygbstudio.jbrave.api.builders;
 
 import static org.assertj.core.api.Assertions.assertThatException;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.emptyIterable;
+import static org.hamcrest.Matchers.emptyString;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 
+import java.io.File;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpHeaders;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
+import net.ygbstudio.jbrave.api.filters.ResultFilter;
+import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.MarketLocale;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
-import net.ygbstudio.jbrave.api.filters.ResultFilter;
-import net.ygbstudio.jbrave.api.filters.SafeSearch;
+import net.ygbstudio.jbrave.core.builders.SearchOperatorBuilder;
+import net.ygbstudio.jbrave.core.domain.dto.response.ErrorResponse;
+import net.ygbstudio.jbrave.core.domain.dto.response.WebSearchApiResponse;
+import net.ygbstudio.jbrave.core.domain.dto.result.NewsResult;
+import net.ygbstudio.jbrave.core.domain.dto.result.SearchResult;
+import net.ygbstudio.jbrave.core.domain.dto.result.VideoData;
+import net.ygbstudio.jbrave.core.domain.dto.result.VideoResult;
+import net.ygbstudio.jbrave.core.domain.dto.web.ButtonResult;
+import net.ygbstudio.jbrave.core.domain.dto.web.DeepResult;
 import net.ygbstudio.jbrave.core.exceptions.AbsentSearchQueryException;
 import net.ygbstudio.jbrave.core.exceptions.BraveGogglesIdentifierException;
 import net.ygbstudio.jbrave.core.exceptions.InvalidFreshnessInterval;
 import net.ygbstudio.jbrave.core.exceptions.InvalidQueryTermException;
 import net.ygbstudio.jbrave.core.exceptions.MissingSubscriptionTokenException;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
+import net.ygbstudio.jbrave.core.model.BraveErrorCode;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.junit.jupiter.api.Test;
 
@@ -29,8 +49,18 @@ class BraveWebQueryTest {
 
   private final String sampleQuery = "test term";
   private final BraveWebQuery builder = BraveWebQuery.builder().query(sampleQuery);
+
   private final ClientInfo sampleClientInfo =
       ClientInfo.fromProperties("sampleClientInfo.properties");
+
+  private final WebSearchApiResponse webApiResponseJava =
+      WebSearchApiResponse.from(new File("src/test/resources/JavaProgrammingWebApiResponse.json"));
+
+  private final WebSearchApiResponse webApiResponseNYTimes =
+      WebSearchApiResponse.from(new File("src/test/resources/NewYorkTimesResponse.json"));
+
+  private final ErrorResponse errorResponseObject =
+      ErrorResponse.from(new File("src/test/resources/ErrorResponseSample.json"));
 
   @Test
   void testSpellCheck() {
@@ -50,25 +80,8 @@ class BraveWebQueryTest {
 
   @Test
   void testQueryTermfourHundredCharThrow() {
-    String fourHundredChars =
-        """
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-         aaaaaaaaaaaaaaaa
-        """;
-    builder.clearInstance();
+    String fourHundredChars = "a".repeat(401);
+    builder.reset();
     assertThatException()
         .isThrownBy(() -> builder.query(fourHundredChars))
         .isInstanceOf(InvalidQueryTermException.class);
@@ -76,19 +89,8 @@ class BraveWebQueryTest {
 
   @Test
   void testQueryTermFiftyWordsThrow() {
-    String fiftyWords =
-        """
-          one two three four five six seven eight nine
-          ten eleven twelve thirteen fourteen fifteen
-          sixteen seventeen eighteen nineteen twenty
-          twentyone twentytwo twentythree twentyfour
-          twentyfive twentysix twentyseven twentyeight
-          twentynine thirty thirtyone thirtytwo thirtythree
-          thirtyfour thirtyfive thirtysix thirtyseven thirtyeight
-          thirtynine forty fortyone fortytwo fortythree fortyfour
-          fortyfive fortysix fortyseven fortyeight fortynine fifty
-        """;
-    builder.clearInstance();
+    String fiftyWords = "word ".repeat(51);
+    builder.reset();
     assertThatException()
         .isThrownBy(() -> builder.query(fiftyWords))
         .isInstanceOf(InvalidQueryTermException.class);
@@ -127,9 +129,54 @@ class BraveWebQueryTest {
   }
 
   @Test
-  void testOperators() {
-    builder.operators(true);
+  void testEnableOperators() {
+    builder.enableOperators();
     assertThat(builder.toURI().toString().contains("operators=true"), is(true));
+  }
+
+  @Test
+  void testOperatorQuery() {
+    URI expectedURI =
+        URI.create(
+            "https://api.search.brave.com/res/v1/web/search?q=test+term+filetype%3Apdf+%2Bjava+-windows+%22linux%22+thisANDthat&operators=true");
+    builder.enableOperators();
+    builder.withOperators(
+        op ->
+            op.filetype("pdf")
+                .exactMatch("linux")
+                .exclude("windows")
+                .include("java")
+                .and("this", "that"));
+    assertThat(builder.toURI().compareTo(expectedURI), is(0));
+  }
+
+  @Test
+  void testOperatorFirstQueryLast() {
+    URI expectedURI =
+        URI.create(
+            "https://api.search.brave.com/res/v1/web/search?q=test+term+filetype%3Apdf+%2Bjava+-windows+%22linux%22+thisANDthat&operators=true");
+    Consumer<SearchOperatorBuilder> operatorBuilder =
+        op ->
+            op.filetype("pdf")
+                .exactMatch("linux")
+                .exclude("windows")
+                .include("java")
+                .and("this", "that");
+
+    // Test class builder has a query in memory already
+    builder.enableOperators();
+    builder.withOperators(operatorBuilder);
+
+    // Builder must work, even if query is added after the operators
+    BraveWebQuery altBuilder = BraveWebQuery.builder();
+    altBuilder.enableOperators();
+    altBuilder.withOperators(operatorBuilder);
+    altBuilder.query("test term");
+
+    // Testing builder idempotency
+    assertThat(builder.toURI().compareTo(expectedURI), is(0));
+    assertThat(altBuilder.toURI().compareTo(expectedURI), is(0));
+    assertThat(altBuilder.toURI().equals(builder.toURI()), is(true));
   }
 
   @Test
@@ -192,8 +239,8 @@ class BraveWebQueryTest {
   void testResultFilters() {
     builder.resultFilters(Set.of(ResultFilter.WEB, ResultFilter.SUMMARIZER));
     assertThat(
-        builder.toURI().toString().contains("result_filter=summarizer,web")
-            || builder.toURI().toString().contains("result_filter=web,summarizer"),
+        builder.toURI().toString().contains("result_filter=summarizer%2Cweb")
+            || builder.toURI().toString().contains("result_filter=web%2Csummarizer"),
         is(true));
   }
 
@@ -229,7 +276,7 @@ class BraveWebQueryTest {
 
   @Test
   void testClearBuilder() {
-    builder.clearInstance();
+    builder.reset();
     assertThatException().isThrownBy(builder::toURI).isInstanceOf(AbsentSearchQueryException.class);
   }
 
@@ -347,5 +394,159 @@ class BraveWebQueryTest {
     assertThat(
         headers.allValues(BraveHeaders.LONGITUDE.value()).getFirst(),
         is(Double.toString(longitude)));
+  }
+
+  @Test
+  void testWebApiResponseFromJsonNotNull() {
+    assertThat(webApiResponseJava, is(notNullValue()));
+  }
+
+  @Test
+  void testWebApiReponseWebResultList() {
+    assertThat(webApiResponseJava.web(), is(notNullValue()));
+    assertThat(webApiResponseJava.web().results().size(), is(10));
+  }
+
+  @Test
+  void testWebApiResponseQueryFromJson() {
+    assertThat(webApiResponseJava.query(), is(notNullValue()));
+    assertThat(webApiResponseJava.query().original(), is("java programming language"));
+    assertThat(webApiResponseJava.query().showStrictWarning(), is(false));
+    assertThat(webApiResponseJava.query().isNavigational(), is(false));
+    assertThat(webApiResponseJava.query().isNewsBreaking(), is(false));
+    assertThat(webApiResponseJava.query().spellcheckOff(), is(true));
+    assertThat(webApiResponseJava.query().country(), is("us"));
+    assertThat(webApiResponseJava.query().badResults(), is(false));
+    assertThat(webApiResponseJava.query().shouldFallback(), is(false));
+    assertThat(webApiResponseJava.query().moreResultsAvailable(), is(true));
+  }
+
+  @Test
+  void testWebApiResponseMixedResultReferences() {
+    assertThat(webApiResponseJava.mixed(), is(notNullValue()));
+    assertThat(webApiResponseJava.mixed().type(), is("mixed"));
+    assertThat(webApiResponseJava.mixed().main().size(), is(21));
+    assertThat(
+        Math.toIntExact(
+            webApiResponseJava.mixed().main().stream()
+                .filter(s -> s.type().equals("videos"))
+                .count()),
+        is(1));
+    assertThat(webApiResponseJava.mixed().top(), is(emptyIterable()));
+    assertThat(webApiResponseJava.mixed().side(), is(emptyIterable()));
+  }
+
+  @Test
+  void testWebApiResponseVideoResults() {
+    assertThat(webApiResponseJava.videos(), notNullValue());
+    assertThat(webApiResponseJava.videos().type(), is("videos"));
+    assertThat(webApiResponseJava.videos().results().size(), is(6));
+    assertThat(
+        Math.toIntExact(
+            webApiResponseJava.videos().results().stream()
+                .filter(s -> s.type().equals("video_result"))
+                .count()),
+        is(6));
+    assertThat(webApiResponseJava.videos().results().getFirst(), is(notNullValue()));
+
+    VideoResult videoResult = webApiResponseJava.videos().results().getFirst();
+    assertThat(videoResult.type(), is("video_result"));
+    assertThat(videoResult.url(), is(notNullValue()));
+    assertThat(videoResult.url(), containsString("www.youtube.com"));
+    assertThat(videoResult.title(), is(notNullValue()));
+    assertThat(videoResult.title(), containsString("Java Programming"));
+    assertThat(videoResult.description(), is(notNullValue()));
+    assertThat(videoResult.description(), containsString("Java programming"));
+    assertThat(videoResult.age(), is(notNullValue()));
+    assertThat(videoResult.pageAge(), is(notNullValue()));
+    assertThat(videoResult.fetchedContentTimestamp(), is(notNullValue()));
+    assertThat(videoResult.metaUrl(), is(notNullValue()));
+    assertThat(videoResult.metaUrl().scheme(), is("https"));
+    assertThat(videoResult.metaUrl().netloc(), is("youtube.com"));
+    assertThat(videoResult.metaUrl().hostname(), is("www.youtube.com"));
+
+    VideoData videoDataOne = videoResult.video();
+    assertThat(videoDataOne, is(notNullValue()));
+    assertThat(videoDataOne.creator(), is(notNullValue()));
+    assertThat(videoDataOne.duration(), is(notNullValue()));
+    assertThat(videoDataOne.publisher(), is(notNullValue()));
+  }
+
+  @Test
+  void testWebApiResponseWebType() {
+    assertThat(webApiResponseJava.web().type(), is("search"));
+  }
+
+  @Test
+  void testWebApiResponseSearchResults() {
+    SearchResult searchResult = webApiResponseJava.web().results().getFirst();
+    assertThat(searchResult.type(), is("search_result"));
+    assertThat(searchResult.url(), is(notNullValue()));
+    assertThat(searchResult.isSourceBoth(), is(false));
+    assertThat(searchResult.isSourceLocal(), is(false));
+    assertThat(searchResult.description().length(), is(greaterThan(0)));
+    assertThat(searchResult.description(), containsString("Java"));
+    assertThat(searchResult.profile(), is(notNullValue()));
+    assertThat(searchResult.language(), is("en"));
+    assertThat(searchResult.familyFriendly(), is(true));
+    assertThat(searchResult.isLive(), is(false));
+    assertThat(searchResult.subtype(), is("generic"));
+    assertThat(searchResult.metaUrl(), is(notNullValue()));
+    assertThat(searchResult.thumbnail(), is(notNullValue()));
+  }
+
+  @Test
+  void testWebApiResponseDeepResults() {
+    DeepResult deepResult = webApiResponseJava.web().results().get(1).deepResults();
+    assertThat(deepResult, is(notNullValue()));
+
+    ButtonResult buttons = deepResult.buttons().getFirst();
+    assertThat(buttons.type(), is("button_result"));
+  }
+
+  @Test
+  void testWebApiResponseFamilyFriendly() {
+    assertThat(webApiResponseJava.web().familyFriendly(), is(true));
+  }
+
+  @Test
+  void testWebApiResponseNews() {
+    assertThat(webApiResponseNYTimes.news(), is(notNullValue()));
+    assertThat(webApiResponseNYTimes.news().type(), is("news"));
+
+    List<NewsResult> newsResults = webApiResponseNYTimes.news().results();
+    NewsResult firstResult = newsResults.getFirst();
+
+    assertThat(newsResults.size(), is(10));
+    assertThat(firstResult.title(), is(not(emptyString())));
+    assertThat(firstResult.url(), is(not(emptyString())));
+    assertThat(firstResult.description(), is(not(emptyString())));
+    assertThat(firstResult.isSourceLocal(), is(false));
+    assertThat(firstResult.isSourceBoth(), is(false));
+    assertThat(firstResult.familyFriendly(), is(true));
+    assertThat(firstResult.breaking(), is(false));
+    assertThat(firstResult.metaUrl(), is(notNullValue()));
+    assertThat(firstResult.profile(), is(notNullValue()));
+    assertThat(firstResult.pageAge(), is(notNullValue()));
+    assertThat(firstResult.fetchedContentTimestamp(), is(notNullValue()));
+    assertThat(firstResult.age(), is(notNullValue()));
+  }
+
+  @Test
+  void testWebApiResponseSearchResultCluster() {
+    SearchResult searchResult = webApiResponseNYTimes.web().results().getFirst();
+    assertThat(searchResult, is(notNullValue()));
+    assertThat(searchResult.clusterType(), is("generic"));
+    assertThat(searchResult.cluster().size(), is(4));
+  }
+
+  @Test
+  void testErrorResponse() {
+    ErrorResponse errorResponse = errorResponseObject;
+    assertThat(errorResponse.type(), is("ErrorResponse"));
+    assertThat(errorResponse.error().code() == BraveErrorCode.VALIDATION, is(true));
+    assertThat(errorResponse.error().status(), is(422));
+    assertThat(errorResponse.error().meta().component(), is(nullValue()));
+    assertThat(errorResponse.time(), is(1768981917));
   }
 }
