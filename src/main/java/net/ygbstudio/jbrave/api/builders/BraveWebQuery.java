@@ -25,8 +25,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
@@ -36,12 +39,14 @@ import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.options.Units;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.builders.SearchOperatorBuilder;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import net.ygbstudio.jbrave.core.domain.dto.response.WebSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
-import net.ygbstudio.jbrave.core.executors.AbstractRequestExecutor;
+import net.ygbstudio.jbrave.core.executors.BraveRequestExecutor;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import net.ygbstudio.jbrave.core.model.SearchOptions;
@@ -57,34 +62,22 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
  * {@link #builder()} method to create a new instance of the builder.
- *
- * @author Yoham Gabriel B. (YGBStudio)
  */
-public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> {
-
-  private static final class BraveWebRequestExecutor
-      extends AbstractRequestExecutor<BraveWebRequestExecutor> {
-    private BraveWebRequestExecutor() {}
-
-    private static final BraveWebRequestExecutor EXECUTOR = new BraveWebRequestExecutor();
-
-    private static HttpResponse<String> executeRequest(HttpRequest request)
-        throws InterruptedException {
-      return EXECUTOR.execute(request);
-    }
-  }
+public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
+    implements BraveQueryBuilder<BraveWebQuery, WebSearchApiResponse> {
 
   public static final class BraveRequestBuilder
-      extends AbstractBraveRequestBuilder<BraveRequestBuilder> {
+      extends AbstractBraveRequestBuilder<BraveWebQuery.BraveRequestBuilder> {
+
     private BraveRequestBuilder() {}
 
     /**
-     * Returns a new instance of {@link BraveWebRequestExecutor} with an empty URL query.
+     * Creates a new instance of {@link BraveWebQuery.BraveRequestBuilder}.
      *
-     * @return A new instance of {@link BraveWebRequestExecutor}.
+     * @return a new instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    private static BraveRequestBuilder builder() {
-      return new BraveRequestBuilder().clear();
+    private static BraveWebQuery.BraveRequestBuilder builder() {
+      return new BraveWebQuery.BraveRequestBuilder().clear();
     }
 
     /**
@@ -92,7 +85,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      *
      * @param query the URI for the request
      */
-    private BraveRequestBuilder queryAddress(URI query) {
+    private BraveWebQuery.BraveRequestBuilder queryAddress(URI query) {
       queryURI(query);
       return this;
     }
@@ -111,9 +104,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a latitude header to the request.
      *
      * @param latitude the latitude value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withLatitude(double latitude) {
+    public BraveWebQuery.BraveRequestBuilder withLatitude(double latitude) {
       addCustomHeader(BraveHeaders.LATITUDE, String.valueOf(latitude));
       return this;
     }
@@ -122,9 +115,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a longitude header to the request.
      *
      * @param longitude the longitude value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withLongitude(double longitude) {
+    public BraveWebQuery.BraveRequestBuilder withLongitude(double longitude) {
       addCustomHeader(BraveHeaders.LONGITUDE, String.valueOf(longitude));
       return this;
     }
@@ -133,9 +126,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a timezone header to the request.
      *
      * @param timezone the timezone value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withTimezone(@NotNull ZoneId timezone) {
+    public BraveWebQuery.BraveRequestBuilder withTimezone(@NotNull ZoneId timezone) {
       addCustomHeader(BraveHeaders.TIMEZONE, timezone.toString());
       return this;
     }
@@ -144,9 +137,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a country header to the request.
      *
      * @param country the country value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withCountry(String country) {
+    public BraveWebQuery.BraveRequestBuilder withCountry(String country) {
       addCustomHeader(BraveHeaders.COUNTRY, country);
       return this;
     }
@@ -155,9 +148,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a city header to the request.
      *
      * @param city the city value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withCity(String city) {
+    public BraveWebQuery.BraveRequestBuilder withCity(String city) {
       addCustomHeader(BraveHeaders.CITY, city);
       return this;
     }
@@ -166,9 +159,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a state header to the request.
      *
      * @param state the state value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withState(String state) {
+    public BraveWebQuery.BraveRequestBuilder withState(String state) {
       addCustomHeader(BraveHeaders.STATE, state);
       return this;
     }
@@ -177,9 +170,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a state name header to the request.
      *
      * @param stateName the state name value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withStateName(String stateName) {
+    public BraveWebQuery.BraveRequestBuilder withStateName(String stateName) {
       addCustomHeader(BraveHeaders.STATE_NAME, stateName);
       return this;
     }
@@ -188,9 +181,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a postal code header to the request.
      *
      * @param postalCode the postal code value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withPostalCode(String postalCode) {
+    public BraveWebQuery.BraveRequestBuilder withPostalCode(String postalCode) {
       addCustomHeader(BraveHeaders.POSTAL_CODE, postalCode);
       return this;
     }
@@ -199,10 +192,32 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
      * Adds a user agent header to the request.
      *
      * @param userAgent the user agent value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
      */
-    public BraveRequestBuilder withUserAgent(String userAgent) {
+    public BraveWebQuery.BraveRequestBuilder withUserAgent(String userAgent) {
       addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
+      return this;
+    }
+
+    /**
+     * Adds a cache control header to the request.
+     *
+     * @param cacheControl the cache control value to set
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
+     */
+    public BraveWebQuery.BraveRequestBuilder withCacheControl(String cacheControl) {
+      addCustomHeader(BraveHeaders.CACHE_CONTROL, cacheControl);
+      return this;
+    }
+
+    /**
+     * Adds an API version header to the request.
+     *
+     * @param apiVersion the API version value to set
+     * @return the current instance of {@link BraveWebQuery.BraveRequestBuilder}
+     */
+    public BraveWebQuery.BraveRequestBuilder withApiVersion(String apiVersion) {
+      addCustomHeader(BraveHeaders.API_VERSION, apiVersion);
       return this;
     }
 
@@ -222,6 +237,9 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   }
 
   private final BraveRequestBuilder requestBuilder = BraveRequestBuilder.builder();
+  private final BraveRequestExecutor executor = BraveRequestExecutor.getInstance();
+  private HttpResponse<String> currentResponse;
+  private int maxRetries = 0;
 
   private BraveWebQuery() {}
 
@@ -232,7 +250,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    */
   @Contract(value = " -> new", pure = true)
   public static @NotNull BraveWebQuery builder() {
-    return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).clearInstance();
+    return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).reset();
   }
 
   /**
@@ -242,7 +260,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    * @return The current instance of the builder.
    */
   public BraveWebQuery query(String queryTerm) {
-    return addQueryTerm(queryTerm);
+    return addQueryTerm(queryTerm, false);
   }
 
   /**
@@ -306,16 +324,30 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   }
 
   /**
-   * Adds the operators option to the URL query. Maximum of 400 characters and 50 words.
+   * Adds the operators option to the URL query.
    *
-   * <p>If a query is already present, subsequent calls are ignored. Only one query term is
-   * supported per search request.
+   * <p>This option tells the API to read search operators from the query term.
    *
-   * @param operators Whether to include operators in the results.
    * @return The current instance of the builder.
    */
-  public BraveWebQuery operators(boolean operators) {
-    return addOptionCarrier(SearchOptions.operators(operators));
+  public BraveWebQuery enableOperators() {
+    return addOptionCarrier(SearchOptions.operators(true));
+  }
+
+  /**
+   * Adds search operations to the query term for advanced result filtering.
+   *
+   * @param operators A consumer that accepts a {@link SearchOperatorBuilder} instance and populates
+   *     it with operators. The built {@code SearchOperatorBuilder} instance will be used to
+   *     construct the operators string.
+   * @return The current instance of the builder.
+   */
+  @Contract("_ -> this")
+  public BraveWebQuery withOperators(@NotNull Consumer<SearchOperatorBuilder> operators) {
+    SearchOperatorBuilder operatorBuilder = SearchOperatorBuilder.builder();
+    operators.accept(operatorBuilder);
+    addQueryTerm(operatorBuilder.build(), true);
+    return enableOperators();
   }
 
   /**
@@ -429,6 +461,16 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
   }
 
   /**
+   * Adds the include_fetch_metadata option to the URL query.
+   *
+   * @param includeFetchMetadata Whether to include fetch metadata in the results.
+   * @return the current instance of the builder
+   */
+  public BraveWebQuery includeFetchMetadata(boolean includeFetchMetadata) {
+    return addOptionCarrier(SearchOptions.includeFetchMetadata(includeFetchMetadata));
+  }
+
+  /**
    * Sets the subscription token header using the provided {@link ClientInfo} instance.
    *
    * @param clientInfo the {@link ClientInfo} instance containing the subscription token
@@ -448,32 +490,64 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery> 
    * @return the current instance of {@link BraveWebQuery}
    */
   @Contract("_ -> this")
-  public BraveWebQuery withHeaders(@NotNull Consumer<BraveRequestBuilder> headers) {
+  public BraveWebQuery withHeaders(@NotNull Consumer<BraveWebQuery.BraveRequestBuilder> headers) {
     headers.accept(requestBuilder);
     return this;
   }
 
   /**
-   * Executes the request and returns an optional response.
+   * Sets the maximum number of retries for this request.
    *
-   * @return an optional response to the request
-   * @throws InterruptedException if the execution is interrupted
+   * @param maxRetries the maximum number of retries
+   * @return the current instance of {@link BraveWebQuery}
    */
-  public HttpResponse<String> execute() throws InterruptedException {
-    return BraveWebRequestExecutor.executeRequest(
-        requestBuilder.queryAddress(toURI()).buildRequest());
+  public BraveWebQuery withRetries(int maxRetries) {
+    this.maxRetries = maxRetries;
+    return this;
   }
 
-  /**
-   * Converts the current query to an {@link HttpRequest} instance.
-   *
-   * @return the {@link HttpRequest} instance representing the current query
-   */
+  public BraveWebQuery execute() {
+    Supplier<HttpRequest> suppliedTask = () -> requestBuilder.queryAddress(toURI()).buildRequest();
+    currentResponse =
+        maxRetries > 0
+            ? executor.submitTask(suppliedTask).executeWithRetries(maxRetries).getFirst()
+            : executor.executeStringResponseOnce(suppliedTask);
+    return this;
+  }
+
   public HttpRequest toHttpRequest() {
     return requestBuilder.queryAddress(toURI()).buildRequest();
   }
 
-  public BraveWebQuery clearInstance() {
+  /**
+   * Returns the current HTTP response as an {@link Optional}.
+   *
+   * <p>If the request has not been executed, this method will execute the request and return the
+   * {@link HttpResponse}.
+   *
+   * @return an {@link Optional} containing the current HTTP response.
+   */
+  @Contract(pure = true)
+  public @NotNull Optional<HttpResponse<String>> getHttpResponse() {
+    return Objects.nonNull(currentResponse)
+        ? Optional.of(currentResponse)
+        : execute().getHttpResponse();
+  }
+
+  @Override
+  public Class<WebSearchApiResponse> getReponseType() {
+    return WebSearchApiResponse.class;
+  }
+
+  /**
+   * Clears the current instance of {@link BraveWebQuery} by resetting its state to its initial
+   * values.
+   *
+   * @return the current instance of {@link BraveWebQuery}
+   */
+  public BraveWebQuery reset() {
+    currentResponse = null;
+    maxRetries = 0;
     requestBuilder.clearBuilder();
     return super.clear();
   }
