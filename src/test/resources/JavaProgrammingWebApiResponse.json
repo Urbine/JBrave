@@ -1,0 +1,579 @@
+{
+  "query" : {
+    "original" : "java programming language",
+    "show_strict_warning" : false,
+    "is_navigational" : false,
+    "is_news_breaking" : false,
+    "spellcheck_off" : true,
+    "country" : "us",
+    "bad_results" : false,
+    "should_fallback" : false,
+    "postal_code" : "",
+    "city" : "",
+    "header_country" : "",
+    "more_results_available" : true,
+    "state" : ""
+  },
+  "mixed" : {
+    "type" : "mixed",
+    "main" : [ {
+      "type" : "web",
+      "index" : 0,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 1,
+      "all" : false
+    }, {
+      "type" : "videos",
+      "all" : true
+    }, {
+      "type" : "web",
+      "index" : 2,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 3,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 4,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 5,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 6,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 7,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 8,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 9,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 10,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 11,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 12,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 13,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 14,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 15,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 16,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 17,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 18,
+      "all" : false
+    }, {
+      "type" : "web",
+      "index" : 19,
+      "all" : false
+    } ],
+    "top" : [ ],
+    "side" : [ ]
+  },
+  "type" : "search",
+  "videos" : {
+    "type" : "videos",
+    "results" : [ {
+      "type" : "video_result",
+      "url" : "https://www.youtube.com/watch?v=ioPagXHCRjc",
+      "title" : "Java Programming Tutorial: From Zero to Hero for Beginners - YouTube",
+      "description" : "Embarking on your journey into the world of programming? Our comprehensive Java programming tutorial is designed to take you from zero to hero, even if you'r...",
+      "age" : "September 1, 2023",
+      "page_age" : "2023-09-01T10:00:09",
+      "fetched_content_timestamp" : 1768770924,
+      "video" : {
+        "duration" : "11:58:23",
+        "creator" : "ProgrammingKnowledge",
+        "publisher" : "YouTube"
+      },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "youtube.com",
+        "hostname" : "www.youtube.com",
+        "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+        "path" : "› watch"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/-Z2AiK4Lg9Vbd2l2d869-kL5qZaaKjaWGXQmL4xUhtk/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9p/b1BhZ1hIQ1JqYy9t/YXhyZXNkZWZhdWx0/LmpwZw",
+        "original" : "https://i.ytimg.com/vi/ioPagXHCRjc/maxresdefault.jpg"
+      }
+    }, {
+      "type" : "video_result",
+      "url" : "https://www.youtube.com/watch?v=23HFxAPyJ9U",
+      "title" : "Start coding with JAVA in 10 minutes! ☕ - YouTube",
+      "description" : "#java #javatutorial #javacourse This is a beginner's course to help you get started coding with Java ☕00:00:00 intro00:01:00 JDK download00:01:57 IDE downloa...",
+      "age" : "December 30, 2024",
+      "page_age" : "2024-12-30T18:03:32",
+      "fetched_content_timestamp" : 1736813418,
+      "video" : {
+        "duration" : "10:59",
+        "views" : 9294,
+        "creator" : "Bro Code",
+        "publisher" : "YouTube"
+      },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "youtube.com",
+        "hostname" : "www.youtube.com",
+        "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+        "path" : "› watch"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/cBsHA5x7OI_QJmxcgP-sxBjrT64q9DsA13tFiwC5Ayc/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS8y/M0hGeEFQeUo5VS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+        "original" : "https://i.ytimg.com/vi/23HFxAPyJ9U/maxresdefault.jpg"
+      }
+    }, {
+      "type" : "video_result",
+      "url" : "https://www.youtube.com/watch?v=eIrMbAQSU34",
+      "title" : "Java Full Course for Beginners - YouTube",
+      "description" : "Master Java – a must-have language for software development, Android apps, and more! ☕️ This beginner-friendly course takes you from basics to real coding sk...",
+      "age" : "July 15, 2019",
+      "page_age" : "2019-07-15T16:00:12",
+      "fetched_content_timestamp" : 1768498038,
+      "video" : {
+        "duration" : "02:30:48",
+        "creator" : "Programming with Mosh",
+        "publisher" : "YouTube"
+      },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "youtube.com",
+        "hostname" : "www.youtube.com",
+        "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+        "path" : "› watch"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/v9POiDSqbND94f8zGbXBgL850ARpnKN3HqBXJY-x5-s/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9l/SXJNYkFRU1UzNC9t/YXhyZXNkZWZhdWx0/LmpwZw",
+        "original" : "https://i.ytimg.com/vi/eIrMbAQSU34/maxresdefault.jpg"
+      }
+    }, {
+      "type" : "video_result",
+      "url" : "https://www.youtube.com/watch?v=xTtL8E4LzTQ",
+      "title" : "Java Full Course for free ☕ (2025) - YouTube",
+      "description" : "#java #javatutorial #javacourse Java tutorial for beginners full course 2025*My original Java 12 Hour course* ☕ : https://www.youtube.com/watch?v=xk4_1vDrzz",
+      "age" : "January 2, 2025",
+      "page_age" : "2025-01-02T15:06:40",
+      "fetched_content_timestamp" : 1737013685,
+      "video" : {
+        "duration" : "12:00:00",
+        "views" : 72239,
+        "creator" : "Bro Code",
+        "publisher" : "YouTube"
+      },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "youtube.com",
+        "hostname" : "www.youtube.com",
+        "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+        "path" : "› watch"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/efTP-Y1PX8ZmLXzrmqwEw0Q7xKrCDOrqwdOtBncVzHA/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS94/VHRMOEU0THpUUS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+        "original" : "https://i.ytimg.com/vi/xTtL8E4LzTQ/maxresdefault.jpg"
+      }
+    }, {
+      "type" : "video_result",
+      "url" : "https://www.youtube.com/watch?v=A74TOX803D0",
+      "title" : "Java Programming for Beginners – Full Course",
+      "description" : "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+      "fetched_content_timestamp" : 1724146341,
+      "video" : { },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "youtube.com",
+        "hostname" : "www.youtube.com",
+        "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+        "path" : "› watch"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/potZNRz5-wQVUK8nAFAP7fr2uSqDRYc9Nd657XDXKO8/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9B/NzRUT1g4MDNEMC9o/cWRlZmF1bHQuanBn",
+        "original" : "https://i.ytimg.com/vi/A74TOX803D0/hqdefault.jpg"
+      }
+    }, {
+      "type" : "video_result",
+      "url" : "https://www.youtube.com/watch?v=l3N_Uf-z8zE",
+      "title" : "learn java in 10 minutes. NO MORE PSVM - YouTube",
+      "description" : "In this Java tutorial crash course, I’ll teach you the Java programming language from scratch. Whether you’re a beginner or just curious about how Java works...",
+      "age" : "September 29, 2025",
+      "page_age" : "2025-09-29T12:59:48",
+      "fetched_content_timestamp" : 1768327674,
+      "video" : {
+        "duration" : "12:12",
+        "creator" : "Amigoscode",
+        "publisher" : "YouTube"
+      },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "youtube.com",
+        "hostname" : "www.youtube.com",
+        "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+        "path" : "› watch"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/PALqipTzTO0CR3w2aYuH_cq2zu-dS_XzcHaaYNpHaqA/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9s/M05fVWYtejh6RS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+        "original" : "https://i.ytimg.com/vi/l3N_Uf-z8zE/maxresdefault.jpg"
+      }
+    } ],
+    "mutated_by_goggles" : false
+  },
+  "web" : {
+    "type" : "search",
+    "results" : [ {
+      "title" : "Introduction to Java",
+      "url" : "https://www.w3schools.com/java/java_intro.asp",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Java is an <strong>object oriented language</strong> which gives a clear structure to programs and allows code to be reused, lowering development costs",
+      "profile" : {
+        "name" : "W3Schools",
+        "url" : "https://www.w3schools.com/java/java_intro.asp",
+        "long_name" : "w3schools.com",
+        "img" : "https://imgs.search.brave.com/D9KKNW7B_PBGo-trytMGRrRqvqMVW5Q5mDruXSPmBO4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjVlMGVkZDVj/ZGMyZWRmMzAwODRi/ZDAwZGE4NWI3NmU4/MjRhNjEzOGFhZWY3/ZGViMjY1OWY2ZDYw/YTZiOGUyZS93d3cu/dzNzY2hvb2xzLmNv/bS8"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "generic",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "w3schools.com",
+        "hostname" : "www.w3schools.com",
+        "favicon" : "https://imgs.search.brave.com/D9KKNW7B_PBGo-trytMGRrRqvqMVW5Q5mDruXSPmBO4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjVlMGVkZDVj/ZGMyZWRmMzAwODRi/ZDAwZGE4NWI3NmU4/MjRhNjEzOGFhZWY3/ZGViMjY1OWY2ZDYw/YTZiOGUyZS93d3cu/dzNzY2hvb2xzLmNv/bS8",
+        "path" : "› java  › java_intro.asp"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/9mJENdKXrTwGf6-xbqPvs47GTLiuqxHqcFfNEei0o3w/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/dzNzY2hvb2xzLmNv/bS9pbWFnZXMvdzNz/Y2hvb2xzX2xvZ29f/NDM2XzIucG5n",
+        "original" : "https://www.w3schools.com/images/w3schools_logo_436_2.png",
+        "logo" : true
+      }
+    }, {
+      "title" : "Java (programming language) - Wikipedia",
+      "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Java is <strong>a high-level, general-purpose, memory-safe, object-oriented programming language</strong>. It is intended to let programmers write once, run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need to recompile.",
+      "page_age" : "2026-01-14T03:03:48",
+      "profile" : {
+        "name" : "Wikipedia",
+        "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)",
+        "long_name" : "en.wikipedia.org",
+        "img" : "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "generic",
+      "is_live" : false,
+      "deep_results" : {
+        "buttons" : [ {
+          "type" : "button_result",
+          "title" : "History",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#History"
+        }, {
+          "type" : "button_result",
+          "title" : "Editions",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Editions"
+        }, {
+          "type" : "button_result",
+          "title" : "Execution system",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Execution_system"
+        }, {
+          "type" : "button_result",
+          "title" : "Syntax",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Syntax"
+        }, {
+          "type" : "button_result",
+          "title" : "Special classes",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Special_classes"
+        }, {
+          "type" : "button_result",
+          "title" : "Criticism",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Criticism"
+        }, {
+          "type" : "button_result",
+          "title" : "Class libraries",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Class_libraries"
+        }, {
+          "type" : "button_result",
+          "title" : "Documentation",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Documentation"
+        }, {
+          "type" : "button_result",
+          "title" : "Implementations",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Implementations"
+        }, {
+          "type" : "button_result",
+          "title" : "Use outside the Java platform",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Use_outside_the_Java_platform"
+        }, {
+          "type" : "button_result",
+          "title" : "Bibliography",
+          "url" : "https://en.wikipedia.org/wiki/Java_(programming_language)#Bibliography"
+        } ]
+      },
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "en.wikipedia.org",
+        "hostname" : "en.wikipedia.org",
+        "favicon" : "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw",
+        "path" : "› wiki  › Java_(programming_language)"
+      },
+      "age" : "5 days ago"
+    }, {
+      "title" : "Java | Oracle",
+      "url" : "https://www.java.com/en/",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Oracle Java is the #1 programming language and development platform. It reduces costs, shortens development timeframes, drives innovation, and improves application services.",
+      "page_age" : "2025-12-22T15:14:43",
+      "profile" : {
+        "name" : "Oracle",
+        "url" : "https://www.java.com/en/",
+        "long_name" : "java.com",
+        "img" : "https://imgs.search.brave.com/RKiF688nF1busVH4a-YBVUni3i1u9gSlO2DHUgLWdsA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZWIzMzY0ZWZh/MTE5MTVhM2E3MTEy/M2QzMDAwMWFlNTM1/OWVkMmMyNjA0OWM3/Mjc2YTFjNTI5ODkz/ZDg0NDYxMi93d3cu/amF2YS5jb20v"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "generic",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "java.com",
+        "hostname" : "www.java.com",
+        "favicon" : "https://imgs.search.brave.com/RKiF688nF1busVH4a-YBVUni3i1u9gSlO2DHUgLWdsA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZWIzMzY0ZWZh/MTE5MTVhM2E3MTEy/M2QzMDAwMWFlNTM1/OWVkMmMyNjA0OWM3/Mjc2YTFjNTI5ODkz/ZDg0NDYxMi93d3cu/amF2YS5jb20v",
+        "path" : "› en"
+      },
+      "age" : "1 month ago"
+    }, {
+      "title" : "What is Java? - Java Programming Language Explained - AWS",
+      "url" : "https://aws.amazon.com/what-is/java/",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Java is <strong>a widely-used programming language for coding web applications</strong>. It has been a popular choice among developers for over two decades, with millions of Java applications in use today. Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform ...",
+      "page_age" : "2026-01-12T18:43:06",
+      "profile" : {
+        "name" : "AWS",
+        "url" : "https://aws.amazon.com/what-is/java/",
+        "long_name" : "aws.amazon.com",
+        "img" : "https://imgs.search.brave.com/w1pARvp0PsgKW9VIQkl3hv9-fqD3BFvfwsgJeUDHdUQ/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWFkODM4NDk0/MTRjNzUyMTM3OTQ5/MmI4MjRkZjFhNDcw/MTIxYzI3NmZmMmNm/MDFkZWRjNmFkZjYz/NzVhZmIzMC9hd3Mu/YW1hem9uLmNvbS8"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "article",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "aws.amazon.com",
+        "hostname" : "aws.amazon.com",
+        "favicon" : "https://imgs.search.brave.com/w1pARvp0PsgKW9VIQkl3hv9-fqD3BFvfwsgJeUDHdUQ/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWFkODM4NDk0/MTRjNzUyMTM3OTQ5/MmI4MjRkZjFhNDcw/MTIxYzI3NmZmMmNm/MDFkZWRjNmFkZjYz/NzVhZmIzMC9hd3Mu/YW1hem9uLmNvbS8",
+        "path" : "  › what is cloud computing?  › cloud computing concepts hub  › developer tools  › what is java?"
+      },
+      "age" : "1 week ago"
+    }, {
+      "title" : "Java Tutorial - Learn Java Programming - GeeksforGeeks",
+      "url" : "https://www.geeksforgeeks.org/java/java/",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Java is <strong>a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems</strong>.",
+      "page_age" : "2025-12-08T00:00:00",
+      "profile" : {
+        "name" : "GeeksforGeeks",
+        "url" : "https://www.geeksforgeeks.org/java/java/",
+        "long_name" : "geeksforgeeks.org",
+        "img" : "https://imgs.search.brave.com/bGE5KD5Za34la_MeOAt7584d1aXRWEQopsXEQyAALPw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjBhOGQ3MmNi/ZWE5N2EwMmZjYzA1/ZTI0ZTFhMGUyMTE0/MGM0ZTBmMWZlM2Y2/Yzk2ODMxZTRhYTBi/NDdjYTE0OS93d3cu/Z2Vla3Nmb3JnZWVr/cy5vcmcv"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "video",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "geeksforgeeks.org",
+        "hostname" : "www.geeksforgeeks.org",
+        "favicon" : "https://imgs.search.brave.com/bGE5KD5Za34la_MeOAt7584d1aXRWEQopsXEQyAALPw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjBhOGQ3MmNi/ZWE5N2EwMmZjYzA1/ZTI0ZTFhMGUyMTE0/MGM0ZTBmMWZlM2Y2/Yzk2ODMxZTRhYTBi/NDdjYTE0OS93d3cu/Z2Vla3Nmb3JnZWVr/cy5vcmcv",
+        "path" : "  › java  › java"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/RitrjwYxSUFxwZexHcfnOIjSZn_Uodv6oGR33hKOelo/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZWVrc2Zvcmdl/ZWtzLm9yZy93cC1j/b250ZW50L2Nkbi11/cGxvYWRzLzIwMjMw/MzA1MTMxMTExL0ph/dmEtcHJvZ3JhbW1p/bmcucG5n",
+        "original" : "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230305131111/Java-programming.png",
+        "logo" : false
+      },
+      "age" : "December 8, 2025"
+    }, {
+      "title" : "What is Java and why do I need it?",
+      "url" : "https://www.java.com/en/download/help/whatis_java.html",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "<strong>Java is a programming language and computing platform first released by Sun Microsystems in 1995</strong>. It has evolved from humble beginnings to power a large share of today’s digital world, by providing the reliable platform upon which many services and applications are built.",
+      "profile" : {
+        "name" : "Oracle",
+        "url" : "https://www.java.com/en/download/help/whatis_java.html",
+        "long_name" : "java.com",
+        "img" : "https://imgs.search.brave.com/RKiF688nF1busVH4a-YBVUni3i1u9gSlO2DHUgLWdsA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZWIzMzY0ZWZh/MTE5MTVhM2E3MTEy/M2QzMDAwMWFlNTM1/OWVkMmMyNjA0OWM3/Mjc2YTFjNTI5ODkz/ZDg0NDYxMi93d3cu/amF2YS5jb20v"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "generic",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "java.com",
+        "hostname" : "www.java.com",
+        "favicon" : "https://imgs.search.brave.com/RKiF688nF1busVH4a-YBVUni3i1u9gSlO2DHUgLWdsA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZWIzMzY0ZWZh/MTE5MTVhM2E3MTEy/M2QzMDAwMWFlNTM1/OWVkMmMyNjA0OWM3/Mjc2YTFjNTI5ODkz/ZDg0NDYxMi93d3cu/amF2YS5jb20v",
+        "path" : "› en  › download  › help  › whatis_java.html"
+      }
+    }, {
+      "title" : "r/learnprogramming on Reddit: Java programming",
+      "url" : "https://www.reddit.com/r/learnprogramming/comments/1gfl1xa/java_programming/",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Java is an entrenched language and is commonly used in introductory courses to object oriented programming so there&#x27;s tons of beginner resources in regards to SO threads, video tutorials, textbooks, etc.",
+      "page_age" : "2024-10-30T12:14:22",
+      "profile" : {
+        "name" : "Reddit",
+        "url" : "https://www.reddit.com/r/learnprogramming/comments/1gfl1xa/java_programming/",
+        "long_name" : "reddit.com",
+        "img" : "https://imgs.search.brave.com/U-eHNCapRHVNWWCVPPMTIvOofZULh0_A_FQKe8xTE4I/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2ZiNTU0M2Nj/MTFhZjRiYWViZDlk/MjJiMjBjMzFjMDRk/Y2IzYWI0MGI0MjVk/OGY5NzQzOGQ5NzQ5/NWJhMWI0NC93d3cu/cmVkZGl0LmNvbS8"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "qa",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "reddit.com",
+        "hostname" : "www.reddit.com",
+        "favicon" : "https://imgs.search.brave.com/U-eHNCapRHVNWWCVPPMTIvOofZULh0_A_FQKe8xTE4I/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2ZiNTU0M2Nj/MTFhZjRiYWViZDlk/MjJiMjBjMzFjMDRk/Y2IzYWI0MGI0MjVk/OGY5NzQzOGQ5NzQ5/NWJhMWI0NC93d3cu/cmVkZGl0LmNvbS8",
+        "path" : "  › r/learnprogramming  › java programming"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/A5H_aQiEBuUODR0lNeU8iDfhrWUvO8oEmRGE_mcS_gM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/cmVkZGl0c3RhdGlj/LmNvbS9pY29uLnBu/Zw",
+        "original" : "https://www.redditstatic.com/icon.png",
+        "logo" : true
+      },
+      "age" : "October 30, 2024"
+    }, {
+      "title" : "Java Tutorial: Learn Java Programming | Codecademy",
+      "url" : "https://www.codecademy.com/learn/learn-java",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Java is an <strong>open-source, general-purpose programming language known for its versatility and stability</strong>. It’s used for everything from building websites to operating systems and wearable devices.",
+      "profile" : {
+        "name" : "Codecademy",
+        "url" : "https://www.codecademy.com/learn/learn-java",
+        "long_name" : "codecademy.com",
+        "img" : "https://imgs.search.brave.com/ugBg9g2fdtxxRGdmb-0Ps8Gca5et9xoAUoGGsUPUwnA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYWRjZGFkYjYz/Nzk3MTMwODNiNGE1/NDQwNTJkODcyMmM5/NTNhYTk2YWM2MDFi/Y2Q1ZWFlNDM1ZjUy/MjhkMzM2Ni93d3cu/Y29kZWNhZGVteS5j/b20v"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "faq",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "codecademy.com",
+        "hostname" : "www.codecademy.com",
+        "favicon" : "https://imgs.search.brave.com/ugBg9g2fdtxxRGdmb-0Ps8Gca5et9xoAUoGGsUPUwnA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYWRjZGFkYjYz/Nzk3MTMwODNiNGE1/NDQwNTJkODcyMmM5/NTNhYTk2YWM2MDFi/Y2Q1ZWFlNDM1ZjUy/MjhkMzM2Ni93d3cu/Y29kZWNhZGVteS5j/b20v",
+        "path" : "› learn  › learn-java"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/XPrGYX7ZxoJGndxNEfec2MIkuPlGH-kOeoyyYiYt9Zg/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtYXNzZXRzLmNv/ZGVjYWRlbXkuY29t/L2Fzc2V0cy9jb3Vy/c2UtbGFuZGluZy1w/YWdlL21ldGEvMTZ4/OS9sZWFybi1qYXZh/LmpwZw",
+        "original" : "https://static-assets.codecademy.com/assets/course-landing-page/meta/16x9/learn-java.jpg",
+        "logo" : false
+      }
+    }, {
+      "title" : "Java Language Basics - Dev.java",
+      "url" : "https://dev.java/learn/language-basics/",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "This part of the tutorial covers the basics of the language, including: variables, operators, expressions, statements, blocks and control flow statements. ... Rules to name variables. Creating Primitive Type Variables in Your Programs · Syntax to create and initialize primitive type variables. ... Creating fixed-length containers of objects with arrays. ... Defining Variables with Var. ... Computing things with operators. ... Wrapping up the Java ...",
+      "profile" : {
+        "name" : "Dev.java",
+        "url" : "https://dev.java/learn/language-basics/",
+        "long_name" : "dev.java",
+        "img" : "https://imgs.search.brave.com/YPcYKJuYw8-2s89Yrjw_dUTSLC37a4KMq7Vug4jyozs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZGRjOTVlMTI3/YzI3YjJiYjUwNDI1/ODg4ZmRlYWM5MTVm/MzMxMzcxZjNlMjQ3/ZTlkZmUyZDU4OWYy/YzRhNTYzNy9kZXYu/amF2YS8"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "generic",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "dev.java",
+        "hostname" : "dev.java",
+        "favicon" : "https://imgs.search.brave.com/YPcYKJuYw8-2s89Yrjw_dUTSLC37a4KMq7Vug4jyozs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZGRjOTVlMTI3/YzI3YjJiYjUwNDI1/ODg4ZmRlYWM5MTVm/MzMxMzcxZjNlMjQ3/ZTlkZmUyZDU4OWYy/YzRhNTYzNy9kZXYu/amF2YS8",
+        "path" : "› learn  › language-basics"
+      },
+      "thumbnail" : {
+        "src" : "https://imgs.search.brave.com/l0_QiY9sPE-aPzVB3hYAGSQW4sNSKl-oU9I4J4K3hFM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9kZXYu/amF2YS9hc3NldHMv/aW1hZ2VzL2phdmEt/bG9nby12ZXJ0LWJs/ay5wbmc",
+        "original" : "https://dev.java/assets/images/java-logo-vert-blk.png",
+        "logo" : true
+      }
+    }, {
+      "title" : "Learn Java Programming",
+      "url" : "https://www.programiz.com/java-programming",
+      "is_source_local" : false,
+      "is_source_both" : false,
+      "description" : "Created by the Programiz team with over a decade of experience. ... Java is a platform-independent language that runs on 3 billion devices worldwide.",
+      "profile" : {
+        "name" : "Programiz",
+        "url" : "https://www.programiz.com/java-programming",
+        "long_name" : "programiz.com",
+        "img" : "https://imgs.search.brave.com/sLWSVLS2Umji7yEuMboejjd09dYXJyxRdYtZmK0dgyM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGJlN2U1YjVi/Y2M3ZDU5OGMwMWNi/M2Q3YjhjOTM1ZTFk/Y2NkZjE4NGQwOGIx/MTQ4NjI2YmNhODVj/MzFkMmJhYy93d3cu/cHJvZ3JhbWl6LmNv/bS8"
+      },
+      "language" : "en",
+      "family_friendly" : true,
+      "type" : "search_result",
+      "subtype" : "generic",
+      "is_live" : false,
+      "meta_url" : {
+        "scheme" : "https",
+        "netloc" : "programiz.com",
+        "hostname" : "www.programiz.com",
+        "favicon" : "https://imgs.search.brave.com/sLWSVLS2Umji7yEuMboejjd09dYXJyxRdYtZmK0dgyM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGJlN2U1YjVi/Y2M3ZDU5OGMwMWNi/M2Q3YjhjOTM1ZTFk/Y2NkZjE4NGQwOGIx/MTQ4NjI2YmNhODVj/MzFkMmJhYy93d3cu/cHJvZ3JhbWl6LmNv/bS8",
+        "path" : "› java-programming"
+      }
+    } ],
+    "family_friendly" : true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type" : "ErrorResponse",
+  "error" : {
+    "id" : "3afc58ed-c033-4af4-9e9c-9afc294118ac",
+    "status" : 422,
+    "code" : "VALIDATION",
+    "detail" : "Unable to validate request parameter(s)",
+    "meta" : {
+      "errors" : [ {
+        "type" : "enum",
+        "loc" : [ "query", "safesearch" ],
+        "msg" : "Input should be 'off' or 'strict'",
+        "input" : "moderate",
+        "ctx" : {
+          "expected" : "'off' or 'strict'"
+        }
+      } ]
+    }
+  },
+  "time" : 1768981917
+}

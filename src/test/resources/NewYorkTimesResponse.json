@@ -1,0 +1,1223 @@
+{
+  "type": "search",
+  "query": {
+    "original": "new york times",
+    "show_strict_warning": false,
+    "is_navigational": true,
+    "is_geolocal": true,
+    "local_decision": "mix",
+    "is_news_breaking": false,
+    "spellcheck_off": true,
+    "country": "us",
+    "bad_results": false,
+    "should_fallback": false,
+    "postal_code": "",
+    "city": "",
+    "header_country": "",
+    "more_results_available": true,
+    "state": ""
+  },
+  "mixed": {
+    "type": "mixed",
+    "main": [
+      {
+        "type": "web",
+        "index": 0,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 1,
+        "all": false
+      },
+      {
+        "type": "news",
+        "all": true
+      },
+      {
+        "type": "web",
+        "index": 2,
+        "all": false
+      },
+      {
+        "type": "videos",
+        "all": true
+      },
+      {
+        "type": "web",
+        "index": 3,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 4,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 5,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 6,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 7,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 8,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 9,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 10,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 11,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 12,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 13,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 14,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 15,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 16,
+        "all": false
+      },
+      {
+        "type": "web",
+        "index": 17,
+        "all": false
+      }
+    ],
+    "top": [],
+    "side": []
+  },
+  "news": {
+    "type": "news",
+    "results": [
+      {
+        "title": "Brazil’s Lula Slams Trump’s Venezuela Attack in New York Times - Bloomberg",
+        "url": "https://www.bloomberg.com/news/articles/2026-01-18/brazil-s-lula-slams-trump-s-venezuela-attack-in-new-york-times",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Brazil’s President Luiz Inacio Lula da Silva condemned the US’s military incursion in Venezuela and capture of Nicolas Maduro as a “regrettable chapter” that would erode international law and threatens regional stability, trade as well as increasing the flows of refugees.",
+        "page_age": "2026-01-18T14:55:46",
+        "fetched_content_timestamp": 1768798915,
+        "profile": {
+          "name": "Bloomberg",
+          "url": "www.bloomberg.com",
+          "long_name": "bloomberg.com",
+          "img": "https://imgs.search.brave.com/JdflViMvNONX2cNzOInZ7EQWaTzeYAgL8uCSDVicA8Y/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDJhNjMyMGE1/YzY3MzRjMDAzZDU5/YzJiMWZlZmI4Yjkx/OWQyN2IzYzU1MjYw/ZDQyMjVjYzdjZWRi/ZTM5Njg4ZC93d3cu/Ymxvb21iZXJnLmNv/bS8"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "bloomberg.com",
+          "hostname": "www.bloomberg.com",
+          "favicon": "https://imgs.search.brave.com/JdflViMvNONX2cNzOInZ7EQWaTzeYAgL8uCSDVicA8Y/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDJhNjMyMGE1/YzY3MzRjMDAzZDU5/YzJiMWZlZmI4Yjkx/OWQyN2IzYzU1MjYw/ZDQyMjVjYzdjZWRi/ZTM5Njg4ZC93d3cu/Ymxvb21iZXJnLmNv/bS8",
+          "path": "› news  › articles  › 2026-01-18  › brazil-s-lula-slams-trump-s-venezuela-attack-in-new-york-times"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/FZD2T532utxAVoyQobEJX52NS7P7jP7yx8rOQDJT0nM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuYndieC5pby9p/bWFnZXMvdXNlcnMv/aXFqV0hCRmRmeElV/L2lFZk1FSkE1Zm9N/SS92MS8xMjAweDgw/MC5qcGc",
+          "original": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iEfMEJA5foMI/v1/1200x800.jpg"
+        },
+        "age": "16 hours ago"
+      },
+      {
+        "title": "Zohran Mamdani dinged in New York Times report for ‘problem’ of not having Black deputy mayors",
+        "url": "https://www.yahoo.com/news/articles/zohran-mamdani-dinged-york-times-160901776.html",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "<strong>New</strong> <strong>York</strong> City mayor Zohran Mamdani faces criticism over deputy mayor appointments as Black leaders question his commitment to diversity in city government.",
+        "page_age": "2026-01-17T05:50:03",
+        "fetched_content_timestamp": 1768798915,
+        "profile": {
+          "name": "Yahoo!",
+          "url": "www.yahoo.com",
+          "long_name": "yahoo.com",
+          "img": "https://imgs.search.brave.com/IGZFixroh2PB52rDOkvozYUa5SS6sQB3n8hsdg7IFxA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2EwYzFkODc1/ZjcwYzIyNTNlMmFk/YjZkYTg4NjY5OTYw/MzQxMjliNDk2MTBk/YTY1YWRhMjRmNDNk/MTA5ZDZjNS93d3cu/eWFob28uY29tLw"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "yahoo.com",
+          "hostname": "www.yahoo.com",
+          "favicon": "https://imgs.search.brave.com/IGZFixroh2PB52rDOkvozYUa5SS6sQB3n8hsdg7IFxA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2EwYzFkODc1/ZjcwYzIyNTNlMmFk/YjZkYTg4NjY5OTYw/MzQxMjliNDk2MTBk/YTY1YWRhMjRmNDNk/MTA5ZDZjNS93d3cu/eWFob28uY29tLw",
+          "path": "› news  › articles  › zohran-mamdani-dinged-york-times-160901776.html"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/mRZCu0N_fZDzdZ96_Cz5jqa5kPJuzeCixsFCu8rtPCU/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zLnlp/bWcuY29tL255L2Fw/aS9yZXMvMS4yL25I/UHhyRE9la1M4T1cw/UlFTR0V4TGctLS9Z/WEJ3YVdROWFHbG5h/R3hoYm1SbGNqdDNQ/VEV5TURBN2FEMDJO/elU3WTJZOWQyVmlj/QS0tL2h0dHBzOi8v/bWVkaWEuemVuZnMu/Y29tL2VuL2ZveF9u/ZXdzX3RleHRfOTc5/LzM1NDU2Y2QyZjBm/MzhmY2RlZWFiZGU3/Y2IwNDU1ZTc1",
+          "original": "https://s.yimg.com/ny/api/res/1.2/nHPxrDOekS8OW0RQSGExLg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/fox_news_text_979/35456cd2f0f38fcdeeabde7cb0455e75"
+        },
+        "age": "2 days ago"
+      },
+      {
+        "title": "European Officials Lean Toward Negotiating, Not Retaliating, Over Trump Threat - The New York Times",
+        "url": "https://www.nytimes.com/live/2026/01/18/us/trump-news",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Department of Homeland Security officials have repeatedly said that 70 percent of those detained in the administration’s immigration crackdown have been charged or convicted of a crime. That figure is roughly in line with a <strong>New</strong> <strong>York</strong> <strong>Times</strong> analysis of immigration arrests between the start of Mr.",
+        "page_age": "2026-01-19T04:54:00",
+        "fetched_content_timestamp": 1768803973,
+        "profile": {
+          "name": "NYTimes",
+          "url": "www.nytimes.com",
+          "long_name": "The New York Times",
+          "img": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› live  › 2026  › 01  › 18  › us  › trump-news"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/PxDwP2R1NTn87mAutdIU9fXLjo5Fq_4876kHHW_4MFg/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE4L211bHRp/bWVkaWEvMTh0cnVt/cC00MDAtd2dmcS8x/OHRydW1wLTQwMC13/Z2ZxLWZhY2Vib29r/SnVtYm8uanBn",
+          "original": "https://static01.nyt.com/images/2026/01/18/multimedia/18trump-400-wgfq/18trump-400-wgfq-facebookJumbo.jpg"
+        },
+        "age": "2 hours ago"
+      },
+      {
+        "title": "David Shipley to Return to The Times | The New York Times Company",
+        "url": "https://www.nytco.com/press/david-shipley-to-return-to-the-times/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "We are thrilled to announce that David Shipley, a principled, brilliant journalist known for his intellectual curiosity and leadership, is returning to The <strong>New</strong> <strong>York</strong> <strong>Times</strong> as an editor at large.",
+        "page_age": "2026-01-16T05:50:03",
+        "fetched_content_timestamp": 1768801876,
+        "profile": {
+          "name": "The New York Times Company",
+          "url": "www.nytco.com",
+          "long_name": "nytco.com",
+          "img": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytco.com",
+          "hostname": "www.nytco.com",
+          "favicon": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw",
+          "path": "› press  › david-shipley-to-return-to-the-times"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/tHRVDZlGAUyGea-P6K1t58dN9K0gcbN3WV3IYoJP6LM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ueXRj/by1hc3NldHMubnl0/aW1lcy5jb20vMjAy/Ni8wMS9EYXZpZC1T/aGlwbGV5LVR3aXR0/ZXItQ2FyZC5qcGVn",
+          "original": "https://nytco-assets.nytimes.com/2026/01/David-Shipley-Twitter-Card.jpeg"
+        },
+        "age": "3 days ago"
+      },
+      {
+        "title": "New York Times: How a screwdriver trader in Onitsha influenced Trump's missile strike in Nigeria | TheCable",
+        "url": "https://www.thecable.ng/new-york-times-how-a-screwdriver-trader-in-onitsha-influenced-trumps-missile-strike-in-nigeria/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The United States relied on information and reports by Emeka Umeagbalasi, screwdriver seller in Onitsha, to carry out air strikes in Nigeria",
+        "page_age": "2026-01-18T15:12:23",
+        "fetched_content_timestamp": 1768781781,
+        "profile": {
+          "name": "TheCable",
+          "url": "www.thecable.ng",
+          "long_name": "thecable.ng",
+          "img": "https://imgs.search.brave.com/Kk5qMERVzOY04gewmgsj-T7tcMYq-mSv3U4PVVXyBMM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWRkMDhiMzlm/Y2M3NzNjMzcwM2Fm/YmQ4ZTU4MTFjOWZm/NjI1OWU4MWIzNGVl/N2MxZWNiY2FiOGQ3/NTk1ZTU1NC93d3cu/dGhlY2FibGUubmcv"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "thecable.ng",
+          "hostname": "www.thecable.ng",
+          "favicon": "https://imgs.search.brave.com/Kk5qMERVzOY04gewmgsj-T7tcMYq-mSv3U4PVVXyBMM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWRkMDhiMzlm/Y2M3NzNjMzcwM2Fm/YmQ4ZTU4MTFjOWZm/NjI1OWU4MWIzNGVl/N2MxZWNiY2FiOGQ3/NTk1ZTU1NC93d3cu/dGhlY2FibGUubmcv",
+          "path": "› new-york-times-how-a-screwdriver-trader-in-onitsha-influenced-trumps-missile-strike-in-nigeria"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/MKknqgfuJuh_EiFqd9CHW4ES9IXq2nD1qxNk1ZwlsQc/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/dGhlY2FibGUubmcv/d3AtY29udGVudC91/cGxvYWRzLzIwMjYv/MDEvRW1la2EtVW1l/YWdiYWx1c2ktLWUx/NzY4NzQ5MTMwOTQz/LndlYnA",
+          "original": "https://www.thecable.ng/wp-content/uploads/2026/01/Emeka-Umeagbalusi--e1768749130943.webp"
+        },
+        "age": "15 hours ago"
+      },
+      {
+        "title": "NYT Pips hints, answers for January 18, 2026 | Mashable",
+        "url": "https://mashable.com/article/pips-nyt-games-hints-answers-easy-medium-hard-january-18-2026",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The <strong>New</strong> <strong>York</strong> <strong>Times</strong>&#x27; latest game, Pips, brings domino fun to your desktop. How to play Pips as well as hints in case you get stuck.",
+        "page_age": "2026-01-18T06:25:04",
+        "fetched_content_timestamp": 1768798914,
+        "profile": {
+          "name": "Mashable",
+          "url": "mashable.com",
+          "long_name": "mashable.com",
+          "img": "https://imgs.search.brave.com/IjPiAuA0VqiOvXNrX9YtHLTbSVvE6MXc_Nco4v5M9sM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNzliOWI4ZDAz/ZDMzZjU3YzY0YTQ5/MGJkYTBlM2MzOGEw/ZDM5MjQ4ZDQyMWY1/ZjNhMjJlZTAzMmI0/ZDYzMzYwNi9tYXNo/YWJsZS5jb20v"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "mashable.com",
+          "hostname": "mashable.com",
+          "favicon": "https://imgs.search.brave.com/IjPiAuA0VqiOvXNrX9YtHLTbSVvE6MXc_Nco4v5M9sM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNzliOWI4ZDAz/ZDMzZjU3YzY0YTQ5/MGJkYTBlM2MzOGEw/ZDM5MjQ4ZDQyMWY1/ZjNhMjJlZTAzMmI0/ZDYzMzYwNi9tYXNo/YWJsZS5jb20v",
+          "path": "› article  › pips-nyt-games-hints-answers-easy-medium-hard-january-18-2026"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/GZEBjqkF7bW-dk3dNYUPFmGKPehlA_Re-MVVE8nzIRc/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9oZWxp/b3MtaS5tYXNoYWJs/ZS5jb20vaW1hZ2Vy/eS9hcnRpY2xlcy8w/NUN1eUZKeDE2bUFO/MVlTR3JGOTh0Wi9o/ZXJvLWltYWdlLmZp/bGwuc2l6ZV8xMjAw/eDY3NS52MTc2ODcw/NjE5MC5qcGc",
+          "original": "https://helios-i.mashable.com/imagery/articles/05CuyFJx16mAN1YSGrF98tZ/hero-image.fill.size_1200x675.v1768706190.jpg"
+        },
+        "age": "1 day ago"
+      },
+      {
+        "title": "After Trump Reignites a Trade War Over Greenland, Europe Weighs Hitting Back - The New York Times",
+        "url": "https://www.nytimes.com/2026/01/18/world/europe/greenland-us-trade-war.html",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "A protest against President Trump in Nuuk, the capital of Greenland, on Saturday.Credit...Juliette Pavy for The <strong>New</strong> <strong>York</strong> <strong>Times</strong>",
+        "page_age": "2026-01-18T22:25:04",
+        "fetched_content_timestamp": 1768802791,
+        "profile": {
+          "name": "NYTimes",
+          "url": "www.nytimes.com",
+          "long_name": "The New York Times",
+          "img": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› 2026  › 01  › 18  › world  › europe  › greenland-us-trade-war.html"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/ondhQj2YNO2_EDI1x7nNnf1j1r6_Z_QpU4b7VZEOEPo/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE4L211bHRp/bWVkaWEvMThpbnQt/ZXVyb3BlLXRhcmlm/ZnMtYXNzZXNzLTAx/LWdibHcvMThpbnQt/ZXVyb3BlLXRhcmlm/ZnMtYXNzZXNzLTAx/LWdibHctZmFjZWJv/b2tKdW1iby5qcGc",
+          "original": "https://static01.nyt.com/images/2026/01/18/multimedia/18int-europe-tariffs-assess-01-gblw/18int-europe-tariffs-assess-01-gblw-facebookJumbo.jpg"
+        },
+        "age": "8 hours ago"
+      },
+      {
+        "title": "Noem Denies Use of Chemical Agents in Minnesota Protests, Then Backtracks - The New York Times",
+        "url": "https://www.nytimes.com/2026/01/18/us/politics/noem-chemical-agents-minnesota.html",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Department of Homeland Security officials have repeatedly said that 70 percent of those detained in the administration’s immigration crackdown have been charged or convicted of a crime. That figure is roughly in line with a <strong>New</strong> <strong>York</strong> <strong>Times</strong> analysis of immigration arrests between the start of Mr.",
+        "page_age": "2026-01-18T21:42:16",
+        "fetched_content_timestamp": 1768802791,
+        "profile": {
+          "name": "NYTimes",
+          "url": "www.nytimes.com",
+          "long_name": "The New York Times",
+          "img": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› 2026  › 01  › 18  › us  › politics  › noem-chemical-agents-minnesota.html"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/GxsYQ0C_2NPNteX3ukJj4r5EgesspI5VJejr93u-S54/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE4L211bHRp/bWVkaWEvMTh0cnVt/cC1uZXdzLW5vZW0t/bWlubmVzb3RhLWx2/a3AvMTh0cnVtcC1u/ZXdzLW5vZW0tbWlu/bmVzb3RhLWx2a3At/ZmFjZWJvb2tKdW1i/by5qcGc",
+          "original": "https://static01.nyt.com/images/2026/01/18/multimedia/18trump-news-noem-minnesota-lvkp/18trump-news-noem-minnesota-lvkp-facebookJumbo.jpg"
+        },
+        "age": "9 hours ago"
+      },
+      {
+        "title": "New video analysis sheds light on Minneapolis ICE shooting - YouTube",
+        "url": "https://www.youtube.com/watch?v=QpaCL_6Y2D4",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "A <strong>new</strong> video analysis from the <strong>New</strong> <strong>York</strong> <strong>Times</strong> sheds light on the moments before the ICE shooting in Minneapolis.0:00 <strong>New</strong> NYT analysis of moments before ICE sh...",
+        "page_age": "2026-01-18T13:42:53",
+        "fetched_content_timestamp": 1768679617,
+        "profile": {
+          "name": "YouTube",
+          "url": "www.youtube.com",
+          "long_name": "youtube.com",
+          "img": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "youtube.com",
+          "hostname": "www.youtube.com",
+          "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+          "path": "› watch"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/MoGTIIBx0PmdDJOtvU2LHcrebEoCpvnAgEp-RQQl5hM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9R/cGFDTF82WTJENC9t/YXhyZXNkZWZhdWx0/LmpwZw",
+          "original": "https://i.ytimg.com/vi/QpaCL_6Y2D4/maxresdefault.jpg"
+        },
+        "age": "17 hours ago"
+      },
+      {
+        "title": "New York Times video analysis sheds light on ICE shooting | CNN",
+        "url": "https://www.cnn.com/2026/01/16/us/video/ac360dereklum",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "<strong>New</strong> <strong>York</strong> <strong>Times</strong> reporter Devon Lum joins Anderson Cooper to break down <strong>new</strong> video analysis that goes frame by frame through multiple angles of the shooting of Renee Good.",
+        "page_age": "2026-01-17T02:35:04",
+        "fetched_content_timestamp": 1768803685,
+        "profile": {
+          "name": "CNN",
+          "url": "www.cnn.com",
+          "long_name": "Cable News Network",
+          "img": "https://imgs.search.brave.com/tV1joo3SHuITYemc5OsCps2_N9Toz6zArm5dNdbSoMs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWE3MWZjOTZk/NGRhM2RmZDQzMjZh/NjE3OGQ3NzQ3MDI5/NDJiOGI2ZDdkZDFj/ODI3N2MzYWU3OGU4/YzQ3YTNkNC93d3cu/Y25uLmNvbS8"
+        },
+        "family_friendly": true,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "cnn.com",
+          "hostname": "www.cnn.com",
+          "favicon": "https://imgs.search.brave.com/tV1joo3SHuITYemc5OsCps2_N9Toz6zArm5dNdbSoMs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWE3MWZjOTZk/NGRhM2RmZDQzMjZh/NjE3OGQ3NzQ3MDI5/NDJiOGI2ZDdkZDFj/ODI3N2MzYWU3OGU4/YzQ3YTNkNC93d3cu/Y25uLmNvbS8",
+          "path": "› 2026  › 01  › 16  › us  › video  › ac360dereklum"
+        },
+        "breaking": false,
+        "is_live": false,
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/P82EuZRE4cAgGki2KbML1r5kYRlnSWLHE7fJZqT24BY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L3N0aWxsLTIyMjgy/NjU2LTExNTA2NjEt/NzQ3MDAwMDAwMi10/aHVtYi5qcGc_Yz0x/Nng5JnE9d184MDAs/Y19maWxs",
+          "original": "https://media.cnn.com/api/v1/images/stellar/prod/still-22282656-1150661-7470000002-thumb.jpg?c=16x9&q=w_800,c_fill"
+        },
+        "age": "2 days ago"
+      }
+    ],
+    "mutated_by_goggles": false
+  },
+  "videos": {
+    "type": "videos",
+    "results": [
+      {
+        "type": "video_result",
+        "url": "https://www.nytimes.com/video/us/politics/100000010652139/inside-trumps-deportation-machine.html",
+        "title": "Inside Trump’s Deportation Machine - The New York Times",
+        "description": "Data obtained by The New York Times illustrates the differences between President Trump’s and President Biden’s approaches to deportations. Our data reporter Albert Sun describes what we found.",
+        "age": "1 day ago",
+        "page_age": "2026-01-18T10:01:50",
+        "fetched_content_timestamp": 1768777550,
+        "video": {
+          "duration": "02:27",
+          "publisher": "NYTimes"
+        },
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› video  › us  › politics  › 100000010652139  › inside-trumps-deportation-machine.html"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/oqXJzZVU87M2jJM6uB5fK5ES-DaGfaEdvvt3ooIr7PQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE4L3VzL3Bv/bGl0aWNzL1JWX1Ro/dW1ibmFpbC9SVl9U/aHVtYm5haWwtZmFj/ZWJvb2tKdW1iby5q/cGc_dmlkZW8tb3Zl/cmxheQ",
+          "original": "https://static01.nyt.com/images/2026/01/18/us/politics/RV_Thumbnail/RV_Thumbnail-facebookJumbo.jpg?video-overlay"
+        }
+      },
+      {
+        "type": "video_result",
+        "url": "https://www.nytimes.com/video/us/politics/100000010652071/greenland-trump-europe-tariffs.html",
+        "title": "Trump Threatens New Tariffs To Force Sale of Greenland - The New ...",
+        "description": "On Saturday morning, President Trump announced in a social media post his latest strategy to seize control of Greenland: He is slapping new tariffs on a group of European nations until they come to the negotiating table to sell Greenland.",
+        "age": "1 day ago",
+        "page_age": "2026-01-18T00:18:40",
+        "fetched_content_timestamp": 1768772158,
+        "video": {
+          "duration": "01:12",
+          "publisher": "NYTimes"
+        },
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› video  › us  › politics  › 100000010652071  › greenland-trump-europe-tariffs.html"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/AgWeak_lkoNoKwfnLw6xxMbJsbBqYKx4lF1E0NjE_DQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE3L211bHRp/bWVkaWEvMTdkYy10/YXJpZmZzLWdyZWVu/bGFuZC10b3BhcnQt/Y3RmbC8xN2RjLXRh/cmlmZnMtZ3JlZW5s/YW5kLXRvcGFydC1j/dGZsLWZhY2Vib29r/SnVtYm8uanBnP3Zp/ZGVvLW92ZXJsYXk",
+          "original": "https://static01.nyt.com/images/2026/01/17/multimedia/17dc-tariffs-greenland-topart-ctfl/17dc-tariffs-greenland-topart-ctfl-facebookJumbo.jpg?video-overlay"
+        }
+      },
+      {
+        "type": "video_result",
+        "url": "https://www.nytimes.com/video/opinion/100000010644679/the-underachiever-in-chief.html",
+        "title": "Opinion | The Underachiever in Chief? - The New York Times",
+        "description": "How much has Trump actually accomplished one year into his second term? According to the conservative analyst Yuval Levin, not much.",
+        "age": "2 days ago",
+        "page_age": "2026-01-16T23:42:14",
+        "fetched_content_timestamp": 1768747126,
+        "video": {
+          "duration": "02:13",
+          "publisher": "NYTimes"
+        },
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› video  › opinion  › 100000010644679  › the-underachiever-in-chief.html"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/FNyuvfaY4-XH-nYXwAh9QLE1PyQMW1HfSbUAgb5uZbs/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE2L2FydHMv/RUtTX0xFVklOX0VE/SVRfQ0xJUC0yXzI2/MDExNV9ERF9USFVN/Ql9DTEVBTi9FS1Nf/TEVWSU5fRURJVF9D/TElQLTJfMjYwMTE1/X0REX1RIVU1CX0NM/RUFOLWZhY2Vib29r/SnVtYm8ucG5nP3Zp/ZGVvLW92ZXJsYXk",
+          "original": "https://static01.nyt.com/images/2026/01/16/arts/EKS_LEVIN_EDIT_CLIP-2_260115_DD_THUMB_CLEAN/EKS_LEVIN_EDIT_CLIP-2_260115_DD_THUMB_CLEAN-facebookJumbo.png?video-overlay"
+        }
+      },
+      {
+        "type": "video_result",
+        "url": "https://www.nytimes.com/video/opinion/100000010648106/dear-america-greenland-is-not-on-zillow.html",
+        "title": "Opinion | Dear America, Greenland Is Not on Zillow - The New York ...",
+        "description": "Trump wants Greenland? Its previous colonizer has some thoughts.",
+        "age": "2 days ago",
+        "page_age": "2026-01-16T19:03:24",
+        "fetched_content_timestamp": 1768739856,
+        "video": {
+          "duration": "05:34",
+          "publisher": "NYTimes"
+        },
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› video  › opinion  › 100000010648106  › dear-america-greenland-is-not-on-zillow.html"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/3tfIVz5YYvJ8btNFY7f8O_lo2ZPOhV-gkTfz2f8nzj8/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L2ltYWdlcy8yMDI2/LzAxLzE2L2FydHMv/T3AtRGVubWFyay1G/ZWVkLVRodW1ibmFp/bC9PcC1EZW5tYXJr/LUZlZWQtVGh1bWJu/YWlsLWZhY2Vib29r/SnVtYm8uanBnP3Zp/ZGVvLW92ZXJsYXk",
+          "original": "https://static01.nyt.com/images/2026/01/16/arts/Op-Denmark-Feed-Thumbnail/Op-Denmark-Feed-Thumbnail-facebookJumbo.jpg?video-overlay"
+        }
+      },
+      {
+        "type": "video_result",
+        "url": "https://www.cnn.com/2026/01/16/us/video/ac360dereklum",
+        "title": "New York Times video analysis sheds light on ICE shooting | CNN",
+        "description": "New York Times reporter Devon Lum joins Anderson Cooper to break down new video analysis that goes frame by frame through multiple angles of the shooting of Renee Good.",
+        "age": "2 days ago",
+        "page_age": "2026-01-17T02:19:46",
+        "fetched_content_timestamp": 1768803685,
+        "video": {
+          "duration": "08:04",
+          "publisher": "CNN"
+        },
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "cnn.com",
+          "hostname": "www.cnn.com",
+          "favicon": "https://imgs.search.brave.com/tV1joo3SHuITYemc5OsCps2_N9Toz6zArm5dNdbSoMs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWE3MWZjOTZk/NGRhM2RmZDQzMjZh/NjE3OGQ3NzQ3MDI5/NDJiOGI2ZDdkZDFj/ODI3N2MzYWU3OGU4/YzQ3YTNkNC93d3cu/Y25uLmNvbS8",
+          "path": "› 2026  › 01  › 16  › us  › video  › ac360dereklum"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/P82EuZRE4cAgGki2KbML1r5kYRlnSWLHE7fJZqT24BY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/L3N0aWxsLTIyMjgy/NjU2LTExNTA2NjEt/NzQ3MDAwMDAwMi10/aHVtYi5qcGc_Yz0x/Nng5JnE9d184MDAs/Y19maWxs",
+          "original": "https://media.cnn.com/api/v1/images/stellar/prod/still-22282656-1150661-7470000002-thumb.jpg?c=16x9&q=w_800,c_fill"
+        }
+      },
+      {
+        "type": "video_result",
+        "url": "https://www.facebook.com/ABCNewsLive/videos/in-an-interview-recently-published-in-the-new-york-times-president-trump-told-re/1916303565980976/",
+        "title": "In an interview recently published in the New York Times ...",
+        "description": "",
+        "video": {},
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "facebook.com",
+          "hostname": "www.facebook.com",
+          "favicon": "https://imgs.search.brave.com/UPSLokJBKWPdNzHbqH5o3CgD13zMvR3pUTn8bk7hmPM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWM3NjZkMmE4/MTU1MTk4ZDU5YzU3/NjUxY2ExZTdjNWQx/NjJlNTY1Y2VlODM4/MmRmMDgzZDBiMmI3/YzU4NmU4ZS93d3cu/ZmFjZWJvb2suY29t/Lw",
+          "path": "› ABCNewsLive  › videos  › in-an-interview-recently-published-in-the-new-york-times-president-trump-told-re  › 1916303565980976"
+        }
+      }
+    ],
+    "mutated_by_goggles": false
+  },
+  "web": {
+    "type": "search",
+    "results": [
+      {
+        "title": "The New York Times - Breaking News, US News, World News and Videos",
+        "url": "https://www.nytimes.com/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Live news, investigations, opinion, photos and video by the journalists of The New York Times from more than 150 countries around the world. Subscribe for coverage of U.S. and international news, politics, business, technology, science, health, arts, sports and more.",
+        "page_age": "2026-01-19T02:10:02",
+        "fetched_content_timestamp": 1768798424,
+        "profile": {
+          "name": "NYTimes",
+          "url": "https://www.nytimes.com/",
+          "long_name": "The New York Times",
+          "img": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": ""
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/A8lVsOtMCbu0MK6o3WC5MXzKvyEUekiQYYGOXU8Ae-w/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L3ZpLWFzc2V0cy9p/bWFnZXMvc2hhcmUv/MTIwMHg2NzVfbmFt/ZXBsYXRlLnBuZw",
+          "original": "https://static01.nyt.com/vi-assets/images/share/1200x675_nameplate.png",
+          "logo": false
+        },
+        "age": "4 hours ago",
+        "cluster_type": "generic",
+        "cluster": [
+          {
+            "title": "U.S.",
+            "url": "https://www.nytimes.com/section/us",
+            "is_source_local": false,
+            "is_source_both": false,
+            "description": "Breaking news, photos and videos from around the United States. Read our latest coverage on education, health care, immigration, politics, race and religion.",
+            "family_friendly": true
+          },
+          {
+            "title": "World",
+            "url": "https://www.nytimes.com/section/world",
+            "is_source_local": false,
+            "is_source_both": false,
+            "description": "The latest international news, investigations and analysis from Africa, the Americas, Asia, Australia, Canada, Europe, the Middle East and the U.K.",
+            "family_friendly": true
+          },
+          {
+            "title": "Business",
+            "url": "https://www.nytimes.com/section/business",
+            "is_source_local": false,
+            "is_source_both": false,
+            "description": "Breaking news and analysis on business and the economy, including the latest news in technology, stock markets, media and finance.",
+            "family_friendly": true
+          },
+          {
+            "title": "The Magazine",
+            "url": "https://www.nytimes.com/section/magazine",
+            "is_source_local": false,
+            "is_source_both": false,
+            "description": "Long reads, cover stories, interviews and more from The <strong>New</strong> <strong>York</strong> <strong>Times</strong> Magazine.",
+            "family_friendly": true
+          }
+        ]
+      },
+      {
+        "title": "The New York Times - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/The_New_York_Times",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The New York Times (NYT) is <strong>a newspaper based in Manhattan, New York City</strong>. The New York Times covers domestic, national, and international news, and publishes opinion pieces and reviews. As one of the longest-running newspapers in the United States, the Times serves as one of the country&#x27;s ...",
+        "page_age": "2026-01-15T13:34:43",
+        "fetched_content_timestamp": 1768702792,
+        "profile": {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_New_York_Times",
+          "long_name": "en.wikipedia.org",
+          "img": "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "deep_results": {
+          "buttons": [
+            {
+              "type": "button_result",
+              "title": "History",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#History"
+            },
+            {
+              "type": "button_result",
+              "title": "Organization",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Organization"
+            },
+            {
+              "type": "button_result",
+              "title": "Content",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Content"
+            },
+            {
+              "type": "button_result",
+              "title": "Style and design",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Style_and_design"
+            },
+            {
+              "type": "button_result",
+              "title": "Print edition",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Print_edition"
+            },
+            {
+              "type": "button_result",
+              "title": "Online platforms",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Online_platforms"
+            },
+            {
+              "type": "button_result",
+              "title": "Other publications",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Other_publications"
+            },
+            {
+              "type": "button_result",
+              "title": "Awards and recognition",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Awards_and_recognition"
+            },
+            {
+              "type": "button_result",
+              "title": "Controversies",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Controversies"
+            },
+            {
+              "type": "button_result",
+              "title": "Further reading",
+              "url": "https://en.wikipedia.org/wiki/The_New_York_Times#Further_reading"
+            }
+          ]
+        },
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "en.wikipedia.org",
+          "hostname": "en.wikipedia.org",
+          "favicon": "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw",
+          "path": "› wiki  › The_New_York_Times"
+        },
+        "age": "4 days ago"
+      },
+      {
+        "title": "The New York Times Company",
+        "url": "https://www.nytco.com/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "We seek the truth and help people understand the world.",
+        "fetched_content_timestamp": 1768770655,
+        "profile": {
+          "name": "The New York Times",
+          "url": "https://www.nytco.com/",
+          "long_name": "nytco.com",
+          "img": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytco.com",
+          "hostname": "www.nytco.com",
+          "favicon": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw",
+          "path": ""
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/vSC0PYF6hxjEq5ULrH1MQ77YSR5QXg822Sh16MreqYw/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ueXRj/by1hc3NldHMubnl0/aW1lcy5jb20vMjAx/OS8wOC9mYWNlYm9v/ay0xMjAweDYzMC5w/bmc",
+          "original": "https://nytco-assets.nytimes.com/2019/08/facebook-1200x630.png",
+          "logo": false
+        }
+      },
+      {
+        "title": "The New York Times",
+        "url": "https://www.facebook.com/nytimes/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The New York Times. 21,256,278 likes · 2,796,160 talking about this. In-depth, independent reporting to better understand the world. News tips? Share them here: nyti.ms/2FVHq9v",
+        "fetched_content_timestamp": 1768333521,
+        "profile": {
+          "name": "Facebook",
+          "url": "https://www.facebook.com/nytimes/",
+          "long_name": "facebook.com",
+          "img": "https://imgs.search.brave.com/UPSLokJBKWPdNzHbqH5o3CgD13zMvR3pUTn8bk7hmPM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWM3NjZkMmE4/MTU1MTk4ZDU5YzU3/NjUxY2ExZTdjNWQx/NjJlNTY1Y2VlODM4/MmRmMDgzZDBiMmI3/YzU4NmU4ZS93d3cu/ZmFjZWJvb2suY29t/Lw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "facebook.com",
+          "hostname": "www.facebook.com",
+          "favicon": "https://imgs.search.brave.com/UPSLokJBKWPdNzHbqH5o3CgD13zMvR3pUTn8bk7hmPM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWM3NjZkMmE4/MTU1MTk4ZDU5YzU3/NjUxY2ExZTdjNWQx/NjJlNTY1Y2VlODM4/MmRmMDgzZDBiMmI3/YzU4NmU4ZS93d3cu/ZmFjZWJvb2suY29t/Lw",
+          "path": "› nytimes"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/JALR4h1UK3VZz0LF1qdeXirfLY8gg9T_TdfkQ-oZwEI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zY29u/dGVudC5maGlvMy0x/LmZuYS5mYmNkbi5u/ZXQvdi90MzkuMzA4/MDgtMS8zNTA1MzU3/MDNfNjU5MTk5NTU2/MDYyNTExXzYzOTk2/NzI0NjAzODE3MzA3/ODdfbi5qcGc_c3Rw/PWRzdC1qcGdfdHQ2/JmFtcDtjc3RwPW14/NzIweDcyMCZhbXA7/Y3RwPXM3MjB4NzIw/JmFtcDtfbmNfY2F0/PTEmYW1wO2NjYj0x/LTcmYW1wO19uY19z/aWQ9M2FiMzQ1JmFt/cDtfbmNfb2hjPTM1/OFFVd1NPdU9VUTdr/TnZ3RTQ0ZGE4JmFt/cDtfbmNfb2M9QWRu/cDl2eGhmZG0wSEJI/bzVmbkpEbWU0T19B/a0J3RHUybXdTTU5m/V1N0NktaSGl6M1Nu/cGpidHE3aE9JN29C/ZG5RbyZhbXA7X25j/X3p0PTI0JmFtcDtf/bmNfaHQ9c2NvbnRl/bnQuZmhpbzMtMS5m/bmEmYW1wO19uY19n/aWQ9Yk1Vei1PVXVW/N2NLWTc2SjNfc3ZY/USZhbXA7b2g9MDBf/QWZvc2xVNjhrZmF1/YXYwUWZQaXF3MVZX/YS1OZE55NDVCSzQ5/VEt1TktDQTB5dyZh/bXA7b2U9Njk2QzVB/MkQ",
+          "original": "https://scontent.fhio3-1.fna.fbcdn.net/v/t39.30808-1/350535703_659199556062511_6399672460381730787_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx720x720&amp;ctp=s720x720&amp;_nc_cat=1&amp;ccb=1-7&amp;_nc_sid=3ab345&amp;_nc_ohc=358QUwSOuOUQ7kNvwE44da8&amp;_nc_oc=Adnp9vxhfdm0HBHo5fnJDme4O_AkBwDu2mwSMNfWSt6KZHiz3Snpjbtq7hOI7oBdnQo&amp;_nc_zt=24&amp;_nc_ht=scontent.fhio3-1.fna&amp;_nc_gid=bMUz-OUuV7cKY76J3_svXQ&amp;oh=00_AfoslU68kfauav0QfPiqw1VWa-NdNy45BK49TKuNKCA0yw&amp;oe=696C5A2D",
+          "logo": false
+        }
+      },
+      {
+        "title": "Games | The New York Times Company",
+        "url": "https://www.nytco.com/games/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Since the launch of The Crossword in 1942, The Times has captivated solvers by providing engaging word and logic games.",
+        "fetched_content_timestamp": 1768763182,
+        "profile": {
+          "name": "The New York Times",
+          "url": "https://www.nytco.com/games/",
+          "long_name": "nytco.com",
+          "img": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytco.com",
+          "hostname": "www.nytco.com",
+          "favicon": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw",
+          "path": "› games"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/30BVOfgnh6cgyDNvZ2QvgJlo24nzYKt_afGQVVgDMsk/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ueXRj/by1hc3NldHMubnl0/aW1lcy5jb20vMjAy/NS8wOS9jYy1nYW1l/cy1oZWFkZXItMDky/MDI1LXRodW1iLXNj/YWxlZC5qcGc",
+          "original": "https://nytco-assets.nytimes.com/2025/09/cc-games-header-092025-thumb-scaled.jpg",
+          "logo": false
+        }
+      },
+      {
+        "title": "The New York Times (@nytimes) • Instagram photos and videos",
+        "url": "https://www.instagram.com/nytimes/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "20M Followers, 636 Following, 23K Posts - The New York Times (@nytimes) on Instagram: &quot;We seek the truth and help people understand the world.&quot;",
+        "fetched_content_timestamp": 1768576032,
+        "profile": {
+          "name": "Instagram",
+          "url": "https://www.instagram.com/nytimes/",
+          "long_name": "instagram.com",
+          "img": "https://imgs.search.brave.com/kgdtgqUZQdNYzMKhbVXC5vthlFLPMJ0IOJAdFjEIRuk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2RiYmJiZDA4/NTBkNWQ0ZmQ3NDE5/OGUxOGI4NzE5ZDI0/Zjk0M2ExMDkzZmJm/ODA0MmJiMzkwZjMy/ZDM4YWVkOS93d3cu/aW5zdGFncmFtLmNv/bS8"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "instagram.com",
+          "hostname": "www.instagram.com",
+          "favicon": "https://imgs.search.brave.com/kgdtgqUZQdNYzMKhbVXC5vthlFLPMJ0IOJAdFjEIRuk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2RiYmJiZDA4/NTBkNWQ0ZmQ3NDE5/OGUxOGI4NzE5ZDI0/Zjk0M2ExMDkzZmJm/ODA0MmJiMzkwZjMy/ZDM4YWVkOS93d3cu/aW5zdGFncmFtLmNv/bS8",
+          "path": "› nytimes"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/QTz3Qird5EpLpm1uVMpVR2Rkk-KtbWCX3Hngbf6FJhY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zY29u/dGVudC1taWEzLTMu/Y2RuaW5zdGFncmFt/LmNvbS92L3Q1MS4y/ODg1LTE5LzI3NTc1/NjUzXzQzNDQxMTMz/MzY2NDYwNl84OTM3/MDY5NjcxNTIyMjM4/NDY0X24uanBnP3N0/cD1kc3QtanBnX3Mx/MDB4MTAwX3R0NiZh/bXA7X25jX2NhdD0x/JmFtcDtjY2I9Ny01/JmFtcDtfbmNfc2lk/PWJmN2ViNCZhbXA7/ZWZnPWV5SjJaVzVq/YjJSbFgzUmhaeUk2/SW5CeWIyWnBiR1Zm/Y0dsakxuZDNkeTQz/TWpBdVF6TWlmUSUz/RCUzRCZhbXA7X25j/X29oYz1jelZXUnc0/aGExa1E3a052d0g5/bThlOSZhbXA7X25j/X29jPUFkbEEwWFhJ/dlhsaDFKMkhxNkVj/TXUtOGNyZ3RoUW5P/bUxEVlJuZGJPcXBT/N0dxNEhtbTVFYVZI/VXFhTHF1SUdYTEkm/YW1wO19uY196dD0y/NCZhbXA7X25jX2h0/PXNjb250ZW50LW1p/YTMtMy5jZG5pbnN0/YWdyYW0uY29tJmFt/cDtvaD0wMF9BZnFE/LXBYX25hbGZUdms1/SlB6cV9adUZtZVRo/WWtqcDFLU3RTRHZu/NTJZdmR3JmFtcDtv/ZT02OTcwMzZFMg",
+          "original": "https://scontent-mia3-3.cdninstagram.com/v/t51.2885-19/27575653_434411333664606_8937069671522238464_n.jpg?stp=dst-jpg_s100x100_tt6&amp;_nc_cat=1&amp;ccb=7-5&amp;_nc_sid=bf7eb4&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43MjAuQzMifQ%3D%3D&amp;_nc_ohc=czVWRw4ha1kQ7kNvwH9m8e9&amp;_nc_oc=AdlA0XXIvXlh1J2Hq6EcMu-8crgthQnOmLDVRndbOqpS7Gq4Hmm5EaVHUqaLquIGXLI&amp;_nc_zt=24&amp;_nc_ht=scontent-mia3-3.cdninstagram.com&amp;oh=00_AfqD-pX_nalfTvk5JPzq_ZuFmeThYkjp1KStSDvn52Yvdw&amp;oe=697036E2",
+          "logo": false
+        }
+      },
+      {
+        "title": "The New York Times - YouTube",
+        "url": "https://www.youtube.com/@nytimes",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The New York Times is <strong>the most powerful engine for independent, boots-on-the-ground and deeply reported journalism</strong>. We set the standard for the most ambitious and innovative storytelling across features, news and investigations.",
+        "fetched_content_timestamp": 1768534830,
+        "profile": {
+          "name": "YouTube",
+          "url": "https://www.youtube.com/@nytimes",
+          "long_name": "youtube.com",
+          "img": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "youtube.com",
+          "hostname": "www.youtube.com",
+          "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+          "path": "› @nytimes"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/qfVeu9OPomvhwzznKYl3BLv18j1cUNQZ6zpVVvksOAk/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly95dDMu/Z29vZ2xldXNlcmNv/bnRlbnQuY29tL3l0/Yy9BSWRyb19uaVJx/OENGdV90MFFYNDVr/SXpKNThHdFM5emxP/MlNHbzd3QXJ4Rzln/eTZ1RWM9czkwMC1j/LWstYzB4MDBmZmZm/ZmYtbm8tcmo",
+          "original": "https://yt3.googleusercontent.com/ytc/AIdro_niRq8CFu_t0QX45kIzJ58GtS9zlO2SGo7wArxG9gy6uEc=s900-c-k-c0x00ffffff-no-rj",
+          "logo": false
+        }
+      },
+      {
+        "title": "NYTimes: US and Global News - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.nytimes.android&hl=en_US",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "<strong>Discover original reporting and understand the events shaping the world in The New York Times app</strong>. Follow breaking news and get live updates. Watch news videos that provide context on top stories.",
+        "page_age": "2026-01-13T07:40:04",
+        "fetched_content_timestamp": 1768727079,
+        "profile": {
+          "name": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.nytimes.android&hl=en_US",
+          "long_name": "play.google.com",
+          "img": "https://imgs.search.brave.com/BRXcD4iaX7N7RXX5b2ues7rPiumLO6jABWJKycKQM3o/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjgwZWUzMzVj/YTc2M2VmMDJlYjE2/YmIyYzA3Y2IwZDkx/ZGViYmUxOGU1Njk4/NGI0NDNhOTQ1N2Mw/MDYyNjk4Ny9wbGF5/Lmdvb2dsZS5jb20v"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "creative_work",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "play.google.com",
+          "hostname": "play.google.com",
+          "favicon": "https://imgs.search.brave.com/BRXcD4iaX7N7RXX5b2ues7rPiumLO6jABWJKycKQM3o/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjgwZWUzMzVj/YTc2M2VmMDJlYjE2/YmIyYzA3Y2IwZDkx/ZGViYmUxOGU1Njk4/NGI0NDNhOTQ1N2Mw/MDYyNjk4Ny9wbGF5/Lmdvb2dsZS5jb20v",
+          "path": "› store  › apps  › details"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/hHe99k32vSqLoPPNxYxX3VSsY_W46lXSNxAD_KJjNIc/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9wbGF5/LWxoLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9nZm1pb280VkJF/dFB1Y2RWTklZQXlh/cXJ1WEZSV0RDYzBu/c0JMT1JmT1MwX3M5/cjVyMDBCbl9JcGpo/Q3Vta0V1c2c",
+          "original": "https://play-lh.googleusercontent.com/gfmioo4VBEtPucdVNIYAyaqruXFRWDCc0nsBLORfOS0_s9r5r00Bn_IpjhCumkEusg",
+          "logo": true
+        },
+        "age": "6 days ago"
+      },
+      {
+        "title": "The New York Times (@nytimes) / Posts / X",
+        "url": "https://x.com/nytimes",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "JavaScript is not available · We’ve detected that JavaScript is disabled in this browser. Please enable JavaScript or switch to a supported browser to continue using x.com. You can see a list of supported browsers in our Help Center · Help Center · Terms of Service Privacy Policy Cookie ...",
+        "fetched_content_timestamp": 1768787302,
+        "profile": {
+          "name": "X",
+          "url": "https://x.com/nytimes",
+          "long_name": "x.com",
+          "img": "https://imgs.search.brave.com/VpOsyUaQQGp5MT_drqEzgpxdO8o12jax0jeq0Vojuto/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMmQzM2JiZDhi/OWVhNGYxZmRkNDli/NzAxODUzMzFhYTNm/ODcxNmE4ZGQ5OTE3/MWU4OGZjNDQyZDdh/NzQ4MWE4YS94LmNv/bS8"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "x.com",
+          "hostname": "x.com",
+          "favicon": "https://imgs.search.brave.com/VpOsyUaQQGp5MT_drqEzgpxdO8o12jax0jeq0Vojuto/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMmQzM2JiZDhi/OWVhNGYxZmRkNDli/NzAxODUzMzFhYTNm/ODcxNmE4ZGQ5OTE3/MWU4OGZjNDQyZDdh/NzQ4MWE4YS94LmNv/bS8",
+          "path": "› nytimes"
+        }
+      },
+      {
+        "title": "Today's Paper - The New York Times",
+        "url": "https://www.nytimes.com/section/todayspaper",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Newly available videos and existing footage synchronized and assessed by The Times provide a frame-by-frame look at how an ICE officer ended up shooting and killing a motorist in Minneapolis. By The New York Times · Credit · From Iraq to ICE, Jonathan Ross’s career reflects a 20-year government effort to reshape immigration enforcement with a military mind-set.",
+        "page_age": "2018-02-07T00:00:00",
+        "fetched_content_timestamp": 1768691574,
+        "profile": {
+          "name": "NYTimes",
+          "url": "https://www.nytimes.com/section/todayspaper",
+          "long_name": "The New York Times",
+          "img": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› section  › todayspaper"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/TrTVrUkDf9KUKq9Axz-BLv64y7-jjNsXuC830ZaM-w8/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwMS5ueXQuY29t/L25ld3NncmFwaGlj/cy9pbWFnZXMvaWNv/bnMvZGVmYXVsdFBy/b21vQ3JvcC5wbmc",
+          "original": "https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png",
+          "logo": true
+        },
+        "age": "February 7, 2018"
+      },
+      {
+        "title": "Press Room | The New York Times Company",
+        "url": "https://www.nytco.com/press/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The Times kicked off its 175th anniversary celebration with the ball drop on New Year’s Eve and a look back at a legacy of first-hand, fact-based reporting. ... The suit opposes an unconstitutional new press policy, which was designed to undermine the type of independent journalism protected by the First Amendment. ... New York Times Chairman and Publisher AG Sulzberger’s discussion at Web Summit 2025 focused on how The Times is responding to rising threats against the press.",
+        "page_age": "2026-01-14T23:36:49",
+        "fetched_content_timestamp": 1768761151,
+        "profile": {
+          "name": "The New York Times Company",
+          "url": "https://www.nytco.com/press/",
+          "long_name": "nytco.com",
+          "img": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytco.com",
+          "hostname": "www.nytco.com",
+          "favicon": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw",
+          "path": "› press"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/7LeeV_c2GP9JBj8Tbllkh3GTaJCvfkJCu7Q2RBXaamA/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ueXRj/by1hc3NldHMubnl0/aW1lcy5jb20vMjAy/NS8wNS9uZXdzcm9v/bS1leHRlcmlvci5q/cGc",
+          "original": "https://nytco-assets.nytimes.com/2025/05/newsroom-exterior.jpg",
+          "logo": false
+        },
+        "age": "4 days ago"
+      },
+      {
+        "title": "About Us | The New York Times Company",
+        "url": "https://www.nytco.com/about-us/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The New York Times is <strong>dedicated to helping people understand the world through on-the-ground, expert and deeply reported independent journalism</strong>.",
+        "fetched_content_timestamp": 1768742609,
+        "profile": {
+          "name": "The New York Times",
+          "url": "https://www.nytco.com/about-us/",
+          "long_name": "nytco.com",
+          "img": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytco.com",
+          "hostname": "www.nytco.com",
+          "favicon": "https://imgs.search.brave.com/aeoLuB1ero6eRJuTOdPF_omeSXcA6e3fFXh4ZIH2Ggg/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDVjNjllMzZj/YzQwMzM5NDkzMmRj/MTBhZThmMjIwZGEw/NTY2NjQ5OGQ4M2Mz/ZjE4Nzg4NDVkNmIx/MDUxZTg0ZC93d3cu/bnl0Y28uY29tLw",
+          "path": "› about-us"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/11JsdS37sXUjc9d-1bkvtBJ9-g0PNRrgmGYYnF91Sn0/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ueXRj/by1hc3NldHMubnl0/aW1lcy5jb20vMjAy/NS8wNS9jYy1mcm9u/dC1idWlsZGluZy1l/bnRyYW5jZS1kZXNr/dG9wLXNjYWxlZC5q/cGc",
+          "original": "https://nytco-assets.nytimes.com/2025/05/cc-front-building-entrance-desktop-scaled.jpg",
+          "logo": false
+        }
+      },
+      {
+        "title": "PRESS DIGEST- New York Times business news - December 16 | MarketScreener",
+        "url": "https://www.marketscreener.com/news/press-digest-new-york-times-business-news-december-16-ce7d50d9d08ff623",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Dec 16 - The following are the top stories on the New York Times business pages. Reuters has not verified these stories and does not vouch for their accuracy. - U.S....",
+        "page_age": "2025-12-16T07:50:03",
+        "fetched_content_timestamp": 1768585124,
+        "profile": {
+          "name": "MarketScreener",
+          "url": "https://www.marketscreener.com/news/press-digest-new-york-times-business-news-december-16-ce7d50d9d08ff623",
+          "long_name": "marketscreener.com",
+          "img": "https://imgs.search.brave.com/av5rSlD013tOmDwDF-yyMLpfuP9kFsr5g9DnvwNLcVQ/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMDlhOGYzNzE4/ZjBlMWVkODhkNDll/M2MyNmFhZWZmZGZm/MzdiYzUzMzM4YzQz/ZWFjNjc0YzZmZjgw/OGI3YjlmOC93d3cu/bWFya2V0c2NyZWVu/ZXIuY29tLw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "marketscreener.com",
+          "hostname": "www.marketscreener.com",
+          "favicon": "https://imgs.search.brave.com/av5rSlD013tOmDwDF-yyMLpfuP9kFsr5g9DnvwNLcVQ/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMDlhOGYzNzE4/ZjBlMWVkODhkNDll/M2MyNmFhZWZmZGZm/MzdiYzUzMzM4YzQz/ZWFjNjc0YzZmZjgw/OGI3YjlmOC93d3cu/bWFya2V0c2NyZWVu/ZXIuY29tLw",
+          "path": "  › stock market  › stock market news  › press digest- new york times business news - december 16"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/mXOIqdl0ydAqtR56iXOeJSxndmqjzteZIkrt9_TGWbI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/bWFya2V0c2NyZWVu/ZXIuY29tL2ltYWdl/cy90d2l0dGVyX01T/X2ZkYmxhbmMucG5n",
+          "original": "https://www.marketscreener.com/images/twitter_MS_fdblanc.png",
+          "logo": false
+        },
+        "age": "December 16, 2025"
+      },
+      {
+        "title": "The New York Times » Home",
+        "url": "https://nytimes.today/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "The New York Times · SUBSCRIBE FOR $1/WEEK · ADVERTISEMENT ·",
+        "fetched_content_timestamp": 1765182847,
+        "profile": {
+          "name": "The New York Times",
+          "url": "https://nytimes.today/",
+          "long_name": "nytimes.today",
+          "img": "https://imgs.search.brave.com/gqxtq-YYMwWB_JIsN1iOAwrOcDdI2T-PnzWwhxUgQCY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYTZhNWQxYTcz/N2ZlOWJjMzA3NmFk/YmVlODlkOTg0MTdj/NzcwNDNhMDE5NmUz/M2FiZjhhNWQ3MTNk/YjQ3OWIwMS9ueXRp/bWVzLnRvZGF5Lw"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.today",
+          "hostname": "nytimes.today",
+          "favicon": "https://imgs.search.brave.com/gqxtq-YYMwWB_JIsN1iOAwrOcDdI2T-PnzWwhxUgQCY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYTZhNWQxYTcz/N2ZlOWJjMzA3NmFk/YmVlODlkOTg0MTdj/NzcwNDNhMDE5NmUz/M2FiZjhhNWQ3MTNk/YjQ3OWIwMS9ueXRp/bWVzLnRvZGF5Lw",
+          "path": ""
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/N85hPV8MpmM024pevZryAJg9wTcDsnszRF9GNksxu_Q/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ueXRp/bWVzLnRvZGF5L2xp/Yi90NGt3NGYvbnl0/aW1lcy1scHI3bWUy/eS5wbmc",
+          "original": "https://nytimes.today/lib/t4kw4f/nytimes-lpr7me2y.png",
+          "logo": false
+        }
+      },
+      {
+        "title": "The New York Times Digital | Los Angeles Public Library",
+        "url": "https://www.lapl.org/new-york-times-digital",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "English | Español Your library card gives you 72-hour complimentary, unlimited access to the digital edition of The New York Times*. To get started, follow these three simple steps: 1. Follow this specific link to the The New York Times to redeem your access code.",
+        "fetched_content_timestamp": 1768779951,
+        "profile": {
+          "name": "Los Angeles Public Library",
+          "url": "https://www.lapl.org/new-york-times-digital",
+          "long_name": "lapl.org",
+          "img": "https://imgs.search.brave.com/Lcyobz5qlsawSjfFj96bTto0G4hPqHw2yeBAYJael9A/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTE0NzIwNGM4/YzZmZjJkMzgwMDNm/MWNjMzg3MGY2NDU0/MzQyOGRiOWEzODgz/NzMzZjlkMWZhY2Iy/NDdiMTQ2NS93d3cu/bGFwbC5vcmcv"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "lapl.org",
+          "hostname": "www.lapl.org",
+          "favicon": "https://imgs.search.brave.com/Lcyobz5qlsawSjfFj96bTto0G4hPqHw2yeBAYJael9A/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTE0NzIwNGM4/YzZmZjJkMzgwMDNm/MWNjMzg3MGY2NDU0/MzQyOGRiOWEzODgz/NzMzZjlkMWZhY2Iy/NDdiMTQ2NS93d3cu/bGFwbC5vcmcv",
+          "path": "› new-york-times-digital"
+        }
+      },
+      {
+        "title": "NYTimes: US and Global News App - App Store",
+        "url": "https://apps.apple.com/us/app/nytimes-us-and-global-news/id284862083",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "With Pulitzer Prize–winning coverage, provocative op-eds, in-depth video docs, and award-winning podcasts, The New York Times expands your understanding of the world. Get alerts for breaking news as well as updates for your favorite coverage areas, like politics, arts, fashion, travel, and science. With Pulitzer Prize–winning coverage, provocative op-eds, in-depth video docs, and award-winning podcasts, The New York Times expands your understanding of the world.",
+        "fetched_content_timestamp": 1768730238,
+        "profile": {
+          "name": "App Store",
+          "url": "https://apps.apple.com/us/app/nytimes-us-and-global-news/id284862083",
+          "long_name": "apps.apple.com",
+          "img": "https://imgs.search.brave.com/_z2UHgNWh4jJ6brYGbXxpDTMJmD9b1fxdUBJ2mJOP4w/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMDYzNzRkMjA3/NzAwOWZhNjI1MmM5/NzRiMzIwZGQ4YzZl/ZDgwYmM0Zjk3MDE2/ZDM1Y2FlMDBiNjVi/OWEzZDIzNy9hcHBz/LmFwcGxlLmNvbS8"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "creative_work",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "apps.apple.com",
+          "hostname": "apps.apple.com",
+          "favicon": "https://imgs.search.brave.com/_z2UHgNWh4jJ6brYGbXxpDTMJmD9b1fxdUBJ2mJOP4w/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMDYzNzRkMjA3/NzAwOWZhNjI1MmM5/NzRiMzIwZGQ4YzZl/ZDgwYmM0Zjk3MDE2/ZDM1Y2FlMDBiNjVi/OWEzZDIzNy9hcHBz/LmFwcGxlLmNvbS8",
+          "path": "› us  › app  › nytimes-us-and-global-news  › id284862083"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/9cBYMaMBf_cuNhyDymrAkTnJ0x8sKV51YHPtxgTHhAE/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pczEt/c3NsLm16c3RhdGlj/LmNvbS9pbWFnZS90/aHVtYi9QdXJwbGUy/MjEvdjQvYzQvZjkv/ZTIvYzRmOWUyODAt/M2MzOC1kZGFlLThk/NWQtNDBkZjBiYzE5/NWZkL1JlbGVhc2Ut/MC0wLTF4X1UwMDdl/cGFkLTAtMC0wLTEt/MC0wLTg1LTIyMC5w/bmcvMTIwMHg2MzB3/YS5wbmc",
+          "original": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/f9/e2/c4f9e280-3c38-ddae-8d5d-40df0bc195fd/Release-0-0-1x_U007epad-0-0-0-1-0-0-85-220.png/1200x630wa.png",
+          "logo": true
+        }
+      },
+      {
+        "title": "NYT Games: Wordle & Crossword - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.nytimes.crossword&hl=en_US",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "New York Times Games is <strong>the essential app for anyone who loves word, logic and number games</strong>. Free to download, the app offers new word and number puzzles daily for every skill level.",
+        "page_age": "2026-01-02T18:49:04",
+        "fetched_content_timestamp": 1768800612,
+        "profile": {
+          "name": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.nytimes.crossword&hl=en_US",
+          "long_name": "play.google.com",
+          "img": "https://imgs.search.brave.com/BRXcD4iaX7N7RXX5b2ues7rPiumLO6jABWJKycKQM3o/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjgwZWUzMzVj/YTc2M2VmMDJlYjE2/YmIyYzA3Y2IwZDkx/ZGViYmUxOGU1Njk4/NGI0NDNhOTQ1N2Mw/MDYyNjk4Ny9wbGF5/Lmdvb2dsZS5jb20v"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "creative_work",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "play.google.com",
+          "hostname": "play.google.com",
+          "favicon": "https://imgs.search.brave.com/BRXcD4iaX7N7RXX5b2ues7rPiumLO6jABWJKycKQM3o/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjgwZWUzMzVj/YTc2M2VmMDJlYjE2/YmIyYzA3Y2IwZDkx/ZGViYmUxOGU1Njk4/NGI0NDNhOTQ1N2Mw/MDYyNjk4Ny9wbGF5/Lmdvb2dsZS5jb20v",
+          "path": "› store  › apps  › details"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/QefIiJ7GreLHQsQIcwWhxaX2ymAAzeN2d2zAK-l4ogQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9wbGF5/LWxoLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9RWERHQTR6a2xp/OVY5LXhQczNmVDZx/UmpHN3pTTHBTMEps/Qld0dlVQLVp4Ukh5/N3RtbElyenZ6Z0Fx/Z0xydV9iclE",
+          "original": "https://play-lh.googleusercontent.com/QXDGA4zkli9V9-xPs3fT6qRjG7zSLpS0JlBWtvUP-ZxRHy7tmlIrzvzgAqgLru_brQ",
+          "logo": true
+        },
+        "age": "2 weeks ago"
+      },
+      {
+        "title": "Wirecutter: New Product Reviews, Deals, and Buying Advice",
+        "url": "https://www.nytimes.com/wirecutter/",
+        "is_source_local": false,
+        "is_source_both": false,
+        "description": "Wirecutter tests and reviews the best tech, appliances, gear, and more. You can trust our veteran journalists, scientists, and experts to find the best stuff.",
+        "fetched_content_timestamp": 1768760278,
+        "profile": {
+          "name": "NYTimes",
+          "url": "https://www.nytimes.com/wirecutter/",
+          "long_name": "The New York Times",
+          "img": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v"
+        },
+        "language": "en",
+        "family_friendly": true,
+        "type": "search_result",
+        "subtype": "generic",
+        "is_live": false,
+        "meta_url": {
+          "scheme": "https",
+          "netloc": "nytimes.com",
+          "hostname": "www.nytimes.com",
+          "favicon": "https://imgs.search.brave.com/lWA-zkTMlWM2cUvrcYa1Fls86e-Vl-rkSBOjichQqVs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGFlZWRkYmVh/YWFhZmFjYjM4MWYy/NTQzZmExMTIwN2Nm/NGJmZjgwYTRhYjI5/OTliM2JkYmI2MWY0/M2RlOGFlMi93d3cu/bnl0aW1lcy5jb20v",
+          "path": "› wirecutter"
+        },
+        "thumbnail": {
+          "src": "https://imgs.search.brave.com/y7vP96zv-FuZsoMyN-iAtG9B6QThPGBQfsJ5Z6nhYC8/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/dGhld2lyZWN1dHRl/ci5jb20vd3AtY29u/dGVudC9tZWRpYS8y/MDIwLzEwL3djX29n/X2dlbmVyYWwucG5n/P2F1dG89d2VicCZh/bXA7cXVhbGl0eT03/NSZhbXA7Y3JvcD0x/LjkxOjEmYW1wO3dp/ZHRoPTEyMDA",
+          "original": "https://cdn.thewirecutter.com/wp-content/media/2020/10/wc_og_general.png?auto=webp&amp;quality=75&amp;crop=1.91:1&amp;width=1200",
+          "logo": false
+        }
+      }
+    ],
+    "family_friendly": true
+  }
+}
