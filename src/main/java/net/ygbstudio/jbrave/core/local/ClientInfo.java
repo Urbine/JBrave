@@ -37,12 +37,13 @@ public record ClientInfo(@NotNull String subscriptionToken) {
   /**
    * Create a new instance of ClientInfo from properties file.
    *
+   * @param customPropertyName property name specified by the caller.
    * @param propertiesFileName the name of the properties file.
    * @return a new instance of ClientInfo.
    */
-  @Contract("_ -> new")
-  public static @NotNull ClientInfo fromProperties(String propertiesFileName) {
-    String braveSubTokenProp = LocalEnvironment.BRAVE_SUBSCRIPTION_PROPERTY;
+  @Contract("_,_ -> new")
+  public static @NotNull ClientInfo fromProperties(
+      String propertiesFileName, String customPropertyName) {
     Properties props = new Properties();
     try (InputStream propStream =
         ClientInfo.class.getClassLoader().getResourceAsStream(propertiesFileName)) {
@@ -50,26 +51,49 @@ public record ClientInfo(@NotNull String subscriptionToken) {
 
       props.load(propStream);
 
-      if (props.getProperty(braveSubTokenProp) == null) throw new IOException();
+      if (props.getProperty(customPropertyName) == null) throw new IOException();
     } catch (IOException ioEx) {
       throw new BraveLocalEnvironmentException(
           () -> "File " + propertiesFileName + " not found in resources folder");
     }
-    return new ClientInfo(props.getProperty(braveSubTokenProp));
+    return new ClientInfo(props.getProperty(customPropertyName));
+  }
+
+  /**
+   * Create a new instance of ClientInfo from properties file with the preconfigured property name
+   * {@code brave.subscriptionToken}
+   *
+   * @param propertiesFileName the name of the properties file.
+   * @return a new instance of ClientInfo.
+   */
+  public static @NotNull ClientInfo fromProperties(String propertiesFileName) {
+    return fromProperties(propertiesFileName, LocalEnvironment.BRAVE_SUBSCRIPTION_PROPERTY);
   }
 
   /**
    * Create a new instance of ClientInfo from environment variable.
    *
+   * @param customVariable Environment variable specified by the caller.
    * @return a new instance of ClientInfo.
    * @throws BraveLocalEnvironmentException if the environment variable is not set.
    */
-  @Contract(" -> new")
-  public static @NotNull ClientInfo fromEnvironment() {
-    String envVarName = System.getenv(LocalEnvironment.BRAVE_SUBSCRIPTION_TOKEN.toString());
+  @Contract("_ -> new")
+  public static @NotNull ClientInfo fromEnvironment(String customVariable) {
+    String envVarName = System.getenv(customVariable);
     if (envVarName == null)
       throw new BraveLocalEnvironmentException(
           () -> "Variable " + LocalEnvironment.BRAVE_SUBSCRIPTION_TOKEN + " not set");
     return new ClientInfo(envVarName);
+  }
+
+  /**
+   * Create a new instance of ClientInfo from the preconfigured environment variable {@code
+   * BRAVE_SUBSCRIPTION_TOKEN}
+   *
+   * @return a new instance of ClientInfo.
+   * @throws BraveLocalEnvironmentException if the environment variable is not set.
+   */
+  public static @NotNull ClientInfo fromEnvironment() {
+    return fromEnvironment(LocalEnvironment.BRAVE_SUBSCRIPTION_TOKEN);
   }
 }
