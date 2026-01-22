@@ -1,0 +1,346 @@
+{
+  "type" : "videos",
+  "query" : {
+    "original" : "brave search +tutorial searchNOTapi",
+    "altered" : "brave search tutorial searchnotapi",
+    "spellcheck_off" : false,
+    "show_strict_warning" : false
+  },
+  "results" : [ {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=zIFvmyZ1clw",
+    "title" : "How to Change Search Engine on Brave Browser — Step by Step Brave Tutorial - YouTube",
+    "description" : "Learn how to change the default search engine on Brave Browser.If you're interested in learning more about how to use Brave browser, you may learn how to fix...",
+    "age" : "August 18, 2025",
+    "page_age" : "2025-08-18T13:01:53",
+    "fetched_content_timestamp" : 1758765166,
+    "video" : {
+      "duration" : "01:40",
+      "creator" : "The Money Guide",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "switch search engine brave" ],
+      "author" : {
+        "name" : "The Money Guide",
+        "url" : "http://www.youtube.com/@themoneyguide"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/1WdxQMe7_jMhJPD15Dq_A1nHfgtWtYri_i5S_7a3W5Y/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS96/SUZ2bXlaMWNsdy9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/zIFvmyZ1clw/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=AU0LjW7svnw",
+    "title" : "How to Switch to Google As A Search Widget on Brave Browser — Step by Step Brave Tutorial - YouTube",
+    "description" : "See how to switch your Brave Browser search widget to use Google as the default.If you're interested in learning more about how to use Brave browser, you may...",
+    "age" : "August 14, 2025",
+    "page_age" : "2025-08-14T16:00:24",
+    "fetched_content_timestamp" : 1757435585,
+    "video" : {
+      "duration" : "00:59",
+      "creator" : "The Money Guide",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "google search brave" ],
+      "author" : {
+        "name" : "The Money Guide",
+        "url" : "http://www.youtube.com/@themoneyguide"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/R_hq6LgxRBS5mL5MptSooHXhV0JdYG_Mr3MDKJxny8o/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9B/VTBMalc3c3Zudy9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/AU0LjW7svnw/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=LwWwMiFEFak",
+    "title" : "How To Turn Off Search Suggestions In The Brave Web Browser | PC Tutorial - YouTube",
+    "description" : "How To Disable Search Suggestions In The Brave Web Browser | PC TutorialThis is a video tutorial on how to turn on or off Auto Suggestion in the Brave Web Br...",
+    "age" : "January 8, 2024",
+    "page_age" : "2024-01-08T16:55:12",
+    "fetched_content_timestamp" : 1753965563,
+    "video" : {
+      "duration" : "01:55",
+      "creator" : "No Rest For The Wicked",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "brave howto" ],
+      "author" : {
+        "name" : "No Rest For The Wicked",
+        "url" : "http://www.youtube.com/@norestforthewicked9889"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/2woMp9aPeRCnKOrMGjmsmmhoGaxYTq4Ab0E0n13m-5k/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9M/d1d3TWlGRUZhay9t/YXhyZXNkZWZhdWx0/LmpwZz9zcXA9LW9h/eW13RW1DSUFLRU5B/RjhxdUtxUU1hOEFF/Qi1BSC1DWUFDMEFX/S0Fnd0lBQkFCR0Vv/Z0V5aF9NQTg9JmFt/cDtycz1BT240Q0xD/YWRoMkNreTY4Ym4y/bHZuSWdrSE1FRjdu/ZmNB",
+      "original" : "https://i.ytimg.com/vi/LwWwMiFEFak/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEogEyh_MA8=&amp;rs=AOn4CLCadh2Cky68bn2lvnIgkHMEF7nfcA"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=xGgmmDsnvqE",
+    "title" : "How To Turn Off Search Suggestions In The Brave Web Browser - Quick Tutorial - YouTube",
+    "description" : "How To Turn Off Search Suggestions In The Brave Web BrowserSearch suggestions in the Brave web browser can sometimes be distracting or unnecessary. Many user...",
+    "age" : "May 19, 2025",
+    "page_age" : "2025-05-19T14:01:33",
+    "fetched_content_timestamp" : 1754391285,
+    "video" : {
+      "duration" : "01:10",
+      "creator" : "PC Error Detective",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "brave browser remove suggestions" ],
+      "author" : {
+        "name" : "PC Error Detective",
+        "url" : "http://www.youtube.com/@PCErrorDetective"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/vFRBKQfNz4w1f7L82bBRznp9OJgEJ3NmKA7EPB7z3Ak/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS94/R2dtbURzbnZxRS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/xGgmmDsnvqE/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://youtube.com/watch?v=_km5KBnBwCg",
+    "title" : "Customize Search Engine in Brave Browser | Step-by-Step Tutorial - YouTube",
+    "description" : "Customize Search Engine in Brave Browser | Step-by-Step TutorialIn this video, learn how to change or disable the search widget in Brave Browser and add your...",
+    "age" : "March 30, 2025",
+    "page_age" : "2025-03-30T04:00:29",
+    "fetched_content_timestamp" : 1744611734,
+    "video" : {
+      "duration" : "01:37",
+      "views" : 28,
+      "creator" : "Fazal TechWorld",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "Search Widget Tutorial Brave" ],
+      "author" : {
+        "name" : "Fazal TechWorld",
+        "url" : "http://www.youtube.com/@FazalTechWorld"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "youtube.com",
+      "favicon" : "https://imgs.search.brave.com/4EwHd9WiwuDL_Uieg0tg35EyMHJ-DQ6CrCf9ZvVD0l0/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGQxNTFiM2My/MTI2ZDYxMWZmOWFh/MjAwNDgxMGZiNjQ1/ZWJlNGFkMTg3YjQ3/YjJkNWIxNzlhMTE1/YWM0ZDg2MS95b3V0/dWJlLmNvbS8",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/A4mwU4kC5dlZn8tTRiDAUYNSwV_rGZbvyeoXiqBzC0U/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9f/a201S0JuQndDZy9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/_km5KBnBwCg/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=eeKbmj9s32o",
+    "title" : "How to Restore Hidden Search Widget on Brave Browser — Step by Step Brave Tutorial - YouTube",
+    "description" : "Find out how to restore the hidden search widget on your Brave Browser homepage.If you're interested in learning more about how to use Brave browser, you may...",
+    "age" : "August 14, 2025",
+    "page_age" : "2025-08-14T13:01:22",
+    "fetched_content_timestamp" : 1755273121,
+    "video" : {
+      "duration" : "00:56",
+      "creator" : "The Money Guide",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "brave browser tips" ],
+      "author" : {
+        "name" : "The Money Guide",
+        "url" : "http://www.youtube.com/@themoneyguide"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/JltL0TIg4nJkGebV-IxBh5Ov5Hbfs2Vh1-sjv1kjnpQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9l/ZUtibWo5czMyby9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/eeKbmj9s32o/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://youtube.com/watch?v=OhQ0t703snw",
+    "title" : "How to Turn Improved Search Suggestions on or off in Brave Browser - tutorial - YouTube",
+    "description" : "How to Turn Improved Search Suggestions on or off in Brave Browser - tutorial",
+    "age" : "February 20, 2025",
+    "page_age" : "2025-02-20T06:16:11",
+    "fetched_content_timestamp" : 1740776583,
+    "video" : {
+      "duration" : "01:03",
+      "views" : 5,
+      "creator" : "Free Quiz Solver Class",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "Search Suggestions on or off in Brave Browser" ],
+      "author" : {
+        "name" : "Free Quiz Solver Class",
+        "url" : "http://www.youtube.com/@FreeQuizSolverClass"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "youtube.com",
+      "favicon" : "https://imgs.search.brave.com/4EwHd9WiwuDL_Uieg0tg35EyMHJ-DQ6CrCf9ZvVD0l0/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGQxNTFiM2My/MTI2ZDYxMWZmOWFh/MjAwNDgxMGZiNjQ1/ZWJlNGFkMTg3YjQ3/YjJkNWIxNzlhMTE1/YWM0ZDg2MS95b3V0/dWJlLmNvbS8",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/uJB50tQU_f56gGCNUVAyqJ-ZOdgK60HprhndWf-wksk/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9P/aFEwdDcwM3Nudy9o/cWRlZmF1bHQuanBn/P3NxcD0tb2F5bXdF/bUNPQURFT2dDOHF1/S3FRTWE4QUVCLUFI/VUJvQUM0QU9LQWd3/SUFCQUJHR0lnWWlo/aU1BOD0mYW1wO3Jz/PUFPbjRDTERtbWRW/cnRWUUxSWUZuSUxJ/bGxUejc2YzBEN2c",
+      "original" : "https://i.ytimg.com/vi/OhQ0t703snw/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGGIgYihiMA8=&amp;rs=AOn4CLDmmdVrtVQLRYFnILIllTz76c0D7g"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=-Yf88YAVw90",
+    "title" : "How To Show Bookmarks Bar In Brave Browser - Tutorial - YouTube",
+    "description" : "Want easy access to your favorite websites right from your browser's interface? In this quick tutorial, we'll show you how to enable the Bookmarks Bar in the...",
+    "age" : "September 17, 2023",
+    "page_age" : "2023-09-17T20:29:34",
+    "fetched_content_timestamp" : 1768436054,
+    "video" : {
+      "duration" : "00:43",
+      "creator" : "Tutorial Workspace",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "tutorial" ],
+      "author" : {
+        "name" : "Tutorial Workspace",
+        "url" : "http://www.youtube.com/@TutorialWorkspace"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/nHXXomoTvYshcw6Tj_raDoPNroZ1xkrwF7RNYqBMLDE/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS8t/WWY4OFlBVnc5MC9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/-Yf88YAVw90/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=QnS1NzR7_dg",
+    "title" : "How To Change Tab Settings In Brave Browser - Tutorial - YouTube",
+    "description" : "Tired of the default tab settings in Brave? It's time to make your browsing experience truly yours! In this tutorial, we'll guide you through the process of ...",
+    "age" : "September 17, 2023",
+    "page_age" : "2023-09-17T20:51:25",
+    "fetched_content_timestamp" : 1767141790,
+    "video" : {
+      "duration" : "01:57",
+      "creator" : "Tutorial Workspace",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "brave how to change tab settings" ],
+      "author" : {
+        "name" : "Tutorial Workspace",
+        "url" : "http://www.youtube.com/@TutorialWorkspace"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/2s5S-nTFNOOd9DZCMUrtFS0_M3zeETb9_uSYkkifoQU/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9R/blMxTnpSN19kZy9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/QnS1NzR7_dg/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=KD37QV6uByY",
+    "title" : "How To Block Websites In Brave Browser - Full Tutorial - YouTube",
+    "description" : "Here's how to block websites with the Brave browser.LIKE ✔️ SUBSCRIBE ✔️ UPDATED TUTORIAL: https://youtu.be/THbCBE3hFxI ✔️Follow these steps to block website...",
+    "age" : "October 20, 2022",
+    "page_age" : "2022-10-20T11:55:25",
+    "fetched_content_timestamp" : 1753971946,
+    "video" : {
+      "duration" : "04:30",
+      "creator" : "Husker's Tech",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "guide" ],
+      "author" : {
+        "name" : "Husker's Tech",
+        "url" : "http://www.youtube.com/@HuskersTech"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/3V2TLaAhcyAQI3KYAGtaKZvuH8ir3rRPo4CeFOfDBUQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9L/RDM3UVY2dUJ5WS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/KD37QV6uByY/maxresdefault.jpg"
+    }
+  }, {
+    "type" : "video_result",
+    "url" : "https://www.youtube.com/watch?v=THbCBE3hFxI",
+    "title" : "How To Block Websites On Brave Browser (Tutorial 2023) - YouTube",
+    "description" : "Here are updated instructions on how to block websites in Brave.LIKE ✔️ SUBSCRIBE ✔️ Get a VPN: https://bit.ly/NordVpn22 🔺Follow these steps to block websit...",
+    "age" : "January 12, 2023",
+    "page_age" : "2023-01-12T10:13:07",
+    "fetched_content_timestamp" : 1726073639,
+    "video" : {
+      "duration" : "03:23",
+      "views" : 16181,
+      "creator" : "Husker's Tech",
+      "publisher" : "YouTube",
+      "requires_subscription" : false,
+      "tags" : [ "brave how to block websites" ],
+      "author" : {
+        "name" : "Husker's Tech",
+        "url" : "http://www.youtube.com/@HuskersTech"
+      }
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "youtube.com",
+      "hostname" : "www.youtube.com",
+      "favicon" : "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+      "path" : "› watch"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/NiTOBdIT2bm578njOEb5__lKkd8Kom96qaRIG5sUiDI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9U/SGJDQkUzaEZ4SS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+      "original" : "https://i.ytimg.com/vi/THbCBE3hFxI/maxresdefault.jpg"
+    }
+  } ],
+  "extra" : {
+    "might_be_offensive" : false
+  }
+}
