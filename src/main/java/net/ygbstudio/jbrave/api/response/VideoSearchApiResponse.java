@@ -72,4 +72,8 @@ public record VideoSearchApiResponse(
   public void write(File target) {
     JsonSupport.writeJsonFs(target, this);
   }
+
+  public String toJson() {
+    return JsonSupport.toJsonString(this);
+  }
 }

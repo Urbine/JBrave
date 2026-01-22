@@ -70,4 +70,8 @@ public record NewsSearchApiResponse(String type, Query query, List<NewsResult> r
   public void write(File target) {
     JsonSupport.writeJsonFs(target, this);
   }
+
+  public String toJson() {
+    return JsonSupport.toJsonString(this);
+  }
 }

@@ -25,6 +25,7 @@ import net.ygbstudio.jbrave.api.rate.XRateLimit;
 import net.ygbstudio.jbrave.api.rate.XRateLimitPolicy;
 import net.ygbstudio.jbrave.api.rate.XRateLimitRemaining;
 import net.ygbstudio.jbrave.api.rate.XRateLimitReset;
+import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -62,5 +63,9 @@ public record RateLimitResponse(
         XRateLimitPolicy.from(httpResponse),
         XRateLimitRemaining.from(httpResponse),
         XRateLimitReset.from(httpResponse));
+  }
+
+  public String toJson() {
+    return JsonSupport.toJsonString(this);
   }
 }
