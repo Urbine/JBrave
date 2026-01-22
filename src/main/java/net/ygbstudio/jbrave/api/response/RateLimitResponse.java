@@ -21,10 +21,10 @@
 package net.ygbstudio.jbrave.api.response;
 
 import java.net.http.HttpResponse;
-import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimit;
-import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitPolicy;
-import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitRemaining;
-import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitReset;
+import net.ygbstudio.jbrave.api.rate.XRateLimit;
+import net.ygbstudio.jbrave.api.rate.XRateLimitPolicy;
+import net.ygbstudio.jbrave.api.rate.XRateLimitRemaining;
+import net.ygbstudio.jbrave.api.rate.XRateLimitReset;
 import org.jetbrains.annotations.NotNull;
 
 /**
