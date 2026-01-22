@@ -259,12 +259,13 @@ All builders:
 
 ---
 
-## Options API
+## Options & Filters API
 
 All user-facing configuration types live under:
 
 ```
 net.ygbstudio.jbrave.api.options
+net.ygbstudio.jbrave.api.filters
 ```
 
 Examples include:
@@ -273,6 +274,8 @@ Examples include:
 * `MarketLocale`
 * `SearchLanguage`
 * `Units`
+* `Freshness`
+* `SafeSearch`
 
 ---
 
