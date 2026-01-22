@@ -18,11 +18,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package net.ygbstudio.jbrave.core.builders;
+package net.ygbstudio.jbrave.api.builders;
 
 import java.net.URI;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Optional;
+import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimit;
+import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitPolicy;
+import net.ygbstudio.jbrave.core.domain.dto.rate.XRateLimitRemaining;
 import net.ygbstudio.jbrave.core.domain.dto.response.ApiResponse;
 import net.ygbstudio.jbrave.core.domain.dto.response.ErrorResponse;
 import net.ygbstudio.jbrave.core.domain.dto.response.WebSearchApiResponse;
@@ -34,9 +38,69 @@ import net.ygbstudio.jbrave.core.utils.JsonSupport;
  *
  * @param <T> the type of the builder
  * @param <E> the type of the API response
- * @author Yoham Gabriel B. (YGBStudio)
  */
-public interface BraveQueryBuilder<T, E extends ApiResponse> {
+public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
+    permits BraveNewsQuery,
+        BraveWebQuery,
+        BraveImageQuery,
+        BraveVideoQuery,
+        BraveSuggestQuery,
+        BraveSpellcheckQuery {
+
+  /**
+   * Returns the rate limit from the HTTP response.
+   *
+   * @return An optional containing the rate limit extracted from the HTTP response.
+   */
+  default Optional<XRateLimit> getRateLimits() {
+    return getHttpResponse().map(XRateLimit::from);
+  }
+
+  /**
+   * Returns the rate limit policy from the HTTP response.
+   *
+   * @return An optional containing the rate limit policy extracted from the HTTP response.
+   */
+  default Optional<XRateLimitPolicy> getRateLimitPolicy() {
+    return getHttpResponse().map(XRateLimitPolicy::from);
+  }
+
+  /**
+   * Returns the rate limit remaining from the HTTP response.
+   *
+   * @return An optional containing the rate limit remaining extracted from the HTTP response.
+   */
+  default Optional<XRateLimitRemaining> getRateLimitRemaining() {
+    return getHttpResponse().map(XRateLimitRemaining::from);
+  }
+
+  /**
+   * Executes the request and returns response of string.
+   *
+   * <p>This method does not return the response, and it is typically used to decouple the execution
+   * and extraction steps in your application.
+   *
+   * <p>You can extract the responses with the following methods:
+   * <li>{@link #getHttpResponse()}
+   * <li>{@link #getPOJO()}
+   * <li>{@link #getErrorPOJO()} <br>
+   *
+   *     <p><strong>Note:</strong> This builder stores the response object internally and repeated
+   *     calls to <strong>extraction</strong> methods will not trigger multiple requests; however,
+   *     {@code execute()} will send a new request per method call.
+   *
+   * @implNote If the client added retries to the building chain, {@code execute()} will activate
+   *     retry logic under the hood.
+   * @return instance of a builder type {@code T}
+   */
+  T execute();
+
+  /**
+   * Converts the current query to an {@link HttpRequest} instance.
+   *
+   * @return the {@link HttpRequest} instance representing the current query
+   */
+  HttpRequest toHttpRequest();
 
   /**
    * Returns the type of the API response. The class returned by this method is the class of the
@@ -47,7 +111,6 @@ public interface BraveQueryBuilder<T, E extends ApiResponse> {
    */
   Class<E> getReponseType();
 
-
   /**
    * Converts the current response to a POJO instance of {@link E} if the status code of the
    * response is 200.
@@ -57,9 +120,11 @@ public interface BraveQueryBuilder<T, E extends ApiResponse> {
    * it in any error handling strategy. If you want to inspect the raw {@link HttpResponse} object,
    * you can always use {@link #getHttpResponse()}.
    *
-   * @implNote Calling this method will execute the request and deserialize it. Once a request has
-   *     been executed, this builder stores it in an internal field, so you can call this method and
-   *     the ones mentioned in the last paragraph without having to send another request to the API.
+   * <p><strong>Note:</strong> Calling this method will execute the request and deserialize it. Once
+   * a request has been executed, this builder stores it in an internal field, so you can call this
+   * method and the ones mentioned in the last paragraph without having to send another request to
+   * the API.
+   *
    * @return An {@link Optional} containing the current response as a POJO instance of <br>
    *     {@link E}, or an empty {@link Optional} if the response status code is not 200.
    */
