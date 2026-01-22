@@ -1,0 +1,359 @@
+{
+  "type" : "news",
+  "query" : {
+    "original" : "java language",
+    "spellcheck_off" : false,
+    "show_strict_warning" : false
+  },
+  "results" : [ {
+    "type" : "news_result",
+    "title" : "Modern Java | Lobsters",
+    "url" : "https://lobste.rs/s/xaxgtt/modern_java",
+    "description" : "Didn't see any mention of sealed interfaces, which are IMO one of the least appreciated improvements to the language. They are essentially union types for Java and you can implement them on records as of 17. And as of 21 you now have exhaustive switch statements that work with them.",
+    "age" : "5 days ago",
+    "page_age" : "2026-01-16T05:57:14",
+    "fetched_content_timestamp" : 1768624618,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "lobste.rs",
+      "hostname" : "lobste.rs",
+      "favicon" : "https://imgs.search.brave.com/HfeJHotkRPHYEHnW8vtnG0uOgIumpaQgGD0Btbe72kc/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjM3NjM3YmVm/NjFkNjgxNDViYjI1/YzY5Yjc5MTdkMjM0/MzExZGM0NTJhYmVk/MzM0OTM3MTMyMzA0/ZTdkYTFiZi9sb2Jz/dGUucnMv",
+      "path" : "› s  › xaxgtt  › modern_java"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/5WEr1z7Evq_BCDhkzAAIDqlaQhhAcWHjoXjuh2lnbsg/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9sb2Jz/dGUucnMvdG91Y2gt/aWNvbi0xNDQucG5n"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Java Tutorial - Learn Java Programming - GeeksforGeeks",
+    "url" : "https://www.geeksforgeeks.org/java/java/",
+    "description" : "Known for its Write Once, Run Anywhere capability, which means code written in Java can run on any device that supports the Java Virtual Machine (JVM). Syntax and structure is similar to C-based languages like C++ and C#.",
+    "age" : "June 12, 2024",
+    "page_age" : "2024-06-12T11:21:32",
+    "fetched_content_timestamp" : 1768914506,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "geeksforgeeks.org",
+      "hostname" : "www.geeksforgeeks.org",
+      "favicon" : "https://imgs.search.brave.com/bGE5KD5Za34la_MeOAt7584d1aXRWEQopsXEQyAALPw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjBhOGQ3MmNi/ZWE5N2EwMmZjYzA1/ZTI0ZTFhMGUyMTE0/MGM0ZTBmMWZlM2Y2/Yzk2ODMxZTRhYTBi/NDdjYTE0OS93d3cu/Z2Vla3Nmb3JnZWVr/cy5vcmcv",
+      "path" : "› java  › java"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/GOjibH1vLeaeyUMmOcziQStiyGE2Gu7X6jAESKO6gkc/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZWVrc2Zvcmdl/ZWtzLm9yZy93cC1j/b250ZW50L2Nkbi11/cGxvYWRzL2dmZ18y/MDB4MjAwLW1pbi5w/bmc"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Deeplumen Unveils UCP for Java Infrastructure, Powering the Future of Agentic Commerce",
+    "url" : "https://prnewswire.com/news-releases/deeplumen-unveils-ucp-for-java-infrastructure-powering-the-future-of-agentic-commerce-302664496.html",
+    "description" : "Today, Deeplumen, an AI technology ... the release of its UCP SDK for Java. This open-source initiative follows Google's launch of the Universal Commerce Protocol (UCP), an open standard designed to establish a \"common language\" for agentic commerce....",
+    "age" : "2 days ago",
+    "page_age" : "2026-01-19T15:18:00",
+    "fetched_content_timestamp" : 1768835968,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "prnewswire.com",
+      "hostname" : "prnewswire.com",
+      "favicon" : "https://imgs.search.brave.com/Cy2gc2T9cd0w-vFEA2i1BYmYtjk9X4-WZcW2MXG3rsM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTlmZGYyZTI2/NWRmYmU3MmZiNWJl/OTllODE0ZThjMWQ0/NWEwMzhiYjhhMmI5/OGY4Yjg0MmIyNDRm/YTgzOTJhMy9wcm5l/d3N3aXJlLmNvbS8",
+      "path" : "› news-releases  › deeplumen-unveils-ucp-for-java-infrastructure-powering-the-future-of-agentic-commerce-302664496.html"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/ZwOpmG8L2mIBLCcDjlcjW2qH-q_ScwSLwERfXPyE0AQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tbWEu/cHJuZXdzd2lyZS5j/b20vbWVkaWEvMjg2/NDM4NS9pbWFnZTIu/anBnP3A9ZmFjZWJv/b2s"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Is Java Still Used? Current Trends and Market Demand in 2026",
+    "url" : "https://www.netguru.com/blog/is-java-still-used",
+    "description" : "Java remains a top programming language in 2025, adapting to modern tech trends and maintaining strong enterprise and web development usage.",
+    "age" : "3 weeks ago",
+    "page_age" : "2025-12-29T00:00:00",
+    "fetched_content_timestamp" : 1768764483,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "netguru.com",
+      "hostname" : "www.netguru.com",
+      "favicon" : "https://imgs.search.brave.com/SLVaUgjrOMvXW6yzgKqGWhcBqqMcEgErll1bXkAIOzA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZmYxMjAzZDNm/ODdhMmQ4YmJlOTdj/YWRiMjg0OTJhYWY2/NjQxOWVhOGIyOTg5/ZmExZDg0NjhkZDYw/Y2QzOWEwNS93d3cu/bmV0Z3VydS5jb20v",
+      "path" : "› blog  › is-java-still-used"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/h76XJtSHZz3xIJvK3smde29lf9kSMu0EMtyZzlXWBg8/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/bmV0Z3VydS5jb20v/aHViZnMvX0ltYWdl/cyUyMGZvciUyMGJs/b2cvcGF5aW5nJTIw/YXQlMjB0aGUlMjBz/dG9yZS5qcGc"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "TIOBE Index for January 2026: Top 10 Most Popular Programming Languages",
+    "url" : "https://www.techrepublic.com/article/news-tiobe-index-language-rankings/",
+    "description" : "Python stays far ahead, C sits in second, Java and C++ swap places, C# rises again, and Delphi and R sit at the edge. ... January’s TIOBE Index begins the year with familiar names still setting the pace, but the underlying balance continues to adjust. While the leader remains comfortably ahead, the months-long tension among the languages ...",
+    "age" : "2 weeks ago",
+    "page_age" : "2026-01-07T13:00:09",
+    "fetched_content_timestamp" : 1768850593,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "techrepublic.com",
+      "hostname" : "www.techrepublic.com",
+      "favicon" : "https://imgs.search.brave.com/CuEux3SKNgLk1yPC5K9JwMncdlYN-xxwK9zdqM5xsYI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvODNjNjMwN2Qy/ZDliNDEyMGZiNWU0/ZmFmZWZmNjE3MzM1/NzlkM2VkOGVlZGVl/NjYwZGQ5NWEzZWEw/ODA5YjI4OC93d3cu/dGVjaHJlcHVibGlj/LmNvbS8",
+      "path" : "› article  › news-tiobe-index-language-rankings"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/vvTICcd9XqwS2C8-OIYmZ6jlTFw96hX0G_chZomZCfY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudGVjaHJlcHVi/bGljLmNvbS91cGxv/YWRzLzIwMjQvMDEv/dGlvYmUtdG9wLXRl/bi1mZWF0dXJlZC1m/ZWItMjQucG5n"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Java Language Basics - Dev.java",
+    "url" : "https://dev.java/learn/language-basics/",
+    "description" : "This part of the tutorial covers the basics of the language, including: variables, operators, expressions, statements, blocks and control flow statements. ... Rules to name variables. Creating Primitive Type Variables in Your Programs · Syntax to create and initialize primitive type variables. ... Creating fixed-length containers of objects with arrays. ... Defining Variables with Var. ... Computing things with operators. ... Wrapping up the Java ...",
+    "fetched_content_timestamp" : 1768896860,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "dev.java",
+      "hostname" : "dev.java",
+      "favicon" : "https://imgs.search.brave.com/YPcYKJuYw8-2s89Yrjw_dUTSLC37a4KMq7Vug4jyozs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZGRjOTVlMTI3/YzI3YjJiYjUwNDI1/ODg4ZmRlYWM5MTVm/MzMxMzcxZjNlMjQ3/ZTlkZmUyZDU4OWYy/YzRhNTYzNy9kZXYu/amF2YS8",
+      "path" : "› learn  › language-basics"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/l0_QiY9sPE-aPzVB3hYAGSQW4sNSKl-oU9I4J4K3hFM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9kZXYu/amF2YS9hc3NldHMv/aW1hZ2VzL2phdmEt/bG9nby12ZXJ0LWJs/ay5wbmc"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Java Hello World Program - GeeksforGeeks",
+    "url" : "https://www.geeksforgeeks.org/java/java-hello-world-program/",
+    "description" : "Java is one of the most popular and widely used programming languages and platforms. In this article, we will learn how to write a simple Java Program. This article will guide you on how to write, compile and run your first Java program.",
+    "age" : "February 7, 2017",
+    "page_age" : "2017-02-07T12:11:59",
+    "fetched_content_timestamp" : 1768945466,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "geeksforgeeks.org",
+      "hostname" : "www.geeksforgeeks.org",
+      "favicon" : "https://imgs.search.brave.com/bGE5KD5Za34la_MeOAt7584d1aXRWEQopsXEQyAALPw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjBhOGQ3MmNi/ZWE5N2EwMmZjYzA1/ZTI0ZTFhMGUyMTE0/MGM0ZTBmMWZlM2Y2/Yzk2ODMxZTRhYTBi/NDdjYTE0OS93d3cu/Z2Vla3Nmb3JnZWVr/cy5vcmcv",
+      "path" : "› java  › java-hello-world-program"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/rgfY2KAheDhCmy6odBosXwd33jPHlwugZW9vefyswv0/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZWVrc2Zvcmdl/ZWtzLm9yZy93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNTA4MjYx/NjI5NDExNjUyNTUv/amF2YV9jb21waWxl/cl9qYXZhYy53ZWJw"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Language – Minecraft Wiki",
+    "url" : "https://minecraft.wiki/w/Language",
+    "description" : "The language, accessible in options‌[JE only] or settings‌[BE only], enables the selection of languages outside of the system default. Most are real, however some Java-exclusive languages, such as LOLCAT and Shakespearean English, are intended as jokes.",
+    "age" : "3 weeks ago",
+    "page_age" : "2025-12-29T00:00:00",
+    "fetched_content_timestamp" : 1768761442,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "minecraft.wiki",
+      "hostname" : "minecraft.wiki",
+      "favicon" : "https://imgs.search.brave.com/WW1EcC1UK3JssWmjcRcaNkK8_jV_brSJkrmVFTKsmN4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzI1YzQzYTk3/NTllMTQ1NmEyYjNi/N2M4NDRiZDY4M2Ey/OTU0ZmIzNmFkNGJj/Mjg4M2E4Mjk4MGI0/OGQxZDI5MC9taW5l/Y3JhZnQud2lraS8",
+      "path" : "› w  › Language"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/Zkk1Sha-kfcq0KfPKgRKz480_rW4xMslce_D5pd2rso/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9taW5l/Y3JhZnQud2lraS9p/bWFnZXMvdGh1bWIv/TGFuZ3VhZ2Vfc2V0/dGluZ3MucG5nLzY0/MHB4LUxhbmd1YWdl/X3NldHRpbmdzLnBu/Zz83ZDIxNg"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Java Keywords | Overview & Examples | Study.com",
+    "url" : "https://study.com/academy/lesson/java-keywords-overview-examples.html?msockid=2756676683a86d673836718182146ce4",
+    "description" : "Learn what Java keywords are and understand their significance. Discover a list of the important keywords in Java, and explore examples of keyword usage in Java. ... In any programming language, a keyword is a word used by the language itself as part of its processing.",
+    "fetched_content_timestamp" : 1768939877,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "study.com",
+      "hostname" : "study.com",
+      "favicon" : "https://imgs.search.brave.com/SEoqTBl9g6Uo9OOQqfWZwI6VedTuVlXzph4Rb4WXsrk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2M0MWVjZDZi/NGZmODdmNzY0OGVi/NzRiNGM4MWNjZTNm/N2YzNWQ0OGYxZjhi/ZjQ4YTFlMDVmMTE3/ZTkwZTFkYi9zdHVk/eS5jb20v",
+      "path" : "› academy  › lesson  › java-keywords-overview-examples.html"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/HqD1R2gRyPYWHqyneBo0Uow0TyPm_YTcl-wSNbDER54/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdHVk/eS5jb20vaW1hZ2Vz/L1N0dWR5Q29tLW9n/LUZhY2Vib29rLUxv/Z28uanBn"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Oracle unveils Java development plans for 2026 | InfoWorld",
+    "url" : "https://infoworld.com/article/4115794/oracle-unveils-java-development-plans-for-2026.html",
+    "description" : "Plans for Project Amber, which focuses on producing smaller, productivity-oriented Java language features, include exploring string templates and filing JEPs (JDK Enhancement Proposals) for constant patterns and interfaces.",
+    "age" : "1 week ago",
+    "page_age" : "2026-01-13T08:25:56",
+    "fetched_content_timestamp" : 1768530970,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "infoworld.com",
+      "hostname" : "infoworld.com",
+      "favicon" : "https://imgs.search.brave.com/_Pk1V2lapWjjDJvqFWXtlDLpi30WLAElSWcTKUlCeAo/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYTVmNjk0N2I2/ZjdkMDY2MTA0MzQ3/MzEyM2Y5YjVlNmFj/MDZmZjA5ODA0MThh/NTBhNzUxY2E2Njhm/ODYyZTA5YS9pbmZv/d29ybGQuY29tLw",
+      "path" : "› article  › 4115794  › oracle-unveils-java-development-plans-for-2026.html"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/gT_k3061nG-ns8pXoPs00pkIL-rrIKZ1s1-BfU3I900/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/aW5mb3dvcmxkLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/Ni8wMS80MTE1Nzk0/LTAtMDQ2NjE4MDAt/MTc2ODI3Mjk5Ny1z/aHV0dGVyc3RvY2tf/MjY0MTI1ODEyNS5q/cGc_cXVhbGl0eT01/MCZhbXA7c3RyaXA9/YWxsJmFtcDt3PTEw/MjQ"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "What Programming Language Is Used for AI | AI Programming",
+    "url" : "https://richestsoft.com/blog/best-programming-language-for-ai/",
+    "description" : "Best programming language for ai - 1. Python | 2. R | 3. Java | 4. C++ | 5. JavaScript",
+    "age" : "2 days ago",
+    "page_age" : "2026-01-19T06:45:13",
+    "fetched_content_timestamp" : 1768929255,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "richestsoft.com",
+      "hostname" : "richestsoft.com",
+      "favicon" : "https://imgs.search.brave.com/Upx7EtcOSzG-SbVWGJJ59U7fpE3hW7Rui4uotCM_5Vw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZDU4NWQxZGE3/YjU4MzYzZDUyODY4/Y2U3YmNhYjMzZmJm/ZjgyZmZjOWVjYWYy/MGY2M2IyNjIzYzU4/OGEwYjRjZS9yaWNo/ZXN0c29mdC5jb20v",
+      "path" : "› blog  › best-programming-language-for-ai"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/e3bHv98_Lw4LKFtNeL8KKfAdfSQuvpHIKSjL9DunjWM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9yaWNo/ZXN0c29mdC5jb20v/YmxvZy93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNi8wMS9XaGF0/LVByb2dyYW1taW5n/LUxhbmd1YWdlLUlz/LVVzZWQtZm9yLUFJ/Xy53ZWJw"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Java 25 LTS and IntelliJ IDEA | The IntelliJ IDEA Blog",
+    "url" : "https://blog.jetbrains.com/idea/2025/09/java-25-lts-and-intellij-idea/",
+    "description" : "At JetBrains, we are committed to supporting new technologies in IntelliJ IDEA and adding useful enhancements for both stable and preview features. In this blog post, we will give you an overview of some changes to the Java language and how they are supported in IntelliJ IDEA.",
+    "age" : "September 16, 2025",
+    "page_age" : "2025-09-16T00:00:00",
+    "fetched_content_timestamp" : 1768910988,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "blog.jetbrains.com",
+      "hostname" : "blog.jetbrains.com",
+      "favicon" : "https://imgs.search.brave.com/IBVWg1JL11i7Qpeg_zwUsHD18OYjlFzBo1TL7231AxQ/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZjljNmY2Yjdi/YjM3YWMzZGI5YTYz/ZjRjNGJhZGI2Njc5/ZWQ2NGM4ZTFkYTk3/OGMwZWE3YzNmNDI3/OWExZjBkYS9ibG9n/LmpldGJyYWlucy5j/b20v",
+      "path" : "› idea  › 2025  › 09  › java-25-lts-and-intellij-idea"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/5guWqO-4K3RHesZHf8WTVbPDlkHcnqJ7r9ifeBcMCBM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9ibG9n/LmpldGJyYWlucy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjUvMDkvSUotVHdp/dHRlcl9GYWNlYm9v/a19MaW5rZWRJbi0x/MjAweDY3NS0xLnBu/Zw"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "The top 4 JVM languages and why developers love them | InfoWorld",
+    "url" : "https://www.infoworld.com/article/4069133/the-top-4-jvm-languages-and-why-developers-love-them.html",
+    "description" : "After Java, these are the four most important JVM languages. Let’s take a look.",
+    "age" : "October 8, 2025",
+    "page_age" : "2025-10-08T03:37:56",
+    "fetched_content_timestamp" : 1768472790,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "infoworld.com",
+      "hostname" : "www.infoworld.com",
+      "favicon" : "https://imgs.search.brave.com/Hb93ZIZx0o3exU-ch0QmrjpTHi4k2wq0_8fTPpC2Ayc/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjkzNmE5ZDBl/OGI4YWU0NDY5MGQ4/OWE1MmYxMzk2ZWEy/MGZkMzk3ZTNlYjNj/ZjI4YmY1YzU3MmUx/MmVjMWQ3MC93d3cu/aW5mb3dvcmxkLmNv/bS8",
+      "path" : "› article  › 4069133  › the-top-4-jvm-languages-and-why-developers-love-them.html"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/0l0h1dfeFx6kH1ZagnblAZilO0QB4L9InHFmUp8SUP4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/aW5mb3dvcmxkLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/NS8xMC80MDY5MTMz/LTAtMzc2MjA1MDAt/MTc2MTcyODUxMS1z/aHV0dGVyc3RvY2tf/MTE3MDg5ODY4MS5q/cGc_cXVhbGl0eT01/MCZhbXA7c3RyaXA9/YWxsJmFtcDt3PTEw/MjQ"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Command completion: IntelliJ IDEA with less shortcuts - NLJUG - Nederlandse Java User Group",
+    "url" : "https://nljug.org/foojay/command-completion-intellij-idea-with-less-shortcuts/",
+    "description" : "You can transform your code as you go, for example to make use of modern Java language features.",
+    "age" : "20 hours ago",
+    "page_age" : "2026-01-20T07:31:35",
+    "fetched_content_timestamp" : 1768904940,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "nljug.org",
+      "hostname" : "nljug.org",
+      "favicon" : "https://imgs.search.brave.com/aV5n6U6xpZr3zVHoaQp-K7kq82INGkL2aJY4ZG0S4Ok/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTA3MTU0YTM3/ZWUyZmU5ZjYzYTdl/NWJhYjY4MmM0ZWUw/N2EyZmU0Njc3NzBk/NDJkMTRlOWY5MTYz/OGRiOTk5ZS9ubGp1/Zy5vcmcv",
+      "path" : "› foojay  › command-completion-intellij-idea-with-less-shortcuts"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Introduction to Java - GeeksforGeeks",
+    "url" : "https://www.geeksforgeeks.org/java/introduction-to-java/",
+    "description" : "Maintainability and Scalability: Java’s structured design allows easy maintenance and growth of applications. When we learn any programming language, the first step is writing a simple program to display \"Hello World\".",
+    "age" : "November 7, 2020",
+    "page_age" : "2020-11-07T00:55:55",
+    "fetched_content_timestamp" : 1768891857,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "geeksforgeeks.org",
+      "hostname" : "www.geeksforgeeks.org",
+      "favicon" : "https://imgs.search.brave.com/bGE5KD5Za34la_MeOAt7584d1aXRWEQopsXEQyAALPw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjBhOGQ3MmNi/ZWE5N2EwMmZjYzA1/ZTI0ZTFhMGUyMTE0/MGM0ZTBmMWZlM2Y2/Yzk2ODMxZTRhYTBi/NDdjYTE0OS93d3cu/Z2Vla3Nmb3JnZWVr/cy5vcmcv",
+      "path" : "› java  › introduction-to-java"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/KhNxF5uqsJxh_Sun3HSjfOvqlRsgKPT5JQD5Mn3uyuM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZWVrc2Zvcmdl/ZWtzLm9yZy93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNTEwMDYx/MTM5MjM1Mjc1MDgv/ZmVhdHVyZXNfb2Zf/amF2YS53ZWJw"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "TIOBE Nov 2025: C# Nears Java; C Holds #2, Python Leads",
+    "url" : "https://www.techrepublic.com/article/news-tiobe-commentary-nov-2025/",
+    "description" : "C solidifies its position as runner-up, C++ and Java lose some ground, and C# moves sharply upward, narrowing the gap with Java to less than a percentage point. At the bottom of the leaderboard, long-established languages once again define the shape of the top 10, with Perl reappearing and ...",
+    "age" : "November 12, 2025",
+    "page_age" : "2025-11-12T14:03:17",
+    "fetched_content_timestamp" : 1766343264,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "techrepublic.com",
+      "hostname" : "www.techrepublic.com",
+      "favicon" : "https://imgs.search.brave.com/CuEux3SKNgLk1yPC5K9JwMncdlYN-xxwK9zdqM5xsYI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvODNjNjMwN2Qy/ZDliNDEyMGZiNWU0/ZmFmZWZmNjE3MzM1/NzlkM2VkOGVlZGVl/NjYwZGQ5NWEzZWEw/ODA5YjI4OC93d3cu/dGVjaHJlcHVibGlj/LmNvbS8",
+      "path" : "› article  › news-tiobe-commentary-nov-2025"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/NO8HYgllN704eJI2SR8BjsbIyREjR7QduOInrvEohjE/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMudGVjaHJlcHVi/bGljLmNvbS91cGxv/YWRzLzIwMjUvMTEv/dHItMTExMjIwMjUt/bmV3cy10aW9iZS1j/b21tZW50YXJ5LW5v/di0yMDI1LmpwZw"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Why study Java or C# - DEV Community",
+    "url" : "https://dev.to/doccaio/why-study-java-or-c-dog",
+    "description" : "In a world where new languages emerge constantly, deciding where to start or where to migrate your... Tagged with programming, backend, java, csharp.",
+    "age" : "3 days ago",
+    "page_age" : "2026-01-17T16:30:28",
+    "fetched_content_timestamp" : 1768668492,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "dev.to",
+      "hostname" : "dev.to",
+      "favicon" : "https://imgs.search.brave.com/UUpF8I85K--vkQzrhameM7iRPRU5VCTXyWbS4sk6G2g/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTg5MTcxNDBh/N2U4ODc4MDg0NWQ4/MzU0YWJkNDY3ZWRm/MjUxY2U1YjY5MzJm/YWRlOTI4YjAyZDI1/ZjU0MmJjNi9kZXYu/dG8v",
+      "path" : "› doccaio  › why-study-java-or-c-dog"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/MQ-GUNVjYynHT2_vF9dJ8E-g_3JKmigsroB8F9bejLM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YTIuZGV2LnRvL2R5/bmFtaWMvaW1hZ2Uv/d2lkdGg9MTAwMCxo/ZWlnaHQ9NTAwLGZp/dD1jb3ZlcixncmF2/aXR5PWF1dG8sZm9y/bWF0PWF1dG8vaHR0/cHMlM0ElMkYlMkZk/ZXYtdG8tdXBsb2Fk/cy5zMy5hbWF6b25h/d3MuY29tJTJGdXBs/b2FkcyUyRmFydGlj/bGVzJTJGMnZsZHg4/OGZkZW16NXQxZ25z/bXMud2VicA"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Setting the Java Version in Maven: A Practical 2026 Guide for Consistent Builds – TheLinuxCode",
+    "url" : "https://thelinuxcode.com/setting-the-java-version-in-maven-a-practical-2026-guide-for-consistent-builds/",
+    "description" : "I’ll walk you through the exact settings I use in modern Maven projects, how I choose a Java version in 2026, and what mistakes I still see in real codebases. I’ll also cover toolchains for multi-JDK environments, how to deal with mixed-language builds, and a few practical checks that keep ...",
+    "age" : "1 week ago",
+    "page_age" : "2026-01-14T13:40:14",
+    "fetched_content_timestamp" : 1768816102,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "thelinuxcode.com",
+      "hostname" : "thelinuxcode.com",
+      "favicon" : "https://imgs.search.brave.com/KA9pVB6ZoNtGhah0LuxTJB2PuVJq8Dm1GbGYK4KpBUE/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYWMyZDk4OTIz/NDA2M2EwZmY2M2I1/MzM2ZTg3MWIzM2U2/YzhhMDBmMDRkNThm/YzA3ZmEzOTAwYTdl/ZTI2NDc5MC90aGVs/aW51eGNvZGUuY29t/Lw",
+      "path" : "› setting-the-java-version-in-maven-a-practical-2026-guide-for-consistent-builds"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "WHAT IS JAVA?. Java is a high-level, class-based… | by Harini Bala | Medium",
+    "url" : "https://medium.com/@cs205114112/what-is-java-62acd961954e",
+    "description" : "WHAT IS JAVA? Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming …",
+    "age" : "February 4, 2022",
+    "page_age" : "2022-02-04T07:46:04",
+    "fetched_content_timestamp" : 1768908480,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "medium.com",
+      "hostname" : "medium.com",
+      "favicon" : "https://imgs.search.brave.com/4R4hFITz_F_be0roUiWbTZKhsywr3fnLTMTkFL5HFow/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTZhYmQ1N2Q4/NDg4ZDcyODIyMDZi/MzFmOWNhNjE3Y2E4/Y2YzMThjNjljNDIx/ZjllZmNhYTcwODhl/YTcwNDEzYy9tZWRp/dW0uY29tLw",
+      "path" : "› @cs205114112  › what-is-java-62acd961954e"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/CLdjDJOE9ifscYc60g8H5hBGvekcjMbRBri6DE2ntFc/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/djIvcmVzaXplOmZp/dDo1MDMvMSoxZmds/bzdUS1k0TDhDMFd5/dXVyc0p3LmpwZWc"
+    }
+  }, {
+    "type" : "news_result",
+    "title" : "Java in Visual Studio Code",
+    "url" : "https://code.visualstudio.com/docs/languages/java",
+    "description" : "For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, use the Java Getting Started Tutorial button below. ... VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient ...",
+    "age" : "November 3, 2021",
+    "page_age" : "2021-11-03T00:00:00",
+    "fetched_content_timestamp" : 1768813187,
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "code.visualstudio.com",
+      "hostname" : "code.visualstudio.com",
+      "favicon" : "https://imgs.search.brave.com/Ss8On-q_OmE9m3HK81vWCxjsSiBf3GQKVNyv-aR6BQs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvM2Q1MjIwOWMx/Yjk0OTY2NjgyOGVk/MGJlNDQ2YTFjZGQy/ODNkNjI3ZTg0MTc3/MzU1NGE1N2ZjMzMz/ZWEyNTE5OS9jb2Rl/LnZpc3VhbHN0dWRp/by5jb20v",
+      "path" : "› docs  › languages  › java"
+    },
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/8DX09E8UDl57W_ruztp4ieH7tOS1We9xg2Odm4a2zDQ/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jb2Rl/LnZpc3VhbHN0dWRp/by5jb20vb3Blbmdy/YXBoaW1nL29wZW5n/cmFwaC1kb2NzLnBu/Zw"
+    }
+  } ]
+}
