@@ -6,12 +6,13 @@
 
     <groupId>net.ygbstudio</groupId>
     <artifactId>jbrave</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
 
     <name>JBrave</name>
     <description>
-        An idiomatic Java implementation of the Brave Search API, built for modern workflows.
+        JBrave is a modern, type-safe, opinionated, and unofficial Java SDK for modeling and interacting with the Brave
+        Search API.
     </description>
     <url>https://github.com/YGBStudio/JBrave</url>
 
@@ -29,9 +30,18 @@
         </developer>
     </developers>
 
+    <scm>
+        <url>https://github.com/YGBStudio/JBrave</url>
+        <connection>scm:git:https://github.com/YGBStudio/JBrave.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:YGBStudio/JBrave.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+
     <properties>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Dependency Versions -->
         <jackson.databind.version>3.0.3</jackson.databind.version>
