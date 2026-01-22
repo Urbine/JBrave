@@ -1,0 +1,512 @@
+{
+  "type" : "images",
+  "query" : {
+    "original" : "cancun beaches",
+    "spellcheck_off" : false,
+    "show_strict_warning" : false
+  },
+  "results" : [ {
+    "type" : "image_result",
+    "title" : "best beach cancun",
+    "url" : "https://elena-fedorova.com/blog/top-5-of-the-best-beaches-in-cancun/",
+    "source" : "elena-fedorova.com",
+    "page_fetched" : "2025-07-22T01:24:53Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/WvAs-Tdn3PTQCbkUDdckAJILn5ZV0v6yYmzNfMTUMPg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9lbGVu/YS1mZWRvcm92YS5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDUvY2FuY3Vu/LWJlc3QtYmVhY2hl/cy5qcGc",
+      "width" : 500,
+      "height" : 333
+    },
+    "properties" : {
+      "url" : "https://elena-fedorova.com/wp-content/uploads/2015/05/cancun-best-beaches.jpg",
+      "placeholder" : "https://imgs.search.brave.com/bRCJjh34QrZiIEDtOUWeCeAYeM14qJNbF1YnyvhvYkQ/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9lbGVu/YS1mZWRvcm92YS5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDUvY2FuY3Vu/LWJlc3QtYmVhY2hl/cy5qcGc",
+      "width" : 900,
+      "height" : 600
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "elena-fedorova.com",
+      "hostname" : "elena-fedorova.com",
+      "favicon" : "https://imgs.search.brave.com/-afTJQpwnvd41QPxEd6g1MItAha4X8MTRX05a4xz3qI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvM2RhMDQ1ZTRj/OWJmMzFhMTMzMDc1/ZmIxYzRmNGE0MzE5/YmJkMmY3OWUxNTE4/NGI2OGY4MDUxZTYx/MDU1NmYzNi9lbGVu/YS1mZWRvcm92YS5j/b20v",
+      "path" : "› blog  › top-5-of-the-best-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "best beaches in cancun travel photo",
+    "url" : "https://familydestinationsguide.com/best-beaches-cancun/",
+    "source" : "familydestinationsguide.com",
+    "page_fetched" : "2025-10-01T00:07:00Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/KFH_8hVef8rtMeuxHfMt4_mIaWrzqCAJ8uVrSx6u9Ro/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9mYW1p/bHlkZXN0aW5hdGlv/bnNndWlkZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjAv/MDEvYmVzdC1iZWFj/aGVzLWluLWNhbmN1/bi1UcmF2ZWwtUGhv/dG8tMTAyNHg2MTEu/anBnLndlYnA",
+      "width" : 500,
+      "height" : 298
+    },
+    "properties" : {
+      "url" : "https://familydestinationsguide.com/wp-content/uploads/2020/01/best-beaches-in-cancun-Travel-Photo-1024x611.jpg.webp",
+      "placeholder" : "https://imgs.search.brave.com/BLTi084yirZFoIGkg_90TLOqyY6OrbQqzfANvIHL6e4/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9mYW1p/bHlkZXN0aW5hdGlv/bnNndWlkZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjAv/MDEvYmVzdC1iZWFj/aGVzLWluLWNhbmN1/bi1UcmF2ZWwtUGhv/dG8tMTAyNHg2MTEu/anBnLndlYnA",
+      "width" : 1024,
+      "height" : 611
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "familydestinationsguide.com",
+      "hostname" : "familydestinationsguide.com",
+      "favicon" : "https://imgs.search.brave.com/L5vru_mo4uCMChdZG5doyyPP_ZbK31XDzQxpEiahdXY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMTNhYWY1YTcw/Yjk1NzQyNTFhNzVm/ZDkwNTdjYmY3YTkw/ZDJhMTdkNGZkM2Vm/Nzg1ODc4NzEzOGM5/ZGRmYTQ5MC9mYW1p/bHlkZXN0aW5hdGlv/bnNndWlkZS5jb20v",
+      "path" : "› best-beaches-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "",
+    "url" : "https://www.livedreamdiscover.com/5-beautiful-cancun-beaches/",
+    "source" : "livedreamdiscover.com",
+    "page_fetched" : "2025-11-13T04:33:37Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/VwD88U-h2ohvHo1HkgKe3MhjSkeRF9HlgKkvFZTzbf4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bGl2ZWRyZWFtZGlz/Y292ZXIuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzEx/LzUtbW9zdC1iZWF1/dGlmdWwtQ2FuY3Vu/LUJlYWNoZXMuanBn",
+      "width" : 500,
+      "height" : 750
+    },
+    "properties" : {
+      "url" : "https://www.livedreamdiscover.com/wp-content/uploads/2018/11/5-most-beautiful-Cancun-Beaches.jpg",
+      "placeholder" : "https://imgs.search.brave.com/8pRlr8tpD0vtOKtkCIcfAidI8nDhu8qJboR1hGqlN-8/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/bGl2ZWRyZWFtZGlz/Y292ZXIuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzEx/LzUtbW9zdC1iZWF1/dGlmdWwtQ2FuY3Vu/LUJlYWNoZXMuanBn",
+      "width" : 683,
+      "height" : 1024
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.livedreamdiscover.com",
+      "hostname" : "www.livedreamdiscover.com",
+      "favicon" : "https://imgs.search.brave.com/jHpgq8267PGSXFaz_xkymIf0tlpJHDMmuMG0rTfNUtE/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2E1NjJiMDU1/MjdiY2Y3OTIxNTE4/NTBlZmRkOGZjY2U5/ZGZlZjRmMDAwYzVj/MmI1ZmRhNGE2MmI2/ZTU4YTk1MS93d3cu/bGl2ZWRyZWFtZGlz/Y292ZXIuY29tLw",
+      "path" : "› 5-beautiful-cancun-beaches"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "pearl beach in cancun hotel zone",
+    "url" : "https://www.venturapark.com/en/visit-the-best-public-beaches-in-cancun/",
+    "source" : "venturapark.com",
+    "page_fetched" : "2026-01-18T21:01:08Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/MqkInctPcmsyLsbyjuZB5Vui20YIG32MnXREqyfD1Bg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA1L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi00LnBu/Zw",
+      "width" : 500,
+      "height" : 281
+    },
+    "properties" : {
+      "url" : "https://images.venturapark.com/img/2024/05/public-beaches-in-cancun-4.png",
+      "placeholder" : "https://imgs.search.brave.com/pr87cE0zp7oBgj1FBXnMpNwTrUw7Pkycbbkq7A-SU60/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA1L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi00LnBu/Zw",
+      "width" : 500,
+      "height" : 281
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.venturapark.com",
+      "hostname" : "www.venturapark.com",
+      "favicon" : "https://imgs.search.brave.com/pVR5hspf0I2VBNJtG0I1iCeTx3p470RAIjrwkJ80U78/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGI2MDgxOTIw/MzY0MDczMTA0N2U1/YTBjNGNjNmRhYmFk/NDBlNWE5NDI2MWIw/YzBlNjFhMDc3Yzlm/ZTE4Y2NlZS93d3cu/dmVudHVyYXBhcmsu/Y29tLw",
+      "path" : "› en  › visit-the-best-public-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "Best Cancun Beaches Playa Tortugas",
+    "url" : "https://www.best-waterfront-destinations.com/cancun-beaches.html",
+    "source" : "best-waterfront-destinations.com",
+    "page_fetched" : "2025-10-24T00:19:52Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/bcRLcX_9xaXgS2b8o3R0xBb4XFkYdOqiGctBdiJKIzw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/YmVzdC13YXRlcmZy/b250LWRlc3RpbmF0/aW9ucy5jb20vaW1h/Z2VzL3hDYW5jdW4t/QmVhY2hlcy1QbGF5/YS1Ub3J0dWdhcy5q/cGcucGFnZXNwZWVk/LmljLlZ3cFBaX1BY/NGkuanBn",
+      "width" : 500,
+      "height" : 256
+    },
+    "properties" : {
+      "url" : "https://www.best-waterfront-destinations.com/images/xCancun-Beaches-Playa-Tortugas.jpg.pagespeed.ic.VwpPZ_PX4i.jpg",
+      "placeholder" : "https://imgs.search.brave.com/S8-HuIRTl1-un2pneNI1flzelmnDn5FW29FTOROPQRA/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/YmVzdC13YXRlcmZy/b250LWRlc3RpbmF0/aW9ucy5jb20vaW1h/Z2VzL3hDYW5jdW4t/QmVhY2hlcy1QbGF5/YS1Ub3J0dWdhcy5q/cGcucGFnZXNwZWVk/LmljLlZ3cFBaX1BY/NGkuanBn",
+      "width" : 942,
+      "height" : 482
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.best-waterfront-destinations.com",
+      "hostname" : "www.best-waterfront-destinations.com",
+      "favicon" : "https://imgs.search.brave.com/FfJtAeTgvsDBB_IpAUTrxfknBSW3B6W4eXQO7tGLGik/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWU2MmE0M2Vl/NDk0ZTgwMjdmMjIz/MWFmNTM3NDBkM2Fh/NzI4OTllMmFhNDJj/OWNjYjE4MDYwNDNl/NzU5NmFhYi93d3cu/YmVzdC13YXRlcmZy/b250LWRlc3RpbmF0/aW9ucy5jb20v",
+      "path" : "› cancun-beaches.html"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "Most Beautiful Cancun Beaches",
+    "url" : "https://www.assistcard.com/us-en/cancun-beaches",
+    "source" : "assistcard.com",
+    "page_fetched" : "2026-01-18T21:01:07Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/dpfzOSZbgxMGj_PZSiT08a-3D6JloodAzedh8hkTuLU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9lY29t/bWVyY2VhcGkuYXNz/aXN0Y2FyZC5jb20v/QXBpL0ltYWdlc0hh/bmRsZXIvR2V0SW1h/Z2U_ZnJlZUltYWdl/Q29kZT14dXMtY2Fu/Y3VuYmVhY2gwMw",
+      "width" : 500,
+      "height" : 333
+    },
+    "properties" : {
+      "url" : "https://ecommerceapi.assistcard.com/Api/ImagesHandler/GetImage?freeImageCode=xus-cancunbeach03",
+      "placeholder" : "https://imgs.search.brave.com/M6MGuCHfmMojKiZvDTO0XZ6nyJ_kCcUSrH_2mCzjDSY/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9lY29t/bWVyY2VhcGkuYXNz/aXN0Y2FyZC5jb20v/QXBpL0ltYWdlc0hh/bmRsZXIvR2V0SW1h/Z2U_ZnJlZUltYWdl/Q29kZT14dXMtY2Fu/Y3VuYmVhY2gwMw",
+      "width" : 600,
+      "height" : 400
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.assistcard.com",
+      "hostname" : "www.assistcard.com",
+      "favicon" : "https://imgs.search.brave.com/qkrKgUe9AnTwSlmaTUrcApJKPVhCHtdd3AL04DM8nEI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQxZTQ0NWUz/MTYzZjBkMGM5ZjM2/NzZjMGUxY2I4Mzg4/MzJlNGU1MjZhYzFj/OTlhNjliZDQwNTQw/ZmU4YWE3Yy93d3cu/YXNzaXN0Y2FyZC5j/b20v",
+      "path" : "› us-en  › cancun-beaches"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "best beaches in Cancun - Puerto Morelos Beach",
+    "url" : "https://travelcrog.com/best-beaches-in-cancun-mexico/",
+    "source" : "travelcrog.com",
+    "page_fetched" : "2025-09-13T20:05:45Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/3xcfINU-vTsDSuJ8x0f1egYXZszUuHcU-0EhVZ3u_Wo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90cmF2/ZWxjcm9nLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMy8w/NS9QdWVydG8tTW9y/ZWxvcy1CZWFjaC0x/MDI0eDYxNC5qcGc",
+      "width" : 500,
+      "height" : 300
+    },
+    "properties" : {
+      "url" : "https://travelcrog.com/wp-content/uploads/2023/05/Puerto-Morelos-Beach-1024x614.jpg",
+      "placeholder" : "https://imgs.search.brave.com/ffYqNqnHw-uGxj8EgSBEeHV_S3gOzFhVIuhuwUh18Kk/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly90cmF2/ZWxjcm9nLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMy8w/NS9QdWVydG8tTW9y/ZWxvcy1CZWFjaC0x/MDI0eDYxNC5qcGc",
+      "width" : 1024,
+      "height" : 614
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "travelcrog.com",
+      "hostname" : "travelcrog.com",
+      "favicon" : "https://imgs.search.brave.com/Gu86VGGZ73IWrXjmbwXtN8RiSJ0itEyts6-jYpY0Kow/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGE1MDA4MTE3/ZTAzNzUyNzY4MGEz/YzQzNzM1YjUyMTRl/ZTdhMTg0YTI0NDA5/NzhlNzVlNGNiYmQ4/MWVjM2NiMy90cmF2/ZWxjcm9nLmNvbS8",
+      "path" : "› best-beaches-in-cancun-mexico"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "best beaches in cancun",
+    "url" : "https://elena-fedorova.com/blog/top-5-of-the-best-beaches-in-cancun/",
+    "source" : "elena-fedorova.com",
+    "page_fetched" : "2025-07-22T01:24:53Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/krJTFTpW378NBxmF98bjDwGEjXYbexFf5Tp3fY4yp0w/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9lbGVu/YS1mZWRvcm92YS5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDUvYmVzdC1i/ZWFjaGVzLWluLWNh/bmN1bi1wbGF5YS1k/ZWxmaW5lcy5qcGc",
+      "width" : 500,
+      "height" : 333
+    },
+    "properties" : {
+      "url" : "https://elena-fedorova.com/wp-content/uploads/2015/05/best-beaches-in-cancun-playa-delfines.jpg",
+      "placeholder" : "https://imgs.search.brave.com/Pnw3XnNTpSoSl6CS87IE6nmgvBiRV8t7vvlacpnLGTg/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9lbGVu/YS1mZWRvcm92YS5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MTUvMDUvYmVzdC1i/ZWFjaGVzLWluLWNh/bmN1bi1wbGF5YS1k/ZWxmaW5lcy5qcGc",
+      "width" : 900,
+      "height" : 600
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "elena-fedorova.com",
+      "hostname" : "elena-fedorova.com",
+      "favicon" : "https://imgs.search.brave.com/-afTJQpwnvd41QPxEd6g1MItAha4X8MTRX05a4xz3qI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvM2RhMDQ1ZTRj/OWJmMzFhMTMzMDc1/ZmIxYzRmNGE0MzE5/YmJkMmY3OWUxNTE4/NGI2OGY4MDUxZTYx/MDU1NmYzNi9lbGVu/YS1mZWRvcm92YS5j/b20v",
+      "path" : "› blog  › top-5-of-the-best-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "nizuc beach in cancun hotel zone",
+    "url" : "https://www.venturapark.com/en/visit-the-best-public-beaches-in-cancun/",
+    "source" : "venturapark.com",
+    "page_fetched" : "2026-01-18T21:01:08Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/KcUFwZwwjPGZZ9UzrkJ91cbpC2ERUT9WMEsRzX2SS6s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA1L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi01Lmpw/Zw",
+      "width" : 422,
+      "height" : 281
+    },
+    "properties" : {
+      "url" : "https://images.venturapark.com/img/2024/05/public-beaches-in-cancun-5.jpg",
+      "placeholder" : "https://imgs.search.brave.com/I84oMZhdLQTkHL0f5sLvidxClhIMpH9fJ9p0d1RcUcw/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA1L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi01Lmpw/Zw",
+      "width" : 422,
+      "height" : 281
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.venturapark.com",
+      "hostname" : "www.venturapark.com",
+      "favicon" : "https://imgs.search.brave.com/pVR5hspf0I2VBNJtG0I1iCeTx3p470RAIjrwkJ80U78/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGI2MDgxOTIw/MzY0MDczMTA0N2U1/YTBjNGNjNmRhYmFk/NDBlNWE5NDI2MWIw/YzBlNjFhMDc3Yzlm/ZTE4Y2NlZS93d3cu/dmVudHVyYXBhcmsu/Y29tLw",
+      "path" : "› en  › visit-the-best-public-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "Cancun Beaches",
+    "url" : "https://www.livedreamdiscover.com/5-beautiful-cancun-beaches/",
+    "source" : "livedreamdiscover.com",
+    "page_fetched" : "2025-11-13T04:33:37Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/LYl7C15RXX-OHs8ZuXnAmNkloIUVJhd-I6uma_G9aRw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bGl2ZWRyZWFtZGlz/Y292ZXIuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzEx/L0NhbmN1bi1QbGF5/YS1CYWxsZW5hcy5q/cGc",
+      "width" : 500,
+      "height" : 300
+    },
+    "properties" : {
+      "url" : "https://www.livedreamdiscover.com/wp-content/uploads/2018/11/Cancun-Playa-Ballenas.jpg",
+      "placeholder" : "https://imgs.search.brave.com/DCuH6D6RFbIjLsaht36qEw-VaQkv1n0o3NnAucqCdjQ/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/bGl2ZWRyZWFtZGlz/Y292ZXIuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzEx/L0NhbmN1bi1QbGF5/YS1CYWxsZW5hcy5q/cGc",
+      "width" : 1000,
+      "height" : 600
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.livedreamdiscover.com",
+      "hostname" : "www.livedreamdiscover.com",
+      "favicon" : "https://imgs.search.brave.com/jHpgq8267PGSXFaz_xkymIf0tlpJHDMmuMG0rTfNUtE/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2E1NjJiMDU1/MjdiY2Y3OTIxNTE4/NTBlZmRkOGZjY2U5/ZGZlZjRmMDAwYzVj/MmI1ZmRhNGE2MmI2/ZTU4YTk1MS93d3cu/bGl2ZWRyZWFtZGlz/Y292ZXIuY29tLw",
+      "path" : "› 5-beautiful-cancun-beaches"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "playa langosta Public Beaches in Cancun",
+    "url" : "https://www.mycancuntours.com/thingstodoincancun/top-5-public-beaches-in-cancun/",
+    "source" : "mycancuntours.com",
+    "page_fetched" : "2025-10-30T10:13:07Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/twDJOVsm3y62Fvpr5kqK2io2lssZr28sUMiI1-Au810/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bXljYW5jdW50b3Vy/cy5jb20vdGhpbmdz/dG9kb2luY2FuY3Vu/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIz/LzAxL3BsYXlhLWxh/bmdvc3RhLWJlYWNo/LmpwZw",
+      "width" : 500,
+      "height" : 357
+    },
+    "properties" : {
+      "url" : "https://www.mycancuntours.com/thingstodoincancun/wp-content/uploads/2023/01/playa-langosta-beach.jpg",
+      "placeholder" : "https://imgs.search.brave.com/YaRBrT9-DXzzXaQH-kxbOBusXCkoNaS6i6XWIfTeYdM/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/bXljYW5jdW50b3Vy/cy5jb20vdGhpbmdz/dG9kb2luY2FuY3Vu/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIz/LzAxL3BsYXlhLWxh/bmdvc3RhLWJlYWNo/LmpwZw",
+      "width" : 640,
+      "height" : 457
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.mycancuntours.com",
+      "hostname" : "www.mycancuntours.com",
+      "favicon" : "https://imgs.search.brave.com/1Cd6dvhZ4PZ5iWMsInxPjoHaMQEGmznyHpmCFl0zy3o/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjY3ZWVlZGZj/MmM0ZmNkN2Y0MWE3/ZTBhNzI2NTRkMzNi/ODdkMjJjN2UxMjIx/YmE2YzFmNzZjYWJj/ZmM1MDYwYS93d3cu/bXljYW5jdW50b3Vy/cy5jb20v",
+      "path" : "› thingstodoincancun  › top-5-public-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "View of Playa Tortugas, one of the best beaches in cancun",
+    "url" : "https://www.girlwiththepassport.com/best-beaches-in-cancun/",
+    "source" : "girlwiththepassport.com",
+    "page_fetched" : "2025-11-02T23:28:21Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/6kD2myDFaWFGY2UoIh0tIDpJNR1CATOWxcVFVCVd5GM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Z2lybHdpdGh0aGVw/YXNzcG9ydC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjIv/MDkvUGxheWEtVG9y/dHVnYXMtQ2FuY3Vu/LmpwZy53ZWJw",
+      "width" : 500,
+      "height" : 333
+    },
+    "properties" : {
+      "url" : "https://www.girlwiththepassport.com/wp-content/uploads/2022/09/Playa-Tortugas-Cancun.jpg.webp",
+      "placeholder" : "https://imgs.search.brave.com/9nVGo1g0FYxCJJDnEgCap9cIDmuQYlf5x7xMXSzllAY/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/Z2lybHdpdGh0aGVw/YXNzcG9ydC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjIv/MDkvUGxheWEtVG9y/dHVnYXMtQ2FuY3Vu/LmpwZy53ZWJw",
+      "width" : 1024,
+      "height" : 683
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.girlwiththepassport.com",
+      "hostname" : "www.girlwiththepassport.com",
+      "favicon" : "https://imgs.search.brave.com/AN_kfAGENfNupjkJP1i_cefh7RuUFyFQDdwlVM_ADwk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQyZjVmMjc3/YzA3ZDNlZTdlZTAz/YWQ4NDNhZTdmZjY1/M2RhYjM2ZjVmNGM0/OGU0ODEzZDQzYWQ4/NjQ3YTE2MC93d3cu/Z2lybHdpdGh0aGVw/YXNzcG9ydC5jb20v",
+      "path" : "› best-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "",
+    "url" : "https://unsplash.com/s/photos/cancun",
+    "source" : "unsplash.com",
+    "page_fetched" : "2025-11-22T20:41:02Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/euZOzyNKK4uZJtTNlrJin3tCpPmmv01ghQsRj1_LME4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjIy/MjM5Njk1MC9waG90/by9jYW5jdW4tYmVh/Y2hlcy1tZXhpY28u/d2VicD9hPTEmYj0x/JnM9NjEyeDYxMiZ3/PTAmaz0yMCZjPS03/OTVWcmROdnNhRUVK/T0ZlRFBlUzlHSVJm/MlhZM0RtNGx2VjVx/LVVzbGM9",
+      "width" : 500,
+      "height" : 333
+    },
+    "properties" : {
+      "url" : "https://media.istockphoto.com/id/2222396950/photo/cancun-beaches-mexico.webp?a=1&b=1&s=612x612&w=0&k=20&c=-795VrdNvsaEEJOFeDPeS9GIRf2XY3Dm4lvV5q-Uslc=",
+      "placeholder" : "https://imgs.search.brave.com/T4FxbLEbpBAkgo-uAqr85pSFYWq0lNadtCSSFqnIPv0/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjIy/MjM5Njk1MC9waG90/by9jYW5jdW4tYmVh/Y2hlcy1tZXhpY28u/d2VicD9hPTEmYj0x/JnM9NjEyeDYxMiZ3/PTAmaz0yMCZjPS03/OTVWcmROdnNhRUVK/T0ZlRFBlUzlHSVJm/MlhZM0RtNGx2VjVx/LVVzbGM9",
+      "width" : 612,
+      "height" : 408
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "unsplash.com",
+      "hostname" : "unsplash.com",
+      "favicon" : "https://imgs.search.brave.com/UFQasvzwLnO1phC8IRS6qXLb7mLVSbC00uaiLY8o2IQ/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTgxODEwOTU5/NDQ5YzBjMmRhMmJk/Y2JmYzc1MDhlMDU5/MzI2ODYzMTlkYTRl/YzZjNWYwMjU2M2Y0/YzkxNDRkYS91bnNw/bGFzaC5jb20v",
+      "path" : "› s  › photos  › cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "15 BEST Beaches in Cancun, Mexico",
+    "url" : "https://destinationlesstravel.com/beaches-in-cancun-mexico/",
+    "source" : "destinationlesstravel.com",
+    "page_fetched" : "2025-11-30T00:20:56Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/4g3MiP74zKwqanSrlFgLJalgPcOy_NqrUt1VuFcnLq0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9kZXN0/aW5hdGlvbmxlc3N0/cmF2ZWwuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIyLzA0/L0JhaWxleS1vbi1Q/YXJxdWUtRnVuZGFk/b3Jlcy1CZWFjaC1p/bi1QbGF5YS1kZWwt/Q2FybWVuLU1leGlj/by5qcGcud2VicA",
+      "width" : 500,
+      "height" : 333
+    },
+    "properties" : {
+      "url" : "https://destinationlesstravel.com/wp-content/uploads/2022/04/Bailey-on-Parque-Fundadores-Beach-in-Playa-del-Carmen-Mexico.jpg.webp",
+      "placeholder" : "https://imgs.search.brave.com/xPQDPPUHLNne8-PDWQcHW3cu7th3A4gki4CPhj17sjA/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9kZXN0/aW5hdGlvbmxlc3N0/cmF2ZWwuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIyLzA0/L0JhaWxleS1vbi1Q/YXJxdWUtRnVuZGFk/b3Jlcy1CZWFjaC1p/bi1QbGF5YS1kZWwt/Q2FybWVuLU1leGlj/by5qcGcud2VicA",
+      "width" : 1200,
+      "height" : 800
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "destinationlesstravel.com",
+      "hostname" : "destinationlesstravel.com",
+      "favicon" : "https://imgs.search.brave.com/Haxh7AbZzfbd0OvvgZLjAV3LzUtJAtIL-Kb4A8gB8qM/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTYzYTRmNWNl/NDBkZGVjNmNhNWU0/YzFmOGJjM2I2ZWIz/NDQ5OWFlNmYwZmM1/YzcxNzViZTM2ZWZi/ZDJmY2Q3ZC9kZXN0/aW5hdGlvbmxlc3N0/cmF2ZWwuY29tLw",
+      "path" : "› beaches-in-cancun-mexico"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "marlin beach in cancun hotel zone",
+    "url" : "https://www.venturapark.com/en/visit-the-best-public-beaches-in-cancun/",
+    "source" : "venturapark.com",
+    "page_fetched" : "2026-01-18T21:01:08Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/lfkornFP1h6jsD__oYasKJ1WyomWyyFaBR3E31YtC80/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA1L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi04Lmpw/Zw",
+      "width" : 500,
+      "height" : 348
+    },
+    "properties" : {
+      "url" : "https://images.venturapark.com/img/2024/05/public-beaches-in-cancun-8.jpg",
+      "placeholder" : "https://imgs.search.brave.com/0NO69_vbJVsbgjHFSV8X7ux7l3ns2BoepelH3PQkYYg/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA1L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi04Lmpw/Zw",
+      "width" : 743,
+      "height" : 517
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.venturapark.com",
+      "hostname" : "www.venturapark.com",
+      "favicon" : "https://imgs.search.brave.com/pVR5hspf0I2VBNJtG0I1iCeTx3p470RAIjrwkJ80U78/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGI2MDgxOTIw/MzY0MDczMTA0N2U1/YTBjNGNjNmRhYmFk/NDBlNWE5NDI2MWIw/YzBlNjFhMDc3Yzlm/ZTE4Y2NlZS93d3cu/dmVudHVyYXBhcmsu/Y29tLw",
+      "path" : "› en  › visit-the-best-public-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "Playa Delfines or Dolphin Beach in Cancun",
+    "url" : "https://www.islandlifemexico.com/cancun-beach-guide/",
+    "source" : "islandlifemexico.com",
+    "page_fetched" : "2025-12-11T18:02:19Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/dq-OrO3MSNb038cyFha4-lpd0dFScdUILX1EuJjYVy4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/aXNsYW5kbGlmZW1l/eGljby5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjIvMDcv/QmVzdC1DYW5jdW4t/QmVhY2hlcy0xMi5q/cGc",
+      "width" : 500,
+      "height" : 334
+    },
+    "properties" : {
+      "url" : "https://www.islandlifemexico.com/wp-content/uploads/2022/07/Best-Cancun-Beaches-12.jpg",
+      "placeholder" : "https://imgs.search.brave.com/lLbDbozdkPE-gJklUwFMsm-dPHLk5nbXAWoecuQf9gI/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/aXNsYW5kbGlmZW1l/eGljby5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjIvMDcv/QmVzdC1DYW5jdW4t/QmVhY2hlcy0xMi5q/cGc",
+      "width" : 866,
+      "height" : 578
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.islandlifemexico.com",
+      "hostname" : "www.islandlifemexico.com",
+      "favicon" : "https://imgs.search.brave.com/-Rs9veBKjEk7-7SgF9ASRR1W-td22PeEeXjdCV5m9MU/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMDM0YzQ1NmVm/MGE3MDI0NzhhZjIz/YTQ3YjlmZTgxYTAz/NDFiZDRlYTQ3YmU2/OGEzOGU3YTk5NmJm/NTg5NGFiZi93d3cu/aXNsYW5kbGlmZW1l/eGljby5jb20v",
+      "path" : "› cancun-beach-guide"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "",
+    "url" : "https://www.girlwiththepassport.com/best-beaches-in-cancun/",
+    "source" : "girlwiththepassport.com",
+    "page_fetched" : "2025-11-02T23:28:21Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/TRx6IwbQFMnu-qfd1S2bNB5_LT5n1F8oWetV3_T0LJQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Z2lybHdpdGh0aGVw/YXNzcG9ydC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjIv/MDkvQ2FuY3VuLUJl/YWNoZXMtcGluLTIt/NjgzeDEwMjQuanBn",
+      "width" : 500,
+      "height" : 750
+    },
+    "properties" : {
+      "url" : "https://www.girlwiththepassport.com/wp-content/uploads/2022/09/Cancun-Beaches-pin-2-683x1024.jpg",
+      "placeholder" : "https://imgs.search.brave.com/zG7FEJBS7oghhAwrg5mBS9v3S_qffQO33A7jaSTeBm0/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/Z2lybHdpdGh0aGVw/YXNzcG9ydC5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjIv/MDkvQ2FuY3VuLUJl/YWNoZXMtcGluLTIt/NjgzeDEwMjQuanBn",
+      "width" : 683,
+      "height" : 1024
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.girlwiththepassport.com",
+      "hostname" : "www.girlwiththepassport.com",
+      "favicon" : "https://imgs.search.brave.com/AN_kfAGENfNupjkJP1i_cefh7RuUFyFQDdwlVM_ADwk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQyZjVmMjc3/YzA3ZDNlZTdlZTAz/YWQ4NDNhZTdmZjY1/M2RhYjM2ZjVmNGM0/OGU0ODEzZDQzYWQ4/NjQ3YTE2MC93d3cu/Z2lybHdpdGh0aGVw/YXNzcG9ydC5jb20v",
+      "path" : "› best-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "20 Must-Visit Family-Friendly Beaches in Cancun",
+    "url" : "https://www.villapalmarcancun.com/discover-cancun/beaches/top-family-friendly",
+    "source" : "villapalmarcancun.com",
+    "page_fetched" : "2026-01-18T21:01:07Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/f7yF8h4kg8gvF8y1yJBYpAM4zTcwznzQQIrqkSKU-yM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dmlsbGFwYWxtYXJj/YW5jdW4uY29tL2Nt/cy9yZXNvdXJjZXMv/Y2FuY3VuLWJlYWNo/LTUxODYyNjcwNzEy/NTV4ODM3LXc2MDBo/NjAwLmpwZWc",
+      "width" : 500,
+      "height" : 500
+    },
+    "properties" : {
+      "url" : "https://www.villapalmarcancun.com/cms/resources/cancun-beach-5186267071255x837-w600h600.jpeg",
+      "placeholder" : "https://imgs.search.brave.com/l-riyyRBAJscQzp6Xgu-EiMdCn1MRVWSrkg8NBnT3ag/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/dmlsbGFwYWxtYXJj/YW5jdW4uY29tL2Nt/cy9yZXNvdXJjZXMv/Y2FuY3VuLWJlYWNo/LTUxODYyNjcwNzEy/NTV4ODM3LXc2MDBo/NjAwLmpwZWc",
+      "width" : 600,
+      "height" : 600
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.villapalmarcancun.com",
+      "hostname" : "www.villapalmarcancun.com",
+      "favicon" : "https://imgs.search.brave.com/Sq20KfeQFmNUbSUq15rKYTdfwOvsZ9lxUwIgjNs8w0M/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZmNiMWNhNDNh/YmI2YWY0MjE1MzEz/YmNiODM1ZDI1NmU3/MDk4ZGQ4OGU2MTdl/YWIxMmE5NjEwYTgy/NDQyZjEwYS93d3cu/dmlsbGFwYWxtYXJj/YW5jdW4uY29tLw",
+      "path" : "› discover-cancun  › beaches  › top-family-friendly"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "tortugas beach in cancun hotel zone",
+    "url" : "https://www.venturapark.com/en/visit-the-best-public-beaches-in-cancun/",
+    "source" : "venturapark.com",
+    "page_fetched" : "2026-01-18T21:01:08Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/Z0bZ065s2HLvwiFqKiJEhDV08zIkLuuO8_Ro7NynN70/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA2L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi0wLmpw/Zw",
+      "width" : 500,
+      "height" : 355
+    },
+    "properties" : {
+      "url" : "https://images.venturapark.com/img/2024/06/public-beaches-in-cancun-0.jpg",
+      "placeholder" : "https://imgs.search.brave.com/CtlemL_TH7Gi6nAYsTEsRn-ri_QHjljJaASgfYdxrfk/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly9pbWFn/ZXMudmVudHVyYXBh/cmsuY29tL2ltZy8y/MDI0LzA2L3B1Ymxp/Yy1iZWFjaGVzLWlu/LWNhbmN1bi0wLmpw/Zw",
+      "width" : 824,
+      "height" : 585
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.venturapark.com",
+      "hostname" : "www.venturapark.com",
+      "favicon" : "https://imgs.search.brave.com/pVR5hspf0I2VBNJtG0I1iCeTx3p470RAIjrwkJ80U78/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNGI2MDgxOTIw/MzY0MDczMTA0N2U1/YTBjNGNjNmRhYmFk/NDBlNWE5NDI2MWIw/YzBlNjFhMDc3Yzlm/ZTE4Y2NlZS93d3cu/dmVudHVyYXBhcmsu/Y29tLw",
+      "path" : "› en  › visit-the-best-public-beaches-in-cancun"
+    },
+    "confidence" : "high"
+  }, {
+    "type" : "image_result",
+    "title" : "Best Cancun Beaches Playa Delfines",
+    "url" : "https://www.best-waterfront-destinations.com/cancun-beaches.html",
+    "source" : "best-waterfront-destinations.com",
+    "page_fetched" : "2025-10-24T00:19:52Z",
+    "thumbnail" : {
+      "src" : "https://imgs.search.brave.com/LZNaN9VzQXk7Fzx5JDi0swSxSJ9ZRRrkjV7InpPB-h8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/YmVzdC13YXRlcmZy/b250LWRlc3RpbmF0/aW9ucy5jb20vaW1h/Z2VzL3hDYW5jdW4t/QmVhY2hlcy1QbGF5/YS1EZWxmaW5lcy5q/cGcucGFnZXNwZWVk/LmljLkJYcEp6bjI0/ZlouanBn",
+      "width" : 500,
+      "height" : 237
+    },
+    "properties" : {
+      "url" : "https://www.best-waterfront-destinations.com/images/xCancun-Beaches-Playa-Delfines.jpg.pagespeed.ic.BXpJzn24fZ.jpg",
+      "placeholder" : "https://imgs.search.brave.com/9vsAEnQk-quTX6LdUzZnbEc-9Cvv2UrfX75-jxHXGAs/rs:fit:76:0:0:0/g:ce/q:10/aHR0cHM6Ly93d3cu/YmVzdC13YXRlcmZy/b250LWRlc3RpbmF0/aW9ucy5jb20vaW1h/Z2VzL3hDYW5jdW4t/QmVhY2hlcy1QbGF5/YS1EZWxmaW5lcy5q/cGcucGFnZXNwZWVk/LmljLkJYcEp6bjI0/ZlouanBn",
+      "width" : 1590,
+      "height" : 755
+    },
+    "meta_url" : {
+      "scheme" : "https",
+      "netloc" : "www.best-waterfront-destinations.com",
+      "hostname" : "www.best-waterfront-destinations.com",
+      "favicon" : "https://imgs.search.brave.com/FfJtAeTgvsDBB_IpAUTrxfknBSW3B6W4eXQO7tGLGik/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWU2MmE0M2Vl/NDk0ZTgwMjdmMjIz/MWFmNTM3NDBkM2Fh/NzI4OTllMmFhNDJj/OWNjYjE4MDYwNDNl/NzU5NmFhYi93d3cu/YmVzdC13YXRlcmZy/b250LWRlc3RpbmF0/aW9ucy5jb20v",
+      "path" : "› cancun-beaches.html"
+    },
+    "confidence" : "high"
+  } ],
+  "extra" : {
+    "might_be_offensive" : false
+  }
+}
