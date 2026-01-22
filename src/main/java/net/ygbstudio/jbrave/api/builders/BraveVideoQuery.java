@@ -32,11 +32,11 @@ import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.MarketLocale;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
+import net.ygbstudio.jbrave.api.response.VideoSearchApiResponse;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.builders.SearchOperatorBuilder;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
-import net.ygbstudio.jbrave.api.response.VideoSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
@@ -57,8 +57,8 @@ import org.jetbrains.annotations.NotNull;
  * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
  * a stateful, reusable builder intended for single-threaded use.
  *
- * <p>Method {@link #reset()} will clear the internal state of the builder and must be called
- * before reusing.
+ * <p>Method {@link #reset()} will clear the internal state of the builder and must be called before
+ * reusing.
  */
 public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQuery>
     implements BraveQueryBuilder<BraveVideoQuery, VideoSearchApiResponse> {
@@ -347,6 +347,10 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
             ? executor.submitTask(suppliedTask).executeWithRetries(maxRetries).getFirst()
             : executor.executeStringResponseOnce(suppliedTask);
     return this;
+  }
+
+  public boolean hasExecuted() {
+    return Objects.nonNull(currentResponse);
   }
 
   @Override

@@ -96,6 +96,14 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   T execute();
 
   /**
+   * Checks if the request has been executed. Precisely, it will tell the caller whether the builder
+   * has an existing (complete) request in it or not.
+   *
+   * @return {@code true} if the request has been executed, {@code false} otherwise
+   */
+  boolean hasExecuted();
+
+  /**
    * Converts the current query to an {@link HttpRequest} instance.
    *
    * @return the {@link HttpRequest} instance representing the current query

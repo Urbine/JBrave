@@ -29,10 +29,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
+import net.ygbstudio.jbrave.api.response.SuggestSearchApiResponse;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
-import net.ygbstudio.jbrave.api.response.SuggestSearchApiResponse;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
@@ -53,8 +53,8 @@ import org.jetbrains.annotations.NotNull;
  * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
  * a stateful, reusable builder intended for single-threaded use.
  *
- * <p>Method {@link #reset()} will clear the internal state of the builder and must be called
- * before reusing.
+ * <p>Method {@link #reset()} will clear the internal state of the builder and must be called before
+ * reusing.
  */
 public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSuggestQuery>
     implements BraveQueryBuilder<BraveSuggestQuery, SuggestSearchApiResponse> {
@@ -264,6 +264,10 @@ public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSugges
     return this;
   }
 
+  public boolean hasExecuted() {
+    return Objects.nonNull(currentResponse);
+  }
+
   /**
    * Converts the current query to an {@link HttpRequest} instance.
    *
@@ -280,7 +284,7 @@ public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSugges
    *     if there is no current response.
    */
   public @NotNull Optional<HttpResponse<String>> getHttpResponse() {
-      return Objects.nonNull(currentResponse)
+    return Objects.nonNull(currentResponse)
         ? Optional.of(currentResponse)
         : execute().getHttpResponse();
   }
