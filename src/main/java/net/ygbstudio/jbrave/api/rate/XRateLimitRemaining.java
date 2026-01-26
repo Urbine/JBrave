@@ -45,7 +45,9 @@ public record XRateLimitRemaining(int requestAvailable, int monthlyRequestsRemai
    */
   public static <T> XRateLimitRemaining from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimitRemaining> toXRateLimitRemaining =
-        strArr -> new XRateLimitRemaining(Integer.parseInt(strArr[0]), Integer.parseInt(strArr[1]));
+        strArr ->
+            new XRateLimitRemaining(
+                Integer.parseInt(strArr[0].trim()), Integer.parseInt(strArr[1].trim()));
     return BraveHeaders.X_RATE_LIMIT_REMAINING.extract(
         httpResponse.headers(), s -> toXRateLimitRemaining.apply(s.split(",")));
   }

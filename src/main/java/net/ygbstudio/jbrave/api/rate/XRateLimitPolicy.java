@@ -21,6 +21,7 @@
 package net.ygbstudio.jbrave.api.rate;
 
 import java.net.http.HttpResponse;
+import java.util.Arrays;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
@@ -61,6 +62,11 @@ public record XRateLimitPolicy(int limit, int windowSecond, int limitPerMonth, i
                 Integer.parseInt(arr[2]),
                 Integer.parseInt(arr[3]));
     return BraveHeaders.X_RATE_LIMIT_POLICY.extract(
-        httpResponse.headers(), s -> toXRateLimitPolicy.apply(Pattern.compile("\\D+").split(s)));
+        httpResponse.headers(),
+        s ->
+            toXRateLimitPolicy.apply(
+                Arrays.stream(Pattern.compile("\\D+").split(s))
+                    .map(String::trim)
+                    .toArray(String[]::new)));
   }
 }

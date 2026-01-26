@@ -42,7 +42,8 @@ public record XRateLimit(int requestsPerSecond, int requestsPerMonth) {
    */
   public static <T> XRateLimit from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimit> toXRateLimit =
-        strArr -> new XRateLimit(Integer.parseInt(strArr[0]), Integer.parseInt(strArr[1]));
+        strArr ->
+            new XRateLimit(Integer.parseInt(strArr[0].trim()), Integer.parseInt(strArr[1].trim()));
     return BraveHeaders.X_RATE_LIMIT.extract(
         httpResponse.headers(), s -> toXRateLimit.apply(s.split(",")));
   }
