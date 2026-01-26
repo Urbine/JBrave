@@ -32,11 +32,15 @@ public class BraveClientException extends RuntimeException {
     super(message);
   }
 
+  public BraveClientException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
   public BraveClientException(@NotNull Supplier<String> message) {
     super(message.get());
   }
 
-  public BraveClientException(String message, Throwable cause) {
-    super(message, cause);
+  public BraveClientException(@NotNull Supplier<String> message, Throwable cause) {
+    super(message.get());
   }
 }
