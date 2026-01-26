@@ -21,6 +21,7 @@
 package net.ygbstudio.jbrave.api.rate;
 
 import java.net.http.HttpResponse;
+import java.time.Instant;
 import java.util.function.Function;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +36,8 @@ import org.jetbrains.annotations.NotNull;
  *     resets)
  * @param secondsUntilMonthlyReset Seconds until your monthly quota fully resets
  */
-public record XRateLimitReset(int secondsUntilNextRequest, int secondsUntilMonthlyReset) {
+public record XRateLimitReset(
+    int secondsUntilNextRequest, int secondsUntilMonthlyReset, Instant timestamp) {
 
   /**
    * Extracts the rate limit reset from the HTTP Response.
@@ -46,7 +48,11 @@ public record XRateLimitReset(int secondsUntilNextRequest, int secondsUntilMonth
    */
   public static <T> XRateLimitReset from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimitReset> toXRateLimitReset =
-        strArr -> new XRateLimitReset(Integer.parseInt(strArr[0]), Integer.parseInt(strArr[1]));
+        strArr ->
+            new XRateLimitReset(
+                Integer.parseInt(strArr[0].trim()),
+                Integer.parseInt(strArr[1].trim()),
+                Instant.now());
     return BraveHeaders.X_RATE_LIMIT_RESET.extract(
         httpResponse.headers(), s -> toXRateLimitReset.apply(s.split(",")));
   }
