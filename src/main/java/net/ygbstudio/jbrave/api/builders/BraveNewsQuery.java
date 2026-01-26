@@ -40,7 +40,7 @@ import net.ygbstudio.jbrave.core.domain.SearchHeader;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
-import net.ygbstudio.jbrave.core.executors.BraveRequestExecutor;
+import net.ygbstudio.jbrave.core.executors.BraveExecutionGate;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import net.ygbstudio.jbrave.core.model.SearchOptions;
@@ -147,7 +147,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
 
   private final BraveNewsQuery.BraveRequestBuilder requestBuilder =
       BraveNewsQuery.BraveRequestBuilder.builder();
-  private final BraveRequestExecutor executor = BraveRequestExecutor.getInstance();
+  private BraveExecutionGate controller;
   private HttpResponse<String> currentResponse;
   private int maxRetries = 0;
 
@@ -329,6 +329,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    */
   @Contract("_ -> this")
   public BraveNewsQuery withToken(@NotNull ClientInfo clientInfo) {
+    if (controller == null) controller = clientInfo.requestGate();
     requestBuilder.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
     return this;
   }
@@ -366,8 +367,8 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
     Supplier<HttpRequest> suppliedTask = () -> requestBuilder.queryAddress(toURI()).buildRequest();
     currentResponse =
         maxRetries > 0
-            ? executor.submitTask(suppliedTask).executeWithRetries(maxRetries).getFirst()
-            : executor.executeStringResponseOnce(suppliedTask);
+            ? controller.submit(suppliedTask, maxRetries)
+            : controller.submit(suppliedTask);
     return this;
   }
 
