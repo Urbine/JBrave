@@ -20,50 +20,69 @@
 
 package net.ygbstudio.jbrave.core.executors;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
+import java.util.Optional;
 import java.util.function.Supplier;
-import net.ygbstudio.jbrave.api.options.BravePlan;
-import net.ygbstudio.jbrave.api.rate.XRateLimitReset;
+import java.util.zip.GZIPInputStream;
+import javax.net.ssl.SSLSession;
 import net.ygbstudio.jbrave.core.exceptions.BraveClientException;
-import net.ygbstudio.jbrave.core.exceptions.EmptyTaskListException;
-import net.ygbstudio.jbrave.core.exceptions.RequestRetryExhaustedException;
-import net.ygbstudio.jbrave.core.utils.GzipBodyHandler;
+import net.ygbstudio.jbrave.core.exceptions.ResponseDecompressionException;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Abstract class for building the request and executing it.
+ * Base class for executing HTTP requests using a shared, long-lived {@link HttpClient}.
  *
- * <p>This class is designed to be extended by concrete implementations of request executors. It
- * provides a base implementation for executing requests.
+ * <p>This executor is designed to be extended by concrete request builders or clients. It provides
+ * a consistent execution model that:
  *
- * @param <T> The type of the concrete implementation of this abstract class.
+ * <ul>
+ *   <li>Uses a single, reusable {@link HttpClient} instance
+ *   <li>Fully consumes HTTP responses using a {@code byte[]} body handler
+ *   <li>Performs response decompression and decoding <em>after</em> transport completion
+ *   <li>Adapts the result into an {@link HttpResponse} with a transformed body
+ * </ul>
+ *
+ * <p><strong>Lifecycle and resource management:</strong> This class intentionally reuses a single
+ * {@link HttpClient} instance for its entire lifetime. The client is not closed per request.
+ * Connection pooling, HTTP/2 multiplexing, and cleanup are managed internally by the JDK HTTP
+ * client implementation.
+ *
+ * <p>If callers require explicit control over the {@link HttpClient} lifecycle or configuration,
+ * they should manage their own client instance externally and use the request builders provided by
+ * JBrave to construct {@link HttpRequest} and {@link URI} instances.
+ *
+ * <p>Builders in the {@code api} package are designed to be independent of any specific HTTP client
+ * implementation.
+ *
+ * @param <T> the concrete subclass type, used to support fluent builder-style APIs
  */
 public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<T>> {
 
-  protected final HttpClient.Builder client =
-      HttpClient.newBuilder().version(HttpClient.Version.HTTP_2);
-  protected GzipBodyHandler gzipBodyHandler = new GzipBodyHandler();
-  protected List<HttpRequest> requestList;
-  protected RequestPacer requestPacer;
+  private static final Logger executionLogger =
+      LoggerFactory.getLogger(AbstractRequestExecutor.class);
+  protected final HttpClient client =
+      HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
 
   /**
-   * Returns the current instance of the builder.
+   * Returns the current instance cast to the concrete subclass type.
    *
-   * <p>The cast is safe because the method is declared to return the type parameter T, which is
-   * defined as {@code T extends AbstractRequestExecutor<T>}. This means that T will always be a
-   * subclass of AbstractRequestExecutor<T>, so it is safe to cast "this" to T.
+   * <p>This method supports fluent APIs in subclasses by avoiding repeated casts. The cast is safe
+   * by construction because the type parameter {@code T} is constrained to extend {@code
+   * AbstractRequestExecutor<T>}.
    *
-   * @return Current instance of the builder.
+   * @return this instance, cast to {@code T}
    */
   @SuppressWarnings("unchecked")
   protected T self() {
@@ -71,31 +90,174 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
   }
 
   /**
-   * Adds a request to the list of requests.
+   * Determines whether the given HTTP response body is compressed using GZIP.
    *
-   * @param requestSupplier the request to be added
-   * @return the current instance of the builder
+   * <p>This method inspects the {@code Content-Encoding} response header and checks for the
+   * presence of {@code "gzip"}.
+   *
+   * <p>Note that this implementation assumes a simple encoding model and does not attempt to parse
+   * or apply multiple stacked encodings.
+   *
+   * @param response the HTTP response whose headers should be inspected
+   * @param <R> the response body type
+   * @return {@code true} if the response indicates GZIP compression, {@code false} otherwise
    */
-  protected final T submit(Supplier<HttpRequest> requestSupplier) {
-    if (requestList == null) requestList = new ArrayList<>();
-    requestList.add(requestSupplier.get());
-    return self();
-  }
-
-  protected final T addRatePacer(RequestPacer pacer) {
-    this.requestPacer = pacer;
-    return self();
+  private <R> boolean isCompressed(@NotNull HttpResponse<R> response) {
+    return response.headers().firstValue("Content-Encoding").orElse("").contains("gzip");
   }
 
   /**
-   * Executes the request and returns an optional response.
+   * Decompresses a GZIP-compressed byte array.
    *
-   * @return an optional response to the request
-   * @throws InterruptedException if the execution is interrupted
+   * <p>This method performs a bounded, in-memory decompression of the provided byte array. It
+   * should be used only after the full response body has been received.
+   *
+   * @param compressedBytes the GZIP-compressed data
+   * @return the decompressed bytes
+   * @throws IOException if the compressed data is malformed or decompression fails
    */
-  public final HttpResponse<String> execute(HttpRequest request) throws InterruptedException {
-    try (HttpClient httpClient = client.build()) {
-      return httpClient.send(request, new GzipBodyHandler());
+  public byte[] decompressGunzip(byte[] compressedBytes) throws IOException {
+    try (ByteArrayInputStream compressed = new ByteArrayInputStream(compressedBytes);
+        GZIPInputStream gzip = new GZIPInputStream(compressed);
+        ByteArrayOutputStream decompressed = new ByteArrayOutputStream()) {
+      gzip.transferTo(decompressed);
+      return decompressed.toByteArray();
+    }
+  }
+
+  /**
+   * Decodes a byte array into a {@link String} using the given character set.
+   *
+   * <p>The character set must be provided explicitly to avoid reliance on platform default
+   * encodings.
+   *
+   * @param bytes the raw byte data
+   * @param charset the character set to use for decoding
+   * @return the decoded string
+   */
+  public String decodeByteArray(byte[] bytes, Charset charset) {
+    return new String(bytes, charset);
+  }
+
+  /**
+   * Decodes an {@link HttpResponse} with a {@code byte[]} body into a {@link String}.
+   *
+   * <p>If the response indicates GZIP compression, the body is decompressed before decoding.
+   * Decoding assumes UTF-8 encoding, as response bodies are expected to represent textual content
+   * such as JSON or other UTF-8 encoded payloads intended for deserialization into domain objects.
+   *
+   * <p>This method performs all transformations eagerly and should be invoked only after the HTTP
+   * response has been fully received.
+   *
+   * @param byteResponse the HTTP response containing a byte array body
+   * @return the decoded response body as a string
+   * @throws ResponseDecompressionException if decompression fails
+   */
+  public String decodeByteHttpResponse(HttpResponse<byte[]> byteResponse) {
+    try {
+      return decodeByteArray(
+          isCompressed(byteResponse) ? decompressGunzip(byteResponse.body()) : byteResponse.body(),
+          StandardCharsets.UTF_8);
+    } catch (IOException ioEx) {
+      Supplier<String> decompressErr =
+          () ->
+              "Failed to decompress GZIP response body."
+                  + (Objects.nonNull(ioEx.getCause())
+                      ? " Caused by " + ioEx.getCause() + " Reason: " + ioEx.getCause().getMessage()
+                      : "");
+      executionLogger.debug(decompressErr.get(), ioEx);
+      throw new ResponseDecompressionException(decompressErr);
+    }
+  }
+
+  /**
+   * Adapts an existing {@link HttpResponse} to a new response body type.
+   *
+   * <p>The returned response delegates all metadata (status code, headers, request, URI, protocol
+   * version, etc.) to the original response while exposing the provided body value.
+   *
+   * <p>This adapter does not preserve redirect history; {@link HttpResponse#previousResponse()}
+   * always returns {@link Optional#empty()}, regardless of whether redirects occurred during
+   * request execution.
+   *
+   * <p>This is a structural adaptation only; no additional HTTP processing occurs.
+   *
+   * @param httpResponse the original HTTP response
+   * @param newResponseBody the transformed response body
+   * @param <R> the original response body type
+   * @param <U> the adapted response body type
+   * @return an {@link HttpResponse} exposing the transformed body
+   */
+  protected <R, U> HttpResponse<U> adaptHttpResponse(
+      HttpResponse<R> httpResponse, U newResponseBody) {
+    return new HttpResponse<>() {
+      @Override
+      public int statusCode() {
+        return httpResponse.statusCode();
+      }
+
+      @Override
+      public HttpRequest request() {
+        return httpResponse.request();
+      }
+
+      @Override
+      public Optional<HttpResponse<U>> previousResponse() {
+        // Assumes redirects are disabled, which is the case in this class
+        return Optional.empty();
+      }
+
+      @Override
+      public HttpHeaders headers() {
+        return httpResponse.headers();
+      }
+
+      @Override
+      public U body() {
+        return newResponseBody;
+      }
+
+      @Override
+      public Optional<SSLSession> sslSession() {
+        return httpResponse.sslSession();
+      }
+
+      @Override
+      public URI uri() {
+        return httpResponse.uri();
+      }
+
+      @Override
+      public HttpClient.Version version() {
+        return httpResponse.version();
+      }
+    };
+  }
+
+  /**
+   * Executes the given HTTP request and returns a decoded response.
+   *
+   * <p>The request is sent using the shared {@link HttpClient}. The response body is fully
+   * materialized as a {@code byte[]} before any transformation occurs.
+   *
+   * <p>If the response is GZIP-compressed, it is decompressed and then decoded into a {@link
+   * String}. The resulting body is adapted into a new {@link HttpResponse} instance.
+   *
+   * <p>This method performs no streaming and does not expose partially received data.
+   *
+   * @param request the HTTP request to execute
+   * @return an {@link HttpResponse} containing the decoded response body
+   * @throws InterruptedException if the executing thread is interrupted
+   * @throws BraveClientException if request execution or response processing fails
+   */
+  public final @NotNull HttpResponse<String> execute(HttpRequest request)
+      throws InterruptedException {
+    try {
+      HttpResponse<byte[]> responseBytes =
+          client.send(request, HttpResponse.BodyHandlers.ofByteArray());
+
+      String finalResponseDecode = decodeByteHttpResponse(responseBytes);
+      return adaptHttpResponse(responseBytes, finalResponseDecode);
     } catch (IOException ioEx) {
       Supplier<String> clientEx =
           () ->
@@ -103,109 +265,6 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
                   + request.uri().toString()
                   + (Objects.nonNull(ioEx.getCause()) ? " Caused by: " + ioEx.getCause() : "");
       throw new BraveClientException(clientEx);
-    }
-  }
-
-  /**
-   * Executes a closed set of HTTP requests sequentially, enforcing rate-limited admission, and
-   * returns a {@link List} of transformed results.
-   *
-   * <p>Requests are submitted one at a time according to the configured request pacer. Although the
-   * HTTP client uses asynchronous I/O internally via {@code sendAsync()}, this method enforces
-   * synchronous orchestration by awaiting completion before proceeding to the next request.
-   *
-   * <p>{@code sendAsync()} is used to model request execution and response transformation as a
-   * composable completion stage, allowing response decoration to be expressed as part of the
-   * execution pipeline rather than as inline post-processing. A single-thread executor is supplied
-   * to the HTTP client to reflect the strictly sequential nature of execution and to isolate client
-   * completion work.
-   *
-   * @param decorateRequest a function that transforms an {@link HttpResponse} into a result
-   * @return a {@link List} containing the results, in request order
-   * @throws EmptyTaskListException if the request list is empty
-   */
-  protected final @NotNull <E> List<E> executeAllPaced(
-      Function<? super HttpResponse<String>, E> decorateRequest) {
-    RequestPacer pacer =
-        Objects.nonNull(requestPacer) ? requestPacer : RequestPacer.of(BravePlan.FREE);
-    try (HttpClient httpClient = client.executor(Executors.newSingleThreadExecutor()).build()) {
-      if (requestList == null) {
-        Supplier<String> taskListErr =
-            () -> "Unable to execute tasks asynchronously. Task list is empty.";
-        throw new EmptyTaskListException(taskListErr);
-      }
-
-      List<E> resultList = new ArrayList<>();
-      Iterator<HttpRequest> requestIterator = requestList.iterator();
-      while (requestIterator.hasNext()) {
-        resultList.add(
-            httpClient
-                .sendAsync(requestIterator.next(), gzipBodyHandler)
-                .thenApply(decorateRequest)
-                .join());
-        requestIterator.remove();
-        try {
-          pacer.timeUnit().sleep(pacer.delay());
-        } catch (InterruptedException e) {
-          Thread.currentThread().interrupt();
-        }
-      }
-      return resultList;
-    }
-  }
-
-  /**
-   * Executes the requests in the request list, retrying requests that receive a 429 status code up
-   * to the specified maximum number of retries.
-   *
-   * @param maxRetries the maximum number of retries for requests that receive a 429 status code
-   * @return a list of {@link HttpResponse}s, in request order
-   * @throws RequestRetryExhaustedException if the maximum number of retries is reached for a
-   *     request
-   * @throws RequestRetryExhaustedException if an I/O error occurs while executing the HTTP request
-   */
-  public final @NotNull List<HttpResponse<String>> executeWithRetries(int maxRetries) {
-    try (HttpClient httpClient = client.executor(Executors.newSingleThreadExecutor()).build()) {
-      if (requestList == null) {
-        Supplier<String> taskListErr =
-            () -> "Unable to execute tasks asynchronously. Task list is empty.";
-        throw new EmptyTaskListException(taskListErr);
-      }
-
-      List<HttpResponse<String>> resultList = new ArrayList<>();
-      Iterator<HttpRequest> requestIterator = requestList.iterator();
-      while (requestIterator.hasNext()) {
-        int attempt = 0;
-        HttpRequest currentRequest = requestIterator.next();
-        HttpResponse<String> httpResponse = null;
-        try {
-          do {
-            httpResponse = httpClient.send(currentRequest, gzipBodyHandler);
-            attempt++;
-            if (httpResponse.statusCode() != 429) {
-              resultList.add(httpResponse);
-              requestIterator.remove();
-              break;
-            }
-            XRateLimitReset limitReset = XRateLimitReset.from(httpResponse);
-            double waitTime = Math.pow(2, attempt);
-            TimeUnit.SECONDS.sleep(Long.max(limitReset.secondsUntilNextRequest(), (int) waitTime));
-          } while (httpResponse.statusCode() == 429 && attempt <= maxRetries);
-        } catch (InterruptedException e) {
-          Thread.currentThread().interrupt();
-          throw new RequestRetryExhaustedException(
-              "Request was interrupted during retry attempt " + attempt + " of " + maxRetries,
-              e,
-              maxRetries,
-              httpResponse != null ? httpResponse.statusCode() : -1,
-              currentRequest.method(),
-              currentRequest.uri().toString());
-        }
-      }
-      return resultList;
-    } catch (IOException e) {
-      throw new RequestRetryExhaustedException(
-          "I/O error while executing HTTP request", e, maxRetries, -1, "UNKNOWN", "UNKNOWN");
     }
   }
 }
