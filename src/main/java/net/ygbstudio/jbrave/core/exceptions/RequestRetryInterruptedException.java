@@ -20,45 +20,17 @@
 
 package net.ygbstudio.jbrave.core.exceptions;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Thrown when all retry attempts for an HTTP request have been exhausted, indicating that the
  * executor was unable to complete a series of retries.
  *
  * @see net.ygbstudio.jbrave.core.executors.AbstractRequestExecutor
  */
-public class RequestRetryExhaustedException extends BraveClientException {
-  private final int maxRetries;
-  private final int statusCode;
-  private final String requestMethod;
-  private final String requestUri;
+public class RequestRetryInterruptedException extends BraveClientException {
 
-  public RequestRetryExhaustedException(
-      String message,
-      Throwable cause,
-      int maxRetries,
-      int statusCode,
-      String requestMethod,
-      String requestUri) {
-    super(message, cause);
-    this.maxRetries = maxRetries;
-    this.statusCode = statusCode;
-    this.requestMethod = requestMethod;
-    this.requestUri = requestUri;
-  }
-
-  public int getMaxRetries() {
-    return maxRetries;
-  }
-
-  public int getStatusCode() {
-    return statusCode;
-  }
-
-  public String getRequestMethod() {
-    return requestMethod;
-  }
-
-  public String getRequestUri() {
-    return requestUri;
+  public RequestRetryInterruptedException(@NotNull String errorMessageSupplier, Throwable cause) {
+    super(errorMessageSupplier, cause);
   }
 }
