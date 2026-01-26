@@ -24,21 +24,31 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import net.ygbstudio.jbrave.core.exceptions.BraveLocalEnvironmentException;
+import net.ygbstudio.jbrave.core.executors.BraveExecutionGate;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents the client information.
  *
- * @param subscriptionToken the subscription token for the client.
+ * <p>This class represents a source of truth for admission control/pacing semantics tied to a token
+ * identity.
  */
-public record ClientInfo(@NotNull String subscriptionToken) {
+public class ClientInfo {
+
+  private final String subscriptionToken;
+  private final BraveExecutionGate requestGate;
+
+  private ClientInfo(String subscriptionToken) {
+    this.subscriptionToken = subscriptionToken;
+    requestGate = new BraveExecutionGate();
+  }
 
   /**
    * Create a new instance of ClientInfo from properties file.
    *
-   * @param customPropertyName property name specified by the caller.
    * @param propertiesFileName the name of the properties file.
+   * @param customPropertyName property name specified by the caller.
    * @return a new instance of ClientInfo.
    */
   @Contract("_,_ -> new")
@@ -95,5 +105,13 @@ public record ClientInfo(@NotNull String subscriptionToken) {
    */
   public static @NotNull ClientInfo fromEnvironment() {
     return fromEnvironment(LocalEnvironment.BRAVE_SUBSCRIPTION_TOKEN);
+  }
+
+  public String subscriptionToken() {
+    return subscriptionToken;
+  }
+
+  public BraveExecutionGate requestGate() {
+    return requestGate;
   }
 }
