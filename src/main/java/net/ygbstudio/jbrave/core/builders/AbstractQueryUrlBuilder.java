@@ -25,7 +25,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import net.ygbstudio.jbrave.core.domain.BraveAPIConstant;
 import net.ygbstudio.jbrave.core.domain.SearchOption;
