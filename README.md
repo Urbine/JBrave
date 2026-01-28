@@ -9,7 +9,6 @@ JBrave is a modern, type-safe Java SDK for the **Brave Search API**. It models s
 
 JBrave provides fluent builders for constructing search queries, strict validation to prevent invalid requests, and flexible execution that works with any HTTP strategy—or none at all. This makes it suitable not only for traditional backend services, but also for AI/ML pipelines, offline analysis, and deterministic testing workflows.
 
----
 
 ## Features
 
@@ -19,8 +18,6 @@ JBrave provides fluent builders for constructing search queries, strict validati
 * 🧪 Test-friendly—build and parse without network access
 * 📦 Clean public API with typed error responses
 * 🧠 Offline deserialization from JSON files or strings
-
----
 
 ## Installation
 
@@ -44,8 +41,6 @@ implementation("net.ygbstudio:jbrave:<version>")
 
 JBrave can also be consumed via [JitPack](https://jitpack.io) from GitHub releases.
 
----
-
 ## Core Concepts
 
 A query builder represents a **stateful, single-request, reusable session object**. Each instance:
@@ -60,8 +55,6 @@ A query builder represents a **stateful, single-request, reusable session object
 This design separates **query construction**, **execution**, and **result extraction**, enabling custom retry logic and offline testing. 
 
 You can use them as a pure `HttpRequest`/`URI` generator with a custom HTTP client or execute them with the built-in rate-aware executor.
-
----
 
 ## Usage
 
@@ -132,7 +125,7 @@ Optional<ApiResponse> either = query.getEitherPOJO();
 
 ### Rate Limit Introspection
 
-After execution, inspect Brave API rate-limit headers as typed objects:
+After execution, inspect Brave API rate limit headers as typed objects:
 
 ```java
 query.getRateLimits()
@@ -153,9 +146,7 @@ query.getRateLimitReset()
 
 ```
 
-All rate limit classes provide a static factory method `from` for deserializing data from `HttpResponse` headers, allowing you to implement your own HTTP client while still taking advantage of JBrave’s rate-limit introspection.
-
----
+All rate limit classes provide a static factory method `from` for deserializing data from `HttpResponse` headers, allowing you to implement your own HTTP client while still taking advantage of JBrave’s rate limit introspection.
 
 ## Offline Deserialization
 
@@ -174,8 +165,6 @@ String json = response.toJson();
 ```
 
 This is useful for unit tests, cached responses, offline analysis, and debugging.
-
----
 
 ## API Reference
 
@@ -218,15 +207,11 @@ All builders enforce query constraints and fail fast on invalid configuration.
 | `XRateLimitPolicy`    | `X-RateLimit-Policy`  |
 | `XRateLimitReset`     | `X-RateLimit-Reset`   |
 
----
-
 ## Use Cases
 
 * **Search-powered applications** — backend services, dashboards, search gateways
 * **AI/ML pipelines** — RAG, prompt enrichment, ranking layers, and deterministic test data; structured response fields can be parsed into embeddings, scores, or signals.
 * **Data collection** — batch jobs, trend analysis, offline research workflows
-
----
 
 ## Limitations
 
@@ -234,16 +219,12 @@ JBrave targets publicly available Brave Search API surfaces. Some premium or pla
 
 Contributions for additional features are welcome.
 
----
-
 > ⚠️ **Unofficial & Independent**
 >
 > JBrave is an independent, community-focused Java project built around the Brave Search API.
 > It is **not affiliated with, endorsed by, or supported by Brave Software, Inc.**
 >
 > The library is still evolving and may introduce breaking changes.
-
----
 
 ## License
 
