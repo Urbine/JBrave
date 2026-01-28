@@ -104,17 +104,16 @@ public class BraveExecutionGate {
    * @throws BraveApiException if an unrecoverable API error is returned by the server (e.g. Monthly
    *     limit exhaustion)
    */
-  public HttpResponse<String> submit(@NotNull Supplier<HttpRequest> httpRequest, int maxRetries) {
-    HttpRequest request = httpRequest.get();
-    admissionLogger.debug("Received URI: {} for processing", request.uri());
-    return start(request, maxRetries);
+  public HttpResponse<String> submit(@NotNull HttpRequest httpRequest, int maxRetries) {
+    admissionLogger.debug("Received URI: {} for processing", httpRequest.uri());
+    return start(httpRequest, maxRetries);
   }
 
   /**
    * Submits a request for serialized execution with a default retry policy.
    *
-   * <p>This method is equivalent to calling {@link #submit(Supplier, int)} with a default maximum
-   * retry count of {@code 1}.
+   * <p>This method is equivalent to calling {@link #submit(HttpRequest, int)} with a default
+   * maximum retry count of {@code 1}.
    *
    * @param httpRequest a supplier that produces the {@link HttpRequest} to execute
    * @return the completed HTTP response
@@ -123,7 +122,7 @@ public class BraveExecutionGate {
    * @throws RequestRetryInterruptedException if the thread is interrupted during retry backoff
    * @throws BraveApiException if an unrecoverable API error occurs
    */
-  public HttpResponse<String> submit(@NotNull Supplier<HttpRequest> httpRequest) {
+  public HttpResponse<String> submit(@NotNull HttpRequest httpRequest) {
     return submit(httpRequest, 1);
   }
 
