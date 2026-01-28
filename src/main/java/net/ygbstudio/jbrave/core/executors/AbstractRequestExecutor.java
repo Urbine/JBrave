@@ -203,7 +203,6 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
 
       @Override
       public Optional<HttpResponse<U>> previousResponse() {
-        // Assumes redirects are disabled, which is the case in this class
         return Optional.empty();
       }
 
