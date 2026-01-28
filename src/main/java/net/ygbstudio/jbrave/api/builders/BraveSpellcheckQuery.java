@@ -26,7 +26,6 @@ import java.net.http.HttpResponse;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.response.SpellCheckSearchApiResponse;
@@ -231,7 +230,7 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
    * @return an optional response to the request
    */
   public BraveSpellcheckQuery execute() {
-    Supplier<HttpRequest> suppliedTask = () -> requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
     currentResponse =
         maxRetries > 0
             ? controller.submit(suppliedTask, maxRetries)

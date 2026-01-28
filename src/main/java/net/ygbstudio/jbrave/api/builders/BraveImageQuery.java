@@ -26,7 +26,6 @@ import java.net.http.HttpResponse;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
@@ -269,7 +268,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
    * @return an optional response to the request
    */
   public BraveImageQuery execute() {
-    Supplier<HttpRequest> suppliedTask = () -> requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
     currentResponse =
         maxRetries > 0
             ? controller.submit(suppliedTask, maxRetries)

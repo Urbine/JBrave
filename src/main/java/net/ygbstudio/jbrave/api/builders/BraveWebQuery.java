@@ -29,7 +29,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.ResultFilter;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
@@ -512,7 +511,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
   }
 
   public BraveWebQuery execute() {
-    Supplier<HttpRequest> suppliedTask = () -> requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
     currentResponse =
         maxRetries > 0
             ? controller.submit(suppliedTask, maxRetries)

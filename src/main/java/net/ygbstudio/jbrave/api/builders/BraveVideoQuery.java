@@ -27,7 +27,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 import net.ygbstudio.jbrave.api.filters.Freshness;
 import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.MarketLocale;
@@ -342,7 +341,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * @return an optional response to the request
    */
   public BraveVideoQuery execute() {
-    Supplier<HttpRequest> suppliedTask = () -> requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
     currentResponse =
         maxRetries > 0
             ? controller.submit(suppliedTask, maxRetries)
