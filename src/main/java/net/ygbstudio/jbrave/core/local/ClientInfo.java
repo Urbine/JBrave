@@ -92,7 +92,7 @@ public class ClientInfo {
     String envVarName = System.getenv(customVariable);
     if (envVarName == null)
       throw new BraveLocalEnvironmentException(
-          () -> "Variable " + LocalEnvironment.BRAVE_SUBSCRIPTION_TOKEN + " not set");
+          () -> "Variable " + customVariable + " not set");
     return new ClientInfo(envVarName);
   }
 
