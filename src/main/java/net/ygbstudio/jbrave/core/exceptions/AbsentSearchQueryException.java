@@ -20,9 +20,6 @@
 
 package net.ygbstudio.jbrave.core.exceptions;
 
-import java.util.function.Supplier;
-import org.jetbrains.annotations.NotNull;
-
 /**
  * Exception thrown when a search query is absent in a URL query builder method.
  *
@@ -33,9 +30,5 @@ import org.jetbrains.annotations.NotNull;
 public class AbsentSearchQueryException extends RuntimeException {
   public AbsentSearchQueryException(String message) {
     super(message);
-  }
-
-  public AbsentSearchQueryException(@NotNull Supplier<String> message) {
-    super(message.get());
   }
 }

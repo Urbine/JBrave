@@ -20,9 +20,6 @@
 
 package net.ygbstudio.jbrave.core.exceptions;
 
-import java.util.function.Supplier;
-import org.jetbrains.annotations.NotNull;
-
 /**
  * Exception thrown when a search vertical is absent in a URL query builder.
  *
@@ -33,9 +30,5 @@ import org.jetbrains.annotations.NotNull;
 public class AbsentSearchVerticalException extends RuntimeException {
   public AbsentSearchVerticalException(String message) {
     super(message);
-  }
-
-  public AbsentSearchVerticalException(@NotNull Supplier<String> message) {
-    super(message.get());
   }
 }

@@ -20,9 +20,6 @@
 
 package net.ygbstudio.jbrave.core.exceptions;
 
-import java.util.function.Supplier;
-import org.jetbrains.annotations.NotNull;
-
 /**
  * This exception is thrown when there is a missing subscription token.
  *
@@ -31,9 +28,5 @@ import org.jetbrains.annotations.NotNull;
 public class MissingSubscriptionTokenException extends BraveClientException {
   public MissingSubscriptionTokenException(String message) {
     super(message);
-  }
-
-  public MissingSubscriptionTokenException(@NotNull Supplier<String> message) {
-    super(message.get());
   }
 }
