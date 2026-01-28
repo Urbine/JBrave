@@ -97,7 +97,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
   protected final boolean optionMissing(@NotNull SearchOption option) {
     if (optionTracker == null)
       throw new UninitializedBuilderException(
-          () -> "Option tracker set is null. Call clear() before adding options");
+          "Option tracker set is null. Call clear() before adding options");
     return !optionTracker.contains(option);
   }
 
@@ -174,7 +174,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
 
     } else if (!isValidQuery)
       throw new InvalidQueryTermException(
-          () -> "More than 400 characters and 50 words in the query is not allowed");
+          "More than 400 characters and 50 words in the query is not allowed");
 
     return self();
   }
@@ -230,17 +230,13 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
   protected final String build() {
     // Sanity checks for implementors of builders based on this abstract class
     if (urlStart.toString().equals(BraveAPIConstant.SEARCH_API_BASE + "/")) {
-      Supplier<String> noVertical =
-          () ->
-              "Concrete implementations of this abstract class must call the addInstanceVertical() method before building";
-      throw new AbsentSearchVerticalException(noVertical);
+      throw new AbsentSearchVerticalException(
+          "Concrete implementations of this abstract class must call the addInstanceVertical() method before building");
     }
 
     if (urlEnd == null) {
-      Supplier<String> noStringBuilder =
-          () ->
-              "Concrete implementations of this abstract class must initialize builders with the clear() method";
-      throw new UninitializedBuilderException(noStringBuilder);
+      throw new UninitializedBuilderException(
+          "Concrete implementations of this abstract class must initialize builders with the clear() method");
     }
 
     if (!urlEnd.isEmpty() && !urlEnd.toString().contains(urlStart)) {
@@ -250,8 +246,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
 
     // A query term is compulsory and without it the request is not acceptable
     if (queryMissing()) {
-      Supplier<String> queryNotFound = () -> "Query cannot be empty and a term is required";
-      throw new AbsentSearchQueryException(queryNotFound);
+      throw new AbsentSearchQueryException("Query cannot be empty and a term is required");
     }
 
     return builtUrl.endsWith("&") ? builtUrl.substring(0, builtUrl.lastIndexOf("&")) : builtUrl;
