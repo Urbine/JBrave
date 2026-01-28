@@ -147,7 +147,7 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
     attachHeaders();
     if (subscriptionMissing()) {
       throw new MissingSubscriptionTokenException(
-          () -> "Subscription token is required to build the request");
+          "Subscription token is required to build the request");
     }
     return internalRequestBuilder.GET().build();
   }
