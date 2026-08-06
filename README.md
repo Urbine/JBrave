@@ -4,6 +4,7 @@
 ![Status](https://img.shields.io/badge/status-alpha-orange)
 ![Java](https://img.shields.io/badge/java-21-brightgreen)
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
+[![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://docs.ygbstudio.net/jbrave)
 
 JBrave is a modern, type-safe Java SDK for the **Brave Search API**. It models search queries, execution, responses, and errors as a unified lifecycle—enabling you to build, execute, inspect, and replay search interactions with strong correctness guarantees. 
 
