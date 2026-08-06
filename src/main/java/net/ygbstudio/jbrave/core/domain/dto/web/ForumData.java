@@ -23,7 +23,7 @@ package net.ygbstudio.jbrave.core.domain.dto.web;
 /**
  * Represents forum data in search results, containing information about forum posts and discussions
  * that are relevant to the search query. This is typically used in the context of community
- * discussions and Q&A platforms.
+ * discussions and question-and-answer platforms.
  *
  * @param forumName The name of the forum where the post is located.
  * @param numAnswers The number of answers or replies to the forum post.

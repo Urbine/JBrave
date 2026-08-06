@@ -75,9 +75,8 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
   /**
    * Returns the current instance of the builder.
    *
-   * <p>The cast is safe because the method is declared to return the type parameter T, which is
-   * defined as {@code T extends AbstractQueryUrlBuilder<T>}. This means that T will always be a
-   * subclass of AbstractQueryUrlBuilder<T>, so it is safe to cast "this" to T.
+   * <p>The cast is safe because subclasses follow the self-referential generic pattern used by this
+   * base class.
    *
    * @return Current instance of the builder.
    */

@@ -26,8 +26,8 @@ import java.util.List;
  * Search operators that were detected and applied to the query according to the Brave Search API
  * documentation.
  *
- * @param applied
- * @param cleanedQuery
- * @param sites
+ * @param applied whether search operators were detected and applied to the query
+ * @param cleanedQuery the query string after operator cleanup
+ * @param sites the sites or domains extracted from the search operators
  */
 public record SearchOperators(Boolean applied, String cleanedQuery, List<String> sites) {}

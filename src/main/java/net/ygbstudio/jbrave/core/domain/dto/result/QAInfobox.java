@@ -31,8 +31,8 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 import tools.jackson.databind.annotation.JsonPOJOBuilder;
 
 /**
- * Represents a QA infobox in search results. This class provides structured information about Q&A
- * content in the Brave Search API results.
+ * Represents a QA infobox in search results. This class provides structured information about
+ * question-and-answer content in the Brave Search API results.
  */
 @JsonDeserialize(builder = QAInfobox.Builder.class)
 @JsonTypeName(value = "code")

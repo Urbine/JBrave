@@ -26,6 +26,7 @@ import java.util.List;
  * A metaobject containing non-standard meta-information about the component affected by an error in
  * the Brave Search API.
  *
- * @param component name of the component involved in the error.
+ * @param component name of the component involved in the error
+ * @param errors the list of error details associated with the component
  */
 public record ErrorMeta(String component, List<Error> errors) {}

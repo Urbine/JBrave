@@ -57,8 +57,8 @@ import org.slf4j.LoggerFactory;
  * performed while holding the lock, ensuring that no subsequent request executes until the backoff
  * window has elapsed.
  *
- * <p><strong>Blocking semantics:</strong> Calls to {@link #submit(Supplier)} and {@link
- * #submit(Supplier, int)} are synchronous and may block for extended periods of time due to rate
+ * <p><strong>Blocking semantics:</strong> Calls to {@link #submit(HttpRequest)} and {@link
+ * #submit(HttpRequest, int)} are synchronous and may block for extended periods of time due to rate
  * limiting or retry backoff. This behavior is intentional and reflects the semantics of a shared,
  * rate-limited execution resource.
  *
@@ -95,7 +95,7 @@ public class BraveExecutionGate {
    * a rate-limit (HTTP 429) error at least once. Retry behavior is governed by the {@code
    * maxRetries} parameter and server-provided rate limit metadata.
    *
-   * @param httpRequest a supplier that produces the {@link HttpRequest} to execute
+   * @param httpRequest the {@link HttpRequest} to execute
    * @param maxRetries the maximum number of retry attempts for rate-limited responses
    * @return the completed HTTP response
    * @throws RequestProcessingInterrupted if the thread is interrupted while waiting to acquire
@@ -115,7 +115,7 @@ public class BraveExecutionGate {
    * <p>This method is equivalent to calling {@link #submit(HttpRequest, int)} with a default
    * maximum retry count of {@code 1}.
    *
-   * @param httpRequest a supplier that produces the {@link HttpRequest} to execute
+   * @param httpRequest the {@link HttpRequest} to execute
    * @return the completed HTTP response
    * @throws RequestProcessingInterrupted if the thread is interrupted while waiting to acquire
    *     execution admission

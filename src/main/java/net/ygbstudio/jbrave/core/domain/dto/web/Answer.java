@@ -22,7 +22,7 @@ package net.ygbstudio.jbrave.core.domain.dto.web;
 
 /**
  * Represents an answer to a question in the FAQ section of Brave Search API responses. This is
- * typically used in the context of Q&A content, forum posts, or community answers.
+ * typically used in the context of question-and-answer content, forum posts, or community answers.
  *
  * @param text The text content of the answer.
  * @param author The name or identifier of the author who provided the answer.

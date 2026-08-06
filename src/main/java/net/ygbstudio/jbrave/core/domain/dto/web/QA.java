@@ -23,14 +23,14 @@ package net.ygbstudio.jbrave.core.domain.dto.web;
 import net.ygbstudio.jbrave.core.domain.dto.MetaUrl;
 
 /**
- * Represents a question and answer pair in search results, typically used in FAQ sections or Q&A
- * platforms. This provides a structured way to present question-answer content in the Brave Search
- * API responses.
+ * Represents a question and answer pair in search results, typically used in FAQ sections or
+ * question-and-answer platforms. This provides a structured way to present question-and-answer
+ * content in the Brave Search API responses.
  *
  * @param question The question being asked.
  * @param answer The answer to the question.
- * @param title The title of the page or section containing the Q&A.
- * @param url The URL where the Q&A can be found.
+ * @param title the title of the page or section containing the question and answer content
+ * @param url the URL where the question and answer content can be found
  * @param metaUrl Aggregated information about the URL, including protocol, domain, and favicon.
  */
 public record QA(String question, String answer, String title, String url, MetaUrl metaUrl) {}

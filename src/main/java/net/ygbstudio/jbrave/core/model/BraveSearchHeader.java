@@ -32,6 +32,9 @@ import org.jetbrains.annotations.Unmodifiable;
  *
  * <p>This class is an immutable representation of a Brave Search API header, which consists of a
  * header name and a corresponding value. It is used for internal handling of headers.
+ *
+ * @param header the header name
+ * @param value the header value
  */
 public record BraveSearchHeader(String header, String value) {
 

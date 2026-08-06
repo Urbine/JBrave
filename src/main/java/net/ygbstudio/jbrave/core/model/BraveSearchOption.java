@@ -30,6 +30,8 @@ import org.jetbrains.annotations.NotNull;
  * <p>It is typically used as a factory for the {@link SearchOptions} implementation.
  *
  * @param <V> type of the parameter value for a search option.
+ * @param option the search option key
+ * @param value the search option value
  */
 public record BraveSearchOption<V>(SearchOption option, V value) implements SearchOptionCarrier<V> {
   /**

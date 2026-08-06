@@ -22,8 +22,8 @@ package net.ygbstudio.jbrave.core.domain.dto.web;
 
 /**
  * Represents a question and answer page in search results, containing a question and its
- * corresponding answer. This is typically used in FAQ sections or Q&A platforms within the Brave
- * Search API responses.
+ * corresponding answer. This is typically used in FAQ sections or question-and-answer platforms
+ * within the Brave Search API responses.
  *
  * @param question The question being asked.
  * @param answer The answer to the question, containing details like the answer text, author, and

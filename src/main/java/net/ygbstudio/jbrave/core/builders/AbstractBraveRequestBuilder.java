@@ -37,8 +37,8 @@ import org.jetbrains.annotations.NotNull;
  * functionality to build requests, such as adding headers to the request and building the request
  * itself.
  *
- * <p><strong>Note: This builder enforces strict request invariants. Subclasses must not override
- * core lifecycle methods. Extension is intended via additional fluent APIs only.
+ * <p><strong>Note:</strong> This builder enforces strict request invariants. Subclasses must not
+ * override core lifecycle methods. Extension is intended via additional fluent APIs only.
  *
  * @param <T> The concrete builder class.
  */
@@ -51,9 +51,8 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
   /**
    * Returns the current instance of the builder.
    *
-   * <p>The cast is safe because the method is declared to return the type parameter T, which is
-   * defined as {@code T extends AbstractBraveRequestBuilder<T>}. This means that T will always be a
-   * subclass of AbstractBraveRequestBuilder<T>, so it is safe to cast "this" to T.
+   * <p>The cast is safe because subclasses follow the self-referential generic pattern used by this
+   * base class.
    *
    * @return Current instance of the builder.
    */
@@ -137,8 +136,8 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
   /**
    * Builds the request using the current state of the builder.
    *
-   * <p>This method attaches the headers to the request builder and throws a <br>
-   * {@link MissingSubscriptionTokenException} if the subscription token header is missing.
+   * <p>This method attaches the headers to the request builder and throws a {@link
+   * MissingSubscriptionTokenException} if the subscription token header is missing.
    *
    * @return the built {@link HttpRequest}
    * @throws MissingSubscriptionTokenException if the subscription token header is missing

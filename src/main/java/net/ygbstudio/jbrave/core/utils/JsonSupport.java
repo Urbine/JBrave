@@ -48,12 +48,15 @@ public final class JsonSupport {
    * Configures and returns a pre-configured ObjectMapper instance.
    *
    * <p>This instance is configured to:
-   * <li>Indent output for better readability.
-   * <li>Fail on empty beans during serialization.
-   * <li>Ignore unknown properties during deserialization. <br>
    *
-   *     <p>The configured ObjectMapper is intended for reuse across different classes to ensure
-   *     consistency and performance.
+   * <ul>
+   *   <li>Indent output for better readability.
+   *   <li>Fail on empty beans during serialization.
+   *   <li>Ignore unknown properties during deserialization.
+   * </ul>
+   *
+   * <p>The configured ObjectMapper is intended for reuse across different classes to ensure
+   * consistency and performance.
    *
    * @return a configured ObjectMapper instance
    */
@@ -114,10 +117,10 @@ public final class JsonSupport {
   /**
    * Reads a JSON string from a Reader and deserializes it into an object of the specified class.
    *
-   * @param source Reader instance for the JSON string to read from
+   * @param source reader instance for the JSON string to read from
    * @param clazz the class of the object to deserialize into
-   * @return the deserialized object
    * @param <T> the type of the object to deserialize into
+   * @return the deserialized object
    */
   public static <T> T jsonReader(Reader source, Class<T> clazz) {
     return jsonMapper.readValue(source, clazz);

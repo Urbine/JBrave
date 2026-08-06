@@ -91,8 +91,7 @@ public class ClientInfo {
   public static @NotNull ClientInfo fromEnvironment(String customVariable) {
     String envVarName = System.getenv(customVariable);
     if (envVarName == null)
-      throw new BraveLocalEnvironmentException(
-          () -> "Variable " + customVariable + " not set");
+      throw new BraveLocalEnvironmentException(() -> "Variable " + customVariable + " not set");
     return new ClientInfo(envVarName);
   }
 
