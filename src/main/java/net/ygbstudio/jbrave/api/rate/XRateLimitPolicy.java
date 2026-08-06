@@ -30,12 +30,12 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Provides the complete policy specification including time window sizes.
  *
- * <p><em>Tip: {@literal According to the official docs, it is recommended that instead of bursting
- * all requests at once, distribute them evenly throughout your time window to maximize throughput
- * and avoid hitting the per-second limit.}
+ * <p><strong>Tip:</strong> According to the official docs, it is recommended that instead of
+ * bursting all requests at once, distribute them evenly throughout your time window to maximize
+ * throughput and avoid hitting the per-second limit.
  *
- * <p><em>Regarding time windows: {@literal Your plan may have multiple limit windows (per-second,
- * quota). The docs recommend tracking all to ensure you don’t exceed either limit.}
+ * <p><strong>Regarding time windows:</strong> Your plan may have multiple limit windows
+ * (per-second, quota). The docs recommend tracking all to ensure you do not exceed either limit.
  *
  * <p>Windows are always expressed in seconds.
  *

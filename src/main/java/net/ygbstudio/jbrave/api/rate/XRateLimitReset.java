@@ -35,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
  * @param secondsUntilNextRequest Seconds until you can make another request (per-second limit
  *     resets)
  * @param secondsUntilMonthlyReset Seconds until your monthly quota fully resets
+ * @param timestamp the instant the rate-limit metadata was read
  */
 public record XRateLimitReset(
     int secondsUntilNextRequest, int secondsUntilMonthlyReset, Instant timestamp) {

@@ -75,23 +75,21 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   }
 
   /**
-   * Executes the request and returns response of string.
+   * Executes the request and stores the response.
    *
-   * <p>This method does not return the response, and it is typically used to decouple the execution
-   * and extraction steps in your application.
+   * <p>This method is typically used to decouple request execution from response extraction.
    *
-   * <p>You can extract the responses with the following methods:
-   * <li>{@link #getHttpResponse()}
-   * <li>{@link #getPOJO()}
-   * <li>{@link #getErrorPOJO()} <br>
+   * <p>You can extract the response later with {@link #getHttpResponse()}, {@link #getPOJO()}, or
+   * {@link #getErrorPOJO()}.
    *
-   *     <p><strong>Note:</strong> This builder stores the response object internally and repeated
-   *     calls to <strong>extraction</strong> methods will not trigger multiple requests; however,
-   *     {@code execute()} will send a new request per method call.
+   * <p><strong>Note:</strong> This builder stores the response object internally and repeated calls
+   * to extraction methods will not trigger multiple requests; however, {@code execute()} will send
+   * a new request per method call.
    *
-   * @implNote If the client added retries to the building chain, {@code execute()} will activate
-   *     retry logic under the hood.
-   * @return instance of a builder type {@code T}
+   * <p>If the client added retries to the building chain, {@code execute()} will activate retry
+   * logic under the hood.
+   *
+   * @return the current builder instance
    */
   T execute();
 
@@ -124,17 +122,16 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    * response is 200.
    *
    * <p>If you get an empty optional with this method, it is possible that the request failed with
-   * an error code. Use the {@link #getErrorPOJO()} method to get the error response object and use
-   * it in any error handling strategy. If you want to inspect the raw {@link HttpResponse} object,
-   * you can always use {@link #getHttpResponse()}.
+   * an error code. Use {@link #getErrorPOJO()} to get the error response object and use it in any
+   * error handling strategy. If you want to inspect the raw {@link HttpResponse} object, you can
+   * always use {@link #getHttpResponse()}.
    *
    * <p><strong>Note:</strong> Calling this method will execute the request and deserialize it. Once
    * a request has been executed, this builder stores it in an internal field, so you can call this
-   * method and the ones mentioned in the last paragraph without having to send another request to
-   * the API.
+   * method and the ones mentioned above without having to send another request to the API.
    *
-   * @return An {@link Optional} containing the current response as a POJO instance of <br>
-   *     {@link E}, or an empty {@link Optional} if the response status code is not 200.
+   * @return an {@link Optional} containing the current response as a POJO instance of {@link E}, or
+   *     an empty {@link Optional} if the response status code is not 200
    */
   default Optional<E> getPOJO() {
     return getHttpResponse()
@@ -150,16 +147,16 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    * the response is not 200.
    *
    * <p>If you get an empty optional with this method, it is possible that the request was
-   * successful. Use the {@link #getPOJO()} method to get the response object and use it in any
-   * success handling strategy. If you want to inspect the raw {@link HttpResponse} object, you can
-   * always use <br>
-   * {@link #getHttpResponse()}.
+   * successful. Use {@link #getPOJO()} to get the response object and use it in any success
+   * handling strategy. If you want to inspect the raw {@link HttpResponse} object, you can always
+   * use {@link #getHttpResponse()}.
    *
-   * @implNote Calling this method will execute the request and deserialize it. Once a request has
-   *     been executed, this builder stores it in an internal field, so you can call this method and
-   *     the ones mentioned in the last paragraph without having to send another request to the API.
-   * @return An {@link Optional} containing the current response as a POJO instance of <br>
-   *     {@link ErrorResponse}, or an empty {@link Optional} if the response status code is 200.
+   * <p>Calling this method will execute the request and deserialize it. Once a request has been
+   * executed, this builder stores it in an internal field, so you can call this method and the ones
+   * mentioned above without having to send another request to the API.
+   *
+   * @return an {@link Optional} containing the current response as a POJO instance of {@link
+   *     ErrorResponse}, or an empty {@link Optional} if the response status code is 200
    */
   default Optional<ErrorResponse> getErrorPOJO() {
     return getHttpResponse()
@@ -177,12 +174,13 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    * check the success of your request with an {@code instanceof} check and then handle it as you
    * like depending on what {@link ApiResponse} implementation you get.
    *
-   * @implNote Calling this method will execute the request and deserialize it. Once a request has
-   *     been executed, this builder stores it in an internal field, so you can call this method and
-   *     the ones mentioned in the last paragraph without having to send another request to the API.
-   * @return An {@link Optional} containing the current response as a POJO instance of either <br>
-   *     {@link WebSearchApiResponse} or {@link ErrorResponse}, or an empty {@link Optional} if the
-   *     response status code is neither 200 nor any other expected error code.
+   * <p>Calling this method will execute the request and deserialize it. Once a request has been
+   * executed, this builder stores it in an internal field, so you can call this method and the ones
+   * mentioned above without having to send another request to the API.
+   *
+   * @return an {@link Optional} containing the current response as a POJO instance of either {@link
+   *     WebSearchApiResponse} or {@link ErrorResponse}, or an empty {@link Optional} if the
+   *     response status code is neither 200 nor any other expected error code
    */
   default Optional<ApiResponse> getEitherPOJO() {
     return getHttpResponse()

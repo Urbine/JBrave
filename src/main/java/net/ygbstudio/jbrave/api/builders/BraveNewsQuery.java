@@ -100,7 +100,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
      * Adds a user agent header to the request.
      *
      * @param userAgent the user agent value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveNewsQuery.BraveRequestBuilder}
      */
     public BraveNewsQuery.BraveRequestBuilder withUserAgent(String userAgent) {
       addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
@@ -111,7 +111,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
      * Adds a cache control header to the request.
      *
      * @param cacheControl the cache control value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveNewsQuery.BraveRequestBuilder}
      */
     public BraveNewsQuery.BraveRequestBuilder withCacheControl(String cacheControl) {
       addCustomHeader(BraveHeaders.CACHE_CONTROL, cacheControl);
@@ -122,7 +122,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
      * Adds an API version header to the request.
      *
      * @param apiVersion the API version value to set
-     * @return the current instance of {@link BraveWebQuery}
+     * @return the current instance of {@link BraveNewsQuery.BraveRequestBuilder}
      */
     public BraveNewsQuery.BraveRequestBuilder withApiVersion(String apiVersion) {
       addCustomHeader(BraveHeaders.API_VERSION, apiVersion);

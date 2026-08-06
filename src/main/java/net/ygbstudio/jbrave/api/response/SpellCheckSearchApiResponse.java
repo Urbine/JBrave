@@ -35,14 +35,9 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>This response record contains methods to deserialise and serialise instances.
  *
- * <p>Factory methods support:
- * <li>{@link String}
- * <li>{@link File}
- * <li>{@link Reader}
- * <li>{@link HttpResponse} <br>
- *
- *     <p>You can also write the contents of a response object to that filesystem, method {@link
- *     #write(File)} can be useful for that purpose.
+ * <p>Factory methods are available for {@link String}, {@link File}, {@link Reader}, and {@link
+ * HttpResponse} inputs. You can also write the contents of a response object to the filesystem;
+ * {@link #write(File)} can be useful for that purpose.
  *
  * @param type The type of the response.
  * @param query The original query submitted by the user.
