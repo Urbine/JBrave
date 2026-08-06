@@ -14,7 +14,7 @@
         JBrave is a modern, type-safe, opinionated, and unofficial Java SDK for modeling and interacting with the Brave
         Search API.
     </description>
-    <url>https://github.com/YGBStudio/JBrave</url>
+    <url>https://github.com/Urbine/JBrave</url>
 
     <licenses>
         <license>
@@ -31,9 +31,9 @@
     </developers>
 
     <scm>
-        <url>https://github.com/YGBStudio/JBrave</url>
-        <connection>scm:git:https://github.com/YGBStudio/JBrave.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:YGBStudio/JBrave.git</developerConnection>
+        <url>https://github.com/Urbine/JBrave</url>
+        <connection>scm:git:https://github.com/Urbine/JBrave.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:Urbine/JBrave.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
