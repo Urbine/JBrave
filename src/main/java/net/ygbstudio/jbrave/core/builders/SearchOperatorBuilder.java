@@ -68,8 +68,9 @@ public final class SearchOperatorBuilder {
    * @param value the value to associate with the operator
    * @return the current instance of the {@link SearchOperatorBuilder} class
    */
-  private SearchOperatorBuilder addOperator(BraveSearchOperator operator, @NotNull String value) {
-    operatorTracker.computeIfAbsent(operator, op -> operatorTracker.put(op, value));
+  private SearchOperatorBuilder addOperator(
+      @NotNull BraveSearchOperator operator, @NotNull String value) {
+    operatorTracker.put(operator, value);
     return this;
   }
 
