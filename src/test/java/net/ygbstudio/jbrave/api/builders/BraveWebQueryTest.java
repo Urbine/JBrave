@@ -104,10 +104,26 @@ class BraveWebQueryTest {
   }
 
   @Test
+  void testCountLessThanOne() {
+    int count = 0;
+    assertThatException()
+        .isThrownBy(() -> builder.count(count))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
   void testOffset() {
     int offset = 34;
     builder.offset(offset);
     assertThat(builder.toURI().toString().contains("offset=" + offset), is(true));
+  }
+
+  @Test
+  void testOffsetLessThanZero() {
+    int offset = -1;
+    assertThatException()
+        .isThrownBy(() -> builder.offset(offset))
+        .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
