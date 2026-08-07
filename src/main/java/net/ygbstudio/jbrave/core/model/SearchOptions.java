@@ -70,9 +70,13 @@ public enum SearchOptions implements ClientProvidedOption {
    *
    * @param count the value for {@link SearchOptions#COUNT}
    * @return a new instance of {@link BraveSearchOption}
+   * @throws IllegalArgumentException if the specified count is less than one.
    */
   @Contract("_ -> new")
   public static @NotNull BraveSearchOption<Integer> count(int count) {
+    if (count < 1)
+      throw new IllegalArgumentException(
+          "Unable to create a search option for less than 1 element.");
     return BraveSearchOption.of(COUNT, count);
   }
 
@@ -82,9 +86,13 @@ public enum SearchOptions implements ClientProvidedOption {
    *
    * @param offset the value for {@link SearchOptions#OFFSET}
    * @return a new instance of {@link BraveSearchOption}
+   * @throws IllegalArgumentException if specified offset is less than zero.
    */
   @Contract("_ -> new")
   public static @NotNull BraveSearchOption<Integer> offset(int offset) {
+    if (offset < 0)
+      throw new IllegalArgumentException(
+          "Unable to create a search option with an offset that is less than 0.");
     return BraveSearchOption.of(OFFSET, offset);
   }
 
