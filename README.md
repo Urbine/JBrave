@@ -6,19 +6,18 @@
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://urbine.github.io/JBrave)
 
-JBrave is a modern, type-safe Java SDK for the **Brave Search API**. It models search queries, execution, responses, and errors as a unified lifecycle—enabling you to build, execute, inspect, and replay search interactions with strong correctness guarantees. 
+JBrave is a modern, type-safe Java SDK for the **Brave Search API**. It models search queries, execution, responses, and errors as a unified lifecycle—enabling you to build, execute, inspect, and replay search interactions with strong correctness guarantees.
 
 JBrave provides fluent builders for constructing search queries, strict validation to prevent invalid requests, and flexible execution that works with any HTTP strategy—or none at all. This makes it suitable not only for traditional backend services, but also for AI/ML pipelines, offline analysis, and deterministic testing workflows.
 
-
 ## Features
 
-* ✅ Fluent, type-safe query builders with strict validation
-* 🔒 Fail-fast invariants—invalid queries never reach the network
-* 🔄 Flexible execution—use built-in executor or treat builders as pure `HttpRequest`/`URI` generators
-* 🧪 Test-friendly—build and parse without network access
-* 📦 Clean public API with typed error responses
-* 🧠 Offline deserialization from JSON files or strings
+- ✅ Fluent, type-safe query builders with strict validation
+- 🔒 Fail-fast invariants—invalid queries never reach the network
+- 🔄 Flexible execution—use built-in executor or treat builders as pure `HttpRequest`/`URI` generators
+- 🧪 Test-friendly—build and parse without network access
+- 📦 Clean public API with typed error responses
+- 🧠 Offline deserialization from JSON files or strings
 
 ## Installation
 
@@ -46,28 +45,29 @@ JBrave can also be consumed via [JitPack](https://jitpack.io) from GitHub releas
 
 A query builder represents a **stateful, single-request, reusable session object**. Each instance:
 
-* Accumulates query configuration
-* Stores execution results internally (HTTP response, rate limits, errors)
-* Can be inspected multiple times without re-executing
-* Must be explicitly reset via `reset()` before reuse
+- Accumulates query configuration
+- Stores execution results internally (HTTP response, rate limits, errors)
+- Can be inspected multiple times without re-executing
+- Must be explicitly reset via `reset()` before reuse
 
 > **Note:** Query builders are not thread-safe.
 
-This design separates **query construction**, **execution**, and **result extraction**, enabling custom retry logic and offline testing. 
+This design separates **query construction**, **execution**, and **result extraction**, enabling custom retry logic and offline testing.
 
-You can use them as a pure `HttpRequest`/`URI` generator with a custom HTTP client or execute them with the built-in rate-aware executor.
+You can use them as a pure `HttpRequest`/`URI` generator with a custom HTTP client or execute them with the built-in rate-aware executor. Executions through the built-in executor are serialized per token via a FIFO admission gate, and rate-limited responses are retried once by default with server-specified backoff.
 
 ## Usage
 
 ### Building Queries
 
 ```java
+import java.net.http.HttpRequest;
 import net.ygbstudio.jbrave.api.builders.BraveWebQuery;
 import net.ygbstudio.jbrave.api.options.*;
 import net.ygbstudio.jbrave.api.filters.*;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
 
-// Load token from properties file or environment variable
+// Load token from properties file in your classpath or environment variable
 ClientInfo token = ClientInfo.fromProperties(
     "config.properties",
     "brave.subscriptionToken"
@@ -124,9 +124,17 @@ Optional<ApiResponse> either = query.getEitherPOJO();
 
 > Execution happens **once per session**, unless explicitly re-triggered (for example, via `execute()` or after calling `reset()`).
 
+### Retry & Rate-Limit Backoff
+
+By default, executions retry once when the API responds with HTTP 429. The retry is **rate-aware**: the execution gate sleeps for the server-specified rate-limit reset window (`X-RateLimit-Reset`) before attempting again, so the API's backoff guidance is honored without caller involvement.
+
+Use `withRetries(n)` to set the maximum number of retry attempts for rate-limited responses; values `<= 0` fall back to the default (one retry). When retries are exhausted, the final response — including a rate-limited one — is stored in the builder and remains inspectable via the rate-limit introspection methods below.
+
+> **Note:** A 429 that does not carry a rate-limit error code is treated as an unrecoverable API error (`BraveApiException`). A rate-limited response missing the rate-limit window headers raises `BraveClientException`, since rate-aware backoff cannot be activated.
+
 ### Rate Limit Introspection
 
-After execution, inspect Brave API rate limit headers as typed objects:
+After execution, inspect Brave API rate limit headers as typed objects. Rate-limit headers are captured on every response, including the final 429 after retries are exhausted:
 
 ```java
 query.getRateLimits()
@@ -171,48 +179,48 @@ This is useful for unit tests, cached responses, offline analysis, and debugging
 
 ### Query Builders
 
-| Builder                | Endpoint               | Response Type               |
-|------------------------|------------------------|-----------------------------|
-| `BraveWebQuery`        | Web search             | `WebSearchApiResponse`      |
-| `BraveImageQuery`      | Image search           | `ImageSearchApiResponse`    |
-| `BraveNewsQuery`       | News search            | `NewsSearchApiResponse`     |
-| `BraveVideoQuery`      | Video search           | `VideoSearchApiResponse`    |
-| `BraveSuggestQuery`    | Autocomplete           | `SuggestSearchApiResponse`  |
-| `BraveSpellcheckQuery` | Spellcheck             | `SpellCheckSearchApiResponse` |
+| Builder                | Endpoint     | Response Type                 |
+| ---------------------- | ------------ | ----------------------------- |
+| `BraveWebQuery`        | Web search   | `WebSearchApiResponse`        |
+| `BraveImageQuery`      | Image search | `ImageSearchApiResponse`      |
+| `BraveNewsQuery`       | News search  | `NewsSearchApiResponse`       |
+| `BraveVideoQuery`      | Video search | `VideoSearchApiResponse`      |
+| `BraveSuggestQuery`    | Autocomplete | `SuggestSearchApiResponse`    |
+| `BraveSpellcheckQuery` | Spellcheck   | `SpellcheckSearchApiResponse` |
 
 All builders enforce query constraints and fail fast on invalid configuration.
 
 ### Options (`net.ygbstudio.jbrave.api.options`)
 
-| Type             | Purpose                    |
-|------------------|----------------------------|
-| `Country`        | Geographic country codes   |
-| `MarketLocale`   | Regional market identifiers|
-| `SearchLanguage` | Language preferences       |
-| `Units`          | Measurement units          |
+| Type             | Purpose                     |
+| ---------------- | --------------------------- |
+| `Country`        | Geographic country codes    |
+| `MarketLocale`   | Regional market identifiers |
+| `SearchLanguage` | Language preferences        |
+| `Units`          | Measurement units           |
 
 ### Filters (`net.ygbstudio.jbrave.api.filters`)
 
-| Type           | Purpose                     |
-|----------------|-----------------------------|
-| `SafeSearch`   | Content safety filtering    |
-| `Freshness`    | Recency constraints         |
-| `ResultFilter` | Result type filtering       |
+| Type           | Purpose                  |
+| -------------- | ------------------------ |
+| `SafeSearch`   | Content safety filtering |
+| `Freshness`    | Recency constraints      |
+| `ResultFilter` | Result type filtering    |
 
 ### Rate Limits (`net.ygbstudio.jbrave.api.rate`)
 
-| Type                  | Header                |
-|-----------------------|-----------------------|
-| `XRateLimit`          | `X-RateLimit-Limit`   |
+| Type                  | Header                  |
+| --------------------- | ----------------------- |
+| `XRateLimit`          | `X-RateLimit-Limit`     |
 | `XRateLimitRemaining` | `X-RateLimit-Remaining` |
-| `XRateLimitPolicy`    | `X-RateLimit-Policy`  |
-| `XRateLimitReset`     | `X-RateLimit-Reset`   |
+| `XRateLimitPolicy`    | `X-RateLimit-Policy`    |
+| `XRateLimitReset`     | `X-RateLimit-Reset`     |
 
 ## Use Cases
 
-* **Search-powered applications** — backend services, dashboards, search gateways
-* **AI/ML pipelines** — RAG, prompt enrichment, ranking layers, and deterministic test data; structured response fields can be parsed into embeddings, scores, or signals.
-* **Data collection** — batch jobs, trend analysis, offline research workflows
+- **Search-powered applications** — backend services, dashboards, search gateways
+- **AI/ML pipelines** — RAG, prompt enrichment, ranking layers, and deterministic test data; structured response fields can be parsed into embeddings, scores, or signals.
+- **Data collection** — batch jobs, trend analysis, offline research workflows
 
 ## Limitations
 
