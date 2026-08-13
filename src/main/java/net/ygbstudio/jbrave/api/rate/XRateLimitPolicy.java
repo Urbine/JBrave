@@ -22,6 +22,7 @@ package net.ygbstudio.jbrave.api.rate;
 
 import java.net.http.HttpResponse;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
@@ -51,9 +52,9 @@ public record XRateLimitPolicy(int limit, int windowSecond, int limitPerMonth, i
    *
    * @param httpResponse the HTTP Response object containing the rate limit policy information
    * @param <T> the type of the response body
-   * @return the rate limit policy extracted from the httpResponse
+   * @return an optional of the rate limit policy extracted from the httpResponse
    */
-  public static <T> XRateLimitPolicy from(@NotNull HttpResponse<T> httpResponse) {
+  public static <T> Optional<XRateLimitPolicy> from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimitPolicy> toXRateLimitPolicy =
         arr ->
             new XRateLimitPolicy(

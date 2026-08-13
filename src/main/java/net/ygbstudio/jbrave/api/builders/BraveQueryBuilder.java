@@ -53,7 +53,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    * @return An optional containing the rate limit extracted from the HTTP response.
    */
   default Optional<XRateLimit> getRateLimits() {
-    return getHttpResponse().map(XRateLimit::from);
+    return getHttpResponse().flatMap(XRateLimit::from);
   }
 
   /**
@@ -62,7 +62,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    * @return An optional containing the rate limit policy extracted from the HTTP response.
    */
   default Optional<XRateLimitPolicy> getRateLimitPolicy() {
-    return getHttpResponse().map(XRateLimitPolicy::from);
+    return getHttpResponse().flatMap(XRateLimitPolicy::from);
   }
 
   /**
@@ -71,7 +71,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    * @return An optional containing the rate limit remaining extracted from the HTTP response.
    */
   default Optional<XRateLimitRemaining> getRateLimitRemaining() {
-    return getHttpResponse().map(XRateLimitRemaining::from);
+    return getHttpResponse().flatMap(XRateLimitRemaining::from);
   }
 
   /**
@@ -88,6 +88,10 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    *
    * <p>If the client added retries to the building chain, {@code execute()} will activate retry
    * logic under the hood.
+   *
+   * <p>By default, rate-limited (HTTP 429) responses are retried once after sleeping the
+   * server-provided rate limit reset window. Use {@code withRetries(int)} to change the policy;
+   * values less than or equal to zero retain the default (one retry).
    *
    * @return the current builder instance
    */

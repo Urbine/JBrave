@@ -21,6 +21,7 @@
 package net.ygbstudio.jbrave.api.rate;
 
 import java.net.http.HttpResponse;
+import java.util.Optional;
 import java.util.function.Function;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.NotNull;
@@ -38,9 +39,9 @@ public record XRateLimit(int requestsPerSecond, int requestsPerMonth) {
    *
    * @param httpResponse the HTTP httpResponse containing the rate limit information
    * @param <T> the type of the response body
-   * @return the rate limit extracted from the httpResponse
+   * @return an optional of the rate limit extracted from the httpResponse
    */
-  public static <T> XRateLimit from(@NotNull HttpResponse<T> httpResponse) {
+  public static <T> Optional<XRateLimit> from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimit> toXRateLimit =
         strArr ->
             new XRateLimit(Integer.parseInt(strArr[0].trim()), Integer.parseInt(strArr[1].trim()));

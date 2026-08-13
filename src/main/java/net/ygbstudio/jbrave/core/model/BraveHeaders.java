@@ -22,6 +22,7 @@ package net.ygbstudio.jbrave.core.model;
 
 import java.net.http.HttpHeaders;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
 import org.jetbrains.annotations.NotNull;
@@ -80,10 +81,10 @@ public enum BraveHeaders implements SearchHeader {
   }
 
   /**
-   * Extracts all values of the specified header from the HTTP headers.
+   * Extracts a list of header values of the specified header from the HTTP headers.
    *
    * @param headers the HTTP headers to extract values from
-   * @return a list of all the values of the specified header
+   * @return a list of header values of the specified header
    */
   public List<String> extract(@NotNull HttpHeaders headers) {
     return headers.allValues(value);
@@ -95,11 +96,12 @@ public enum BraveHeaders implements SearchHeader {
    *
    * @param headers the HTTP headers to extract values from
    * @param transformer the function used to transform the available header
-   * @param <R> the type of the return value
-   * @return the transformed value of the first value of the specified header
+   * @param <R> optional type of the return value
+   * @return the transformed first value of the specified header if present, otherwise an empty
+   *     optional
    */
-  public <R> R extract(@NotNull HttpHeaders headers, Function<String, R> transformer) {
-    return headers.allValues(value).getFirst().transform(transformer);
+  public <R> Optional<R> extract(@NotNull HttpHeaders headers, Function<String, R> transformer) {
+    return headers.firstValue(value).map(transformer);
   }
 
   @Override

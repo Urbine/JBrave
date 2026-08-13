@@ -21,6 +21,7 @@
 package net.ygbstudio.jbrave.api.rate;
 
 import java.net.http.HttpResponse;
+import java.util.Optional;
 import java.util.function.Function;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.NotNull;
@@ -41,9 +42,9 @@ public record XRateLimitRemaining(int requestAvailable, int monthlyRequestsRemai
    *
    * @param httpResponse the HTTP Response object containing the rate limit remaining information
    * @param <T> the type of the response body
-   * @return the rate limit remaining extracted from the httpResponse
+   * @return an optional of the rate limit remaining extracted from the httpResponse
    */
-  public static <T> XRateLimitRemaining from(@NotNull HttpResponse<T> httpResponse) {
+  public static <T> Optional<XRateLimitRemaining> from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimitRemaining> toXRateLimitRemaining =
         strArr ->
             new XRateLimitRemaining(

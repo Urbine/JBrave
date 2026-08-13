@@ -22,6 +22,7 @@ package net.ygbstudio.jbrave.api.rate;
 
 import java.net.http.HttpResponse;
 import java.time.Instant;
+import java.util.Optional;
 import java.util.function.Function;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.NotNull;
@@ -45,9 +46,9 @@ public record XRateLimitReset(
    *
    * @param httpResponse the HTTP Response object containing the rate limit reset information
    * @param <T> the type of the response body
-   * @return the rate limit reset extracted from the httpResponse
+   * @return an optional of the rate limit reset extracted from the httpResponse
    */
-  public static <T> XRateLimitReset from(@NotNull HttpResponse<T> httpResponse) {
+  public static <T> Optional<XRateLimitReset> from(@NotNull HttpResponse<T> httpResponse) {
     Function<String[], XRateLimitReset> toXRateLimitReset =
         strArr ->
             new XRateLimitReset(

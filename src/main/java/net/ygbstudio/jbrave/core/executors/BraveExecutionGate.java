@@ -22,12 +22,15 @@ package net.ygbstudio.jbrave.core.executors;
 
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
+import net.ygbstudio.jbrave.api.rate.XRateLimitReset;
 import net.ygbstudio.jbrave.api.response.ErrorResponse;
 import net.ygbstudio.jbrave.api.response.RateLimitResponse;
 import net.ygbstudio.jbrave.core.exceptions.BraveApiException;
+import net.ygbstudio.jbrave.core.exceptions.BraveClientException;
 import net.ygbstudio.jbrave.core.exceptions.RequestProcessingInterrupted;
 import net.ygbstudio.jbrave.core.exceptions.RequestRetryInterruptedException;
 import net.ygbstudio.jbrave.core.model.BraveErrorCode;
@@ -62,6 +65,12 @@ import org.slf4j.LoggerFactory;
  * limiting or retry backoff. This behavior is intentional and reflects the semantics of a shared,
  * rate-limited execution resource.
  *
+ * <p><strong>Default retry policy:</strong> Rate-limited (HTTP 429) responses are retried up to
+ * {@link #DEFAULT_MAX_RETRIES DEFAULT_MAX_RETRIES} times by default, sleeping for the
+ * server-provided rate limit reset window before each attempt. The retry is what activates the
+ * rate-aware backoff; without it, a rate-limited response would be returned without honoring the
+ * server's backoff guidance.
+ *
  * <p><strong>Failure handling:</strong>
  *
  * <ul>
@@ -76,6 +85,9 @@ import org.slf4j.LoggerFactory;
  */
 public class BraveExecutionGate {
   private static final Logger admissionLogger = LoggerFactory.getLogger(BraveExecutionGate.class);
+
+  /** The default maximum number of retry attempts for rate-limited (HTTP 429) responses. */
+  private static final int DEFAULT_MAX_RETRIES = 1;
 
   private final ReentrantLock startLock;
   private final BraveRequestExecutor executor;
@@ -103,6 +115,8 @@ public class BraveExecutionGate {
    * @throws RequestRetryInterruptedException if the thread is interrupted during retry backoff
    * @throws BraveApiException if an unrecoverable API error is returned by the server (e.g. Monthly
    *     limit exhaustion)
+   * @throws BraveClientException if a rate-limited response does not carry the rate limit window
+   *     headers required to activate rate-aware backoff
    */
   public HttpResponse<String> submit(@NotNull HttpRequest httpRequest, int maxRetries) {
     admissionLogger.debug("Received URI: {} for processing", httpRequest.uri());
@@ -112,8 +126,8 @@ public class BraveExecutionGate {
   /**
    * Submits a request for serialized execution with a default retry policy.
    *
-   * <p>This method is equivalent to calling {@link #submit(HttpRequest, int)} with a default
-   * maximum retry count of {@code 1}.
+   * <p>This method is equivalent to calling {@link #submit(HttpRequest, int)} with the {@link
+   * #DEFAULT_MAX_RETRIES default retry policy}.
    *
    * @param httpRequest the {@link HttpRequest} to execute
    * @return the completed HTTP response
@@ -121,9 +135,11 @@ public class BraveExecutionGate {
    *     execution admission
    * @throws RequestRetryInterruptedException if the thread is interrupted during retry backoff
    * @throws BraveApiException if an unrecoverable API error occurs
+   * @throws BraveClientException if a rate-limited response does not carry the rate limit window
+   *     headers required to activate rate-aware backoff
    */
   public HttpResponse<String> submit(@NotNull HttpRequest httpRequest) {
-    return submit(httpRequest, 1);
+    return submit(httpRequest, DEFAULT_MAX_RETRIES);
   }
 
   /**
@@ -174,8 +190,10 @@ public class BraveExecutionGate {
    * @return the completed HTTP response
    * @throws InterruptedException if the thread is interrupted during backoff sleep
    * @throws BraveApiException if an unrecoverable API error occurs
+   * @throws BraveClientException if rate aware retry strategy is unable to find retry window
+   *     headers in the server response
    */
-  public HttpResponse<String> processNext(@NotNull HttpRequest request, int maxRetries)
+  private HttpResponse<String> processNext(@NotNull HttpRequest request, int maxRetries)
       throws InterruptedException {
     int attempt = 0;
     HttpResponse<String> httpResponse;
@@ -208,8 +226,16 @@ public class BraveExecutionGate {
           throw new BraveApiException(errorMessage);
         }
 
-        RateLimitResponse limitResponse = RateLimitResponse.from(httpResponse);
-        int secondsUntilNextRequest = limitResponse.xRateLimitReset().secondsUntilNextRequest();
+        Optional<XRateLimitReset> limitResponse =
+            RateLimitResponse.from(httpResponse).xRateLimitReset();
+
+        int secondsUntilNextRequest;
+        if (limitResponse.isPresent()) {
+          secondsUntilNextRequest = limitResponse.get().secondsUntilNextRequest();
+        } else {
+          throw new BraveClientException(
+              "Unable to activate rate aware retry strategy: empty rate limit window headers");
+        }
 
         admissionLogger.debug(
             "Sleeping for {} seconds based on limit reset", secondsUntilNextRequest);

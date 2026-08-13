@@ -21,6 +21,7 @@
 package net.ygbstudio.jbrave.api.response;
 
 import java.net.http.HttpResponse;
+import java.util.Optional;
 import net.ygbstudio.jbrave.api.rate.XRateLimit;
 import net.ygbstudio.jbrave.api.rate.XRateLimitPolicy;
 import net.ygbstudio.jbrave.api.rate.XRateLimitRemaining;
@@ -39,16 +40,17 @@ import org.jetbrains.annotations.NotNull;
  * @see XRateLimitPolicy
  * @see XRateLimitRemaining
  * @see XRateLimitReset
- * @param xRateLimit the rate limit for the current time window
- * @param xRateLimitPolicy the complete policy specification including time window sizes
- * @param xRateRemaining the number of remaining requests in the current time window
- * @param xRateLimitReset the time until the current quota window resets
+ * @param xRateLimit an optional of the rate limit for the current time window
+ * @param xRateLimitPolicy an optional of the complete policy specification including time window
+ *     sizes
+ * @param xRateRemaining an optional of the number of remaining requests in the current time window
+ * @param xRateLimitReset an optional of the time until the current quota window resets
  */
 public record RateLimitResponse(
-    XRateLimit xRateLimit,
-    XRateLimitPolicy xRateLimitPolicy,
-    XRateLimitRemaining xRateRemaining,
-    XRateLimitReset xRateLimitReset) {
+    Optional<XRateLimit> xRateLimit,
+    Optional<XRateLimitPolicy> xRateLimitPolicy,
+    Optional<XRateLimitRemaining> xRateRemaining,
+    Optional<XRateLimitReset> xRateLimitReset) {
 
   /**
    * Creates a RateLimitResponse object from the headers of an {@link HttpResponse}.
