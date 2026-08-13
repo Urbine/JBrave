@@ -116,7 +116,7 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @return the decompressed bytes
    * @throws IOException if the compressed data is malformed or decompression fails
    */
-  public byte[] decompressGunzip(byte[] compressedBytes) throws IOException {
+  protected byte[] decompressGunzip(byte[] compressedBytes) throws IOException {
     try (ByteArrayInputStream compressed = new ByteArrayInputStream(compressedBytes);
         GZIPInputStream gzip = new GZIPInputStream(compressed);
         ByteArrayOutputStream decompressed = new ByteArrayOutputStream()) {
@@ -135,7 +135,7 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @param charset the character set to use for decoding
    * @return the decoded string
    */
-  public String decodeByteArray(byte[] bytes, Charset charset) {
+  protected String decodeByteArray(byte[] bytes, Charset charset) {
     return new String(bytes, charset);
   }
 
@@ -153,7 +153,7 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @return the decoded response body as a string
    * @throws ResponseDecompressionException if decompression fails
    */
-  public String decodeByteHttpResponse(HttpResponse<byte[]> byteResponse) {
+  protected String decodeByteHttpResponse(HttpResponse<byte[]> byteResponse) {
     try {
       return decodeByteArray(
           isCompressed(byteResponse) ? decompressGunzip(byteResponse.body()) : byteResponse.body(),

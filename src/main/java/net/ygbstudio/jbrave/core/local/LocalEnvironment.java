@@ -20,7 +20,7 @@
 
 package net.ygbstudio.jbrave.core.local;
 
-/** Enumeration of the local environment variables used by the JBrave library. */
+/** Constants for the local environment variables used by the JBrave library. */
 public final class LocalEnvironment {
   public static final String BRAVE_SUBSCRIPTION_TOKEN = "BRAVE_SUBSCRIPTION_TOKEN";
   public static final String BRAVE_SUBSCRIPTION_PROPERTY = "brave.subscriptionToken";

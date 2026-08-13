@@ -172,7 +172,7 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
 
     } else if (!isValidQuery)
       throw new InvalidQueryTermException(
-          "More than 400 characters and 50 words in the query is not allowed");
+          "More than 400 characters or 50 words in the query is not allowed");
 
     return self();
   }

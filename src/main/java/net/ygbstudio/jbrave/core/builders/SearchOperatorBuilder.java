@@ -37,7 +37,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>Example usage:
  *
  * {@snippet :
- * String searchOperator = new SearchOperatorBuilder()
+ * String searchOperator = SearchOperatorBuilder.builder()
  *     .filetype("html")
  *     .and(op -> op.loc("ca"), op -> op.intitle("java"))
  *     .build();

@@ -83,7 +83,7 @@ public final class ApiErrorModel {
       return this;
     }
 
-    @Contract(value = " -> new", pure = true)
+    @Contract(value = " -> new")
     public @NotNull ApiErrorModel build() {
       return new ApiErrorModel(this);
     }

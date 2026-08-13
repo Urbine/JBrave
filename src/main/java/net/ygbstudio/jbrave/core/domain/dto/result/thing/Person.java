@@ -67,7 +67,7 @@ public final class Person extends Thing {
      *
      * @return A new Person instance.
      */
-    @Contract(value = " -> new", pure = true)
+    @Contract(value = " -> new")
     @Override
     public @NotNull Person build() {
       return new Person(this);

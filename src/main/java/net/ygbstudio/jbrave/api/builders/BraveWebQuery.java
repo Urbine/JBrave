@@ -251,7 +251,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
    *
    * @return A new instance of {@link BraveWebQuery}.
    */
-  @Contract(value = " -> new", pure = true)
+  @Contract(value = " -> new")
   public static @NotNull BraveWebQuery builder() {
     return new BraveWebQuery().addInstanceVertical(BraveResource.WEB).reset();
   }
@@ -538,7 +538,6 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
    *
    * @return an {@link Optional} containing the current HTTP response.
    */
-  @Contract(pure = true)
   public @NotNull Optional<HttpResponse<String>> getHttpResponse() {
     return Objects.nonNull(currentResponse)
         ? Optional.of(currentResponse)

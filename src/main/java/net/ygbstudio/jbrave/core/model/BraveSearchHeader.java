@@ -63,7 +63,7 @@ public record BraveSearchHeader(String header, String value) {
    *
    * @return an immutable entry of this header
    */
-  @Contract(value = " -> new", pure = true)
+  @Contract(value = " -> new")
   public Map.@NotNull @Unmodifiable Entry<String, String> toEntry() {
     return Map.entry(header, value);
   }
