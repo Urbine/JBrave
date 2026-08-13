@@ -55,16 +55,26 @@ public class ClientInfo {
   public static @NotNull ClientInfo fromProperties(
       String propertiesFileName, String customPropertyName) {
     Properties props = new Properties();
+
     try (InputStream propStream =
         ClientInfo.class.getClassLoader().getResourceAsStream(propertiesFileName)) {
-      if (propStream == null) throw new IOException();
+      if (propStream == null) {
+        throw new BraveLocalEnvironmentException(
+            () -> "File " + propertiesFileName + " not found in resources folder");
+      }
 
       props.load(propStream);
 
-      if (props.getProperty(customPropertyName) == null) throw new IOException();
-    } catch (IOException ioEx) {
-      throw new BraveLocalEnvironmentException(
-          () -> "File " + propertiesFileName + " not found in resources folder");
+      if (props.getProperty(customPropertyName) == null) {
+        throw new BraveLocalEnvironmentException(
+            () ->
+                "Property "
+                    + customPropertyName
+                    + " was not found in property file "
+                    + propertiesFileName);
+      }
+    } catch (IOException ex) {
+      throw new BraveLocalEnvironmentException(ex.getMessage());
     }
     return new ClientInfo(props.getProperty(customPropertyName));
   }
@@ -83,16 +93,16 @@ public class ClientInfo {
   /**
    * Create a new instance of ClientInfo from environment variable.
    *
-   * @param customVariable Environment variable specified by the caller.
+   * @param envVarName Environment variable specified by the caller.
    * @return a new instance of ClientInfo.
    * @throws BraveLocalEnvironmentException if the environment variable is not set.
    */
   @Contract("_ -> new")
-  public static @NotNull ClientInfo fromEnvironment(String customVariable) {
-    String envVarName = System.getenv(customVariable);
-    if (envVarName == null)
-      throw new BraveLocalEnvironmentException(() -> "Variable " + customVariable + " not set");
-    return new ClientInfo(envVarName);
+  public static @NotNull ClientInfo fromEnvironment(String envVarName) {
+    String envVarValue = System.getenv(envVarName);
+    if (envVarValue == null)
+      throw new BraveLocalEnvironmentException(() -> "Variable " + envVarName + " not set");
+    return new ClientInfo(envVarValue);
   }
 
   /**
