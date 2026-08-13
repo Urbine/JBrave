@@ -500,9 +500,12 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
   }
 
   /**
-   * Sets the maximum number of retries for this request.
+   * Sets the maximum number of retry attempts for rate-limited (HTTP 429) responses.
    *
-   * @param maxRetries the maximum number of retries
+   * <p>Values less than or equal to zero fall back to the default retry policy (one retry). Retries
+   * sleep for the server-provided rate limit reset window before each attempt.
+   *
+   * @param maxRetries the maximum number of retry attempts for rate-limited responses
    * @return the current instance of {@link BraveWebQuery}
    */
   public BraveWebQuery withRetries(int maxRetries) {
@@ -514,7 +517,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
     HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
     currentResponse =
         maxRetries > 0
-            ? controller.submit(suppliedTask, maxRetries)
+            ? controller.submit(suppliedTask, Math.max(0, maxRetries))
             : controller.submit(suppliedTask);
     return this;
   }
