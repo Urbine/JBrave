@@ -31,7 +31,7 @@ public sealed interface ApiResponse
         ErrorResponse,
         ImageSearchApiResponse,
         NewsSearchApiResponse,
-        SpellCheckSearchApiResponse,
+        SpellcheckSearchApiResponse,
         VideoSearchApiResponse,
         SuggestSearchApiResponse {
 

@@ -43,22 +43,22 @@ import org.jetbrains.annotations.NotNull;
  * @param query The original query submitted by the user.
  * @param results A list of spell check results provided by the API.
  */
-public record SpellCheckSearchApiResponse(
+public record SpellcheckSearchApiResponse(
     String type, OriginalQuery query, List<SpellCheckResult> results) implements ApiResponse {
 
-  public static SpellCheckSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, SpellCheckSearchApiResponse.class);
+  public static SpellcheckSearchApiResponse from(File dataFile) {
+    return JsonSupport.readJsonFs(dataFile, SpellcheckSearchApiResponse.class);
   }
 
-  public static SpellCheckSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, SpellCheckSearchApiResponse.class);
+  public static SpellcheckSearchApiResponse from(String dataString) {
+    return JsonSupport.objectFromJson(dataString, SpellcheckSearchApiResponse.class);
   }
 
-  public static SpellCheckSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, SpellCheckSearchApiResponse.class);
+  public static SpellcheckSearchApiResponse from(Reader dataReader) {
+    return JsonSupport.jsonReader(dataReader, SpellcheckSearchApiResponse.class);
   }
 
-  public static SpellCheckSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
+  public static SpellcheckSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }
 

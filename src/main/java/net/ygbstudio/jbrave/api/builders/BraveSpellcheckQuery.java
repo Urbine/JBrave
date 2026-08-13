@@ -28,7 +28,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
-import net.ygbstudio.jbrave.api.response.SpellCheckSearchApiResponse;
+import net.ygbstudio.jbrave.api.response.SpellcheckSearchApiResponse;
 import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
 import net.ygbstudio.jbrave.core.domain.SearchHeader;
@@ -55,7 +55,7 @@ import org.jetbrains.annotations.NotNull;
  * reusing.
  */
 public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpellcheckQuery>
-    implements BraveQueryBuilder<BraveSpellcheckQuery, SpellCheckSearchApiResponse> {
+    implements BraveQueryBuilder<BraveSpellcheckQuery, SpellcheckSearchApiResponse> {
 
   public static final class BraveRequestBuilder
       extends AbstractBraveRequestBuilder<BraveSpellcheckQuery.BraveRequestBuilder> {
@@ -262,8 +262,8 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
   }
 
   @Override
-  public Class<SpellCheckSearchApiResponse> getResponseType() {
-    return SpellCheckSearchApiResponse.class;
+  public Class<SpellcheckSearchApiResponse> getResponseType() {
+    return SpellcheckSearchApiResponse.class;
   }
 
   /**
