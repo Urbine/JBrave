@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
-import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
@@ -32,120 +31,33 @@ import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.MarketLocale;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.response.VideoSearchApiResponse;
-import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalRequest;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalSearchRequest;
 import net.ygbstudio.jbrave.core.builders.SearchOperatorBuilder;
-import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import net.ygbstudio.jbrave.core.builders.VerticalHeaderBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import net.ygbstudio.jbrave.core.executors.BraveExecutionGate;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
-import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import net.ygbstudio.jbrave.core.model.SearchOptions;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A builder class for building Brave Video API queries.
+ * A builder for constructing Brave Video API queries.
  *
- * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
- * method to create a new instance of the builder.
+ * <p>The builder is not thread-safe and is intended for single-threaded use. It is stateful and
+ * reusable: call {@link #reset()} to clear its internal state before reusing it.
  *
- * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
- * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
- * a stateful, reusable builder intended for single-threaded use.
- *
- * <p>Method {@link #reset()} will clear the internal state of the builder and must be called before
- * reusing.
+ * <p>Builders are not intended to be instantiated directly; use the {@link #builder()} factory
+ * method to create a new instance.
  */
 public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQuery>
     implements BraveQueryBuilder<BraveVideoQuery, VideoSearchApiResponse> {
 
-  public static final class BraveRequestBuilder
-      extends AbstractBraveRequestBuilder<BraveVideoQuery.BraveRequestBuilder> {
-
-    private BraveRequestBuilder() {}
-
-    /**
-     * Creates a new instance of {@link BraveVideoQuery.BraveRequestBuilder}.
-     *
-     * @return a new instance of {@link BraveVideoQuery.BraveRequestBuilder}
-     */
-    private static BraveVideoQuery.BraveRequestBuilder builder() {
-      return new BraveVideoQuery.BraveRequestBuilder().clear();
-    }
-
-    /**
-     * Sets the URI for the request.
-     *
-     * @param query the URI for the request
-     */
-    private BraveVideoQuery.BraveRequestBuilder queryAddress(URI query) {
-      queryURI(query);
-      return this;
-    }
-
-    /**
-     * Adds a custom header to the client.
-     *
-     * @param searchHeader the header to be added
-     * @param headerValue the value of the header
-     */
-    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String headerValue) {
-      addHeader(searchHeader, headerValue);
-    }
-
-    /**
-     * Adds a user agent header to the request.
-     *
-     * @param userAgent the user agent value to set
-     * @return the current instance of {@link BraveVideoQuery}
-     */
-    public BraveVideoQuery.BraveRequestBuilder withUserAgent(String userAgent) {
-      addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
-      return this;
-    }
-
-    /**
-     * Adds a cache control header to the request.
-     *
-     * @param cacheControl the cache control value to set
-     * @return the current instance of {@link BraveVideoQuery}
-     */
-    public BraveVideoQuery.BraveRequestBuilder withCacheControl(String cacheControl) {
-      addCustomHeader(BraveHeaders.CACHE_CONTROL, cacheControl);
-      return this;
-    }
-
-    /**
-     * Adds an API version header to the request.
-     *
-     * @param apiVersion the API version value to set
-     * @return the current instance of {@link BraveVideoQuery}
-     */
-    public BraveVideoQuery.BraveRequestBuilder withApiVersion(String apiVersion) {
-      addCustomHeader(BraveHeaders.API_VERSION, apiVersion);
-      return this;
-    }
-
-    /**
-     * Builds the request using the current state of the builder.
-     *
-     * @return the built {@link HttpRequest}
-     */
-    private HttpRequest buildRequest() {
-      return super.build();
-    }
-
-    /** Clears the request builder, resetting it to its initial state. */
-    private void clearBuilder() {
-      super.clear();
-    }
-  }
-
-  private final BraveVideoQuery.BraveRequestBuilder requestBuilder =
-      BraveVideoQuery.BraveRequestBuilder.builder();
+  private final BraveVerticalSearchRequest requestBuilder = BraveVerticalSearchRequest.builder();
   private BraveExecutionGate controller;
   private HttpResponse<String> currentResponse;
   private int maxRetries = 0;
@@ -162,7 +74,10 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   }
 
   /**
-   * Adds a search term to the URL query.
+   * Adds a search term to the URL query. Maximum of 400 characters and 50 words.
+   *
+   * <p>If a query is already present, subsequent calls are ignored. Only one query term is
+   * supported per search request.
    *
    * @param queryTerm the search term to add
    * @return the current instance of the builder
@@ -172,10 +87,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   }
 
   /**
-   * Adds the search language option to the URL query. Maximum of 400 characters and 50 words.
-   *
-   * <p>If a query is already present, subsequent calls are ignored. Only one query term is
-   * supported per search request.
+   * Adds the search language option to the URL query.
    *
    * @see SearchLanguage
    * @param searchLanguage the search language to set
@@ -210,8 +122,8 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   /**
    * Adds the count option to the URL query.
    *
-   * @param count The number of results to return.
-   * @return The current instance of the builder.
+   * @param count the number of results to return
+   * @return the current instance of the builder
    */
   public BraveVideoQuery count(int count) {
     return addOptionCarrier(SearchOptions.count(count));
@@ -220,8 +132,8 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   /**
    * Adds the offset option to the URL query.
    *
-   * @param offset The number of results to skip.
-   * @return The current instance of the builder.
+   * @param offset the number of results to skip
+   * @return the current instance of the builder
    */
   public BraveVideoQuery offset(int offset) {
     return addOptionCarrier(SearchOptions.offset(offset));
@@ -263,7 +175,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   /**
    * Adds the include_fetch_metadata option to the URL query.
    *
-   * @param includeFetchMetadata Whether to include fetch metadata in the results.
+   * @param includeFetchMetadata whether to include fetch metadata in the results
    * @return the current instance of the builder
    */
   public BraveVideoQuery includeFetchMetadata(boolean includeFetchMetadata) {
@@ -275,7 +187,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    *
    * <p>This option tells the API to read search operators from the query term.
    *
-   * @return The current instance of the builder.
+   * @return the current instance of the builder
    */
   public BraveVideoQuery enableOperators() {
     return addOptionCarrier(SearchOptions.operators(true));
@@ -290,20 +202,20 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   @Contract("_ -> this")
   public BraveVideoQuery withToken(@NotNull ClientInfo clientInfo) {
     if (controller == null) controller = clientInfo.requestGate();
-    requestBuilder.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    requestBuilder.withToken(clientInfo.subscriptionToken());
     return this;
   }
 
   /**
    * Sets the request headers using the provided consumer.
    *
-   * @param headers a consumer that accepts an inner request builder instance and applies
-   *     preconfigured headers to it via helper methods.
+   * @param headers a consumer that receives a {@link VerticalHeaderBuilder} and applies the
+   *     request's headers to it
    * @return the current instance of {@link BraveVideoQuery}
    */
   @Contract("_ -> this")
   public BraveVideoQuery withHeaders(
-      @NotNull Consumer<BraveVideoQuery.BraveRequestBuilder> headers) {
+      @NotNull Consumer<VerticalHeaderBuilder<BraveVerticalRequest>> headers) {
     headers.accept(requestBuilder);
     return this;
   }
@@ -314,7 +226,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * @param operators A consumer that accepts a {@link SearchOperatorBuilder} instance and populates
    *     it with operators. The built {@code SearchOperatorBuilder} instance will be used to
    *     construct the operators string.
-   * @return The current instance of the builder.
+   * @return the current instance of the builder
    */
   @Contract("_ -> this")
   public BraveVideoQuery withOperators(@NotNull Consumer<SearchOperatorBuilder> operators) {
@@ -338,16 +250,11 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
     return this;
   }
 
-  /**
-   * Executes the request and returns response of string.
-   *
-   * @return an optional response to the request
-   */
   public BraveVideoQuery execute() {
-    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).build();
     currentResponse =
         maxRetries > 0
-            ? controller.submit(suppliedTask, Math.max(0, maxRetries))
+            ? controller.submit(suppliedTask, maxRetries)
             : controller.submit(suppliedTask);
     return this;
   }
@@ -367,14 +274,16 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * @return the {@link HttpRequest} instance representing the current query
    */
   public HttpRequest toHttpRequest() {
-    return requestBuilder.queryAddress(toURI()).buildRequest();
+    return requestBuilder.queryAddress(toURI()).build();
   }
 
   /**
    * Returns the current HTTP response as an {@link Optional}.
    *
-   * @return an {@link Optional} containing the current HTTP response, or an empty {@link Optional}
-   *     if there is no current response.
+   * <p>If the request has not been executed, this method will execute the request and return the
+   * {@link HttpResponse}.
+   *
+   * @return an {@link Optional} containing the current HTTP response.
    */
   public @NotNull Optional<HttpResponse<String>> getHttpResponse() {
     return Objects.nonNull(currentResponse)
@@ -391,7 +300,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
   public BraveVideoQuery reset() {
     currentResponse = null;
     maxRetries = 0;
-    requestBuilder.clearBuilder();
+    requestBuilder.clear();
     return super.clear();
   }
 }

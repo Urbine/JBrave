@@ -32,120 +32,33 @@ import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.MarketLocale;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.response.NewsSearchApiResponse;
-import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalRequest;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalSearchRequest;
 import net.ygbstudio.jbrave.core.builders.SearchOperatorBuilder;
-import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import net.ygbstudio.jbrave.core.builders.VerticalHeaderBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.RegionLocaleIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import net.ygbstudio.jbrave.core.executors.BraveExecutionGate;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
-import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import net.ygbstudio.jbrave.core.model.SearchOptions;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The {@link BraveNewsQuery} class provides a builder for building Brave News API queries.
+ * A builder for constructing Brave News API queries.
  *
- * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
- * method to create a new instance of the builder.
+ * <p>The builder is not thread-safe and is intended for single-threaded use. It is stateful and
+ * reusable: call {@link #reset()} to clear its internal state before reusing it.
  *
- * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
- * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
- * stateful, reusable builder intended for single-threaded use.
- *
- * <p>Method {@link #reset()} will clear the internal state of the builder and must be called before
- * reusing.
+ * <p>Builders are not intended to be instantiated directly; use the {@link #builder()} factory
+ * method to create a new instance.
  */
 public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery>
     implements BraveQueryBuilder<BraveNewsQuery, NewsSearchApiResponse> {
 
-  public static final class BraveRequestBuilder
-      extends AbstractBraveRequestBuilder<BraveNewsQuery.BraveRequestBuilder> {
-
-    private BraveRequestBuilder() {}
-
-    /**
-     * Creates a new instance of {@link BraveNewsQuery.BraveRequestBuilder}.
-     *
-     * @return a new instance of {@link BraveNewsQuery.BraveRequestBuilder}
-     */
-    private static BraveNewsQuery.BraveRequestBuilder builder() {
-      return new BraveNewsQuery.BraveRequestBuilder().clear();
-    }
-
-    /**
-     * Sets the URI for the request.
-     *
-     * @param query the URI for the request
-     */
-    private BraveNewsQuery.BraveRequestBuilder queryAddress(URI query) {
-      queryURI(query);
-      return this;
-    }
-
-    /**
-     * Adds a custom header to the client.
-     *
-     * @param searchHeader the header to be added
-     * @param headerValue the value of the header
-     */
-    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String headerValue) {
-      addHeader(searchHeader, headerValue);
-    }
-
-    /**
-     * Adds a user agent header to the request.
-     *
-     * @param userAgent the user agent value to set
-     * @return the current instance of {@link BraveNewsQuery.BraveRequestBuilder}
-     */
-    public BraveNewsQuery.BraveRequestBuilder withUserAgent(String userAgent) {
-      addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
-      return this;
-    }
-
-    /**
-     * Adds a cache control header to the request.
-     *
-     * @param cacheControl the cache control value to set
-     * @return the current instance of {@link BraveNewsQuery.BraveRequestBuilder}
-     */
-    public BraveNewsQuery.BraveRequestBuilder withCacheControl(String cacheControl) {
-      addCustomHeader(BraveHeaders.CACHE_CONTROL, cacheControl);
-      return this;
-    }
-
-    /**
-     * Adds an API version header to the request.
-     *
-     * @param apiVersion the API version value to set
-     * @return the current instance of {@link BraveNewsQuery.BraveRequestBuilder}
-     */
-    public BraveNewsQuery.BraveRequestBuilder withApiVersion(String apiVersion) {
-      addCustomHeader(BraveHeaders.API_VERSION, apiVersion);
-      return this;
-    }
-
-    /**
-     * Builds the request using the current state of the builder.
-     *
-     * @return the built {@link HttpRequest}
-     */
-    private HttpRequest buildRequest() {
-      return super.build();
-    }
-
-    /** Clears the request builder, resetting it to its initial state. */
-    private void clearBuilder() {
-      super.clear();
-    }
-  }
-
-  private final BraveNewsQuery.BraveRequestBuilder requestBuilder =
-      BraveNewsQuery.BraveRequestBuilder.builder();
+  private final BraveVerticalSearchRequest requestBuilder = BraveVerticalSearchRequest.builder();
   private BraveExecutionGate controller;
   private HttpResponse<String> currentResponse;
   private int maxRetries = 0;
@@ -153,7 +66,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   private BraveNewsQuery() {}
 
   /**
-   * Creates a new instance of {@link BraveNewsQuery}
+   * Creates a new instance of {@link BraveNewsQuery}.
    *
    * @return a new instance of {@link BraveNewsQuery}
    */
@@ -282,7 +195,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   /**
    * Adds the include_fetch_metadata option to the URL query.
    *
-   * @param includeFetchMetadata Whether to include fetch metadata in the results.
+   * @param includeFetchMetadata whether to include fetch metadata in the results
    * @return the current instance of the builder
    */
   public BraveNewsQuery includeFetchMetadata(boolean includeFetchMetadata) {
@@ -294,8 +207,8 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    *
    * <p>This option tells the API to read search operators from the query term.
    *
-   * @param enableOperators Whether to include operators in the results.
-   * @return The current instance of the builder.
+   * @param enableOperators whether to enable the operators option
+   * @return the current instance of the builder
    */
   public BraveNewsQuery enableOperators(boolean enableOperators) {
     return addOptionCarrier(SearchOptions.operators(enableOperators));
@@ -307,10 +220,10 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    * <p>Make sure to include the {@link #enableOperators(boolean)} method to tell the API that you
    * will be including operators in your query.
    *
-   * @param operators A consumer that accepts a {@link SearchOperatorBuilder} instance and populates
+   * @param operators a consumer that accepts a {@link SearchOperatorBuilder} instance and populates
    *     it with operators. The built {@code SearchOperatorBuilder} instance will be used to
    *     construct the operators string.
-   * @return The current instance of the builder.
+   * @return the current instance of the builder
    */
   @Contract("_ -> this")
   public BraveNewsQuery withSearchOperators(@NotNull Consumer<SearchOperatorBuilder> operators) {
@@ -329,19 +242,20 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   @Contract("_ -> this")
   public BraveNewsQuery withToken(@NotNull ClientInfo clientInfo) {
     if (controller == null) controller = clientInfo.requestGate();
-    requestBuilder.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    requestBuilder.withToken(clientInfo.subscriptionToken());
     return this;
   }
 
   /**
    * Sets the request headers using the provided consumer.
    *
-   * @param headers a consumer that accepts an inner request builder instance and applies
-   *     preconfigured headers to it via helper methods.
+   * @param headers a consumer that receives a {@link VerticalHeaderBuilder} and applies the
+   *     request's headers to it
    * @return the current instance of {@link BraveNewsQuery}
    */
   @Contract("_ -> this")
-  public BraveNewsQuery withHeaders(@NotNull Consumer<BraveNewsQuery.BraveRequestBuilder> headers) {
+  public BraveNewsQuery withHeaders(
+      @NotNull Consumer<VerticalHeaderBuilder<BraveVerticalRequest>> headers) {
     headers.accept(requestBuilder);
     return this;
   }
@@ -360,16 +274,11 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
     return this;
   }
 
-  /**
-   * Executes the request and returns response of string.
-   *
-   * @return an optional response to the request
-   */
   public BraveNewsQuery execute() {
-    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).build();
     currentResponse =
         maxRetries > 0
-            ? controller.submit(suppliedTask, Math.max(0, maxRetries))
+            ? controller.submit(suppliedTask, maxRetries)
             : controller.submit(suppliedTask);
     return this;
   }
@@ -384,7 +293,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    * @return the {@link HttpRequest} instance representing the current query
    */
   public HttpRequest toHttpRequest() {
-    return requestBuilder.queryAddress(toURI()).buildRequest();
+    return requestBuilder.queryAddress(toURI()).build();
   }
 
   /**
@@ -415,7 +324,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   public BraveNewsQuery reset() {
     currentResponse = null;
     maxRetries = 0;
-    requestBuilder.clearBuilder();
+    requestBuilder.clear();
     return super.clear();
   }
 }

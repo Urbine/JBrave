@@ -33,11 +33,13 @@ import net.ygbstudio.jbrave.api.response.WebSearchApiResponse;
 import net.ygbstudio.jbrave.core.utils.JsonSupport;
 
 /**
- * An interface for Brave API query builders. The BraveQueryBuilder interface is implemented by all
- * builders that build Brave API queries. It is parameterized by the type of the builder.
+ * An interface for Brave API query builders, implemented by all builders that build Brave API
+ * queries.
  *
- * @param <T> the type of the builder
- * @param <E> the type of the API response
+ * <p>Parameterized by the concrete builder type and the type of the API response it produces.
+ *
+ * @param <T> the concrete builder type
+ * @param <E> the type of the API response produced by the builder
  */
 public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
     permits BraveNewsQuery,
@@ -50,7 +52,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   /**
    * Returns the rate limit from the HTTP response.
    *
-   * @return An optional containing the rate limit extracted from the HTTP response.
+   * @return an optional containing the rate limit extracted from the HTTP response.
    */
   default Optional<XRateLimit> getRateLimits() {
     return getHttpResponse().flatMap(XRateLimit::from);
@@ -59,7 +61,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   /**
    * Returns the rate limit policy from the HTTP response.
    *
-   * @return An optional containing the rate limit policy extracted from the HTTP response.
+   * @return an optional containing the rate limit policy extracted from the HTTP response.
    */
   default Optional<XRateLimitPolicy> getRateLimitPolicy() {
     return getHttpResponse().flatMap(XRateLimitPolicy::from);
@@ -68,7 +70,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   /**
    * Returns the rate limit remaining from the HTTP response.
    *
-   * @return An optional containing the rate limit remaining extracted from the HTTP response.
+   * @return an optional containing the rate limit remaining extracted from the HTTP response.
    */
   default Optional<XRateLimitRemaining> getRateLimitRemaining() {
     return getHttpResponse().flatMap(XRateLimitRemaining::from);
@@ -206,9 +208,9 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   Optional<HttpResponse<String>> getHttpResponse();
 
   /**
-   * Converts the URL query to a URI.
+   * Converts the current query to a URI.
    *
-   * @return The URI representation of the URL query.
+   * @return the URI representation of the current query
    */
   URI toURI();
 
@@ -217,7 +219,7 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
    *
    * <p>This method is used to reset the builder to its initial state before adding any options.
    *
-   * @return The current instance of the builder.
+   * @return the current instance of the builder
    */
   T reset();
 }

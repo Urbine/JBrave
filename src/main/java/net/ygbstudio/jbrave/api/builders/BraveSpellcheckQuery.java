@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
-import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Objects;
@@ -29,124 +28,42 @@ import java.util.function.Consumer;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.response.SpellcheckSearchApiResponse;
-import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
-import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalRequest;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalSearchRequest;
+import net.ygbstudio.jbrave.core.builders.VerticalHeaderBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import net.ygbstudio.jbrave.core.executors.BraveExecutionGate;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
-import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A builder class for building Brave Spell Check API queries.
+ * A builder for constructing Brave Spellcheck API queries.
  *
- * <p>This class is not intended to be instantiated directly, instead use the {@link #builder()}
- * method to create a new instance of the builder.
+ * <p>The builder is not thread-safe and is intended for single-threaded use. It is stateful and
+ * reusable: call {@link #reset()} to clear its internal state before reusing it.
  *
- * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
- * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
- * a stateful, reusable builder intended for single-threaded use.
- *
- * <p>Method {@link #reset()} will clear the internal state of the builder and must be called before
- * reusing.
+ * <p>Builders are not intended to be instantiated directly; use the {@link #builder()} factory
+ * method to create a new instance.
  */
 public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpellcheckQuery>
     implements BraveQueryBuilder<BraveSpellcheckQuery, SpellcheckSearchApiResponse> {
 
-  public static final class BraveRequestBuilder
-      extends AbstractBraveRequestBuilder<BraveSpellcheckQuery.BraveRequestBuilder> {
-
-    private BraveRequestBuilder() {}
-
-    /**
-     * Creates a new instance of {@link BraveSpellcheckQuery.BraveRequestBuilder}.
-     *
-     * @return a new instance of {@link BraveSpellcheckQuery.BraveRequestBuilder}
-     */
-    private static BraveSpellcheckQuery.BraveRequestBuilder builder() {
-      return new BraveSpellcheckQuery.BraveRequestBuilder().clear();
-    }
-
-    /**
-     * Sets the URI for the request.
-     *
-     * @param query the URI for the request
-     */
-    private BraveSpellcheckQuery.BraveRequestBuilder queryAddress(URI query) {
-      queryURI(query);
-      return this;
-    }
-
-    /**
-     * Adds a custom header to the client.
-     *
-     * @param searchHeader the header to be added
-     * @param headerValue the value of the header
-     */
-    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String headerValue) {
-      addHeader(searchHeader, headerValue);
-    }
-
-    /**
-     * Adds a user agent header to the request.
-     *
-     * @param userAgent the user agent value to set
-     * @return the current instance of {@link BraveSpellcheckQuery.BraveRequestBuilder}
-     */
-    public BraveSpellcheckQuery.BraveRequestBuilder withUserAgent(String userAgent) {
-      addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
-      return this;
-    }
-
-    /**
-     * Adds a cache control header to the request.
-     *
-     * @param cacheControl the cache control value to set
-     * @return the current instance of {@link BraveSpellcheckQuery.BraveRequestBuilder}
-     */
-    public BraveSpellcheckQuery.BraveRequestBuilder withCacheControl(String cacheControl) {
-      addCustomHeader(BraveHeaders.CACHE_CONTROL, cacheControl);
-      return this;
-    }
-
-    /**
-     * Adds an API version header to the request.
-     *
-     * @param apiVersion the API version value to set
-     * @return the current instance of {@link BraveSpellcheckQuery.BraveRequestBuilder}
-     */
-    public BraveSpellcheckQuery.BraveRequestBuilder withApiVersion(String apiVersion) {
-      addCustomHeader(BraveHeaders.API_VERSION, apiVersion);
-      return this;
-    }
-
-    /**
-     * Builds the request using the current state of the builder.
-     *
-     * @return the built {@link HttpRequest}
-     */
-    private HttpRequest buildRequest() {
-      return super.build();
-    }
-
-    /** Clears the request builder, resetting it to its initial state. */
-    private void clearBuilder() {
-      super.clear();
-    }
-  }
-
-  private final BraveSpellcheckQuery.BraveRequestBuilder requestBuilder =
-      BraveSpellcheckQuery.BraveRequestBuilder.builder();
+  private final BraveVerticalSearchRequest requestBuilder = BraveVerticalSearchRequest.builder();
   private BraveExecutionGate controller;
   private HttpResponse<String> currentResponse;
   private int maxRetries = 0;
 
   private BraveSpellcheckQuery() {}
 
+  /**
+   * Creates a new instance of {@link BraveSpellcheckQuery}.
+   *
+   * @return a new instance of {@link BraveSpellcheckQuery}
+   */
   public static BraveSpellcheckQuery builder() {
     return new BraveSpellcheckQuery().addInstanceVertical(BraveResource.SPELLCHECK).clear();
   }
@@ -168,8 +85,8 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
    * Adds the language option to the URL query.
    *
    * @see SearchLanguage
-   * @param language The language identifier to set.
-   * @return The current instance of the builder.
+   * @param language the language identifier to set
+   * @return the current instance of the builder
    */
   public <T extends LanguageIdentifier> BraveSpellcheckQuery language(@NotNull T language) {
     return addOptionCarrier(language.toSearchOption());
@@ -179,8 +96,8 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
    * Adds the country option to the URL query.
    *
    * @see Country
-   * @param country The country identifier to set.
-   * @return The current instance of the builder.
+   * @param country the country identifier to set
+   * @return the current instance of the builder
    */
   public <T extends CountryIdentifier> BraveSpellcheckQuery country(@NotNull T country) {
     return addOptionCarrier(country.toSearchOption());
@@ -195,20 +112,20 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
   @Contract("_ -> this")
   public BraveSpellcheckQuery withToken(@NotNull ClientInfo clientInfo) {
     if (controller == null) controller = clientInfo.requestGate();
-    requestBuilder.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    requestBuilder.withToken(clientInfo.subscriptionToken());
     return this;
   }
 
   /**
    * Sets the request headers using the provided consumer.
    *
-   * @param headers a consumer that accepts an inner request builder instance and applies
-   *     preconfigured headers to it via helper methods.
+   * @param headers a consumer that receives a {@link VerticalHeaderBuilder} and applies the
+   *     request's headers to it
    * @return the current instance of {@link BraveSpellcheckQuery}
    */
   @Contract("_ -> this")
   public BraveSpellcheckQuery withHeaders(
-      @NotNull Consumer<BraveSpellcheckQuery.BraveRequestBuilder> headers) {
+      @NotNull Consumer<VerticalHeaderBuilder<BraveVerticalRequest>> headers) {
     headers.accept(requestBuilder);
     return this;
   }
@@ -227,16 +144,11 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
     return this;
   }
 
-  /**
-   * Executes the request and returns response of string.
-   *
-   * @return an optional response to the request
-   */
   public BraveSpellcheckQuery execute() {
-    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).build();
     currentResponse =
         maxRetries > 0
-            ? controller.submit(suppliedTask, Math.max(0, maxRetries))
+            ? controller.submit(suppliedTask, maxRetries)
             : controller.submit(suppliedTask);
     return this;
   }
@@ -247,7 +159,7 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
 
   @Override
   public HttpRequest toHttpRequest() {
-    return requestBuilder.queryAddress(toURI()).buildRequest();
+    return requestBuilder.queryAddress(toURI()).build();
   }
 
   /**
@@ -278,7 +190,7 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
   public BraveSpellcheckQuery reset() {
     currentResponse = null;
     maxRetries = 0;
-    requestBuilder.clearBuilder();
+    requestBuilder.clear();
     return super.clear();
   }
 }

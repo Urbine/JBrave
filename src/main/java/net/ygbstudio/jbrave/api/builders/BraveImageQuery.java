@@ -20,7 +20,6 @@
 
 package net.ygbstudio.jbrave.api.builders;
 
-import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Objects;
@@ -30,15 +29,15 @@ import net.ygbstudio.jbrave.api.filters.SafeSearch;
 import net.ygbstudio.jbrave.api.options.Country;
 import net.ygbstudio.jbrave.api.options.SearchLanguage;
 import net.ygbstudio.jbrave.api.response.ImageSearchApiResponse;
-import net.ygbstudio.jbrave.core.builders.AbstractBraveRequestBuilder;
 import net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder;
-import net.ygbstudio.jbrave.core.domain.SearchHeader;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalRequest;
+import net.ygbstudio.jbrave.core.builders.BraveVerticalSearchRequest;
+import net.ygbstudio.jbrave.core.builders.VerticalHeaderBuilder;
 import net.ygbstudio.jbrave.core.domain.provided.CountryIdentifier;
 import net.ygbstudio.jbrave.core.domain.provided.LanguageIdentifier;
 import net.ygbstudio.jbrave.core.domain.verticals.BraveResource;
 import net.ygbstudio.jbrave.core.executors.BraveExecutionGate;
 import net.ygbstudio.jbrave.core.local.ClientInfo;
-import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import net.ygbstudio.jbrave.core.model.SearchOptions;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -46,104 +45,16 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A builder for constructing Brave Image Search API queries.
  *
- * <p>This class is specifically designed for constructing Brave Image Search API queries, and is
- * not intended to be instantiated directly. Instead, use the {@link #builder()} method to create a
- * new instance of the builder.
+ * <p>The builder is not thread-safe and is intended for single-threaded use. It is stateful and
+ * reusable: call {@link #reset()} to clear its internal state before reusing it.
  *
- * <p>The builder is not thread-safe and not intended to be instantiated directly, instead use the
- * {@link #builder()} method to create a new instance of the builder. Also note that this builder is
- * stateful, reusable builder intended for single-threaded use.
- *
- * <p>Method {@link #reset()} will clear the internal state of the builder and must be called before
- * reusing.
+ * <p>Builders are not intended to be instantiated directly; use the {@link #builder()} factory
+ * method to create a new instance.
  */
 public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQuery>
     implements BraveQueryBuilder<BraveImageQuery, ImageSearchApiResponse> {
 
-  public static final class BraveRequestBuilder
-      extends AbstractBraveRequestBuilder<BraveImageQuery.BraveRequestBuilder> {
-
-    private BraveRequestBuilder() {}
-
-    /**
-     * Creates a new instance of {@link BraveImageQuery.BraveRequestBuilder}.
-     *
-     * @return a new instance of {@link BraveImageQuery.BraveRequestBuilder}
-     */
-    private static BraveImageQuery.BraveRequestBuilder builder() {
-      return new BraveImageQuery.BraveRequestBuilder().clear();
-    }
-
-    /**
-     * Sets the URI for the request.
-     *
-     * @param query the URI for the request
-     */
-    private BraveImageQuery.BraveRequestBuilder queryAddress(URI query) {
-      queryURI(query);
-      return this;
-    }
-
-    /**
-     * Adds a custom header to the client.
-     *
-     * @param searchHeader the header to be added
-     * @param headerValue the value of the header
-     */
-    private <K extends SearchHeader> void addCustomHeader(K searchHeader, String headerValue) {
-      addHeader(searchHeader, headerValue);
-    }
-
-    /**
-     * Adds a user agent header to the request.
-     *
-     * @param userAgent the user agent value to set
-     * @return the current instance of {@link BraveImageQuery.BraveRequestBuilder}
-     */
-    public BraveImageQuery.BraveRequestBuilder withUserAgent(String userAgent) {
-      addCustomHeader(BraveHeaders.USER_AGENT, userAgent);
-      return this;
-    }
-
-    /**
-     * Adds a cache control header to the request.
-     *
-     * @param cacheControl the cache control value to set
-     * @return the current instance of {@link BraveImageQuery.BraveRequestBuilder}
-     */
-    public BraveImageQuery.BraveRequestBuilder withCacheControl(String cacheControl) {
-      addCustomHeader(BraveHeaders.CACHE_CONTROL, cacheControl);
-      return this;
-    }
-
-    /**
-     * Adds an API version header to the request.
-     *
-     * @param apiVersion the API version value to set
-     * @return the current instance of {@link BraveImageQuery.BraveRequestBuilder}
-     */
-    public BraveImageQuery.BraveRequestBuilder withApiVersion(String apiVersion) {
-      addCustomHeader(BraveHeaders.API_VERSION, apiVersion);
-      return this;
-    }
-
-    /**
-     * Builds the request using the current state of the builder.
-     *
-     * @return the built {@link HttpRequest}
-     */
-    private HttpRequest buildRequest() {
-      return super.build();
-    }
-
-    /** Clears the request builder, resetting it to its initial state. */
-    private void clearBuilder() {
-      super.clear();
-    }
-  }
-
-  private final BraveImageQuery.BraveRequestBuilder requestBuilder =
-      BraveImageQuery.BraveRequestBuilder.builder();
+  private final BraveVerticalSearchRequest requestBuilder = BraveVerticalSearchRequest.builder();
   private BraveExecutionGate controller;
   private HttpResponse<String> currentResponse;
   private int maxRetries = 0;
@@ -151,7 +62,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   private BraveImageQuery() {}
 
   /**
-   * Returns a new instance of {@link BraveImageQuery}
+   * Creates a new instance of {@link BraveImageQuery}.
    *
    * @return a new instance of {@link BraveImageQuery}
    */
@@ -233,20 +144,20 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   @Contract("_ -> this")
   public BraveImageQuery withToken(@NotNull ClientInfo clientInfo) {
     if (controller == null) controller = clientInfo.requestGate();
-    requestBuilder.addCustomHeader(BraveHeaders.SUBSCRIPTION_TOKEN, clientInfo.subscriptionToken());
+    requestBuilder.withToken(clientInfo.subscriptionToken());
     return this;
   }
 
   /**
    * Sets the request headers using the provided consumer.
    *
-   * @param headers a consumer that accepts an inner request builder instance and applies
-   *     preconfigured headers to it via helper methods.
+   * @param headers a consumer that receives a {@link VerticalHeaderBuilder} and applies the
+   *     request's headers to it
    * @return the current instance of {@link BraveImageQuery}
    */
   @Contract("_ -> this")
   public BraveImageQuery withHeaders(
-      @NotNull Consumer<BraveImageQuery.BraveRequestBuilder> headers) {
+      @NotNull Consumer<VerticalHeaderBuilder<BraveVerticalRequest>> headers) {
     headers.accept(requestBuilder);
     return this;
   }
@@ -265,16 +176,11 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
     return this;
   }
 
-  /**
-   * Executes the request and returns response of string.
-   *
-   * @return an optional response to the request
-   */
   public BraveImageQuery execute() {
-    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).buildRequest();
+    HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).build();
     currentResponse =
         maxRetries > 0
-            ? controller.submit(suppliedTask, Math.max(0, maxRetries))
+            ? controller.submit(suppliedTask, maxRetries)
             : controller.submit(suppliedTask);
     return this;
   }
@@ -289,7 +195,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
    * @return the {@link HttpRequest} instance representing the current query
    */
   public HttpRequest toHttpRequest() {
-    return requestBuilder.queryAddress(toURI()).buildRequest();
+    return requestBuilder.queryAddress(toURI()).build();
   }
 
   @Override
@@ -320,7 +226,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
   public BraveImageQuery reset() {
     currentResponse = null;
     maxRetries = 0;
-    requestBuilder.clearBuilder();
+    requestBuilder.clear();
     return super.clear();
   }
 }
