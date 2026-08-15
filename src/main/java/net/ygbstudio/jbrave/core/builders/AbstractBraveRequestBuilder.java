@@ -113,7 +113,7 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
    *
    * @return the current builder instance
    */
-  protected final T clear() {
+  public final T clear() {
     headers = new HashSet<>();
     internalRequestBuilder = HttpRequest.newBuilder();
     requestURI = null;
@@ -126,7 +126,7 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
    *
    * @return the current builder instance
    */
-  protected final T clearRetainURI() {
+  public final T clearRetainURI() {
     headers = new HashSet<>();
     internalRequestBuilder = HttpRequest.newBuilder();
     headersAttached = false;
@@ -142,7 +142,7 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
    * @return the built {@link HttpRequest}
    * @throws MissingSubscriptionTokenException if the subscription token header is missing
    */
-  protected final HttpRequest build() {
+  public final HttpRequest build() {
     attachHeaders();
     if (subscriptionMissing()) {
       throw new MissingSubscriptionTokenException(
