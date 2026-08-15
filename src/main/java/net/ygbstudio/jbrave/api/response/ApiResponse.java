@@ -21,10 +21,17 @@
 package net.ygbstudio.jbrave.api.response;
 
 import java.io.File;
+import java.io.Reader;
+import java.net.http.HttpResponse;
+import net.ygbstudio.jbrave.core.utils.JsonSupport;
+import org.jetbrains.annotations.NotNull;
 
 /**
- * This marker interface represents the API response objects from the Brave Search API. Implementing
- * classes are meant to be deserialised and served as Plain Old Java Objects (POJOs).
+ * Represents a response from the Brave Search API.
+ *
+ * <p>Each implementation corresponds to a search vertical (Web, Image, News, Video, Spellcheck, and
+ * Suggest) or to an API error. Responses are deserialized from JSON with the {@code from} methods
+ * and serialized back to JSON with {@link #toJson()} and {@link #write(java.io.File)}.
  */
 public sealed interface ApiResponse
     permits WebSearchApiResponse,
@@ -40,12 +47,65 @@ public sealed interface ApiResponse
    *
    * @return a JSON string representation of the response object.
    */
-  String toJson();
+  default String toJson() {
+    return JsonSupport.toJsonString(this);
+  }
 
   /**
    * Writes the response object to a file on the filesystem.
    *
-   * @param file the file to write the response object to.
+   * @param target the file to write the response object to.
    */
-  void write(File file);
+  default void write(File target) {
+    JsonSupport.writeJsonFs(target, this);
+  }
+
+  /**
+   * Deserializes an API response from a JSON file.
+   *
+   * @param <T> the type of the API response
+   * @param dataFile the file containing the JSON response data
+   * @param clazz the API response class to deserialize into
+   * @return the deserialized response
+   */
+  static <T extends ApiResponse> T from(File dataFile, Class<T> clazz) {
+    return JsonSupport.readJsonFs(dataFile, clazz);
+  }
+
+  /**
+   * Deserializes an API response from a JSON string.
+   *
+   * @param <T> the type of the API response
+   * @param dataString the string containing the JSON response data
+   * @param clazz the API response class to deserialize into
+   * @return the deserialized response
+   */
+  static <T extends ApiResponse> T from(String dataString, Class<T> clazz) {
+    return JsonSupport.objectFromJson(dataString, clazz);
+  }
+
+  /**
+   * Deserializes an API response from a JSON reader.
+   *
+   * @param <T> the type of the API response
+   * @param dataReader the reader supplying the JSON response data
+   * @param clazz the API response class to deserialize into
+   * @return the deserialized response
+   */
+  static <T extends ApiResponse> T from(Reader dataReader, Class<T> clazz) {
+    return JsonSupport.jsonReader(dataReader, clazz);
+  }
+
+  /**
+   * Deserializes an API response from the body of an HTTP response.
+   *
+   * @param <T> the type of the API response
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @param clazz the API response class to deserialize into
+   * @return the deserialized response
+   */
+  static <T extends ApiResponse> T from(
+      @NotNull HttpResponse<String> dataResponse, Class<T> clazz) {
+    return from(dataResponse.body(), clazz);
+  }
 }
