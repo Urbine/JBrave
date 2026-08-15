@@ -26,7 +26,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.OriginalQuery;
 import net.ygbstudio.jbrave.core.domain.dto.result.SpellCheckResult;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -47,26 +46,18 @@ public record SpellcheckSearchApiResponse(
     String type, OriginalQuery query, List<SpellCheckResult> results) implements ApiResponse {
 
   public static SpellcheckSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, SpellcheckSearchApiResponse.class);
+    return ApiResponse.from(dataFile, SpellcheckSearchApiResponse.class);
   }
 
   public static SpellcheckSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, SpellcheckSearchApiResponse.class);
+    return ApiResponse.from(dataString, SpellcheckSearchApiResponse.class);
   }
 
   public static SpellcheckSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, SpellcheckSearchApiResponse.class);
+    return ApiResponse.from(dataReader, SpellcheckSearchApiResponse.class);
   }
 
   public static SpellcheckSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }

@@ -27,7 +27,6 @@ import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.Extra;
 import net.ygbstudio.jbrave.core.domain.dto.Query;
 import net.ygbstudio.jbrave.core.domain.dto.result.VideoResult;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -49,26 +48,18 @@ public record VideoSearchApiResponse(
     String type, Query query, List<VideoResult> results, Extra extra) implements ApiResponse {
 
   public static VideoSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, VideoSearchApiResponse.class);
+    return ApiResponse.from(dataFile, VideoSearchApiResponse.class);
   }
 
   public static VideoSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, VideoSearchApiResponse.class);
+    return ApiResponse.from(dataString, VideoSearchApiResponse.class);
   }
 
   public static VideoSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, VideoSearchApiResponse.class);
+    return ApiResponse.from(dataReader, VideoSearchApiResponse.class);
   }
 
   public static VideoSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }

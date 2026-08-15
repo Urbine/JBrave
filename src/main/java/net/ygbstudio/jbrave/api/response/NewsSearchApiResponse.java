@@ -26,7 +26,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.Query;
 import net.ygbstudio.jbrave.core.domain.dto.result.NewsResult;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -47,26 +46,18 @@ public record NewsSearchApiResponse(String type, Query query, List<NewsResult> r
     implements ApiResponse {
 
   public static NewsSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, NewsSearchApiResponse.class);
+    return ApiResponse.from(dataFile, NewsSearchApiResponse.class);
   }
 
   public static NewsSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, NewsSearchApiResponse.class);
+    return ApiResponse.from(dataString, NewsSearchApiResponse.class);
   }
 
   public static NewsSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, NewsSearchApiResponse.class);
+    return ApiResponse.from(dataReader, NewsSearchApiResponse.class);
   }
 
   public static NewsSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }

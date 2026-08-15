@@ -24,7 +24,6 @@ import java.io.File;
 import java.io.Reader;
 import java.net.http.HttpResponse;
 import net.ygbstudio.jbrave.core.domain.dto.error.ApiErrorModel;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -44,26 +43,18 @@ import org.jetbrains.annotations.NotNull;
 public record ErrorResponse(String type, ApiErrorModel error, Integer time) implements ApiResponse {
 
   public static ErrorResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, ErrorResponse.class);
+    return ApiResponse.from(dataFile, ErrorResponse.class);
   }
 
   public static ErrorResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, ErrorResponse.class);
+    return ApiResponse.from(dataString, ErrorResponse.class);
   }
 
   public static ErrorResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, ErrorResponse.class);
+    return ApiResponse.from(dataReader, ErrorResponse.class);
   }
 
   public static ErrorResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }

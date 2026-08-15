@@ -26,7 +26,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.OriginalQuery;
 import net.ygbstudio.jbrave.core.domain.dto.result.SuggestResult;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -47,26 +46,18 @@ public record SuggestSearchApiResponse(
     String type, OriginalQuery query, List<SuggestResult> results) implements ApiResponse {
 
   public static SuggestSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, SuggestSearchApiResponse.class);
+    return ApiResponse.from(dataFile, SuggestSearchApiResponse.class);
   }
 
   public static SuggestSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, SuggestSearchApiResponse.class);
+    return ApiResponse.from(dataString, SuggestSearchApiResponse.class);
   }
 
   public static SuggestSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, SuggestSearchApiResponse.class);
+    return ApiResponse.from(dataReader, SuggestSearchApiResponse.class);
   }
 
   public static SuggestSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }

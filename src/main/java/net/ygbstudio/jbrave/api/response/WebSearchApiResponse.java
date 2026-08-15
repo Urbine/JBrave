@@ -36,7 +36,6 @@ import net.ygbstudio.jbrave.core.domain.dto.result.search.Search;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.Summarizer;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.Videos;
 import net.ygbstudio.jbrave.core.domain.dto.result.search.WebQuery;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -79,26 +78,18 @@ public record WebSearchApiResponse(
     implements ApiResponse {
 
   public static WebSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, WebSearchApiResponse.class);
+    return ApiResponse.from(dataFile, WebSearchApiResponse.class);
   }
 
   public static WebSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, WebSearchApiResponse.class);
+    return ApiResponse.from(dataString, WebSearchApiResponse.class);
   }
 
   public static WebSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, WebSearchApiResponse.class);
+    return ApiResponse.from(dataReader, WebSearchApiResponse.class);
   }
 
   public static WebSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }

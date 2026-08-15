@@ -27,7 +27,6 @@ import java.util.List;
 import net.ygbstudio.jbrave.core.domain.dto.Extra;
 import net.ygbstudio.jbrave.core.domain.dto.image.ImageQuery;
 import net.ygbstudio.jbrave.core.domain.dto.image.ImageResult;
-import net.ygbstudio.jbrave.core.utils.JsonSupport;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -51,26 +50,18 @@ public record ImageSearchApiResponse(
     String type, ImageQuery query, List<ImageResult> results, Extra extra) implements ApiResponse {
 
   public static ImageSearchApiResponse from(File dataFile) {
-    return JsonSupport.readJsonFs(dataFile, ImageSearchApiResponse.class);
+    return ApiResponse.from(dataFile, ImageSearchApiResponse.class);
   }
 
   public static ImageSearchApiResponse from(String dataString) {
-    return JsonSupport.objectFromJson(dataString, ImageSearchApiResponse.class);
+    return ApiResponse.from(dataString, ImageSearchApiResponse.class);
   }
 
   public static ImageSearchApiResponse from(Reader dataReader) {
-    return JsonSupport.jsonReader(dataReader, ImageSearchApiResponse.class);
+    return ApiResponse.from(dataReader, ImageSearchApiResponse.class);
   }
 
   public static ImageSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
-  }
-
-  public void write(File target) {
-    JsonSupport.writeJsonFs(target, this);
-  }
-
-  public String toJson() {
-    return JsonSupport.toJsonString(this);
   }
 }
