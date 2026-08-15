@@ -21,10 +21,24 @@
 package net.ygbstudio.jbrave.core.builders;
 
 import java.net.URI;
+import java.net.http.HttpRequest;
 import java.time.ZoneId;
 import net.ygbstudio.jbrave.core.model.BraveHeaders;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Builds a Brave web search request.
+ *
+ * <p>It configures the request URI and the request headers (user agent, cache control, API version,
+ * subscription token, and the geolocation headers) and builds the underlying {@link HttpRequest}.
+ *
+ * <p>Clients typically configure web search requests through {@code BraveWebQuery}'s {@code
+ * withHeaders} consumer, which receives this builder as a {@link WebHeaderBuilder} typed with
+ * {@link BraveWebRequest}.
+ *
+ * <p>Instances are created with {@link #builder()} and can be reused after calling {@link
+ * #clear()}.
+ */
 public final class BraveWebSearchRequest extends AbstractBraveRequestBuilder<BraveWebSearchRequest>
     implements BraveWebRequest {
 
@@ -42,10 +56,11 @@ public final class BraveWebSearchRequest extends AbstractBraveRequestBuilder<Bra
   /**
    * Sets the URI for the request.
    *
-   * @param query the URI for the request
+   * @param uri the request URI
+   * @return the current instance of {@link BraveWebSearchRequest}
    */
-  public BraveWebSearchRequest queryAddress(URI query) {
-    return queryURI(query);
+  public BraveWebSearchRequest queryAddress(URI uri) {
+    return queryURI(uri);
   }
 
   /**
