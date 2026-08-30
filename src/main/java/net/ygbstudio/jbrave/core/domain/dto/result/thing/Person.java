@@ -47,9 +47,13 @@ public final class Person extends Thing {
   }
 
   /** Builder class for Person. */
+  /** Builder for {@link Person} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends Thing.Builder {
     private String email;
+
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
 
     /**
      * Sets the email address of the person.

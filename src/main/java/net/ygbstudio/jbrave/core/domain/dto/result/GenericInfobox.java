@@ -39,27 +39,53 @@ public final class GenericInfobox extends AbstractGraphInfobox {
   private final String subType;
   private final List<String> foundInUrls;
 
+  /**
+   * Creates a new generic infobox from the given builder.
+   *
+   * @param builder the builder carrying the infobox fields
+   */
   private GenericInfobox(Builder builder) {
     super(builder);
     this.subType = builder.subType;
     this.foundInUrls = builder.foundInUrls;
   }
 
+  /** Builder for {@link GenericInfobox} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends AbstractGraphInfobox.Builder {
     private String subType;
     private List<String> foundInUrls;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the infobox subtype.
+     *
+     * @param subType the subtype
+     * @return this builder
+     */
     public Builder subType(String subType) {
       this.subType = subType;
       return this;
     }
 
+    /**
+     * Sets the URLs where this infobox was found.
+     *
+     * @param foundInUrls the found-in URLs
+     * @return this builder
+     */
     public Builder foundInUrls(List<String> foundInUrls) {
       this.foundInUrls = foundInUrls;
       return this;
     }
 
+    /**
+     * Builds a new {@link GenericInfobox} from the current builder state.
+     *
+     * @return a new {@code GenericInfobox} instance
+     */
     @Contract(" -> new")
     @Override
     public @NotNull GenericInfobox build() {
@@ -67,10 +93,20 @@ public final class GenericInfobox extends AbstractGraphInfobox {
     }
   }
 
+  /**
+   * Returns the infobox subtype.
+   *
+   * @return the subtype
+   */
   public String getSubType() {
     return subType;
   }
 
+  /**
+   * Returns the URLs where this infobox was found.
+   *
+   * @return the found-in URLs
+   */
   public List<String> getFoundInUrls() {
     return foundInUrls;
   }

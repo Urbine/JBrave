@@ -42,6 +42,11 @@ public final class InfoboxWithLocation extends AbstractGraphInfobox {
   private final Integer zoomLevel;
   private final LocationResult location;
 
+  /**
+   * Creates a new location infobox from the given builder.
+   *
+   * @param builder the builder carrying the infobox fields
+   */
   private InfoboxWithLocation(Builder builder) {
     super(builder);
     this.subType = builder.subType;
@@ -51,6 +56,7 @@ public final class InfoboxWithLocation extends AbstractGraphInfobox {
     this.location = builder.location;
   }
 
+  /** Builder for {@link InfoboxWithLocation} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends AbstractGraphInfobox.Builder {
     private String subType;
@@ -59,31 +65,69 @@ public final class InfoboxWithLocation extends AbstractGraphInfobox {
     private Integer zoomLevel;
     private LocationResult location;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the infobox subtype.
+     *
+     * @param subType the subtype
+     * @return this builder
+     */
     public Builder subType(String subType) {
       this.subType = subType;
       return this;
     }
 
+    /**
+     * Sets whether this is a location.
+     *
+     * @param isLocation {@code true} if this is a location
+     * @return this builder
+     */
     public Builder isLocation(Boolean isLocation) {
       this.isLocation = isLocation;
       return this;
     }
 
+    /**
+     * Sets the coordinates.
+     *
+     * @param coordinates the coordinates
+     * @return this builder
+     */
     public Builder coordinates(List<Double> coordinates) {
       this.coordinates = coordinates;
       return this;
     }
 
+    /**
+     * Sets the zoom level.
+     *
+     * @param zoomLevel the zoom level
+     * @return this builder
+     */
     public Builder zoomLevel(Integer zoomLevel) {
       this.zoomLevel = zoomLevel;
       return this;
     }
 
+    /**
+     * Sets the location.
+     *
+     * @param location the location
+     * @return this builder
+     */
     public Builder location(LocationResult location) {
       this.location = location;
       return this;
     }
 
+    /**
+     * Builds a new {@link InfoboxWithLocation} from the current builder state.
+     *
+     * @return a new {@code InfoboxWithLocation} instance
+     */
     @Contract(" -> new")
     @Override
     public @NotNull InfoboxWithLocation build() {
@@ -91,18 +135,38 @@ public final class InfoboxWithLocation extends AbstractGraphInfobox {
     }
   }
 
+  /**
+   * Returns the infobox subtype.
+   *
+   * @return the subtype
+   */
   public String getSubType() {
     return subType;
   }
 
+  /**
+   * Returns whether this is a location.
+   *
+   * @return whether this is a location
+   */
   public Boolean getIsLocation() {
     return isLocation;
   }
 
+  /**
+   * Returns the coordinates.
+   *
+   * @return the coordinates
+   */
   public List<Double> getCoordinates() {
     return coordinates;
   }
 
+  /**
+   * Returns the zoom level.
+   *
+   * @return the zoom level
+   */
   public Integer getZoomLevel() {
     return zoomLevel;
   }

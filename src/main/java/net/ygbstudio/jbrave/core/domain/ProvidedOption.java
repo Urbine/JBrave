@@ -33,8 +33,15 @@ import net.ygbstudio.jbrave.core.model.SearchOptionCarrier;
  * @see SearchOption
  */
 public non-sealed interface ProvidedOption extends SearchOption {
+  /** The URL parameter name for the units option ({@code "units"}). */
   String UNITS = "units";
 
+  /**
+   * Converts this search option to a {@link SearchOptionCarrier} that can be used to build a URL
+   * parameter.
+   *
+   * @return a {@link SearchOptionCarrier} representing this search option
+   */
   /**
    * Converts this search option to a {@link SearchOptionCarrier} that can be used to build a URL
    * parameter.

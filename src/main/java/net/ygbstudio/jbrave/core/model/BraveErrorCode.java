@@ -28,15 +28,34 @@ package net.ygbstudio.jbrave.core.model;
  * @author Yoham Gabriel @ YGB Studio
  */
 public enum BraveErrorCode {
+  /** An internal server error. */
   INTERNAL,
+
+  /** The request quota for the current period has been exhausted. */
   QUOTA_LIMITED,
+
+  /** The request was rate-limited; the client should honor the {@code X-RateLimit-Reset} window. */
   RATE_LIMITED,
+
+  /** The provided subscription token is not valid. */
   SUBSCRIPTION_TOKEN_INVALID,
+
+  /** The subscription token does not match any active subscription. */
   SUBSCRIPTION_NOT_FOUND,
+
+  /** The requested resource is not allowed under the current subscription plan. */
   RESOURCE_NOT_ALLOWED,
+
+  /** The requested option is not included in the current subscription plan. */
   OPTION_NOT_IN_PLAN,
+
+  /** The usage limit for the current subscription has been exceeded. */
   USAGE_LIMIT_EXCEEDED,
+
+  /** The request contained an invalid URL parameter. */
   INVALID_URL,
+
+  /** The request failed request-body validation. */
   VALIDATION;
 
   @Override

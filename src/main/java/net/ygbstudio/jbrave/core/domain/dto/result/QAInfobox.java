@@ -41,6 +41,11 @@ public final class QAInfobox extends AbstractGraphInfobox {
   private final QAPage data;
   private final MetaUrl metaUrl;
 
+  /**
+   * Creates a new QA infobox from the given builder.
+   *
+   * @param builder the builder carrying the infobox fields
+   */
   public QAInfobox(Builder builder) {
     super(builder);
     this.subType = builder.subType;
@@ -48,27 +53,54 @@ public final class QAInfobox extends AbstractGraphInfobox {
     this.metaUrl = builder.metaUrl;
   }
 
+  /** Builder for {@link QAInfobox} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends AbstractGraphInfobox.Builder {
     private String subType;
     private QAPage data;
     private MetaUrl metaUrl;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the infobox subtype.
+     *
+     * @param subType the subtype
+     * @return this builder
+     */
     public Builder subType(String subType) {
       this.subType = subType;
       return this;
     }
 
+    /**
+     * Sets the Q&amp;A page data.
+     *
+     * @param data the Q&amp;A page data
+     * @return this builder
+     */
     public Builder data(QAPage data) {
       this.data = data;
       return this;
     }
 
+    /**
+     * Sets the meta URL.
+     *
+     * @param metaUrl the meta URL
+     * @return this builder
+     */
     public Builder metaUrl(MetaUrl metaUrl) {
       this.metaUrl = metaUrl;
       return this;
     }
 
+    /**
+     * Builds a new {@link QAInfobox} from the current builder state.
+     *
+     * @return a new {@code QAInfobox} instance
+     */
     @Contract(" -> new")
     @Override
     public @NotNull QAInfobox build() {
@@ -76,14 +108,29 @@ public final class QAInfobox extends AbstractGraphInfobox {
     }
   }
 
+  /**
+   * Returns the infobox subtype.
+   *
+   * @return the subtype
+   */
   public String getSubType() {
     return subType;
   }
 
+  /**
+   * Returns the Q&amp;A page data.
+   *
+   * @return the Q&amp;A page data
+   */
   public QAPage getData() {
     return data;
   }
 
+  /**
+   * Returns the meta URL.
+   *
+   * @return the meta URL
+   */
   public MetaUrl getMetaUrl() {
     return metaUrl;
   }

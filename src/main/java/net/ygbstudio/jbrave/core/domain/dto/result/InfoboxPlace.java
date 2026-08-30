@@ -29,9 +29,9 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 import tools.jackson.databind.annotation.JsonPOJOBuilder;
 
 /**
- * Represents an infobox for a place in search results. This class provides
+ * Represents an infobox for a place in search results.
  *
- * <p>structured information about places in the Brave Search API results.
+ * <p>Provides structured information about places in the Brave Search API results.
  */
 @JsonDeserialize(builder = InfoboxPlace.Builder.class)
 @JsonTypeName(value = "place")
@@ -39,27 +39,53 @@ public final class InfoboxPlace extends AbstractGraphInfobox {
   private final String subType;
   private final LocationResult location;
 
+  /**
+   * Creates a new place infobox from the given builder.
+   *
+   * @param builder the builder carrying the infobox fields
+   */
   private InfoboxPlace(Builder builder) {
     super(builder);
     this.subType = builder.subType;
     this.location = builder.location;
   }
 
+  /** Builder for {@link InfoboxPlace} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends AbstractGraphInfobox.Builder {
     private String subType;
     private LocationResult location;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the place subtype.
+     *
+     * @param subType the subtype
+     * @return this builder
+     */
     public Builder subType(String subType) {
       this.subType = subType;
       return this;
     }
 
+    /**
+     * Sets the location.
+     *
+     * @param location the location
+     * @return this builder
+     */
     public Builder location(LocationResult location) {
       this.location = location;
       return this;
     }
 
+    /**
+     * Builds a new {@link InfoboxPlace} from the current builder state.
+     *
+     * @return a new {@code InfoboxPlace} instance
+     */
     @Contract(" -> new")
     @Override
     public @NotNull InfoboxPlace build() {
@@ -67,10 +93,20 @@ public final class InfoboxPlace extends AbstractGraphInfobox {
     }
   }
 
+  /**
+   * Returns the place subtype.
+   *
+   * @return the subtype
+   */
   public String getSubType() {
     return subType;
   }
 
+  /**
+   * Returns the location.
+   *
+   * @return the location
+   */
   public LocationResult getLocation() {
     return location;
   }

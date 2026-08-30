@@ -116,10 +116,20 @@ public class ClientInfo {
     return fromEnvironment(LocalEnvironment.BRAVE_SUBSCRIPTION_TOKEN);
   }
 
+  /**
+   * Returns the subscription token associated with this client.
+   *
+   * @return the subscription token
+   */
   public String subscriptionToken() {
     return subscriptionToken;
   }
 
+  /**
+   * Returns the execution gate that serializes and rate-limits requests for this client's token.
+   *
+   * @return the execution gate bound to this client
+   */
   public BraveExecutionGate requestGate() {
     return requestGate;
   }

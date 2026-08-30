@@ -44,6 +44,11 @@ public final class NewsResult extends Result {
   private final String age;
   private final List<String> extraSnippets;
 
+  /**
+   * Creates a new news result from the given builder.
+   *
+   * @param builder the builder carrying the news fields
+   */
   public NewsResult(@NotNull Builder builder) {
     super(builder);
     this.metaUrl = builder.metaUrl;
@@ -55,6 +60,7 @@ public final class NewsResult extends Result {
     this.extraSnippets = builder.extraSnippets;
   }
 
+  /** Builder for {@link NewsResult} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends Result.Builder {
     private MetaUrl metaUrl;
@@ -65,41 +71,91 @@ public final class NewsResult extends Result {
     private String age;
     private List<String> extraSnippets;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the meta URL.
+     *
+     * @param metaUrl the meta URL
+     * @return this builder
+     */
     public Builder metaUrl(MetaUrl metaUrl) {
       this.metaUrl = metaUrl;
       return this;
     }
 
+    /**
+     * Sets the source.
+     *
+     * @param source the source
+     * @return this builder
+     */
     public Builder source(String source) {
       this.source = source;
       return this;
     }
 
+    /**
+     * Sets whether the news is breaking.
+     *
+     * @param breaking {@code true} if breaking
+     * @return this builder
+     */
     public Builder breaking(Boolean breaking) {
       this.breaking = breaking;
       return this;
     }
 
+    /**
+     * Sets whether the news is live.
+     *
+     * @param isLive {@code true} if live
+     * @return this builder
+     */
     public Builder isLive(Boolean isLive) {
       this.isLive = isLive;
       return this;
     }
 
+    /**
+     * Sets the thumbnail.
+     *
+     * @param thumbnail the thumbnail
+     * @return this builder
+     */
     public Builder thumbnail(Thumbnail thumbnail) {
       this.thumbnail = thumbnail;
       return this;
     }
 
+    /**
+     * Sets the age of the news.
+     *
+     * @param age the age
+     * @return this builder
+     */
     public Builder age(String age) {
       this.age = age;
       return this;
     }
 
+    /**
+     * Sets the extra snippets.
+     *
+     * @param extraSnippets the extra snippets
+     * @return this builder
+     */
     public Builder extraSnippets(List<String> extraSnippets) {
       this.extraSnippets = extraSnippets;
       return this;
     }
 
+    /**
+     * Builds a new {@link NewsResult} from the current builder state.
+     *
+     * @return a new {@code NewsResult} instance
+     */
     @Override
     @Contract(" -> new")
     public @NotNull NewsResult build() {
@@ -107,30 +163,65 @@ public final class NewsResult extends Result {
     }
   }
 
+  /**
+   * Returns the meta URL.
+   *
+   * @return the meta URL
+   */
   public MetaUrl metaUrl() {
     return metaUrl;
   }
 
+  /**
+   * Returns the source.
+   *
+   * @return the source
+   */
   public String source() {
     return source;
   }
 
+  /**
+   * Returns whether the news is breaking.
+   *
+   * @return whether the news is breaking
+   */
   public Boolean breaking() {
     return breaking;
   }
 
+  /**
+   * Returns whether the news is live.
+   *
+   * @return whether the news is live
+   */
   public Boolean isLive() {
     return isLive;
   }
 
+  /**
+   * Returns the thumbnail.
+   *
+   * @return the thumbnail
+   */
   public Thumbnail thumbnail() {
     return thumbnail;
   }
 
+  /**
+   * Returns the age of the news.
+   *
+   * @return the age
+   */
   public String age() {
     return age;
   }
 
+  /**
+   * Returns the extra snippets.
+   *
+   * @return the extra snippets
+   */
   public List<String> extraSnippets() {
     return extraSnippets;
   }

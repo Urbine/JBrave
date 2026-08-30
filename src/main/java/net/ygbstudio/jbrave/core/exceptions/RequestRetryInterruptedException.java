@@ -30,6 +30,12 @@ import org.jetbrains.annotations.NotNull;
  */
 public class RequestRetryInterruptedException extends BraveClientException {
 
+  /**
+   * Creates a new instance with the given detail message and cause.
+   *
+   * @param errorMessageSupplier the detail message
+   * @param cause the cause of the exception
+   */
   public RequestRetryInterruptedException(@NotNull String errorMessageSupplier, Throwable cause) {
     super(errorMessageSupplier, cause);
   }

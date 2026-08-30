@@ -30,11 +30,22 @@ import org.jetbrains.annotations.NotNull;
  * @see SearchVertical
  */
 public enum BraveResource implements SearchVertical {
+  /** The web search resource. */
   WEB("web"),
+
+  /** The image search resource. */
   IMAGE("images"),
+
+  /** The video search resource. */
   VIDEO("videos"),
+
+  /** The news search resource. */
   NEWS("news"),
+
+  /** The query suggestion (autocomplete) resource. */
   SUGGEST("suggest"),
+
+  /** The spellcheck resource. */
   SPELLCHECK("spellcheck");
 
   private final String value;

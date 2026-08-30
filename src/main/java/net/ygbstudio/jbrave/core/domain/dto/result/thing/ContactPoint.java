@@ -36,16 +36,25 @@ public final class ContactPoint extends Thing {
   private final String telephone;
   private final String email;
 
+  /**
+   * Creates a new contact point from the given builder.
+   *
+   * @param builder the builder carrying the contact fields
+   */
   private ContactPoint(@NotNull Builder builder) {
     super(builder);
     this.telephone = builder.telephone;
     this.email = builder.email;
   }
 
+  /** Builder for {@link ContactPoint} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends Thing.Builder {
     private String telephone;
     private String email;
+
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
 
     /**
      * Sets the telephone number for the contact point.

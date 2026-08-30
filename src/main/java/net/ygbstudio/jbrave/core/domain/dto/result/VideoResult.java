@@ -41,6 +41,11 @@ public final class VideoResult extends Result {
   private final Thumbnail thumbnail;
   private final String age;
 
+  /**
+   * Creates a new video result from the given builder.
+   *
+   * @param builder the builder carrying the video fields
+   */
   public VideoResult(@NotNull Builder builder) {
     super(builder);
     this.type = builder.type;
@@ -50,6 +55,7 @@ public final class VideoResult extends Result {
     this.age = builder.age;
   }
 
+  /** Builder for {@link VideoResult} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends Result.Builder {
     private String type;
@@ -58,31 +64,69 @@ public final class VideoResult extends Result {
     private Thumbnail thumbnail;
     private String age;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the video type.
+     *
+     * @param type the video type
+     * @return this builder
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
+    /**
+     * Sets the video data.
+     *
+     * @param video the video data
+     * @return this builder
+     */
     public Builder video(VideoData video) {
       this.video = video;
       return this;
     }
 
+    /**
+     * Sets the meta URL.
+     *
+     * @param metaUrl the meta URL
+     * @return this builder
+     */
     public Builder metaUrl(MetaUrl metaUrl) {
       this.metaUrl = metaUrl;
       return this;
     }
 
+    /**
+     * Sets the thumbnail.
+     *
+     * @param thumbnail the thumbnail
+     * @return this builder
+     */
     public Builder thumbnail(Thumbnail thumbnail) {
       this.thumbnail = thumbnail;
       return this;
     }
 
+    /**
+     * Sets the age of the video.
+     *
+     * @param age the age
+     * @return this builder
+     */
     public Builder age(String age) {
       this.age = age;
       return this;
     }
 
+    /**
+     * Builds a new {@link VideoResult} from the current builder state.
+     *
+     * @return a new {@code VideoResult} instance
+     */
     @Override
     @Contract(" -> new")
     public @NotNull VideoResult build() {
@@ -90,22 +134,47 @@ public final class VideoResult extends Result {
     }
   }
 
+  /**
+   * Returns the video type.
+   *
+   * @return the video type
+   */
   public String type() {
     return type;
   }
 
+  /**
+   * Returns the video data.
+   *
+   * @return the video data
+   */
   public VideoData video() {
     return video;
   }
 
+  /**
+   * Returns the meta URL.
+   *
+   * @return the meta URL
+   */
   public MetaUrl metaUrl() {
     return metaUrl;
   }
 
+  /**
+   * Returns the thumbnail.
+   *
+   * @return the thumbnail
+   */
   public Thumbnail thumbnail() {
     return thumbnail;
   }
 
+  /**
+   * Returns the age of the video.
+   *
+   * @return the age
+   */
   public String age() {
     return age;
   }

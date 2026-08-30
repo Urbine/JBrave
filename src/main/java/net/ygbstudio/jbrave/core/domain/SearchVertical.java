@@ -37,6 +37,7 @@ import org.jetbrains.annotations.NotNull;
  * @see BraveAPIConstant
  */
 public non-sealed interface SearchVertical extends BraveAPIConstant {
+  /** The URL path segment appended after the vertical value ({@code "search"}). */
   String SEARCH_PATH = "search";
 
   /**

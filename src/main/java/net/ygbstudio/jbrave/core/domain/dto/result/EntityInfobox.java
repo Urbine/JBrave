@@ -38,20 +38,40 @@ public final class EntityInfobox extends AbstractGraphInfobox {
 
   private final String subType;
 
+  /**
+   * Creates a new entity infobox from the given builder.
+   *
+   * @param builder the builder carrying the infobox fields
+   */
   private EntityInfobox(Builder builder) {
     super(builder);
     this.subType = builder.subtype;
   }
 
+  /** Builder for {@link EntityInfobox} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends AbstractGraphInfobox.Builder {
     private String subtype;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the entity subtype.
+     *
+     * @param subtype the entity subtype
+     * @return this builder
+     */
     public Builder subtype(String subtype) {
       this.subtype = subtype;
       return this;
     }
 
+    /**
+     * Builds a new {@link EntityInfobox} from the current builder state.
+     *
+     * @return a new {@code EntityInfobox} instance
+     */
     @Contract(" -> new")
     @Override
     public @NotNull EntityInfobox build() {
@@ -59,6 +79,11 @@ public final class EntityInfobox extends AbstractGraphInfobox {
     }
   }
 
+  /**
+   * Returns the entity subtype.
+   *
+   * @return the entity subtype
+   */
   public String getSubType() {
     return subType;
   }

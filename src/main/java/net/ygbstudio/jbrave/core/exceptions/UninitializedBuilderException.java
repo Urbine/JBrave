@@ -30,10 +30,20 @@ import org.jetbrains.annotations.NotNull;
  * inherits from {@link net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder}.
  */
 public class UninitializedBuilderException extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public UninitializedBuilderException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public UninitializedBuilderException(@NotNull Supplier<String> message) {
     super(message.get());
   }

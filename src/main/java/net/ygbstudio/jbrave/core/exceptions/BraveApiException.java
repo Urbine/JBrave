@@ -24,14 +24,24 @@ import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * BraveApiException exist to alert users about known errors that require user attention. In these
+ * BraveApiException exists to alert users about known errors that require user attention. In these
  * cases, JBrave does not handle such errors except for rate limits when handled for autocorrection.
  */
 public class BraveApiException extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public BraveApiException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public BraveApiException(@NotNull Supplier<String> message) {
     super(message.get());
   }

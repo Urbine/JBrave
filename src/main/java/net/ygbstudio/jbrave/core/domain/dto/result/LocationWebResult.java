@@ -37,20 +37,40 @@ public final class LocationWebResult extends Result {
 
   private final MetaUrl metaUrl;
 
+  /**
+   * Creates a new location web result from the given builder.
+   *
+   * @param builder the builder carrying the result fields
+   */
   public LocationWebResult(@NotNull Builder builder) {
     super(builder);
     this.metaUrl = builder.metaUrl;
   }
 
+  /** Builder for {@link LocationWebResult} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends Result.Builder {
     private MetaUrl metaUrl;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the meta URL.
+     *
+     * @param metaUrl the meta URL
+     * @return this builder
+     */
     public Builder metaUrl(MetaUrl metaUrl) {
       this.metaUrl = metaUrl;
       return this;
     }
 
+    /**
+     * Builds a new {@link LocationWebResult} from the current builder state.
+     *
+     * @return a new {@code LocationWebResult} instance
+     */
     @Override
     @Contract(" -> new")
     public @NotNull LocationWebResult build() {
@@ -58,6 +78,11 @@ public final class LocationWebResult extends Result {
     }
   }
 
+  /**
+   * Returns the meta URL.
+   *
+   * @return the meta URL
+   */
   public MetaUrl getMetaUrl() {
     return metaUrl;
   }

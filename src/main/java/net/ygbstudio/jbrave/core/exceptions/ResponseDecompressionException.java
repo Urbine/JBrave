@@ -23,11 +23,26 @@ package net.ygbstudio.jbrave.core.exceptions;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Exception thrown when a compressed HTTP response body cannot be decompressed by JBrave.
+ *
+ * @see BraveClientException
+ */
 public class ResponseDecompressionException extends BraveClientException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public ResponseDecompressionException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public ResponseDecompressionException(@NotNull Supplier<String> message) {
     super(message.get());
   }

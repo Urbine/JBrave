@@ -85,7 +85,7 @@ public final class SearchOperatorBuilder {
   }
 
   /**
-   * Adds a "filetype" operator and its corresponding value to the .
+   * Adds a "filetype" operator and its corresponding value to the builder.
    *
    * @param filetype the file type to search for
    * @return the current instance of the {@link SearchOperatorBuilder} class

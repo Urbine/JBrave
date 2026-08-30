@@ -22,7 +22,10 @@ package net.ygbstudio.jbrave.core.local;
 
 /** Constants for the local environment variables used by the JBrave library. */
 public final class LocalEnvironment {
+  /** Name of the environment variable that holds the Brave subscription token. */
   public static final String BRAVE_SUBSCRIPTION_TOKEN = "BRAVE_SUBSCRIPTION_TOKEN";
+
+  /** Name of the properties-file key that holds the Brave subscription token. */
   public static final String BRAVE_SUBSCRIPTION_PROPERTY = "brave.subscriptionToken";
 
   private LocalEnvironment() {}

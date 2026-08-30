@@ -43,10 +43,24 @@ import org.jetbrains.annotations.NotNull;
  * @param <T> The concrete builder class.
  */
 public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequestBuilder<T>> {
+  /** Headers accumulated for the request before they are attached. */
   protected Set<BraveSearchHeader> headers;
+
+  /** The underlying HTTP request builder. */
   protected HttpRequest.Builder internalRequestBuilder;
+
+  /** The request URI, retained by {@link #clearRetainURI()}. */
   protected URI requestURI;
+
+  /** Whether the accumulated headers have already been attached to the request. */
   protected boolean headersAttached;
+
+  /**
+   * Creates a new abstract request builder with an empty request state.
+   *
+   * <p>Concrete subclasses must call {@link #clear()} to initialize the builder before use.
+   */
+  public AbstractBraveRequestBuilder() {}
 
   /**
    * Returns the current instance of the builder.
@@ -122,7 +136,8 @@ public abstract class AbstractBraveRequestBuilder<T extends AbstractBraveRequest
   }
 
   /**
-   * Clears the request builder, resetting it to its initial state, retaining the provided URI.
+   * Clears the request builder, resetting it to its initial state while retaining the currently set
+   * URI.
    *
    * @return the current builder instance
    */

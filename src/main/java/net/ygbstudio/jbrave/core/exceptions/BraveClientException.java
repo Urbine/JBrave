@@ -28,19 +28,41 @@ import org.jetbrains.annotations.NotNull;
  * internal client. This exception is a runtime exception and it extends {@link RuntimeException}.
  */
 public class BraveClientException extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public BraveClientException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with the given detail message and cause.
+   *
+   * @param message the detail message
+   * @param cause the cause of the exception
+   */
   public BraveClientException(String message, Throwable cause) {
     super(message, cause);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public BraveClientException(@NotNull Supplier<String> message) {
     super(message.get());
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message and a cause.
+   *
+   * @param message a supplier for the detail message
+   * @param cause the cause of the exception
+   */
   public BraveClientException(@NotNull Supplier<String> message, Throwable cause) {
-    super(message.get());
+    super(message.get(), cause);
   }
 }

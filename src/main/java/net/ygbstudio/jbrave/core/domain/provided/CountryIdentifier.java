@@ -34,6 +34,7 @@ import org.jetbrains.annotations.NotNull;
  * @see SearchOption
  */
 public interface CountryIdentifier extends ProvidedOption {
+  /** The URL parameter name for the country option ({@code "country"}). */
   String URL_PARAM = "country";
 
   /**
@@ -41,6 +42,11 @@ public interface CountryIdentifier extends ProvidedOption {
    * URL parameter.
    *
    * @return a {@link SearchOptionCarrier} representing this country identifier
+   */
+  /**
+   * Converts this country identifier to a {@link SearchOptionCarrier} for use in a search request.
+   *
+   * @return the {@link SearchOptionCarrier} representing this country
    */
   SearchOptionCarrier<String> toSearchOption();
 

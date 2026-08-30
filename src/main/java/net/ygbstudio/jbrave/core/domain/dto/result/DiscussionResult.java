@@ -37,20 +37,40 @@ public final class DiscussionResult extends SearchResult {
 
   private final ForumData data;
 
+  /**
+   * Creates a new discussion result from the given builder.
+   *
+   * @param builder the builder carrying the discussion fields
+   */
   public DiscussionResult(@NotNull Builder builder) {
     super(builder);
     this.data = builder.data;
   }
 
+  /** Builder for {@link DiscussionResult} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends SearchResult.Builder {
     private ForumData data;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the forum data.
+     *
+     * @param data the forum data
+     * @return this builder
+     */
     public Builder data(ForumData data) {
       this.data = data;
       return this;
     }
 
+    /**
+     * Builds a new {@link DiscussionResult} from the current builder state.
+     *
+     * @return a new {@code DiscussionResult} instance
+     */
     @Contract(" -> new")
     @Override
     public @NotNull DiscussionResult build() {
@@ -58,6 +78,11 @@ public final class DiscussionResult extends SearchResult {
     }
   }
 
+  /**
+   * Returns the forum data.
+   *
+   * @return the forum data
+   */
   public ForumData getData() {
     return data;
   }

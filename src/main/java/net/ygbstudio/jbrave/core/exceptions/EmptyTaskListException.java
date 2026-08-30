@@ -33,10 +33,20 @@ import org.jetbrains.annotations.NotNull;
  * @see net.ygbstudio.jbrave.core.executors.AbstractRequestExecutor
  */
 public class EmptyTaskListException extends BraveClientException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public EmptyTaskListException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public EmptyTaskListException(@NotNull Supplier<String> message) {
     super(message.get());
   }

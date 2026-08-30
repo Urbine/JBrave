@@ -48,9 +48,13 @@ public final class Organization extends Thing {
   }
 
   /** Builder class for Organization. */
+  /** Builder for {@link Organization} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder extends Thing.Builder {
     private List<ContactPoint> contactPoints;
+
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
 
     /**
      * Sets the contact points for the organization.

@@ -41,6 +41,11 @@ public final class ApiErrorModel {
   private final Integer status;
   private final ErrorMeta meta;
 
+  /**
+   * Creates a new error model from the given builder.
+   *
+   * @param builder the builder carrying the error fields
+   */
   @Contract(pure = true)
   public ApiErrorModel(@NotNull Builder builder) {
     this.id = builder.id;
@@ -50,6 +55,7 @@ public final class ApiErrorModel {
     this.meta = builder.meta;
   }
 
+  /** Builder for {@link ApiErrorModel} instances. */
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder {
     private String id;
@@ -58,53 +64,116 @@ public final class ApiErrorModel {
     private Integer status;
     private ErrorMeta meta;
 
+    /** Creates a new builder with all fields unset. */
+    public Builder() {}
+
+    /**
+     * Sets the error identifier.
+     *
+     * @param id the error identifier
+     * @return this builder
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+    /**
+     * Sets the error code, converting the raw value to the {@link BraveErrorCode} enum.
+     *
+     * @param code the raw error code value
+     * @return this builder
+     */
     public Builder code(String code) {
       this.code = BraveErrorCode.valueOf(code);
       return this;
     }
 
+    /**
+     * Sets the error detail message.
+     *
+     * @param detail the detail message
+     * @return this builder
+     */
     public Builder detail(String detail) {
       this.detail = detail;
       return this;
     }
 
+    /**
+     * Sets the HTTP status code associated with the error.
+     *
+     * @param status the status code
+     * @return this builder
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
+    /**
+     * Sets additional error metadata.
+     *
+     * @param meta the error metadata
+     * @return this builder
+     */
     public Builder meta(ErrorMeta meta) {
       this.meta = meta;
       return this;
     }
 
+    /**
+     * Builds a new {@link ApiErrorModel} from the current builder state.
+     *
+     * @return a new {@code ApiErrorModel} instance
+     */
     @Contract(value = " -> new")
     public @NotNull ApiErrorModel build() {
       return new ApiErrorModel(this);
     }
   }
 
+  /**
+   * Returns the error identifier.
+   *
+   * @return the error identifier
+   */
   public String id() {
     return id;
   }
 
+  /**
+   * Returns the error code.
+   *
+   * @return the error code
+   */
   public BraveErrorCode code() {
     return code;
   }
 
+  /**
+   * Returns the error detail message.
+   *
+   * @return the detail message
+   */
   public String detail() {
     return detail;
   }
 
+  /**
+   * Returns the HTTP status code associated with the error.
+   *
+   * @return the status code
+   */
   public Integer status() {
     return status;
   }
 
+  /**
+   * Returns additional error metadata.
+   *
+   * @return the error metadata
+   */
   public ErrorMeta meta() {
     return meta;
   }

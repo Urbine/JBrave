@@ -39,6 +39,7 @@ import org.jetbrains.annotations.NotNull;
  * @see BraveAPIConstant
  */
 public interface RegionLocaleIdentifier extends ProvidedOption {
+  /** The URL parameter name for the UI language option ({@code "ui_lang"}). */
   String URL_PARAM = "ui_lang";
 
   /**
@@ -47,10 +48,16 @@ public interface RegionLocaleIdentifier extends ProvidedOption {
    *
    * @return a {@link SearchOptionCarrier} representing this identifier
    */
+  /**
+   * Converts this region-locale identifier to a {@link SearchOptionCarrier} for use in a search
+   * request.
+   *
+   * @return the {@link SearchOptionCarrier} representing this region-locale
+   */
   SearchOptionCarrier<String> toSearchOption();
 
   /**
-   * Generates the URL parameter for this language identifier.
+   * Generates the URL parameter for this region-locale identifier.
    *
    * <p>The URL parameter has the format {@code "ui_lang=<value>"}, where {@code "<value>"} is the
    * value of this identifier.

@@ -65,12 +65,31 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<T>> {
 
+  /** The query parameter prefix ({@code "q="}) used when building the URL. */
   protected static final String QUERY_PROMPT = "q=";
+
+  /** Buffer holding the query parameters appended after the query term. */
   protected StringBuilder urlEnd;
+
+  /** Buffer holding search operators deferred until the query term is present. */
   protected StringBuilder delayedOperators;
+
+  /** Tracks which search options have already been added, to prevent duplicates. */
   protected Set<SearchOption> optionTracker;
+
+  /**
+   * Buffer holding the base URL (API base and selected vertical) before parameters are appended.
+   */
   protected StringBuilder urlStart =
       new StringBuilder().append(BraveAPIConstant.SEARCH_API_BASE).append("/");
+
+  /**
+   * Creates a new abstract query URL builder with an empty URL state.
+   *
+   * <p>Concrete subclasses must call {@link #addInstanceVertical(SearchVertical)} and {@link
+   * #clear()} to initialize the builder before use.
+   */
+  public AbstractQueryUrlBuilder() {}
 
   /**
    * Returns the current instance of the builder.
@@ -114,9 +133,8 @@ public abstract class AbstractQueryUrlBuilder<T extends AbstractQueryUrlBuilder<
   /**
    * Checks if the given query term is valid.
    *
-   * <p>A query term is valid if it contains fewer than or exactly 400 characters and less than 50
-   * words. Both limits are enforced conjunctively, in accordance with the Brave Search API
-   * documentation.
+   * <p>A query term is valid if it contains 400 or fewer characters and 50 or fewer words. Both
+   * limits are enforced conjunctively, in accordance with the Brave Search API documentation.
    *
    * @param queryTerm The query term to check.
    * @return {@code true} if the query term is valid, {@code false} otherwise.

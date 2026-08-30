@@ -30,10 +30,20 @@ import org.jetbrains.annotations.NotNull;
  * <p>A query term is invalid if it contains more than 400 characters or exceeds the 50-word limit.
  */
 public class InvalidQueryTermException extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public InvalidQueryTermException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public InvalidQueryTermException(@NotNull Supplier<String> message) {
     super(message.get());
   }

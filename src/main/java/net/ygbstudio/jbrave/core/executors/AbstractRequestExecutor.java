@@ -72,8 +72,20 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
 
   private static final Logger executionLogger =
       LoggerFactory.getLogger(AbstractRequestExecutor.class);
+
+  /**
+   * The shared, long-lived {@link HttpClient} used to execute all requests through this executor.
+   */
   protected final HttpClient client =
       HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
+
+  /**
+   * Creates a new executor backed by a shared, long-lived {@link HttpClient}.
+   *
+   * <p>Concrete subclasses may use this default constructor to inherit the shared client, or
+   * construct their own {@link HttpClient} externally and route requests through it.
+   */
+  public AbstractRequestExecutor() {}
 
   /**
    * Returns the current instance cast to the concrete subclass type.

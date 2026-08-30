@@ -28,10 +28,20 @@ import org.jetbrains.annotations.NotNull;
  * environment variable is not set or when the properties file is not found.
  */
 public class BraveLocalEnvironmentException extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public BraveLocalEnvironmentException(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public BraveLocalEnvironmentException(@NotNull Supplier<String> message) {
     super(message.get());
   }

@@ -26,6 +26,11 @@ package net.ygbstudio.jbrave.core.exceptions;
  * @see BraveClientException
  */
 public class MissingSubscriptionTokenException extends BraveClientException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public MissingSubscriptionTokenException(String message) {
     super(message);
   }

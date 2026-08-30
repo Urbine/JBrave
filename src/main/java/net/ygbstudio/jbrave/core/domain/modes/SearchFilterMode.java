@@ -43,8 +43,13 @@ import org.jetbrains.annotations.NotNull;
  */
 @Internal
 public enum SearchFilterMode implements ClientProvidedOption {
+  /** Freshness filter mode ({@code freshness} URL parameter). */
   FRESHNESS("freshness"),
+
+  /** Safe search filter mode ({@code safesearch} URL parameter). */
   SAFE_SEARCH("safesearch"),
+
+  /** Result filter mode ({@code result_filter} URL parameter). */
   RESULT_FILTER("result_filter");
 
   private final String value;

@@ -30,18 +30,40 @@ import org.jetbrains.annotations.NotNull;
  * @see net.ygbstudio.jbrave.core.executors.BraveExecutionGate
  */
 public class RequestProcessingInterrupted extends BraveClientException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public RequestProcessingInterrupted(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with the given detail message and cause.
+   *
+   * @param message the detail message
+   * @param cause the cause of the exception
+   */
   public RequestProcessingInterrupted(String message, Throwable cause) {
     super(message, cause);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public RequestProcessingInterrupted(@NotNull Supplier<String> message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message and a cause.
+   *
+   * @param message a supplier for the detail message
+   * @param cause the cause of the exception
+   */
   public RequestProcessingInterrupted(@NotNull Supplier<String> message, Throwable cause) {
     super(message, cause);
   }

@@ -53,6 +53,8 @@ public final class JsonSupport {
    *   <li>Indent output for better readability.
    *   <li>Fail on empty beans during serialization.
    *   <li>Ignore unknown properties during deserialization.
+   *   <li>Serialize enum constants using lowercase names.
+   *   <li>Use snake_case for JSON property names.
    * </ul>
    *
    * <p>The configured ObjectMapper is intended for reuse across different classes to ensure

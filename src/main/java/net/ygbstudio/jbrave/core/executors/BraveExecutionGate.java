@@ -92,6 +92,11 @@ public class BraveExecutionGate {
   private final ReentrantLock startLock;
   private final BraveRequestExecutor executor;
 
+  /**
+   * Creates a new execution gate backed by a single shared {@link BraveRequestExecutor}.
+   *
+   * <p>The gate uses a fair reentrant lock so concurrent callers are admitted in FIFO order.
+   */
   public BraveExecutionGate() {
     startLock = new ReentrantLock(true);
     executor = BraveRequestExecutor.getInstance();

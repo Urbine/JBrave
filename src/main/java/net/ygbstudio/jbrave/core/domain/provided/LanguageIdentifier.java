@@ -31,6 +31,7 @@ import org.jetbrains.annotations.NotNull;
  * for the API requests.
  */
 public interface LanguageIdentifier extends ProvidedOption {
+  /** The URL parameter name for the search language option ({@code "search_lang"}). */
   String URL_PARAM = "search_lang";
 
   /**
@@ -38,6 +39,11 @@ public interface LanguageIdentifier extends ProvidedOption {
    * URL parameter.
    *
    * @return a {@link SearchOptionCarrier} representing this identifier
+   */
+  /**
+   * Converts this language identifier to a {@link SearchOptionCarrier} for use in a search request.
+   *
+   * @return the {@link SearchOptionCarrier} representing this language
    */
   SearchOptionCarrier<String> toSearchOption();
 

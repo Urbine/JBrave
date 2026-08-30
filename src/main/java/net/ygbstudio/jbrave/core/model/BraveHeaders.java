@@ -33,45 +33,52 @@ import org.jetbrains.annotations.NotNull;
  * <p>Used as a shorthand for setting custom headers in the API requests.
  */
 public enum BraveHeaders implements SearchHeader {
+  /** Subscription token identifying the calling client. */
   SUBSCRIPTION_TOKEN("x-subscription-token"),
 
-  // -90.0 >= LATITUDE <= +90.0
+  /** Client latitude in degrees, in the range {@code [-90.0, +90.0]}. */
   LATITUDE("x-loc-lat"),
 
-  // -180.0 >= LONGITUDE <= +180.0 degrees
+  /** Client longitude in degrees, in the range {@code [-180.0, +180.0]}. */
   LONGITUDE("x-loc-long"),
 
-  // IANA Timezone for the client's device
+  /** IANA timezone of the client's device (for example {@code "America/Costa_Rica"}). */
   TIMEZONE("x-loc-timezone"),
 
-  // Generic name of the client city
+  /** Generic name of the client's city. */
   CITY("x-loc-city"),
 
-  // First-level subdivision (least-specific) of the ISO 3166-2 code
-  // STATE is up to three characters
+  /** First-level administrative subdivision (ISO 3166-2); up to three characters. */
   STATE("x-loc-state"),
+
+  /** Human-readable name of the first-level administrative subdivision. */
   STATE_NAME("x-loc-state-name"),
 
-  // Two-letter country code ISO 3166-1 alpha-2
+  /** Two-letter country code (ISO 3166-1 alpha-2). */
   COUNTRY("x-loc-country"),
 
-  // Client's postal code
+  /** Client's postal code. */
   POSTAL_CODE("x-loc-postal-code"),
 
+  /** {@code User-Agent} request header. */
   USER_AGENT("User-Agent"),
 
-  // Add 'no-cache' to the request to prevent caching
+  /** {@code Cache-Control} request header; send {@code no-cache} to prevent caching. */
   CACHE_CONTROL("Cache-Control"),
 
-  // Check the API changelog for details on the current version
+  /** {@code Api-Version} request header; check the API changelog for the current value. */
   API_VERSION("Api-Version"),
 
+  /** {@code X-RateLimit-Limit} response header reporting the plan's request limit. */
   X_RATE_LIMIT("X-RateLimit-Limit"),
 
+  /** {@code X-RateLimit-Policy} response header describing the rate-limit policy. */
   X_RATE_LIMIT_POLICY("X-RateLimit-Policy"),
 
+  /** {@code X-RateLimit-Remaining} response header reporting the remaining request quota. */
   X_RATE_LIMIT_REMAINING("X-RateLimit-Remaining"),
 
+  /** {@code X-RateLimit-Reset} response header reporting the time until the quota resets. */
   X_RATE_LIMIT_RESET("X-RateLimit-Reset");
 
   private final String value;

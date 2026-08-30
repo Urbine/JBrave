@@ -35,16 +35,37 @@ import org.jetbrains.annotations.NotNull;
  * <p>These options can be used to modify the behavior of the API requests.
  */
 public enum SearchOptions implements ClientProvidedOption {
+  /** Number of results to return. */
   COUNT("count"),
+
+  /** Number of results to skip. */
   OFFSET("offset"),
+
+  /** Whether to include text decorations in the results. */
   TEXT_DECORATIONS("text_decorations"),
+
+  /** Whether to enable spellcheck. */
   SPELLCHECK("spellcheck"),
+
+  /** Whether to include extra snippets in the results. */
   EXTRA_SNIPPETS("extra_snippets"),
+
+  /** Whether to enable rich callback support. */
   ENABLE_RICH_CALLBACK("enable_rich_callback"),
+
+  /** Whether to include a summary in the results. */
   SUMMARY("summary"),
+
+  /** Whether the API should read search operators from the query term. */
   OPERATORS("operators"),
+
+  /** URI of a goggles resource to apply to the query. */
   GOGGLES("goggles"),
+
+  /** Whether to enable rich result formatting. */
   RICH("rich"),
+
+  /** Whether to include fetch metadata in the response. */
   INCLUDE_FETCH_METADATA("include_fetch_metadata");
 
   private final String value;

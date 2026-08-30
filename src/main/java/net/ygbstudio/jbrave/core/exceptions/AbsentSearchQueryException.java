@@ -28,6 +28,11 @@ package net.ygbstudio.jbrave.core.exceptions;
  * @see net.ygbstudio.jbrave.core.builders.AbstractQueryUrlBuilder
  */
 public class AbsentSearchQueryException extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public AbsentSearchQueryException(String message) {
     super(message);
   }

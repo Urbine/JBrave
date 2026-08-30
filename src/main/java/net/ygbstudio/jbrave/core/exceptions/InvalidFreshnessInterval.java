@@ -30,10 +30,20 @@ import org.jetbrains.annotations.NotNull;
  * @see net.ygbstudio.jbrave.api.filters.Freshness
  */
 public class InvalidFreshnessInterval extends RuntimeException {
+  /**
+   * Creates a new instance with the given detail message.
+   *
+   * @param message the detail message
+   */
   public InvalidFreshnessInterval(String message) {
     super(message);
   }
 
+  /**
+   * Creates a new instance with a lazily-evaluated detail message.
+   *
+   * @param message a supplier for the detail message
+   */
   public InvalidFreshnessInterval(@NotNull Supplier<String> message) {
     super(message.get());
   }
