@@ -40,9 +40,11 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>Windows are always expressed in seconds.
  *
- * @param limit Limit of 1 request over a 1-second window
+ * @param limit Maximum number of requests allowed per second (the per-second burst limit from the
+ *     plan).
  * @param windowSecond Window size in seconds (typically one second).
- * @param limitPerMonth Limit of 1 request over a one-month window
+ * @param limitPerMonth Maximum number of requests allowed per month (the monthly quota from the
+ *     plan, 0 for unlimited).
  * @param windowMonth Window size equivalent to one month in seconds
  */
 public record XRateLimitPolicy(int limit, int windowSecond, int limitPerMonth, int windowMonth) {

@@ -90,6 +90,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * Adds the search language option to the URL query.
    *
    * @see SearchLanguage
+   * @param <T> the search language type
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
@@ -101,6 +102,7 @@ public final class BraveVideoQuery extends AbstractQueryUrlBuilder<BraveVideoQue
    * Adds the market option to the URL query.
    *
    * @see MarketLocale
+   * @param <T> the market locale type
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */

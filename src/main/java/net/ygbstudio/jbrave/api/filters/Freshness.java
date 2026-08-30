@@ -39,9 +39,16 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchFilterOption
  */
 public enum Freshness implements SearchFilterOption, ClientProvidedOption {
+  /** Results discovered within the last 24 hours. */
   WITHIN_24H("pd"),
+
+  /** Results discovered within the last 7 days. */
   WITHIN_7D("pw"),
+
+  /** Results discovered within the last 31 days. */
   WITHIN_31D("pm"),
+
+  /** Results discovered within the last year. */
   WITHIN_1Y("py");
 
   private final String value;

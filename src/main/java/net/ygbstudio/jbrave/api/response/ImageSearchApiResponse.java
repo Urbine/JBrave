@@ -49,18 +49,42 @@ import org.jetbrains.annotations.NotNull;
 public record ImageSearchApiResponse(
     String type, ImageQuery query, List<ImageResult> results, Extra extra) implements ApiResponse {
 
+  /**
+   * Deserializes a {@link ImageSearchApiResponse} from a JSON {@link File}.
+   *
+   * @param dataFile the file containing the JSON response data
+   * @return the deserialized response
+   */
   public static ImageSearchApiResponse from(File dataFile) {
     return ApiResponse.from(dataFile, ImageSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link ImageSearchApiResponse} from a JSON {@link String}.
+   *
+   * @param dataString the string containing the JSON response data
+   * @return the deserialized response
+   */
   public static ImageSearchApiResponse from(String dataString) {
     return ApiResponse.from(dataString, ImageSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link ImageSearchApiResponse} from a JSON {@link Reader}.
+   *
+   * @param dataReader the reader supplying the JSON response data
+   * @return the deserialized response
+   */
   public static ImageSearchApiResponse from(Reader dataReader) {
     return ApiResponse.from(dataReader, ImageSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link ImageSearchApiResponse} from the body of an HTTP response.
+   *
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @return the deserialized response
+   */
   public static ImageSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }

@@ -34,7 +34,10 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchOption
  */
 public enum Units implements ProvidedOption {
+  /** Metric units. */
   METRIC("metric"),
+
+  /** Imperial units. */
   IMPERIAL("imperial");
 
   private final String value;

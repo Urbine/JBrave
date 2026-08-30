@@ -29,7 +29,6 @@ import net.ygbstudio.jbrave.api.rate.XRateLimitPolicy;
 import net.ygbstudio.jbrave.api.rate.XRateLimitRemaining;
 import net.ygbstudio.jbrave.api.response.ApiResponse;
 import net.ygbstudio.jbrave.api.response.ErrorResponse;
-import net.ygbstudio.jbrave.api.response.WebSearchApiResponse;
 import net.ygbstudio.jbrave.core.utils.JsonSupport;
 
 /**
@@ -174,19 +173,19 @@ public sealed interface BraveQueryBuilder<T, E extends ApiResponse>
   }
 
   /**
-   * Converts the current response to a POJO instance of {@link WebSearchApiResponse} if the status
-   * code of the response is 200. If the status code is not 200, it attempts to deserialize the
-   * response body into an {@link ErrorResponse} object. This is particularly useful if you want to
-   * check the success of your request with an {@code instanceof} check and then handle it as you
-   * like depending on what {@link ApiResponse} implementation you get.
+   * Converts the current response to a POJO instance of the builder's response type {@code E} if
+   * the status code of the response is 200. If the status code is not 200, it attempts to
+   * deserialize the response body into an {@link ErrorResponse} object. This is particularly useful
+   * if you want to check the success of your request with an {@code instanceof} check and then
+   * handle it as you like depending on what {@link ApiResponse} implementation you get.
    *
    * <p>Calling this method will execute the request and deserialize it. Once a request has been
    * executed, this builder stores it in an internal field, so you can call this method and the ones
    * mentioned above without having to send another request to the API.
    *
-   * @return an {@link Optional} containing the current response as a POJO instance of either {@link
-   *     WebSearchApiResponse} or {@link ErrorResponse}, or an empty {@link Optional} if the
-   *     response status code is neither 200 nor any other expected error code
+   * @return an {@link Optional} containing the current response as a POJO instance of either the
+   *     builder's response type {@code E} or {@link ErrorResponse}, or an empty {@link Optional} if
+   *     the response status code is neither 200 nor any other expected error code
    */
   default Optional<ApiResponse> getEitherPOJO() {
     return getHttpResponse()

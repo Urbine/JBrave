@@ -47,18 +47,42 @@ import org.jetbrains.annotations.NotNull;
 public record VideoSearchApiResponse(
     String type, Query query, List<VideoResult> results, Extra extra) implements ApiResponse {
 
+  /**
+   * Deserializes a {@link VideoSearchApiResponse} from a JSON {@link File}.
+   *
+   * @param dataFile the file containing the JSON response data
+   * @return the deserialized response
+   */
   public static VideoSearchApiResponse from(File dataFile) {
     return ApiResponse.from(dataFile, VideoSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link VideoSearchApiResponse} from a JSON {@link String}.
+   *
+   * @param dataString the string containing the JSON response data
+   * @return the deserialized response
+   */
   public static VideoSearchApiResponse from(String dataString) {
     return ApiResponse.from(dataString, VideoSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link VideoSearchApiResponse} from a JSON {@link Reader}.
+   *
+   * @param dataReader the reader supplying the JSON response data
+   * @return the deserialized response
+   */
   public static VideoSearchApiResponse from(Reader dataReader) {
     return ApiResponse.from(dataReader, VideoSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link VideoSearchApiResponse} from the body of an HTTP response.
+   *
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @return the deserialized response
+   */
   public static VideoSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }

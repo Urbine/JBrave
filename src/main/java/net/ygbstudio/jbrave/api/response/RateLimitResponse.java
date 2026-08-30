@@ -67,6 +67,11 @@ public record RateLimitResponse(
         XRateLimitReset.from(httpResponse));
   }
 
+  /**
+   * Serializes this rate-limit response to a JSON string.
+   *
+   * @return a JSON string representation of this response
+   */
   public String toJson() {
     return JsonSupport.toJsonString(this);
   }

@@ -87,6 +87,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
    * Adds the search language option to the URL query.
    *
    * @see SearchLanguage
+   * @param <T> the search language type
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
@@ -108,6 +109,7 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
    * Adds the country option to the URL query.
    *
    * @see Country
+   * @param <T> the country type
    * @param country the country identifier to set
    * @return the current instance of the builder
    */
@@ -176,6 +178,11 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * @return the current builder instance
+   */
   public BraveImageQuery execute() {
     HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).build();
     currentResponse =
@@ -185,6 +192,11 @@ public final class BraveImageQuery extends AbstractQueryUrlBuilder<BraveImageQue
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * @return {@code true} if the request has been executed, {@code false} otherwise
+   */
   public boolean hasExecuted() {
     return Objects.nonNull(currentResponse);
   }

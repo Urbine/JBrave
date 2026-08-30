@@ -36,42 +36,115 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see CountryIdentifier
  */
 public enum Country implements CountryIdentifier {
+  /** Argentina. */
   ARGENTINA("AR"),
+
+  /** Australia. */
   AUSTRALIA("AU"),
+
+  /** Austria. */
   AUSTRIA("AT"),
+
+  /** Belgium. */
   BELGIUM("BE"),
+
+  /** Brazil. */
   BRAZIL("BR"),
+
+  /** Canada. */
   CANADA("CA"),
+
+  /** Chile. */
   CHILE("CL"),
+
+  /** Denmark. */
   DENMARK("DK"),
+
+  /** Finland. */
   FINLAND("FI"),
+
+  /** France. */
   FRANCE("FR"),
+
+  /** Germany. */
   GERMANY("DE"),
+
+  /** Greece. */
   GREECE("GR"),
+
+  /** Hong Kong. */
   HONG_KONG("HK"),
+
+  /** India. */
   INDIA("IN"),
+
+  /** Indonesia. */
   INDONESIA("ID"),
+
+  /** Italy. */
   ITALY("IT"),
+
+  /** Japan. */
   JAPAN("JP"),
+
+  /** Korea. */
   KOREA("KR"),
+
+  /** Malaysia. */
   MALAYSIA("MY"),
+
+  /** Mexico. */
   MEXICO("MX"),
+
+  /** Netherlands. */
   NETHERLANDS("NL"),
+
+  /** New Zealand. */
   NEW_ZEALAND("NZ"),
+
+  /** Norway. */
   NORWAY("NO"),
+
+  /** China. */
   CHINA("CN"),
+
+  /** Poland. */
   POLAND("PL"),
+
+  /** Portugal. */
   PORTUGAL("PT"),
+
+  /** Philippines. */
   PHILIPPINES("PH"),
+
+  /** Russia. */
   RUSSIA("RU"),
+
+  /** Saudi Arabia. */
   SAUDI_ARABIA("SA"),
+
+  /** South Africa. */
   SOUTH_AFRICA("ZA"),
+
+  /** Spain. */
   SPAIN("ES"),
+
+  /** Sweden. */
   SWEDEN("SE"),
+
+  /** Switzerland. */
   SWITZERLAND("CH"),
+
+  /** Taiwan. */
   TAIWAN("TW"),
+
+  /** Turkey. */
   TURKEY("TR"),
+
+  /** United Kingdom. */
   UNITED_KINGDOM("GB"),
+
+  /** United States. */
   UNITED_STATES("US");
 
   private final String value;

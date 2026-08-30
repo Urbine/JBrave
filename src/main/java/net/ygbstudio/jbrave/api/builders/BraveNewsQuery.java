@@ -91,6 +91,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    * Adds the search language option to the URL query.
    *
    * @see SearchLanguage
+   * @param <T> the search language type
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
@@ -102,6 +103,7 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
    * Adds the market option to the URL query.
    *
    * @see MarketLocale
+   * @param <T> the market locale type
    * @param uiLanguage the market locale to set
    * @return the current instance of the builder
    */
@@ -150,7 +152,8 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
   }
 
   /**
-   * Adds a freshness option to the URL query using an existing {@link Freshness} instance.
+   * Adds a freshness option to the URL query representing a date range between the given start and
+   * end dates.
    *
    * @see net.ygbstudio.jbrave.api.filters.Freshness
    * @param startDate the start date of the freshness constraint
@@ -274,6 +277,11 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * @return the current builder instance
+   */
   public BraveNewsQuery execute() {
     HttpRequest suppliedTask = requestBuilder.queryAddress(toURI()).build();
     currentResponse =
@@ -283,6 +291,11 @@ public final class BraveNewsQuery extends AbstractQueryUrlBuilder<BraveNewsQuery
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * @return {@code true} if the request has been executed, {@code false} otherwise
+   */
   public boolean hasExecuted() {
     return Objects.nonNull(currentResponse);
   }

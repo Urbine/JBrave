@@ -50,14 +50,31 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchFilterOption
  */
 public enum ResultFilter implements SearchFilterOption, ClientProvidedOption {
+  /** Include forum and discussion results. */
   DISCUSSIONS("discussions"),
+
+  /** Include frequently-asked-questions results. */
   FAQ("faq"),
+
+  /** Include infobox results. */
   INFOBOX("infobox"),
+
+  /** Include location results. */
   LOCATIONS("locations"),
+
+  /** Include news results. */
   NEWS("news"),
+
+  /** Include the original query metadata. */
   QUERY("query"),
+
+  /** Include AI-generated summaries. */
   SUMMARIZER("summarizer"),
+
+  /** Include video results. */
   VIDEOS("videos"),
+
+  /** Include standard web results. */
   WEB("web");
 
   private final String value;
@@ -87,6 +104,13 @@ public enum ResultFilter implements SearchFilterOption, ClientProvidedOption {
     return Arrays.stream(options).map(ResultFilter::value).collect(Collectors.joining(","));
   }
 
+  /**
+   * Joins the given result filter set into a comma-delimited string and returns it as a {@link
+   * SearchOptionCarrier}.
+   *
+   * @param resultFilterSet the result filter options to join
+   * @return a {@link SearchOptionCarrier} carrying the joined filters
+   */
   @Contract("_ -> new")
   public static @NotNull @Unmodifiable SearchOptionCarrier<String> from(
       @NotNull Set<ResultFilter> resultFilterSet) {

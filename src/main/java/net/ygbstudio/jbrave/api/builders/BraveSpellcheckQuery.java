@@ -85,6 +85,7 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
    * Adds the language option to the URL query.
    *
    * @see SearchLanguage
+   * @param <T> the language type
    * @param language the language identifier to set
    * @return the current instance of the builder
    */
@@ -96,6 +97,7 @@ public final class BraveSpellcheckQuery extends AbstractQueryUrlBuilder<BraveSpe
    * Adds the country option to the URL query.
    *
    * @see Country
+   * @param <T> the country type
    * @param country the country identifier to set
    * @return the current instance of the builder
    */

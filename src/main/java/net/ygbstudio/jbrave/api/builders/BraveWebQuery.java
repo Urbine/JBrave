@@ -185,6 +185,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
    * Adds the country option to the URL query.
    *
    * @see Country
+   * @param <T> the country type
    * @param country the country identifier to set
    * @return the current instance of the builder
    */
@@ -196,6 +197,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
    * Adds the market option to the URL query.
    *
    * @see MarketLocale
+   * @param <T> the region locale type
    * @param regionLocale the region locale identifier to set
    * @return the current instance of the builder
    */
@@ -207,6 +209,7 @@ public final class BraveWebQuery extends AbstractQueryUrlBuilder<BraveWebQuery>
    * Adds the language option to the URL query.
    *
    * @see SearchLanguage
+   * @param <T> the language type
    * @param languageIdentifier the language identifier to set
    * @return the current instance of the builder
    */

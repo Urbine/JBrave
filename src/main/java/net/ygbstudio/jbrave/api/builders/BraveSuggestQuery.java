@@ -86,6 +86,7 @@ public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSugges
    * Adds the search language option to the URL query.
    *
    * @see SearchLanguage
+   * @param <T> the search language type
    * @param searchLanguage the search language to set
    * @return the current instance of the builder
    */
@@ -97,6 +98,7 @@ public final class BraveSuggestQuery extends AbstractQueryUrlBuilder<BraveSugges
    * Adds the country option to the URL query.
    *
    * @see Country
+   * @param <T> the country type
    * @param country the country identifier to set
    * @return the current instance of the builder
    */

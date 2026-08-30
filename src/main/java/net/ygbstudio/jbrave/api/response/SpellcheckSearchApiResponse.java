@@ -45,18 +45,42 @@ import org.jetbrains.annotations.NotNull;
 public record SpellcheckSearchApiResponse(
     String type, OriginalQuery query, List<SpellCheckResult> results) implements ApiResponse {
 
+  /**
+   * Deserializes a {@link SpellcheckSearchApiResponse} from a JSON {@link File}.
+   *
+   * @param dataFile the file containing the JSON response data
+   * @return the deserialized response
+   */
   public static SpellcheckSearchApiResponse from(File dataFile) {
     return ApiResponse.from(dataFile, SpellcheckSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link SpellcheckSearchApiResponse} from a JSON {@link String}.
+   *
+   * @param dataString the string containing the JSON response data
+   * @return the deserialized response
+   */
   public static SpellcheckSearchApiResponse from(String dataString) {
     return ApiResponse.from(dataString, SpellcheckSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link SpellcheckSearchApiResponse} from a JSON {@link Reader}.
+   *
+   * @param dataReader the reader supplying the JSON response data
+   * @return the deserialized response
+   */
   public static SpellcheckSearchApiResponse from(Reader dataReader) {
     return ApiResponse.from(dataReader, SpellcheckSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link SpellcheckSearchApiResponse} from the body of an HTTP response.
+   *
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @return the deserialized response
+   */
   public static SpellcheckSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }

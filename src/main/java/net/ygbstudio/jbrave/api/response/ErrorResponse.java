@@ -42,18 +42,42 @@ import org.jetbrains.annotations.NotNull;
  */
 public record ErrorResponse(String type, ApiErrorModel error, Integer time) implements ApiResponse {
 
+  /**
+   * Deserializes a {@link ErrorResponse} from a JSON {@link File}.
+   *
+   * @param dataFile the file containing the JSON response data
+   * @return the deserialized response
+   */
   public static ErrorResponse from(File dataFile) {
     return ApiResponse.from(dataFile, ErrorResponse.class);
   }
 
+  /**
+   * Deserializes a {@link ErrorResponse} from a JSON {@link String}.
+   *
+   * @param dataString the string containing the JSON response data
+   * @return the deserialized response
+   */
   public static ErrorResponse from(String dataString) {
     return ApiResponse.from(dataString, ErrorResponse.class);
   }
 
+  /**
+   * Deserializes a {@link ErrorResponse} from a JSON {@link Reader}.
+   *
+   * @param dataReader the reader supplying the JSON response data
+   * @return the deserialized response
+   */
   public static ErrorResponse from(Reader dataReader) {
     return ApiResponse.from(dataReader, ErrorResponse.class);
   }
 
+  /**
+   * Deserializes a {@link ErrorResponse} from the body of an HTTP response.
+   *
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @return the deserialized response
+   */
   public static ErrorResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }

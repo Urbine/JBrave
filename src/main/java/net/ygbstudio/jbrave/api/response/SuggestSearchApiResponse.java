@@ -45,18 +45,42 @@ import org.jetbrains.annotations.NotNull;
 public record SuggestSearchApiResponse(
     String type, OriginalQuery query, List<SuggestResult> results) implements ApiResponse {
 
+  /**
+   * Deserializes a {@link SuggestSearchApiResponse} from a JSON {@link File}.
+   *
+   * @param dataFile the file containing the JSON response data
+   * @return the deserialized response
+   */
   public static SuggestSearchApiResponse from(File dataFile) {
     return ApiResponse.from(dataFile, SuggestSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link SuggestSearchApiResponse} from a JSON {@link String}.
+   *
+   * @param dataString the string containing the JSON response data
+   * @return the deserialized response
+   */
   public static SuggestSearchApiResponse from(String dataString) {
     return ApiResponse.from(dataString, SuggestSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link SuggestSearchApiResponse} from a JSON {@link Reader}.
+   *
+   * @param dataReader the reader supplying the JSON response data
+   * @return the deserialized response
+   */
   public static SuggestSearchApiResponse from(Reader dataReader) {
     return ApiResponse.from(dataReader, SuggestSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link SuggestSearchApiResponse} from the body of an HTTP response.
+   *
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @return the deserialized response
+   */
   public static SuggestSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }

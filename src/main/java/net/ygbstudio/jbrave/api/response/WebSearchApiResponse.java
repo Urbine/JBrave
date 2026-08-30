@@ -77,18 +77,42 @@ public record WebSearchApiResponse(
     RichCallbackInfo rich)
     implements ApiResponse {
 
+  /**
+   * Deserializes a {@link WebSearchApiResponse} from a JSON {@link File}.
+   *
+   * @param dataFile the file containing the JSON response data
+   * @return the deserialized response
+   */
   public static WebSearchApiResponse from(File dataFile) {
     return ApiResponse.from(dataFile, WebSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link WebSearchApiResponse} from a JSON {@link String}.
+   *
+   * @param dataString the string containing the JSON response data
+   * @return the deserialized response
+   */
   public static WebSearchApiResponse from(String dataString) {
     return ApiResponse.from(dataString, WebSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link WebSearchApiResponse} from a JSON {@link Reader}.
+   *
+   * @param dataReader the reader supplying the JSON response data
+   * @return the deserialized response
+   */
   public static WebSearchApiResponse from(Reader dataReader) {
     return ApiResponse.from(dataReader, WebSearchApiResponse.class);
   }
 
+  /**
+   * Deserializes a {@link WebSearchApiResponse} from the body of an HTTP response.
+   *
+   * @param dataResponse the HTTP response whose body contains the JSON response data
+   * @return the deserialized response
+   */
   public static WebSearchApiResponse from(@NotNull HttpResponse<String> dataResponse) {
     return from(dataResponse.body());
   }

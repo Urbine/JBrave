@@ -36,8 +36,13 @@ import org.jetbrains.annotations.Unmodifiable;
  * @see SearchFilterOption
  */
 public enum SafeSearch implements SearchFilterOption, ClientProvidedOption {
+  /** Safe search disabled. */
   OFF("off"),
+
+  /** Moderate safe search filtering. */
   MODERATE("moderate"),
+
+  /** Strict safe search filtering. */
   STRICT("strict");
 
   private final String value;
