@@ -83,7 +83,7 @@ import org.slf4j.LoggerFactory;
  * <p>This class does not perform authentication, request construction, or asynchronous scheduling.
  * It is a coordination primitive, not a general-purpose executor.
  */
-public class BraveExecutionGate {
+public final class BraveExecutionGate {
   private static final Logger admissionLogger = LoggerFactory.getLogger(BraveExecutionGate.class);
 
   /** The default maximum number of retry attempts for rate-limited (HTTP 429) responses. */

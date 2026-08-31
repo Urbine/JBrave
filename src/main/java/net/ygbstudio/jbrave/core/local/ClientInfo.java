@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>This class represents a source of truth for admission control/pacing semantics tied to a token
  * identity.
  */
-public class ClientInfo {
+public final class ClientInfo {
 
   private final String subscriptionToken;
   private final BraveExecutionGate requestGate;
