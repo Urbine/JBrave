@@ -54,7 +54,7 @@ A query builder represents a **stateful, single-request, reusable session object
 
 This design separates **query construction**, **execution**, and **result extraction**, enabling custom retry logic and offline testing.
 
-You can use them as a pure `HttpRequest`/`URI` generator with a custom HTTP client or execute them with the built-in rate-aware executor. Executions through the built-in executor are serialized per token via a FIFO admission gate, and rate-limited responses are retried once by default with server-specified backoff.
+You can use them as a pure `HttpRequest`/`URI` generator, or execute them with the built-in rate-aware executor. Executions through the built-in executor are serialized per `ClientInfo` instance (typically one instance per token) via a FIFO admission gate, and rate-limited responses are retried once by default with server-specified backoff. The built-in executor can also use a custom HTTP client; see [Custom HTTP Client](#custom-http-client).
 
 ## Usage
 
@@ -97,6 +97,8 @@ HttpRequest request = BraveWebQuery.builder()
     .toHttpRequest(); // Or: .toURI() / .execute()
 ```
 
+For tests or one-off scripts, `ClientInfo` can also be created directly from a token string with `new ClientInfo(subscriptionToken)`. Prefer `fromProperties` or `fromEnvironment` in application code.
+
 ### Executing & Extracting Results
 
 ```java
@@ -123,6 +125,26 @@ Optional<ApiResponse> either = query.getEitherPOJO();
 ```
 
 > Execution happens **once per session**, unless explicitly re-triggered (for example, via `execute()` or after calling `reset()`).
+
+### Custom HTTP Client
+
+By default, each `ClientInfo` lazily creates one HTTP/2 `HttpClient` on first execution and reuses it. To use your own client—for example, to configure a proxy, TLS context, or connection timeout—configure it on the `ClientInfo` before executing any query:
+
+```java
+import java.net.http.HttpClient;
+import java.time.Duration;
+import net.ygbstudio.jbrave.core.local.ClientInfo;
+
+HttpClient httpClient = HttpClient.newBuilder()
+    .version(HttpClient.Version.HTTP_2)
+    .connectTimeout(Duration.ofSeconds(10))
+    .build();
+
+ClientInfo token = ClientInfo.fromEnvironment("BRAVE_SUBSCRIPTION_TOKEN")
+    .withHttpClient(httpClient);
+```
+
+Use `token` with `withToken(...)` as shown above. The client applies to every builder that uses this `ClientInfo`. The supplied client remains caller-owned. JBrave reuses it without taking over its lifecycle; normal JDK `HttpClient` lifecycle rules apply.
 
 ### Retry & Rate-Limit Backoff
 
