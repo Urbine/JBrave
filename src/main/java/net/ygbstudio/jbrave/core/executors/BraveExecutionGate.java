@@ -20,6 +20,7 @@
 
 package net.ygbstudio.jbrave.core.executors;
 
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Optional;
@@ -93,13 +94,30 @@ public final class BraveExecutionGate {
   private final BraveRequestExecutor executor;
 
   /**
-   * Creates a new execution gate backed by a single shared {@link BraveRequestExecutor}.
+   * Creates a new execution gate backed by its own request executor instance.
    *
    * <p>The gate uses a fair reentrant lock so concurrent callers are admitted in FIFO order.
    */
   public BraveExecutionGate() {
     startLock = new ReentrantLock(true);
-    executor = BraveRequestExecutor.getInstance();
+    executor = BraveRequestExecutor.newInstance();
+  }
+
+  /**
+   * Replaces the HTTP client used by this gate to execute requests.
+   *
+   * <p>Subsequent requests submitted through this gate use the supplied client. When this gate is
+   * owned by a {@link net.ygbstudio.jbrave.core.local.ClientInfo ClientInfo}, this affects every
+   * request builder that obtains its execution gate from that instance. The client should be
+   * configured before requests are submitted.
+   *
+   * <p>The supplied client remains caller-owned; JBrave reuses it without taking over its
+   * lifecycle. Normal JDK {@link HttpClient} lifecycle rules apply.
+   *
+   * @param client the HTTP client to use; must not be {@code null}
+   */
+  public void overrideHttpClient(@NotNull HttpClient client) {
+    executor.addCustomClient(client);
   }
 
   /**

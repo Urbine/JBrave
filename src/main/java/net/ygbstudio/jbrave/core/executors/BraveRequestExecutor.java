@@ -24,21 +24,26 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The {@code BraveRequestExecutor} class is a concrete implementation of the {@link
- * AbstractRequestExecutor} abstract class. It provides a builder pattern for constructing and
- * executing HTTP requests for query builders in the project.
+ * Concrete request executor used by {@link BraveExecutionGate}.
+ *
+ * <p>This class completes the package-private execution pipeline defined by {@link
+ * AbstractRequestExecutor} and exposes a factory entry point for gates that need an executor
+ * instance. It does not build or configure HTTP requests; request construction is handled by the
+ * builders in the {@code api} package.
  */
-public final class BraveRequestExecutor extends AbstractRequestExecutor<BraveRequestExecutor> {
+final class BraveRequestExecutor extends AbstractRequestExecutor {
 
   private BraveRequestExecutor() {}
 
   /**
-   * Returns a new instance of {@link BraveRequestExecutor}.
+   * Creates a new executor instance.
+   *
+   * <p>This method does not return a singleton; each invocation creates an independent executor.
    *
    * @return a new instance of {@link BraveRequestExecutor}
    */
   @Contract(" -> new")
-  public static @NotNull BraveRequestExecutor getInstance() {
+  static @NotNull BraveRequestExecutor newInstance() {
     return new BraveRequestExecutor();
   }
 }

@@ -37,68 +37,75 @@ import java.util.zip.GZIPInputStream;
 import javax.net.ssl.SSLSession;
 import net.ygbstudio.jbrave.core.exceptions.BraveClientException;
 import net.ygbstudio.jbrave.core.exceptions.ResponseDecompressionException;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Base class for executing HTTP requests using a shared, long-lived {@link HttpClient}.
+ * Base class for executing HTTP requests using a long-lived {@link HttpClient}.
  *
- * <p>This executor is designed to be extended by concrete request builders or clients. It provides
- * a consistent execution model that:
+ * <p>This executor is designed to be extended by concrete request executor implementations. It
+ * provides a consistent execution model that:
  *
  * <ul>
- *   <li>Uses a single, reusable {@link HttpClient} instance
+ *   <li>Uses one reusable {@link HttpClient} instance at a time
  *   <li>Fully consumes HTTP responses using a {@code byte[]} body handler
  *   <li>Performs response decompression and decoding <em>after</em> transport completion
  *   <li>Adapts the result into an {@link HttpResponse} with a transformed body
  * </ul>
  *
- * <p><strong>Lifecycle and resource management:</strong> This class intentionally reuses a single
- * {@link HttpClient} instance for its entire lifetime. The client is not closed per request.
- * Connection pooling, HTTP/2 multiplexing, and cleanup are managed internally by the JDK HTTP
- * client implementation.
- *
- * <p>If callers require explicit control over the {@link HttpClient} lifecycle or configuration,
- * they should manage their own client instance externally and use the request builders provided by
- * JBrave to construct {@link HttpRequest} and {@link URI} instances.
+ * <p><strong>Lifecycle and resource management:</strong> By default, a single HTTP/2 client is
+ * created lazily on first execution and reused for the lifetime of this executor. Callers that
+ * require explicit control over client configuration can supply their own instance through {@link
+ * #addCustomClient(HttpClient)}. In either case, the executor does not close the client, and
+ * connection pooling, multiplexing, and cleanup are managed by the JDK HTTP client implementation.
+ * A caller-supplied client remains owned by the caller.
  *
  * <p>Builders in the {@code api} package are designed to be independent of any specific HTTP client
  * implementation.
- *
- * @param <T> the concrete subclass type, used to support fluent builder-style APIs
  */
-public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<T>> {
+abstract class AbstractRequestExecutor {
 
   private static final Logger executionLogger =
       LoggerFactory.getLogger(AbstractRequestExecutor.class);
 
   /**
-   * The shared, long-lived {@link HttpClient} used to execute all requests through this executor.
+   * The long-lived {@link HttpClient} used to execute requests through this executor.
+   *
+   * <p>This field is {@code null} until the default client is lazily initialized or a custom client
+   * is supplied through {@link #addCustomClient(HttpClient)}.
    */
-  protected final HttpClient client =
-      HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
+  private HttpClient client;
 
   /**
-   * Creates a new executor backed by a shared, long-lived {@link HttpClient}.
+   * Creates a new executor without an HTTP client.
    *
-   * <p>Concrete subclasses may use this default constructor to inherit the shared client, or
-   * construct their own {@link HttpClient} externally and route requests through it.
+   * <p>The default HTTP/2 client is created lazily on first execution unless an alternative client
+   * is supplied through {@link #addCustomClient(HttpClient)}.
    */
-  public AbstractRequestExecutor() {}
+  AbstractRequestExecutor() {}
+
+  /** Initializes the default HTTP/2 client on first use if no client has been supplied. */
+  private void clientInit() {
+    if (client == null) {
+      client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
+      executionLogger.debug("Using default HTTP/2 client.");
+    }
+  }
 
   /**
-   * Returns the current instance cast to the concrete subclass type.
+   * Replaces the HTTP client used to execute subsequent requests.
    *
-   * <p>This method supports fluent APIs in subclasses by avoiding repeated casts. The cast is safe
-   * by construction because the type parameter {@code T} is constrained to extend {@code
-   * AbstractRequestExecutor<T>}.
+   * <p>This method is intended for callers that require explicit control over client configuration
+   * or lifecycle. The supplied client remains caller-owned; the executor reuses it without taking
+   * over its lifecycle. Normal JDK {@link HttpClient} lifecycle rules apply.
    *
-   * @return this instance, cast to {@code T}
+   * @param client the HTTP client to use; must not be {@code null}
    */
-  @SuppressWarnings("unchecked")
-  protected T self() {
-    return (T) this;
+  protected void addCustomClient(@NotNull HttpClient client) {
+    executionLogger.debug("Using custom HTTP Client");
+    this.client = client;
   }
 
   /**
@@ -121,14 +128,14 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
   /**
    * Decompresses a GZIP-compressed byte array.
    *
-   * <p>This method performs a bounded, in-memory decompression of the provided byte array. It
-   * should be used only after the full response body has been received.
+   * <p>This method performs in-memory decompression of the provided byte array. It should be used
+   * only after the full response body has been received.
    *
    * @param compressedBytes the GZIP-compressed data
    * @return the decompressed bytes
    * @throws IOException if the compressed data is malformed or decompression fails
    */
-  protected byte[] decompressGunzip(byte[] compressedBytes) throws IOException {
+  private byte @NotNull [] decompressGunzip(byte[] compressedBytes) throws IOException {
     try (ByteArrayInputStream compressed = new ByteArrayInputStream(compressedBytes);
         GZIPInputStream gzip = new GZIPInputStream(compressed);
         ByteArrayOutputStream decompressed = new ByteArrayOutputStream()) {
@@ -147,7 +154,8 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @param charset the character set to use for decoding
    * @return the decoded string
    */
-  protected String decodeByteArray(byte[] bytes, Charset charset) {
+  @Contract(value = "_, _ -> new", pure = true)
+  private @NotNull String decodeByteArray(byte[] bytes, Charset charset) {
     return new String(bytes, charset);
   }
 
@@ -165,7 +173,7 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @return the decoded response body as a string
    * @throws ResponseDecompressionException if decompression fails
    */
-  protected String decodeByteHttpResponse(HttpResponse<byte[]> byteResponse) {
+  private @NotNull String decodeByteHttpResponse(HttpResponse<byte[]> byteResponse) {
     try {
       return decodeByteArray(
           isCompressed(byteResponse) ? decompressGunzip(byteResponse.body()) : byteResponse.body(),
@@ -200,7 +208,8 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @param <U> the adapted response body type
    * @return an {@link HttpResponse} exposing the transformed body
    */
-  protected <R, U> HttpResponse<U> adaptHttpResponse(
+  @Contract(value = "_, _ -> new", pure = true)
+  private <R, U> @NotNull HttpResponse<U> adaptHttpResponse(
       HttpResponse<R> httpResponse, U newResponseBody) {
     return new HttpResponse<>() {
       @Override
@@ -248,8 +257,8 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
   /**
    * Executes the given HTTP request and returns a decoded response.
    *
-   * <p>The request is sent using the shared {@link HttpClient}. The response body is fully
-   * materialized as a {@code byte[]} before any transformation occurs.
+   * <p>The request is sent using the executor's configured {@link HttpClient}. The response body is
+   * fully materialized as a {@code byte[]} before any transformation occurs.
    *
    * <p>If the response is GZIP-compressed, it is decompressed and then decoded into a {@link
    * String}. The resulting body is adapted into a new {@link HttpResponse} instance.
@@ -261,8 +270,9 @@ public abstract class AbstractRequestExecutor<T extends AbstractRequestExecutor<
    * @throws InterruptedException if the executing thread is interrupted
    * @throws BraveClientException if request execution or response processing fails
    */
-  public final @NotNull HttpResponse<String> execute(HttpRequest request)
+  protected final @NotNull HttpResponse<String> execute(HttpRequest request)
       throws InterruptedException {
+    clientInit();
     try {
       HttpResponse<byte[]> responseBytes =
           client.send(request, HttpResponse.BodyHandlers.ofByteArray());
