@@ -40,7 +40,7 @@ loadScripts(document, 'script');</script>
 <ul>
 <li>Nested</li>
 <li>Field</li>
-<li>Constr</li>
+<li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 </li>
@@ -48,7 +48,7 @@ loadScripts(document, 'script');</script>
 <p>Detail:</p>
 <ul>
 <li>Field</li>
-<li>Constr</li>
+<li><a href="#constructor-detail">Constr</a></li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
 </li>
@@ -60,13 +60,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
 </div>
@@ -92,13 +92,33 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public final class </span><span class="element-name type-name-label">ClientInfo</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Represents the client information.
+<div class="block">Identifies a Brave API client and owns the execution state associated with its subscription
+ token.
 
- <p>This class represents a source of truth for admission control/pacing semantics tied to a token
- identity.</div>
+ <p>A <code>ClientInfo</code> couples the token used to authenticate requests with a <a href="../executors/BraveExecutionGate.html" title="class in net.ygbstudio.jbrave.core.executors"><code>BraveExecutionGate</code></a>, which serializes and paces requests for that token identity. Each instance
+ therefore represents an independent admission-control context.
+
+ <p>Instances are normally created from a classpath properties resource or an environment
+ variable. The public constructor accepts a token directly for tests and one-off use. A custom
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> can be supplied through <a href="#withHttpClient(java.net.http.HttpClient)"><code>withHttpClient(HttpClient)</code></a>.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">ClientInfo</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subscriptionToken)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Creates a new client from a subscription token supplied directly.</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ========== METHOD SUMMARY =========== -->
 <li>
 <section class="method-summary" id="method-summary">
@@ -113,25 +133,25 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromEnvironment()" class="member-name-link">fromEnvironment</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new instance of ClientInfo from the preconfigured environment variable <code>
- BRAVE_SUBSCRIPTION_TOKEN</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from the preconfigured environment variable <code>
+ BRAVE_SUBSCRIPTION_TOKEN</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromEnvironment(java.lang.String)" class="member-name-link">fromEnvironment</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;envVarName)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new instance of ClientInfo from environment variable.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from an environment variable.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromProperties(java.lang.String)" class="member-name-link">fromProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propertiesFileName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new instance of ClientInfo from properties file with the preconfigured property name
- <code>brave.subscriptionToken</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from a classpath properties resource using the preconfigured
+ property name <code>brave.subscriptionToken</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromProperties(java.lang.String,java.lang.String)" class="member-name-link">fromProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propertiesFileName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customPropertyName)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new instance of ClientInfo from properties file.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from a properties resource on the classpath.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../executors/BraveExecutionGate.html" title="class in net.ygbstudio.jbrave.core.executors">BraveExecutionGate</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestGate()" class="member-name-link">requestGate</a>()</code></div>
@@ -142,6 +162,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscriptionToken()" class="member-name-link">subscriptionToken</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the subscription token associated with this client.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withHttpClient(java.net.http.HttpClient)" class="member-name-link">withHttpClient</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link">HttpClient</a>&nbsp;client)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Configures the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> used to execute requests for this client.</div>
 </div>
 </div>
 </div>
@@ -155,6 +180,36 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(java.lang.String)">
+<h3>ClientInfo</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientInfo</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subscriptionToken)</span></div>
+<div class="block">Creates a new client from a subscription token supplied directly.
+
+ <p>This constructor is intended for one-off quick tests and other cases where the token is
+ already available as a runtime value. Prefer the static factory methods <a href="#fromProperties(java.lang.String)"><code>fromProperties(String)</code></a> or <a href="#fromEnvironment()"><code>fromEnvironment()</code></a> in application code: they keep
+ credentials out of source code and separate configuration from request logic. Use <a href="#fromProperties(java.lang.String,java.lang.String)"><code>fromProperties(String, String)</code></a> or <a href="#fromEnvironment(java.lang.String)"><code>fromEnvironment(String)</code></a> when the property key or
+ environment variable name is customized.
+
+ <p>This constructor verifies that a token is present, but it does not verify that the token is
+ valid. Authentication failures are reported by the Brave API when a request is executed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>subscriptionToken</code> - the Brave API subscription token used to authenticate requests</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if <code>subscriptionToken</code> is <code>null</code> or blank</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ============ METHOD DETAIL ========== -->
 <li>
 <section class="method-details" id="method-detail">
@@ -167,13 +222,17 @@ loadScripts(document, 'script');</script>
 @NotNull
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">@NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></span>&nbsp;<span class="element-name">fromProperties</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propertiesFileName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customPropertyName)</span></div>
-<div class="block">Create a new instance of ClientInfo from properties file.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from a properties resource on the classpath.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>propertiesFileName</code> - the name of the properties file.</dd>
-<dd><code>customPropertyName</code> - property name specified by the caller.</dd>
+<dd><code>propertiesFileName</code> - the name of the classpath properties resource</dd>
+<dd><code>customPropertyName</code> - the property name containing the subscription token</dd>
 <dt>Returns:</dt>
-<dd>a new instance of ClientInfo.</dd>
+<dd>a new instance of <code>ClientInfo</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../exceptions/BraveLocalEnvironmentException.html" title="class in net.ygbstudio.jbrave.core.exceptions">BraveLocalEnvironmentException</a></code> - if the resource cannot be found or read, or if the
+     requested property is missing</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the property value is blank</dd>
 </dl>
 </section>
 </li>
@@ -182,13 +241,17 @@ loadScripts(document, 'script');</script>
 <h3>fromProperties</h3>
 <div class="member-signature"><span class="annotations">@NotNull
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">@NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></span>&nbsp;<span class="element-name">fromProperties</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propertiesFileName)</span></div>
-<div class="block">Create a new instance of ClientInfo from properties file with the preconfigured property name
- <code>brave.subscriptionToken</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from a classpath properties resource using the preconfigured
+ property name <code>brave.subscriptionToken</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>propertiesFileName</code> - the name of the properties file.</dd>
+<dd><code>propertiesFileName</code> - the name of the classpath properties resource</dd>
 <dt>Returns:</dt>
-<dd>a new instance of ClientInfo.</dd>
+<dd>a new instance of <code>ClientInfo</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../exceptions/BraveLocalEnvironmentException.html" title="class in net.ygbstudio.jbrave.core.exceptions">BraveLocalEnvironmentException</a></code> - if the resource cannot be found or read, or if <code>
+     brave.subscriptionToken</code> is missing</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the property value is blank</dd>
 </dl>
 </section>
 </li>
@@ -198,14 +261,15 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="annotations">@Contract("_ -&gt; new")
 @NotNull
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">@NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></span>&nbsp;<span class="element-name">fromEnvironment</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;envVarName)</span></div>
-<div class="block">Create a new instance of ClientInfo from environment variable.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from an environment variable.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>envVarName</code> - Environment variable specified by the caller.</dd>
+<dd><code>envVarName</code> - the name of the environment variable containing the subscription token</dd>
 <dt>Returns:</dt>
-<dd>a new instance of ClientInfo.</dd>
+<dd>a new instance of <code>ClientInfo</code></dd>
 <dt>Throws:</dt>
-<dd><code><a href="../exceptions/BraveLocalEnvironmentException.html" title="class in net.ygbstudio.jbrave.core.exceptions">BraveLocalEnvironmentException</a></code> - if the environment variable is not set.</dd>
+<dd><code><a href="../exceptions/BraveLocalEnvironmentException.html" title="class in net.ygbstudio.jbrave.core.exceptions">BraveLocalEnvironmentException</a></code> - if the environment variable is not set</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the environment variable value is blank</dd>
 </dl>
 </section>
 </li>
@@ -214,13 +278,43 @@ loadScripts(document, 'script');</script>
 <h3>fromEnvironment</h3>
 <div class="member-signature"><span class="annotations">@NotNull
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">@NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></span>&nbsp;<span class="element-name">fromEnvironment</span>()</div>
-<div class="block">Create a new instance of ClientInfo from the preconfigured environment variable <code>
- BRAVE_SUBSCRIPTION_TOKEN</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from the preconfigured environment variable <code>
+ BRAVE_SUBSCRIPTION_TOKEN</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>a new instance of ClientInfo.</dd>
+<dd>a new instance of <code>ClientInfo</code></dd>
 <dt>Throws:</dt>
-<dd><code><a href="../exceptions/BraveLocalEnvironmentException.html" title="class in net.ygbstudio.jbrave.core.exceptions">BraveLocalEnvironmentException</a></code> - if the environment variable is not set.</dd>
+<dd><code><a href="../exceptions/BraveLocalEnvironmentException.html" title="class in net.ygbstudio.jbrave.core.exceptions">BraveLocalEnvironmentException</a></code> - if <code>BRAVE_SUBSCRIPTION_TOKEN</code> is not set</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if <code>BRAVE_SUBSCRIPTION_TOKEN</code> is blank</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withHttpClient(java.net.http.HttpClient)">
+<h3>withHttpClient</h3>
+<div class="member-signature"><span class="annotations">@Contract("_ -&gt; this")
+@NotNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NotNull <a href="ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></span>&nbsp;<span class="element-name">withHttpClient</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link">HttpClient</a>&nbsp;client)</span></div>
+<div class="block">Configures the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> used to execute requests for this client.
+
+ <p>This method is optional. If it is not called, the executor creates and reuses a default
+ HTTP/2 client on first use.
+
+ <p>The supplied client is used for all requests submitted through this client's <a href="#requestGate()"><code>execution gate</code></a>. Because request builders obtain their gate from the <code>
+ ClientInfo</code> passed to them (for example, through <code>withToken(ClientInfo)</code>), configuring
+ the client here affects every builder that uses this instance. The client should be configured
+ before requests are executed.
+
+ <p>The supplied client remains caller-owned; JBrave reuses it without taking over its
+ lifecycle. Normal JDK <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> lifecycle rules apply.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>client</code> - the HTTP client to use; must not be <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>this instance, to allow configuration in a single expression</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if <code>client</code> is <code>null</code></dd>
 </dl>
 </section>
 </li>

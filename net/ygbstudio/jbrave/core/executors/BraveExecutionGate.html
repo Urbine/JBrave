@@ -145,7 +145,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">BraveExecutionGate</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block">Creates a new execution gate backed by a single shared <a href="BraveRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors"><code>BraveRequestExecutor</code></a>.</div>
+<div class="block">Creates a new execution gate backed by its own request executor instance.</div>
 </div>
 </div>
 </section>
@@ -161,15 +161,20 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpResponse.html" title="class or interface in java.net.http" class="external-link">HttpResponse</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#submit(java.net.http.HttpRequest)" class="member-name-link">submit</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpRequest.html" title="class or interface in java.net.http" class="external-link">HttpRequest</a>&nbsp;httpRequest)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#overrideHttpClient(java.net.http.HttpClient)" class="member-name-link">overrideHttpClient</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link">HttpClient</a>&nbsp;client)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Submits a request for serialized execution with a default retry policy.</div>
+<div class="block">Replaces the HTTP client used by this gate to execute requests.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpResponse.html" title="class or interface in java.net.http" class="external-link">HttpResponse</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#submit(java.net.http.HttpRequest,int)" class="member-name-link">submit</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpRequest.html" title="class or interface in java.net.http" class="external-link">HttpRequest</a>&nbsp;httpRequest,
- int&nbsp;maxRetries)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#submit(java.net.http.HttpRequest)" class="member-name-link">submit</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpRequest.html" title="class or interface in java.net.http" class="external-link">HttpRequest</a>&nbsp;httpRequest)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Submits a request for serialized execution with a default retry policy.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpResponse.html" title="class or interface in java.net.http" class="external-link">HttpResponse</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#submit(java.net.http.HttpRequest,int)" class="member-name-link">submit</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpRequest.html" title="class or interface in java.net.http" class="external-link">HttpRequest</a>&nbsp;httpRequest,
+ int&nbsp;maxRetries)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Submits a request for serialized execution through the execution gate.</div>
 </div>
 </div>
@@ -193,7 +198,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>BraveExecutionGate</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BraveExecutionGate</span>()</div>
-<div class="block">Creates a new execution gate backed by a single shared <a href="BraveRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors"><code>BraveRequestExecutor</code></a>.
+<div class="block">Creates a new execution gate backed by its own request executor instance.
 
  <p>The gate uses a fair reentrant lock so concurrent callers are admitted in FIFO order.</div>
 </section>
@@ -206,6 +211,26 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="overrideHttpClient(java.net.http.HttpClient)">
+<h3>overrideHttpClient</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">overrideHttpClient</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link">HttpClient</a>&nbsp;client)</span></div>
+<div class="block">Replaces the HTTP client used by this gate to execute requests.
+
+ <p>Subsequent requests submitted through this gate use the supplied client. When this gate is
+ owned by a <a href="../local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local"><code>ClientInfo</code></a>, this affects every
+ request builder that obtains its execution gate from that instance. The client should be
+ configured before requests are submitted.
+
+ <p>The supplied client remains caller-owned; JBrave reuses it without taking over its
+ lifecycle. Normal JDK <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> lifecycle rules apply.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>client</code> - the HTTP client to use; must not be <code>null</code></dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="submit(java.net.http.HttpRequest,int)">
 <h3>submit</h3>

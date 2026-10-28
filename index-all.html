@@ -101,14 +101,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new abstract query URL builder with an empty URL state.</div>
 </dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" class="type-name-link" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor&lt;T&gt;</a> - Class in <a href="net/ygbstudio/jbrave/core/executors/package-summary.html">net.ygbstudio.jbrave.core.executors</a></dt>
-<dd>
-<div class="block">Base class for executing HTTP requests using a shared, long-lived <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a>.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#%3Cinit%3E()" class="member-name-link">AbstractRequestExecutor()</a> - Constructor for class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Creates a new executor backed by a shared, long-lived <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a>.</div>
-</dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/result/LocationResult.Builder.html#action(net.ygbstudio.jbrave.core.domain.dto.web.Action)" class="member-name-link">action(Action)</a> - Method in class net.ygbstudio.jbrave.core.domain.dto.result.<a href="net/ygbstudio/jbrave/core/domain/dto/result/LocationResult.Builder.html" title="class in net.ygbstudio.jbrave.core.domain.dto.result">LocationResult.Builder</a></dt>
 <dd>
 <div class="block">Sets the action.</div>
@@ -124,10 +116,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/web/MovieData.html#actors()" class="member-name-link">actors()</a> - Method in record class net.ygbstudio.jbrave.core.domain.dto.web.<a href="net/ygbstudio/jbrave/core/domain/dto/web/MovieData.html" title="class in net.ygbstudio.jbrave.core.domain.dto.web">MovieData</a></dt>
 <dd>
 <div class="block">Returns the value of the <a href="./net/ygbstudio/jbrave/core/domain/dto/web/MovieData.html#param-actors"><code>actors</code></a> record component.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#adaptHttpResponse(java.net.http.HttpResponse,U)" class="member-name-link">adaptHttpResponse(HttpResponse&lt;R&gt;, U)</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Adapts an existing <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpResponse.html" title="class or interface in java.net.http" class="external-link"><code>HttpResponse</code></a> to a new response body type.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/builders/AbstractBraveRequestBuilder.html#addHeader(K,java.lang.String)" class="member-name-link">addHeader(K, String)</a> - Method in class net.ygbstudio.jbrave.core.builders.<a href="net/ygbstudio/jbrave/core/builders/AbstractBraveRequestBuilder.html" title="class in net.ygbstudio.jbrave.core.builders">AbstractBraveRequestBuilder</a></dt>
 <dd>
@@ -466,7 +454,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/executors/BraveExecutionGate.html#%3Cinit%3E()" class="member-name-link">BraveExecutionGate()</a> - Constructor for class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/BraveExecutionGate.html" title="class in net.ygbstudio.jbrave.core.executors">BraveExecutionGate</a></dt>
 <dd>
-<div class="block">Creates a new execution gate backed by a single shared <a href="net/ygbstudio/jbrave/core/executors/BraveRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors"><code>BraveRequestExecutor</code></a>.</div>
+<div class="block">Creates a new execution gate backed by its own request executor instance.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/exceptions/BraveGogglesIdentifierException.html" class="type-name-link" title="class in net.ygbstudio.jbrave.core.exceptions">BraveGogglesIdentifierException</a> - Exception Class in <a href="net/ygbstudio/jbrave/core/exceptions/package-summary.html">net.ygbstudio.jbrave.core.exceptions</a></dt>
 <dd>
@@ -509,10 +497,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">An interface for Brave API query builders, implemented by all builders that build Brave API
  queries.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/BraveRequestExecutor.html" class="type-name-link" title="class in net.ygbstudio.jbrave.core.executors">BraveRequestExecutor</a> - Class in <a href="net/ygbstudio/jbrave/core/executors/package-summary.html">net.ygbstudio.jbrave.core.executors</a></dt>
-<dd>
-<div class="block">The <code>BraveRequestExecutor</code> class is a concrete implementation of the <a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors"><code>AbstractRequestExecutor</code></a> abstract class.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/verticals/BraveResource.html" class="type-name-link" title="enum class in net.ygbstudio.jbrave.core.domain.verticals">BraveResource</a> - Enum Class in <a href="net/ygbstudio/jbrave/core/domain/verticals/package-summary.html">net.ygbstudio.jbrave.core.domain.verticals</a></dt>
 <dd>
@@ -911,13 +895,14 @@ loadScripts(document, 'script');</script>
 <div class="block">Clears the request builder, resetting it to its initial state while retaining the currently set
  URI.</div>
 </dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#client" class="member-name-link">client</a> - Variable in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">The shared, long-lived <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> used to execute all requests through this executor.</div>
-</dd>
 <dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" class="type-name-link" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a> - Class in <a href="net/ygbstudio/jbrave/core/local/package-summary.html">net.ygbstudio.jbrave.core.local</a></dt>
 <dd>
-<div class="block">Represents the client information.</div>
+<div class="block">Identifies a Brave API client and owns the execution state associated with its subscription
+ token.</div>
+</dd>
+<dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html#%3Cinit%3E(java.lang.String)" class="member-name-link">ClientInfo(String)</a> - Constructor for class net.ygbstudio.jbrave.core.local.<a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></dt>
+<dd>
+<div class="block">Creates a new client from a subscription token supplied directly.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/ClientProvidedOption.html" class="type-name-link" title="interface in net.ygbstudio.jbrave.core.domain">ClientProvidedOption</a> - Interface in <a href="net/ygbstudio/jbrave/core/domain/package-summary.html">net.ygbstudio.jbrave.core.domain</a></dt>
 <dd>
@@ -1214,18 +1199,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/web/OpeningHours.html#days()" class="member-name-link">days()</a> - Method in record class net.ygbstudio.jbrave.core.domain.dto.web.<a href="net/ygbstudio/jbrave/core/domain/dto/web/OpeningHours.html" title="class in net.ygbstudio.jbrave.core.domain.dto.web">OpeningHours</a></dt>
 <dd>
 <div class="block">Returns the value of the <a href="./net/ygbstudio/jbrave/core/domain/dto/web/OpeningHours.html#param-days"><code>days</code></a> record component.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#decodeByteArray(byte%5B%5D,java.nio.charset.Charset)" class="member-name-link">decodeByteArray(byte[], Charset)</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Decodes a byte array into a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> using the given character set.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#decodeByteHttpResponse(java.net.http.HttpResponse)" class="member-name-link">decodeByteHttpResponse(HttpResponse&lt;byte[]&gt;)</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Decodes an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpResponse.html" title="class or interface in java.net.http" class="external-link"><code>HttpResponse</code></a> with a <code>byte[]</code> body into a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a>.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#decompressGunzip(byte%5B%5D)" class="member-name-link">decompressGunzip(byte[])</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Decompresses a GZIP-compressed byte array.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/web/DeepResult.html" class="type-name-link" title="class in net.ygbstudio.jbrave.core.domain.dto.web">DeepResult</a> - Record Class in <a href="net/ygbstudio/jbrave/core/domain/dto/web/package-summary.html">net.ygbstudio.jbrave.core.domain.dto.web</a></dt>
 <dd>
@@ -1860,10 +1833,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="net/ygbstudio/jbrave/api/builders/BraveWebQuery.html#execute()" class="member-name-link">execute()</a> - Method in class net.ygbstudio.jbrave.api.builders.<a href="net/ygbstudio/jbrave/api/builders/BraveWebQuery.html" title="class in net.ygbstudio.jbrave.api.builders">BraveWebQuery</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#execute(java.net.http.HttpRequest)" class="member-name-link">execute(HttpRequest)</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Executes the given HTTP request and returns a decoded response.</div>
-</dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/error/Context.html#expected()" class="member-name-link">expected()</a> - Method in record class net.ygbstudio.jbrave.core.domain.dto.error.<a href="net/ygbstudio/jbrave/core/domain/dto/error/Context.html" title="class in net.ygbstudio.jbrave.core.domain.dto.error">Context</a></dt>
 <dd>
 <div class="block">Returns the value of the <a href="./net/ygbstudio/jbrave/core/domain/dto/error/Context.html#param-expected"><code>expected</code></a> record component.</div>
@@ -2257,12 +2226,12 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html#fromEnvironment()" class="member-name-link">fromEnvironment()</a> - Static method in class net.ygbstudio.jbrave.core.local.<a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></dt>
 <dd>
-<div class="block">Create a new instance of ClientInfo from the preconfigured environment variable <code>
- BRAVE_SUBSCRIPTION_TOKEN</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from the preconfigured environment variable <code>
+ BRAVE_SUBSCRIPTION_TOKEN</code>.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html#fromEnvironment(java.lang.String)" class="member-name-link">fromEnvironment(String)</a> - Static method in class net.ygbstudio.jbrave.core.local.<a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></dt>
 <dd>
-<div class="block">Create a new instance of ClientInfo from environment variable.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from an environment variable.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/model/BraveSearchHeader.html#fromHeaderMap(java.util.Map)" class="member-name-link">fromHeaderMap(Map&lt;K, String&gt;)</a> - Static method in record class net.ygbstudio.jbrave.core.model.<a href="net/ygbstudio/jbrave/core/model/BraveSearchHeader.html" title="class in net.ygbstudio.jbrave.core.model">BraveSearchHeader</a></dt>
 <dd>
@@ -2271,12 +2240,12 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html#fromProperties(java.lang.String)" class="member-name-link">fromProperties(String)</a> - Static method in class net.ygbstudio.jbrave.core.local.<a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></dt>
 <dd>
-<div class="block">Create a new instance of ClientInfo from properties file with the preconfigured property name
- <code>brave.subscriptionToken</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from a classpath properties resource using the preconfigured
+ property name <code>brave.subscriptionToken</code>.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html#fromProperties(java.lang.String,java.lang.String)" class="member-name-link">fromProperties(String, String)</a> - Static method in class net.ygbstudio.jbrave.core.local.<a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></dt>
 <dd>
-<div class="block">Create a new instance of ClientInfo from properties file.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from a properties resource on the classpath.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/web/DayOpeningHours.html#fullName()" class="member-name-link">fullName()</a> - Method in record class net.ygbstudio.jbrave.core.domain.dto.web.<a href="net/ygbstudio/jbrave/core/domain/dto/web/DayOpeningHours.html" title="class in net.ygbstudio.jbrave.core.domain.dto.web">DayOpeningHours</a></dt>
 <dd>
@@ -2422,10 +2391,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/result/AbstractGraphInfobox.html#getImages()" class="member-name-link">getImages()</a> - Method in class net.ygbstudio.jbrave.core.domain.dto.result.<a href="net/ygbstudio/jbrave/core/domain/dto/result/AbstractGraphInfobox.html" title="class in net.ygbstudio.jbrave.core.domain.dto.result">AbstractGraphInfobox</a></dt>
 <dd>
 <div class="block">Returns the infobox images.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/BraveRequestExecutor.html#getInstance()" class="member-name-link">getInstance()</a> - Static method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/BraveRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">BraveRequestExecutor</a></dt>
-<dd>
-<div class="block">Returns a new instance of <a href="net/ygbstudio/jbrave/core/executors/BraveRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors"><code>BraveRequestExecutor</code></a>.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/core/domain/dto/result/InfoboxWithLocation.html#getIsLocation()" class="member-name-link">getIsLocation()</a> - Method in class net.ygbstudio.jbrave.core.domain.dto.result.<a href="net/ygbstudio/jbrave/core/domain/dto/result/InfoboxWithLocation.html" title="class in net.ygbstudio.jbrave.core.domain.dto.result">InfoboxWithLocation</a></dt>
 <dd>
@@ -4385,6 +4350,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates an instance of a <code>OriginalQuery</code> record class.</div>
 </dd>
+<dt><a href="net/ygbstudio/jbrave/core/executors/BraveExecutionGate.html#overrideHttpClient(java.net.http.HttpClient)" class="member-name-link">overrideHttpClient(HttpClient)</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/BraveExecutionGate.html" title="class in net.ygbstudio.jbrave.core.executors">BraveExecutionGate</a></dt>
+<dd>
+<div class="block">Replaces the HTTP client used by this gate to execute requests.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
@@ -5457,10 +5426,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="net/ygbstudio/jbrave/core/builders/AbstractQueryUrlBuilder.html#self()" class="member-name-link">self()</a> - Method in class net.ygbstudio.jbrave.core.builders.<a href="net/ygbstudio/jbrave/core/builders/AbstractQueryUrlBuilder.html" title="class in net.ygbstudio.jbrave.core.builders">AbstractQueryUrlBuilder</a></dt>
 <dd>
 <div class="block">Returns the current instance of the builder.</div>
-</dd>
-<dt><a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html#self()" class="member-name-link">self()</a> - Method in class net.ygbstudio.jbrave.core.executors.<a href="net/ygbstudio/jbrave/core/executors/AbstractRequestExecutor.html" title="class in net.ygbstudio.jbrave.core.executors">AbstractRequestExecutor</a></dt>
-<dd>
-<div class="block">Returns the current instance cast to the concrete subclass type.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/api/options/SearchLanguage.html#SERBIAN_CYRILIC" class="member-name-link">SERBIAN_CYRILIC</a> - Enum constant in enum class net.ygbstudio.jbrave.api.options.<a href="net/ygbstudio/jbrave/api/options/SearchLanguage.html" title="enum class in net.ygbstudio.jbrave.api.options">SearchLanguage</a></dt>
 <dd>
@@ -7270,6 +7235,10 @@ the order they are declared.</div>
 <dt><a href="net/ygbstudio/jbrave/api/builders/BraveWebQuery.html#withHeaders(java.util.function.Consumer)" class="member-name-link">withHeaders(Consumer&lt;WebHeaderBuilder&lt;BraveWebRequest&gt;&gt;)</a> - Method in class net.ygbstudio.jbrave.api.builders.<a href="net/ygbstudio/jbrave/api/builders/BraveWebQuery.html" title="class in net.ygbstudio.jbrave.api.builders">BraveWebQuery</a></dt>
 <dd>
 <div class="block">Sets the request headers using the provided consumer.</div>
+</dd>
+<dt><a href="net/ygbstudio/jbrave/core/local/ClientInfo.html#withHttpClient(java.net.http.HttpClient)" class="member-name-link">withHttpClient(HttpClient)</a> - Method in class net.ygbstudio.jbrave.core.local.<a href="net/ygbstudio/jbrave/core/local/ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></dt>
+<dd>
+<div class="block">Configures the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> used to execute requests for this client.</div>
 </dd>
 <dt><a href="net/ygbstudio/jbrave/api/filters/Freshness.html#WITHIN_1Y" class="member-name-link">WITHIN_1Y</a> - Enum constant in enum class net.ygbstudio.jbrave.api.filters.<a href="net/ygbstudio/jbrave/api/filters/Freshness.html" title="enum class in net.ygbstudio.jbrave.api.filters">Freshness</a></dt>
 <dd>

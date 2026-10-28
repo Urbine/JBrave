@@ -117,25 +117,30 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static @NotNull <a href="../ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">ClientInfo.</span><code><a href="../ClientInfo.html#fromEnvironment()" class="member-name-link">fromEnvironment</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block">Create a new instance of ClientInfo from the preconfigured environment variable <code>
- BRAVE_SUBSCRIPTION_TOKEN</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from the preconfigured environment variable <code>
+ BRAVE_SUBSCRIPTION_TOKEN</code>.</div>
 </div>
 <div class="col-first odd-row-color"><code>static @NotNull <a href="../ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ClientInfo.</span><code><a href="../ClientInfo.html#fromEnvironment(java.lang.String)" class="member-name-link">fromEnvironment</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;envVarName)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Create a new instance of ClientInfo from environment variable.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from an environment variable.</div>
 </div>
 <div class="col-first even-row-color"><code>static @NotNull <a href="../ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">ClientInfo.</span><code><a href="../ClientInfo.html#fromProperties(java.lang.String)" class="member-name-link">fromProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propertiesFileName)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Create a new instance of ClientInfo from properties file with the preconfigured property name
- <code>brave.subscriptionToken</code></div>
+<div class="block">Creates a new <code>ClientInfo</code> from a classpath properties resource using the preconfigured
+ property name <code>brave.subscriptionToken</code>.</div>
 </div>
 <div class="col-first odd-row-color"><code>static @NotNull <a href="../ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ClientInfo.</span><code><a href="../ClientInfo.html#fromProperties(java.lang.String,java.lang.String)" class="member-name-link">fromProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propertiesFileName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customPropertyName)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Create a new instance of ClientInfo from properties file.</div>
+<div class="block">Creates a new <code>ClientInfo</code> from a properties resource on the classpath.</div>
+</div>
+<div class="col-first even-row-color"><code>@NotNull <a href="../ClientInfo.html" title="class in net.ygbstudio.jbrave.core.local">ClientInfo</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClientInfo.</span><code><a href="../ClientInfo.html#withHttpClient(java.net.http.HttpClient)" class="member-name-link">withHttpClient</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link">HttpClient</a>&nbsp;client)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Configures the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.net.http/java/net/http/HttpClient.html" title="class or interface in java.net.http" class="external-link"><code>HttpClient</code></a> used to execute requests for this client.</div>
 </div>
 </div>
 </section>
