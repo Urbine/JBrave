@@ -56,4 +56,33 @@ class ClientInfoTest {
         .isThrownBy(ClientInfo::fromEnvironment)
         .isInstanceOf(BraveLocalEnvironmentException.class);
   }
+
+  @Test
+  void testClientInfoNullClient() {
+    assertThatException()
+        .isThrownBy(
+            () -> ClientInfo.fromProperties("sampleClientInfo.properties").withHttpClient(null))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void testClientInfoNullToken() {
+    assertThatException()
+        .isThrownBy(() -> new ClientInfo(null))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void testClientInfoBlankToken() {
+    assertThatException()
+        .isThrownBy(() -> new ClientInfo(" "))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  @Test
+  void testClientInfoEmptyToken() {
+    assertThatException()
+        .isThrownBy(() -> new ClientInfo(""))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
 }
